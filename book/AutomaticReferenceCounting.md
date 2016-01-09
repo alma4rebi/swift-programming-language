@@ -5,7 +5,7 @@ Swift uses *Automatic Reference Counting* (ARC) to track and manage your app’s
 
 However, in a few cases ARC requires more information about the relationships between parts of your code in order to manage memory for you. This chapter describes those situations and shows how you enable ARC to manage all of your app’s memory.
 
-Note
+#### Note
 
 Reference counting only applies to instances of classes. Structures and enumerations are value types, not reference types, and are not stored and passed by reference.
 
@@ -150,7 +150,7 @@ A *weak reference* is a reference that does not keep a strong hold on the instan
 
 Use a weak reference to avoid reference cycles whenever it is possible for that reference to have “no value” at some point in its life. If the reference will *always* have a value, use an unowned reference instead, as described in [Unowned References](AutomaticReferenceCounting.md#TP40016643-CH20-ID54). In the `Apartment` example above, it is appropriate for an apartment to be able to have “no tenant” at some point in its lifetime, and so a weak reference is an appropriate way to break the reference cycle in this case.
 
-Note
+#### Note
 
 Weak references must be declared as variables, to indicate that their value can change at runtime. A weak reference cannot be declared as a constant.
 
@@ -209,7 +209,7 @@ Because there are no more strong references to the `Apartment` instance, it too 
 
 The final two code snippets above show that the deinitializers for the `Person` instance and `Apartment` instance print their “deinitialized” messages after the `john` and `unit4A` variables are set to `nil`. This proves that the reference cycle has been broken.
 
-Note
+#### Note
 
 In systems that use garbage collection, weak pointers are sometimes used to implement a simple caching mechanism because objects with no strong references are deallocated only when memory pressure triggers garbage collection. However, with ARC, values are deallocated as soon as their last strong reference is removed, making weak references unsuitable for such a purpose.
 
@@ -219,7 +219,7 @@ Like weak references, an *unowned reference* does not keep a strong hold on the 
 
 Because an unowned reference is nonoptional, you don’t need to unwrap the unowned reference each time it is used. An unowned reference can always be accessed directly. However, ARC cannot set the reference to `nil` when the instance it refers to is deallocated, because variables of a nonoptional type cannot be set to `nil`.
 
-Note
+#### Note
 
 If you try to access an unowned reference after the instance that it references is deallocated, you will trigger a runtime error. Use unowned references only when you are sure that the reference will *always* refer to an instance.
 
@@ -252,7 +252,7 @@ Because a credit card will always have a customer, you define its `customer` pro
         deinit { print("Card #\(number) is being deinitialized") }
     }
 
-Note
+#### Note
 
 The `number` property of the `CreditCard` class is defined with a type of `UInt64` rather than `Int`, to ensure that the `number` property’s capacity is large enough to store a 16-digit card number on both 32-bit and 64-bit systems.
 
@@ -385,7 +385,7 @@ For example, the `asHTML` property could be set to a closure that defaults to so
     print(heading.asHTML())
     // prints "<h1>some default text</h1>"
 
-Note
+#### Note
 
 The `asHTML` property is declared as a lazy property, because it is only needed if and when the element actually needs to be rendered as a string value for some HTML output target. The fact that `asHTML` is a lazy property means that you can refer to `self` within the default closure, because the lazy property will not be accessed until after initialization has been completed and `self` is known to exist.
 
@@ -397,7 +397,7 @@ Here’s how you use the `HTMLElement` class to create and print a new instance:
     print(paragraph!.asHTML())
     // prints "<p>hello, world</p>"
 
-Note
+#### Note
 
 The `paragraph` variable above is defined as an *optional* `HTMLElement`, so that it can be set to `nil` below to demonstrate the presence of a strong reference cycle.
 
@@ -407,7 +407,7 @@ Unfortunately, the `HTMLElement` class, as written above, creates a strong refer
 
 The instance’s `asHTML` property holds a strong reference to its closure. However, because the closure refers to `self` within its body (as a way to reference `self.name` and `self.text`), the closure *captures* self, which means that it holds a strong reference back to the `HTMLElement` instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see [Capturing Values](Closures.md#TP40016643-CH11-ID103).)
 
-Note
+#### Note
 
 Even though the closure refers to `self` multiple times, it only captures one strong reference to the `HTMLElement` instance.
 
@@ -421,7 +421,7 @@ Note that the message in the `HTMLElement` deinitializer is not printed, which s
 
 You resolve a strong reference cycle between a closure and a class instance by defining a *capture list* as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.
 
-Note
+#### Note
 
 Swift requires you to write `self.someProperty` or `self.someMethod()` (rather than just `someProperty` or `someMethod()`) whenever you refer to a member of `self` within a closure. This helps you remember that it’s possible to capture `self` by accident.
 
@@ -449,7 +449,7 @@ Define a capture in a closure as an unowned reference when the closure and the i
 
 Conversely, define a capture as a weak reference when the captured reference may become `nil` at some point in the future. Weak references are always of an optional type, and automatically become `nil` when the instance they reference is deallocated. This enables you to check for their existence within the closure’s body.
 
-Note
+#### Note
 
 If the captured reference will never become `nil`, it should always be captured as an unowned reference, rather than a weak reference.
 

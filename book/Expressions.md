@@ -117,7 +117,7 @@ For information about the behavior of these operators, see [Basic Operators](Bas
 
 For information about the operators provided by the Swift standard library, see *Swift Standard Library Operators Reference*.
 
-Note
+#### Note
 
 At parse time, an expression made up of binary operators is represented as a flat list. This list is transformed into a tree by applying operator precedence. For example, the expression `2 + 3 * 5` is initially understood as a flat list of five items, `2`, `+`, `3`, `*`, and `5`. This process transforms it into the tree (2 + (3 * 5)).
 

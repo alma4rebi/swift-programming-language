@@ -19,7 +19,7 @@ Extensions in Swift can:
 
 In Swift, you can even extend a protocol to provide implementations of its requirements or add additional functionality that conforming types can take advantage of. For more details, see [Protocol Extensions](Protocols.md#TP40016643-CH25-ID521).
 
-Note
+#### Note
 
 Extensions can add new functionality to a type, but they cannot override existing functionality.
 
@@ -39,7 +39,7 @@ An extension can extend an existing type to make it adopt one or more protocols.
 
 Adding protocol conformance in this way is described in [Adding Protocol Conformance with an Extension](Protocols.md#TP40016643-CH25-ID277).
 
-Note
+#### Note
 
 If you define an extension to add new functionality to an existing type, the new functionality will be available on all existing instances of that type, even if they were created before the extension was defined.
 
@@ -73,7 +73,7 @@ These properties are read-only computed properties, and so they are expressed wi
     print("A marathon is \(aMarathon) meters long")
     // prints "A marathon is 42195.0 meters long"
 
-Note
+#### Note
 
 Extensions can add new computed properties, but they cannot add stored properties, or add property observers to existing properties.
 
@@ -83,7 +83,7 @@ Extensions can add new initializers to existing types. This enables you to exten
 
 Extensions can add new convenience initializers to a class, but they cannot add new designated initializers or deinitializers to a class. Designated initializers and deinitializers must always be provided by the original class implementation.
 
-Note
+#### Note
 
 If you use an extension to add an initializer to a value type that provides default values for all of its stored properties and does not define any custom initializers, you can call the default initializer and memberwise initializer for that value type from within your extension’s initializer.
 
@@ -124,7 +124,7 @@ This new initializer starts by calculating an appropriate origin point based on 
         size: Size(width: 3.0, height: 3.0))
     // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 
-Note
+#### Note
 
 If you provide a new initializer with an extension, you are still responsible for making sure that each instance is fully initialized once the initializer completes.
 
@@ -254,7 +254,7 @@ The nested enumeration can now be used with any `Int` value:
 
 This function, `printIntegerKinds`, takes an input array of `Int` values and iterates over those values in turn. For each integer in the array, the function considers the `kind` computed property for that integer, and prints an appropriate description.
 
-Note
+#### Note
 
 `number.kind` is already known to be of type `Int.Kind`. Because of this, all of the `Int.Kind` case values can be written in shorthand form inside the `switch` statement, such as `.Negative` rather than `Int.Kind.Negative`.
 

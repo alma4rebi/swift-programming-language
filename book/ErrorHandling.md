@@ -7,7 +7,7 @@ Some operations aren’t guaranteed to always complete execution or produce a us
 
 As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.
 
-Note
+#### Note
 
 Error handling in Swift interoperates with error handling patterns that use the `NSError` class in Cocoa and Objective-C. For more information about this class, see Error Handling in *Using Swift with Cocoa and Objective-C (Swift 2.1)*.
 
@@ -35,7 +35,7 @@ There are four ways to handle errors in Swift. You can propagate the error from 
 
 When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the `try` keyword—or the `try?` or `try!` variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.
 
-Note
+#### Note
 
 Error handling in Swift resembles exception handling in other languages, with the use of the `try`, `catch` and `throw` keywords. Unlike exception handling in many languages—including Objective-C—error handling in Swift does not involve unwinding the call stack, a process that can be computationally expensive. As such, the performance characteristics of a `throw` statement are comparable to those of a `return` statement.
 
@@ -49,7 +49,7 @@ To indicate that a function, method, or initializer can throw an error, you writ
 
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
 
-Note
+#### Note
 
 Only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside the function.
 
@@ -220,7 +220,7 @@ A `defer` statement defers execution until the current scope is exited. This sta
 
 The above example uses a `defer` statement to ensure that the `open(_:)` function has a corresponding call to `close(_:)`.
 
-Note
+#### Note
 
 You can use a `defer` statement even when no error handling code is involved.
 

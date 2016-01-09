@@ -45,7 +45,7 @@ The same is not true for classes, which are *reference types*. If you assign an 
 
 A *lazy stored property* is a property whose initial value is not calculated until the first time it is used. You indicate a lazy stored property by writing the `lazy` modifier before its declaration.
 
-Note
+#### Note
 
 You must always declare a lazy property as a variable (with the `var` keyword), because its initial value might not be retrieved until after instance initialization completes. Constant properties must always have a value *before* initialization completes, and therefore cannot be declared as lazy.
 
@@ -85,7 +85,7 @@ Because it is marked with the `lazy` modifier, the `DataImporter` instance for t
     // the DataImporter instance for the importer property has now been created
     // prints "data.txt"
 
-Note
+#### Note
 
 If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property has not yet been initialized, there is no guarantee that the property will be initialized only once.
 
@@ -169,7 +169,7 @@ If a computed property’s setter does not define a name for the new value to be
 
 A computed property with a getter but no setter is known as a *read-only computed property*. A read-only computed property always returns a value, and can be accessed through dot syntax, but cannot be set to a different value.
 
-Note
+#### Note
 
 You must declare computed properties—including read-only computed properties—as variable properties with the `var` keyword, because their value is not fixed. The `let` keyword is only used for constant properties, to indicate that their values cannot be changed once they are set as part of instance initialization.
 
@@ -193,7 +193,7 @@ This example defines a new structure called `Cuboid`, which represents a 3D rect
 
 You can add property observers to any stored properties you define, apart from lazy stored properties. You can also add property observers to any inherited property (whether stored or computed) by overriding the property within a subclass. Property overriding is described in [Overriding](Inheritance.md#TP40016643-CH17-ID196).
 
-Note
+#### Note
 
 You don’t need to define property observers for non-overridden computed properties, because you can observe and respond to changes to their value in the computed property’s setter.
 
@@ -207,7 +207,7 @@ If you implement a `willSet` observer, it is passed the new property value as a 
 
 Similarly, if you implement a `didSet` observer, it will be passed a constant parameter containing the old property value. You can name the parameter or use the default parameter name of `oldValue`.
 
-Note
+#### Note
 
 The `willSet` and `didSet` observers of superclass properties are called when a property is set in a subclass initializer.
 
@@ -246,7 +246,7 @@ This example’s `willSet` observer uses a custom parameter name of `newTotalSte
 
 The `didSet` observer is called after the value of `totalSteps` is updated. It compares the new value of `totalSteps` against the old value. If the total number of steps has increased, a message is printed to indicate how many new steps have been taken. The `didSet` observer does not provide a custom parameter name for the old value, and the default name of `oldValue` is used instead.
 
-Note
+#### Note
 
 If you assign a value to a property within its own `didSet` observer, the new value that you assign will replace the one that was just set.
 
@@ -258,7 +258,7 @@ The global and local variables you have encountered in previous chapters have al
 
 However, you can also define *computed variables* and define observers for stored variables, in either a global or local scope. Computed variables calculate rather than store a value, and are written in the same way as computed properties.
 
-Note
+#### Note
 
 Global constants and variables are always computed lazily, in a similar manner to [Lazy Stored Properties](Properties.md#TP40016643-CH14-ID257). Unlike lazy stored properties, global constants and variables do not need to be marked with the `lazy` modifier.
 
@@ -274,7 +274,7 @@ Type properties are useful for defining values that are universal to *all* insta
 
 Stored type properties can be variables or constants. Computed type properties are always declared as variable properties, in the same way as computed instance properties.
 
-Note
+#### Note
 
 Unlike stored instance properties, you must always give stored type properties a default value. This is because the type itself does not have an initializer that can assign a value to a stored type property at initialization time.
 
@@ -308,7 +308,7 @@ You define type properties with the `static` keyword. For computed type properti
         }
     }
 
-Note
+#### Note
 
 The computed type property examples above are for read-only computed type properties, but you can also define read-write computed type properties with the same syntax as for computed instance properties.
 
@@ -363,7 +363,7 @@ The `currentLevel` property has a `didSet` property observer to check the value 
 
 -   If the new value of `currentLevel` (after any capping) is higher than any value previously received by *any* `AudioChannel` instance, the property observer stores the new `currentLevel` value in the `maxInputLevelForAllChannels` type property.
 
-Note
+#### Note
 
 In the first of these two checks, the `didSet` observer sets `currentLevel` to a different value. This does not, however, cause the observer to be called again.
 

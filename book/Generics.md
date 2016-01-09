@@ -43,7 +43,7 @@ You may have noticed that the bodies of the `swapTwoInts(_:_:)`, `swapTwoStrings
 
 It would be much more useful, and considerably more flexible, to write a single function that could swap two values of *any* type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)
 
-Note
+#### Note
 
 In all three functions, it is important that the types of `a` and `b` are defined to be the same as each other. If `a` and `b` were not of the same type, it would not be possible to swap their values. Swift is a type-safe language, and does not allow (for example) a variable of type `String` and a variable of type `Double` to swap values with each other. Attempting to do so would be reported as a compile-time error.
 
@@ -80,7 +80,7 @@ In the two examples below, `T` is inferred to be `Int` and `String` respectively
     swapTwoValues(&someString, &anotherString)
     // someString is now "world", and anotherString is now "hello"
 
-Note
+#### Note
 
 The `swapTwoValues(_:_:)` function defined above is inspired by a generic function called `swap`, which is part of the Swift standard library, and is automatically made available for you to use in your apps. If you need the behavior of the `swapTwoValues(_:_:)` function in your own code, you can use Swift’s existing `swap(_:_:)` function rather than providing your own implementation.
 
@@ -96,7 +96,7 @@ You can provide more than one type parameter by writing multiple type parameter 
 
 In most cases, type parameters have descriptive names, such as `Key` and `Value` in `Dictionary<Key, Value>` and `Element` in `Array<Element>`, which tells the reader about the relationship between the type parameter and the generic type or function it’s used in. However, when there isn’t a meaningful relationship between them, it’s traditional to name them using single letters such as `T`, `U`, and `V`, such as `T` in the `swapTwoValues(_:_:)` function above.
 
-Note
+#### Note
 
 Always give type parameters upper camel case names (such as `T` and `MyTypeParameter`) to indicate that they are a placeholder for a *type*, not a value.
 
@@ -106,7 +106,7 @@ In addition to generic functions, Swift enables you to define your own *generic 
 
 This section shows you how to write a generic collection type called `Stack`. A stack is an ordered set of values, similar to an array, but with a more restricted set of operations than Swift’s `Array` type. An array allows new items to be inserted and removed at any location in the array. A stack, however, allows new items to be appended only to the end of the collection (known as *pushing* a new value on to the stack). Similarly, a stack allows items to be removed only from the end of the collection (known as *popping* a value off the stack).
 
-Note
+#### Note
 
 The concept of a stack is used by the `UINavigationController` class to model the view controllers in its navigation hierarchy. You call the `UINavigationController` class `pushViewController(_:animated:)` method to add (or push) a view controller on to the navigation stack, and its `popViewControllerAnimated(_:)` method to remove (or pop) a view controller from the navigation stack. A stack is a useful collection model whenever you need a strict “last in, first out” approach to managing a collection.
 

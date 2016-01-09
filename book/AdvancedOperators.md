@@ -249,7 +249,7 @@ This calculation yields the final answer of `17`.
 
 For a complete list of Swift operator precedences and associativity rules, see [Expressions](Expressions.md). For information about the operators provided by the Swift standard library, see *Swift Standard Library Operators Reference*.
 
-Note
+#### Note
 
 Swift’s operator precedences and associativity rules are simpler and more predictable than those found in C and Objective-C. However, this means that they are not exactly the same as in C-based languages. Be careful to ensure that operator interactions still behave in the way you intend when porting existing code to Swift.
 
@@ -334,7 +334,7 @@ The prefix increment operator function above takes advantage of the addition ass
     // toIncrement now has values of (4.0, 5.0)
     // afterIncrement also has values of (4.0, 5.0)
 
-Note
+#### Note
 
 It is not possible to overload the default assignment operator (`=`). Only the compound assignment operators can be overloaded. Similarly, the ternary conditional operator (`a ? b : c`) cannot be overloaded.
 
@@ -405,7 +405,7 @@ The following example defines a new custom `infix` operator called `+-`, with `l
 
 This operator adds together the `x` values of two vectors, and subtracts the `y` value of the second vector from the first. Because it is in essence an “additive” operator, it has been given the same associativity and precedence values (`left` and `140`) as default additive infix operators such as `+` and `-`. For a complete list of the operator precedence and associativity settings, for the operators provided by the Swift standard library, see *Swift Standard Library Operators Reference*.
 
-Note
+#### Note
 
 You do not specify a precedence when defining a prefix or postfix operator. However, if you apply both a prefix and a postfix operator to the same operand, the postfix operator is applied first.
 

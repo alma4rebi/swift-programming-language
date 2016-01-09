@@ -5,7 +5,7 @@ Closures
 
 Closures can capture and store references to any constants and variables from the context in which they are defined. This is known as *closing over* those constants and variables. Swift handles all of the memory management of capturing for you.
 
-Note
+#### Note
 
 Don’t worry if you are not familiar with the concept of capturing. It is explained in detail below in [Capturing Values](Closures.md#TP40016643-CH11-ID103).
 
@@ -190,7 +190,7 @@ In this example, the variable `number` is initialized with the value of the clos
 
 The closure expression builds a string called `output` each time it is called. It calculates the last digit of `number` by using the remainder operator (`number % 10`), and uses this digit to look up an appropriate string in the `digitNames` dictionary. The closure can be used to create a string representation of any integer number greater than zero.
 
-Note
+#### Note
 
 The call to the `digitNames` dictionary’s subscript is followed by an exclamation mark (`!`), because dictionary subscripts return an optional value to indicate that the dictionary lookup can fail if the key does not exist. In the example above, it is guaranteed that `number % 10` will always be a valid subscript key for the `digitNames` dictionary, and so an exclamation mark is used to force-unwrap the `String` value stored in the subscript’s optional return value.
 
@@ -234,7 +234,7 @@ When considered in isolation, the nested `incrementer()` function might seem unu
 
 The `incrementer()` function doesn’t have any parameters, and yet it refers to `runningTotal` and `amount` from within its function body. It does this by capturing a *reference* to `runningTotal` and `amount` from the surrounding function and using them within its own function body. Capturing by reference ensures that `runningTotal` and `amount` do not disappear when the call to `makeIncrementer` ends, and also ensures that `runningTotal` is available the next time the `incrementer` function is called.
 
-Note
+#### Note
 
 As an optimization, Swift may instead capture and store a *copy* of a value if that value is not mutated by a closure, and if the value is not mutated after the closure is created.
 
@@ -264,7 +264,7 @@ Calling the original incrementer (`incrementByTen`) again continues to increment
     incrementByTen()
     // returns a value of 40
 
-Note
+#### Note
 
 If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses *capture lists* to break these strong reference cycles. For more information, see [Strong Reference Cycles for Closures](AutomaticReferenceCounting.md#TP40016643-CH20-ID56).
 
@@ -359,7 +359,7 @@ The `serveCustomer(_:)` function in the listing above takes an explicit closure 
     serveCustomer(customersInLine.removeAtIndex(0))
     // prints "Now serving Ewa!"
 
-Note
+#### Note
 
 Overusing autoclosures can make your code hard to understand. The context and function name should make it clear that evaluation is being deferred.
 

@@ -30,7 +30,7 @@ Here’s an example for the four main points of a compass:
 
 The values defined in an enumeration (such as `North`, `South`, `East`, and `West`) are its *enumeration cases*. You use the `case` keyword to introduce new enumeration cases.
 
-Note
+#### Note
 
 Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when they are created. In the `CompassPoint` example above, `North`, `South`, `East` and `West` do not implicitly equal `0`, `1`, `2` and `3`. Instead, the different enumeration cases are fully-fledged values in their own right, with an explicitly-defined type of `CompassPoint`.
 
@@ -163,7 +163,7 @@ Here, the raw values for an enumeration called `ASCIIControlCharacter` are defin
 
 Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.
 
-Note
+#### Note
 
 Raw values are *not* the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.
 
@@ -210,7 +210,7 @@ This example identifies Uranus from its raw value of `7`:
 
 Not all possible `Int` values will find a matching planet, however. Because of this, the raw value initializer always returns an *optional* enumeration case. In the example above, `possiblePlanet` is of type `Planet?`, or “optional `Planet`.”
 
-Note
+#### Note
 
 The raw value initializer is a failable initializer, because not every raw value will return an enumeration case. For more information, see [Failable Initializers](Declarations.md#TP40016643-CH34-ID376).
 

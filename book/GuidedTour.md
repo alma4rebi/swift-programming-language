@@ -9,7 +9,7 @@ If you have written code in C or Objective-C, this syntax looks familiar to you�
 
 This tour gives you enough information to start writing code in Swift by showing you how to accomplish a variety of programming tasks. Don’t worry if you don’t understand something—everything introduced in this tour is explained in detail in the rest of this book.
 
-Note
+#### Note
 
 On a Mac, download the Playground and double-click the file to open it in Xcode: <https://developer.apple.com/go/?id=swift-tour>
 
@@ -29,7 +29,7 @@ If the initial value doesn’t provide enough information (or if there is no ini
     let implicitDouble = 70.0
     let explicitDouble: Double = 70
 
-Experiment
+#### Experiment
 
 Create a constant with an explicit type of `Float` and a value of `4`.
 
@@ -39,7 +39,7 @@ Values are never implicitly converted to another type. If you need to convert a 
     let width = 94
     let widthLabel = label + String(width)
 
-Experiment
+#### Experiment
 
 Try removing the conversion to `String` from the last line. What error do you get?
 
@@ -50,7 +50,7 @@ There’s an even simpler way to include values in strings: Write the value in p
     let appleSummary = "I have \(apples) apples."
     let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 
-Experiment
+#### Experiment
 
 Use `()` to include a floating-point calculation in a string and to include someone’s name in a greeting.
 
@@ -103,7 +103,7 @@ You can use `if` and `let` together to work with values that might be missing. T
         greeting = "Hello, \(name)"
     }
 
-Experiment
+#### Experiment
 
 Change `optionalName` to `nil`. What greeting do you get? Add an `else` clause that sets a different greeting if `optionalName` is `nil`.
 
@@ -129,7 +129,7 @@ Switches support any kind of data and a wide variety of comparison operations—
         print("Everything tastes good in soup.")
     }
 
-Experiment
+#### Experiment
 
 Try removing the default case. What error do you get?
 
@@ -154,7 +154,7 @@ You use `for`-`in` to iterate over items in a dictionary by providing a pair of 
     }
     print(largest)
 
-Experiment
+#### Experiment
 
 Add another variable to keep track of which kind of number was the largest, as well as what that largest number was.
 
@@ -197,7 +197,7 @@ Use `func` to declare a function. Call a function by following its name with a l
     }
     greet("Bob", day: "Tuesday")
 
-Experiment
+#### Experiment
 
 Remove the `day` parameter. Add a parameter to include today’s lunch special in the greeting.
 
@@ -235,7 +235,7 @@ Functions can also take a variable number of arguments, collecting them into an 
     sumOf()
     sumOf(42, 597, 12)
 
-Experiment
+#### Experiment
 
 Write a function that calculates the average of its arguments.
 
@@ -286,7 +286,7 @@ Functions are actually a special case of closures: blocks of code that can be ca
         return result
     })
 
-Experiment
+#### Experiment
 
 Rewrite the closure to return zero for all odd numbers.
 
@@ -311,7 +311,7 @@ Use `class` followed by the class’s name to create a class. A property declara
         }
     }
 
-Experiment
+#### Experiment
 
 Add a constant property with `let`, and add another method that takes an argument.
 
@@ -365,7 +365,7 @@ Methods on a subclass that override the superclass’s implementation are marked
     test.area()
     test.simpleDescription()
 
-Experiment
+#### Experiment
 
 Make another subclass of `NamedShape` called `Circle` that takes a radius and a name as arguments to its initializer. Implement an `area()` and a `simpleDescription()` method on the `Circle` class.
 
@@ -463,7 +463,7 @@ Use `enum` to create an enumeration. Like classes and all other named types, enu
     let ace = Rank.Ace
     let aceRawValue = ace.rawValue
 
-Experiment
+#### Experiment
 
 Write a function that compares two `Rank` values by comparing their raw values.
 
@@ -495,7 +495,7 @@ The case values of an enumeration are actual values, not just another way of wri
     let hearts = Suit.Hearts
     let heartsDescription = hearts.simpleDescription()
 
-Experiment
+#### Experiment
 
 Add a `color()` method to `Suit` that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.
 
@@ -513,7 +513,7 @@ Use `struct` to create a structure. Structures support many of the same behavior
     let threeOfSpades = Card(rank: .Three, suit: .Spades)
     let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 
-Experiment
+#### Experiment
 
 Add a method to `Card` that creates a full deck of cards, with one card of each combination of rank and suit.
 
@@ -536,7 +536,7 @@ For example, consider the case of requesting the sunrise and sunset time from a 
         print("Failure...  \(error)")
     }
 
-Experiment
+#### Experiment
 
 Add a third case to `ServerResponse` and to the switch.
 
@@ -574,7 +574,7 @@ Classes, enumerations, and structs can all adopt protocols.
     b.adjust()
     let bDescription = b.simpleDescription
 
-Experiment
+#### Experiment
 
 Write an enumeration that conforms to this protocol.
 
@@ -592,7 +592,7 @@ Use `extension` to add functionality to an existing type, such as new methods an
     }
     print(7.simpleDescription)
 
-Experiment
+#### Experiment
 
 Write an extension for the `Double` type that adds an `absoluteValue` property.
 
@@ -641,7 +641,7 @@ Use `where` after the type name to specify a list of requirements—for example,
     }
     anyCommonElements([1, 2, 3], [3])
 
-Experiment
+#### Experiment
 
 Modify the `anyCommonElements(_:_:)` function to make a function that returns an array of the elements that any two sequences have in common.
 

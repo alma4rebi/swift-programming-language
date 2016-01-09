@@ -13,7 +13,7 @@ Classes and structures *must* set all of their stored properties to an appropria
 
 You can set an initial value for a stored property within an initializer, or by assigning a default property value as part of the property’s definition. These actions are described in the following sections.
 
-Note
+#### Note
 
 When you assign a default value to a stored property, or set its initial value within an initializer, the value of that property is set directly, without calling any property observers.
 
@@ -43,7 +43,7 @@ The structure defines a single initializer, `init`, with no parameters, which in
 
 You can set the initial value of a stored property from within an initializer, as shown above. Alternatively, specify a *default property value* as part of the property’s declaration. You specify a default property value by assigning an initial value to the property when it is defined.
 
-Note
+#### Note
 
 If a property always takes the same initial value, provide a default value rather than setting a value within an initializer. The end result is the same, but the default value ties the property’s initialization more closely to its declaration. It makes for shorter, clearer initializers and enables you to infer the type of the property from its default value. The default value also makes it easier for you to take advantage of default initializers and initializer inheritance, as described later in this chapter.
 
@@ -163,7 +163,7 @@ The response to a survey question cannot be known until it is asked, and so the 
 
 You can assign a value to a constant property at any point during initialization, as long as it is set to a definite value by the time initialization finishes. Once a constant property is assigned a value, it can’t be further modified.
 
-Note
+#### Note
 
 For class instances, a constant property can only be modified during initialization by the class that introduces it. It cannot be modified by a subclass.
 
@@ -224,7 +224,7 @@ For value types, you use `self.init` to refer to other initializers from the sam
 
 Note that if you define a custom initializer for a value type, you will no longer have access to the default initializer (or the memberwise initializer, if it is a structure) for that type. This constraint prevents a situation in which additional essential setup provided in a more complex initializer is circumvented by someone accidentally using one of the automatic initializers instead.
 
-Note
+#### Note
 
 If you want your custom value type to be initializable with the default initializer and memberwise initializer, and also with your own custom initializers, write your custom initializers in an extension rather than as part of the value type’s original implementation. For more information, see [Extensions](Extensions.md).
 
@@ -273,7 +273,7 @@ The third `Rect` initializer, `init(center:size:)`, is slightly more complex. It
 
 The `init(center:size:)` initializer could have assigned the new values of `origin` and `size` to the appropriate properties itself. However, it is more convenient (and clearer in intent) for the `init(center:size:)` initializer to take advantage of an existing initializer that already provides exactly that functionality.
 
-Note
+#### Note
 
 For an alternative way to write this example without defining the `init()` and `init(origin:size:)` initializers yourself, see [Extensions](Extensions.md).
 
@@ -355,7 +355,7 @@ Here, the superclass has a single designated initializer and two convenience ini
 
 The subclass in this figure has two designated initializers and one convenience initializer. The convenience initializer must call one of the two designated initializers, because it can only call another initializer from the same class. This satisfies rules 2 and 3 from above. Both designated initializers must call the single designated initializer from the superclass, to satisfy rule 1 from above.
 
-Note
+#### Note
 
 These rules don’t affect how users of your classes *create* instances of each class. Any initializer in the diagram above can be used to create a fully-initialized instance of the class they belong to. The rules only affect how you write the class’s implementation.
 
@@ -369,7 +369,7 @@ Class initialization in Swift is a two-phase process. In the first phase, each s
 
 The use of a two-phase initialization process makes initialization safe, while still giving complete flexibility to each class in a class hierarchy. Two-phase initialization prevents property values from being accessed before they are initialized, and prevents property values from being set to a different value by another initializer unexpectedly.
 
-Note
+#### Note
 
 Swift’s two-phase initialization process is similar to initialization in Objective-C. The main difference is that during phase 1, Objective-C assigns zero or null values (such as `0` or `nil`) to every property. Swift’s initialization flow is more flexible in that it lets you set custom initial values, and can cope with types for which `0` or `nil` is not a valid default value.
 
@@ -443,7 +443,7 @@ Finally, once the subclass’s designated initializer is finished, the convenien
 
 Unlike subclasses in Objective-C, Swift subclasses do not inherit their superclass initializers by default. Swift’s approach prevents a situation in which a simple initializer from a superclass is inherited by a more specialized subclass and is used to create a new instance of the subclass that is not fully or correctly initialized.
 
-Note
+#### Note
 
 Superclass initializers *are* inherited in certain circumstances, but only when it is safe and appropriate to do so. For more information, see [Automatic Initializer Inheritance](Initialization.md#TP40016643-CH18-ID222) below.
 
@@ -453,7 +453,7 @@ When you write a subclass initializer that matches a superclass *designated* ini
 
 As with an overridden property, method or subscript, the presence of the `override` modifier prompts Swift to check that the superclass has a matching designated initializer to be overridden, and validates that the parameters for your overriding initializer have been specified as intended.
 
-Note
+#### Note
 
 You always write the `override` modifier when overriding a superclass designated initializer, even if your subclass’s implementation of the initializer is a convenience initializer.
 
@@ -493,7 +493,7 @@ If you create an instance of `Bicycle`, you can call its inherited `description`
     print("Bicycle: \(bicycle.description)")
     // Bicycle: 2 wheel(s)
 
-Note
+#### Note
 
 Subclasses can modify inherited variable properties during initialization, but can not modify inherited constant properties.
 
@@ -513,7 +513,7 @@ Assuming that you provide default values for any new properties you introduce in
 
 These rules apply even if your subclass adds further convenience initializers.
 
-Note
+#### Note
 
 A subclass can implement a superclass designated initializer as a subclass convenience initializer as part of satisfying rule 2.
 
@@ -595,7 +595,7 @@ Every item in the shopping list starts out as “unpurchased”. To represent th
         }
     }
 
-Note
+#### Note
 
 `ShoppingListItem` does not define an initializer to provide an initial value for `purchased`, because items in a shopping list (as modeled here) always start out unpurchased.
 
@@ -629,13 +629,13 @@ It is sometimes useful to define a class, structure, or enumeration for which in
 
 To cope with initialization conditions that can fail, define one or more *failable initializers* as part of a class, structure, or enumeration definition. You write a failable initializer by placing a question mark after the `init` keyword (`init?`).
 
-Note
+#### Note
 
 You cannot define a failable and a nonfailable initializer with the same parameter types and names.
 
 A failable initializer creates an *optional* value of the type it initializes. You write `return nil` within a failable initializer to indicate a point at which initialization failure can be triggered.
 
-Note
+#### Note
 
 Strictly speaking, initializers do not return a value. Rather, their role is to ensure that `self` is fully and correctly initialized by the time that initialization ends. Although you write `return nil` to trigger an initialization failure, you do not use the `return` keyword to indicate initialization success.
 
@@ -669,7 +669,7 @@ If you pass an empty string value to the failable initializer’s `species` para
     }
     // prints "The anonymous creature could not be initialized"
 
-Note
+#### Note
 
 Checking for an empty string value (such as `""` rather than `"Giraffe"`) is not the same as checking for `nil` to indicate the absence of an *optional* `String` value. In the example above, an empty string (`""`) is a valid, nonoptional `String`. However, it is not appropriate for an animal to have an empty string as the value of its `species` property. To model this restriction, the failable initializer triggers an initialization failure if an empty string is found.
 
@@ -767,7 +767,7 @@ A failable initializer of a class, structure, or enumeration can delegate across
 
 In either case, if you delegate to another initializer that causes initialization to fail, the entire initialization process fails immediately, and no further initialization code is executed.
 
-Note
+#### Note
 
 A failable initializer can also delegate to a nonfailable initializer. Use this approach if you need to add a potential failure state to an existing initialization process that does not otherwise fail.
 
@@ -819,7 +819,7 @@ You can override a superclass failable initializer in a subclass, just like any 
 
 Note that if you override a failable superclass initializer with a nonfailable subclass initializer, the only way to delegate up to the superclass initializer is to force-unwrap the result of the failable superclass initializer.
 
-Note
+#### Note
 
 You can override a failable initializer with a nonfailable initializer but not the other way around.
 
@@ -889,7 +889,7 @@ You must also write the `required` modifier before every subclass implementation
         }
     }
 
-Note
+#### Note
 
 You do not have to provide an explicit implementation of a required initializer if you can satisfy the requirement with an inherited initializer.
 
@@ -911,7 +911,7 @@ Here’s a skeleton outline of how a closure can be used to provide a default pr
 
 Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
 
-Note
+#### Note
 
 If you use a closure to initialize a property, remember that the rest of the instance has not yet been initialized at the point that the closure is executed. This means that you cannot access any other property values from within your closure, even if those properties have default values. You also cannot use the implicit `self` property, or call any of the instance’s methods.
 

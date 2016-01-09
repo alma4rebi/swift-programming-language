@@ -7,7 +7,7 @@ Swift provides three primary *collection types*, known as arrays, sets, and dict
 
 Arrays, sets, and dictionaries in Swift are always clear about the types of values and keys that they can store. This means that you cannot insert a value of the wrong type into a collection by mistake. It also means you can be confident about the type of values you will retrieve from a collection.
 
-Note
+#### Note
 
 Swift’s array, set, and dictionary types are implemented as *generic collections*. For more on generic types and collections, see [Generics](Generics.md).
 
@@ -15,7 +15,7 @@ Swift’s array, set, and dictionary types are implemented as *generic collectio
 
 If you create an array, a set, or a dictionary, and assign it to a variable, the collection that is created will be *mutable*. This means that you can change (or *mutate*) the collection after it is created by adding, removing, or changing items in the collection. If you assign an array, a set, or a dictionary to a constant, that collection is *immutable*, and its size and contents cannot be changed.
 
-Note
+#### Note
 
 It is good practice to create immutable collections in all cases where the collection does not need to change. Doing so enables the Swift compiler to optimize the performance of the collections you create.
 
@@ -23,7 +23,7 @@ It is good practice to create immutable collections in all cases where the colle
 
 An *array* stores values of the same type in an ordered list. The same value can appear in an array multiple times at different positions.
 
-Note
+#### Note
 
 Swift’s `Array` type is bridged to Foundation’s `NSArray` class.
 
@@ -82,7 +82,7 @@ The example below creates an array called `shoppingList` to store `String` value
 
 The `shoppingList` variable is declared as “an array of string values”, written as `[String]`. Because this particular array has specified a value type of `String`, it is allowed to store `String` values only. Here, the `shoppingList` array is initialized with two `String` values (`"Eggs"` and `"Milk"`), written within an array literal.
 
-Note
+#### Note
 
 The `shoppingList` array is declared as a variable (with the `var` introducer) and not a constant (with the `let` introducer) because more items are added to the shopping list in the examples below.
 
@@ -129,7 +129,7 @@ Retrieve a value from the array by using *subscript syntax*, passing the index o
     var firstItem = shoppingList[0]
     // firstItem is equal to "Eggs"
 
-Note
+#### Note
 
 The first item in the array has an index of `0`, not `1`. Arrays in Swift are always zero-indexed.
 
@@ -143,7 +143,7 @@ You can also use subscript syntax to change a range of values at once, even if t
     shoppingList[4...6] = ["Bananas", "Apples"]
     // shoppingList now contains 6 items
 
-Note
+#### Note
 
 You can’t use subscript syntax to append a new item to the end of an array.
 
@@ -162,7 +162,7 @@ Similarly, you remove an item from the array with the `removeAtIndex(_:)` method
     // shoppingList now contains 6 items, and no Maple Syrup
     // the mapleSyrup constant is now equal to the removed "Maple Syrup" string
 
-Note
+#### Note
 
 If you try to access or modify a value for an index that is outside of an array’s existing bounds, you will trigger a runtime error. You can check that an index is valid before using it by comparing it to the array’s `count` property. Except when `count` is `0` (meaning the array is empty), the largest valid index in an array will always be `count - 1`, because arrays are indexed from zero.
 
@@ -208,7 +208,7 @@ For more about the `for`-`in` loop, see [For Loops](ControlFlow.md#TP40016643-CH
 
 A *set* stores distinct values of the same type in a collection with no defined ordering. You can use a set instead of an array when the order of items is not important, or when you need to ensure that an item only appears once.
 
-Note
+#### Note
 
 Swift’s `Set` type is bridged to Foundation’s `NSSet` class.
 
@@ -220,7 +220,7 @@ A type must be *hashable* in order to be stored in a set—that is, the type mus
 
 All of Swift’s basic types (such as `String`, `Int`, `Double`, and `Bool`) are hashable by default, and can be used as set value types or dictionary key types. Enumeration case values without associated values (as described in [Enumerations](Enumerations.md)) are also hashable by default.
 
-Note
+#### Note
 
 You can use your own custom types as set value types or dictionary key types by making them conform to the `Hashable` protocol from Swift’s standard library. Types that conform to the `Hashable` protocol must provide a gettable `Int` property called `hashValue`. The value returned by a type’s `hashValue` property is not required to be the same across different executions of the same program, or in different programs.
 
@@ -246,7 +246,7 @@ You can create an empty set of a certain type using initializer syntax:
     print("letters is of type Set<Character> with \(letters.count) items.")
     // prints "letters is of type Set<Character> with 0 items."
 
-Note
+#### Note
 
 The type of the `letters` variable is inferred to be `Set<Character>`, from the type of the initializer.
 
@@ -268,7 +268,7 @@ The example below creates a set called `favoriteGenres` to store `String` values
 
 The `favoriteGenres` variable is declared as “a set of `String` values”, written as `Set<String>`. Because this particular set has specified a value type of `String`, it is *only* allowed to store `String` values. Here, the `favoriteGenres` set is initialized with three `String` values (`"Rock"`, `"Classical"`, and `"Hip hop"`), written within an array literal.
 
-Note
+#### Note
 
 The `favoriteGenres` set is declared as a variable (with the `var` introducer) and not a constant (with the `let` introducer) because items are added and removed in the examples below.
 
@@ -403,7 +403,7 @@ The illustration below depicts three sets–`a`, `b` and `c`– with overlapping
 
 A *dictionary* stores associations between keys of the same type and values of the same type in a collection with no defined ordering. Each value is associated with a unique *key*, which acts as an identifier for that value within the dictionary. Unlike items in an array, items in a dictionary do not have a specified order. You use a dictionary when you need to look up values based on their identifier, in much the same way that a real-world dictionary is used to look up the definition for a particular word.
 
-Note
+#### Note
 
 Swift’s `Dictionary` type is bridged to Foundation’s `NSDictionary` class.
 
@@ -413,7 +413,7 @@ For more information about using `Dictionary` with Foundation and Cocoa, see *Us
 
 The type of a Swift dictionary is written in full as `Dictionary<Key, Value>`, where `Key` is the type of value that can be used as a dictionary key, and `Value` is the type of value that the dictionary stores for those keys.
 
-Note
+#### Note
 
 A dictionary `Key` type must conform to the `Hashable` protocol, like a set’s value type.
 
@@ -451,7 +451,7 @@ The example below creates a dictionary to store the names of international airpo
 
 The `airports` dictionary is declared as having a type of `[String: String]`, which means “a `Dictionary` whose keys are of type `String`, and whose values are also of type `String`”.
 
-Note
+#### Note
 
 The `airports` dictionary is declared as a variable (with the `var` introducer), and not a constant (with the `let` introducer), because more airports are added to the dictionary in the examples below.
 

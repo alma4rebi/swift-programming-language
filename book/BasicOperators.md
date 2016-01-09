@@ -70,7 +70,7 @@ The addition operator is also supported for `String` concatenation:
 
 The *remainder operator* (`a % b`) works out how many multiples of `b` will fit inside `a` and returns the value that is left over (known as the *remainder*).
 
-Note
+#### Note
 
 The remainder operator (`%`) is also known as a *modulo operator* in other languages. However, its behavior in Swift for negative numbers means that it is, strictly speaking, a remainder rather than a modulo operation.
 
@@ -176,7 +176,7 @@ Like C, Swift provides *compound assignment operators* that combine assignment (
 
 The expression `a += 2` is shorthand for `a = a + 2`. Effectively, the addition and the assignment are combined into one operator that performs both tasks at the same time.
 
-Note
+#### Note
 
 The compound assignment operators do not return a value. You cannot write `let b = a += 2`, for example. This behavior is different from the increment and decrement operators mentioned above.
 
@@ -198,7 +198,7 @@ Swift supports all standard C *comparison operators*:
 
 -   Less than or equal to (`a <= b`)
 
-Note
+#### Note
 
 Swift also provides two *identity operators* (`===` and `!==`), which you use to test whether two object references both refer to the same object instance. For more information, see [Classes and Structures](ClassesAndStructures.md).
 
@@ -268,7 +268,7 @@ The nil coalescing operator is shorthand for the code below:
 
 The code above uses the ternary conditional operator and forced unwrapping (`a!`) to access the value wrapped inside `a` when `a` is not `nil`, and to return `b` otherwise. The nil coalescing operator provides a more elegant way to encapsulate this conditional checking and unwrapping in a concise and readable form.
 
-Note
+#### Note
 
 If the value of `a` is non-`nil`, the value of `b` is not evaluated. This is known as *short-circuit evaluation*.
 
@@ -404,7 +404,7 @@ If we’ve entered the correct door code and passed the retina scan, or if we ha
 
 Based on the values of `enteredDoorCode`, `passedRetinaScan`, and `hasDoorKey`, the first two subexpressions are `false`. However, the emergency override password is known, so the overall compound expression still evaluates to `true`.
 
-Note
+#### Note
 
 The Swift logical operators `&&` and `||` are left-associative, meaning that compound expressions with multiple logical operators evaluate the leftmost subexpression first.
 

@@ -844,7 +844,7 @@ A `return` statement can consist of only the `return` keyword, or it can consist
 
 When a `return` statement is followed by an expression, the value of the expression is returned to the calling function or method. If the value of the expression does not match the value of the return type declared in the function or method declaration, the expression’s value is converted to the return type before it is returned to the calling function or method.
 
-Note
+#### Note
 
 As described in [Failable Initializers](Declarations.md#TP40016643-CH34-ID376), a special form of the `return` statement (`return nil`) can be used in a failable initializer to indicate initialization failure.
 
@@ -1165,7 +1165,7 @@ The *build configuration* can include the `true` and `false` Boolean literals, a
 |                                      | `arm64`                 |
 +--------------------------------------+--------------------------------------+
 
-Note
+#### Note
 
 The `arch(arm)` build configuration does not return `true` for ARM 64 devices. The `arch(i386)` build configuration returns `true` when code is compiled for the 32–bit iOS simulator.
 
@@ -1201,7 +1201,7 @@ Similar to an `if` statement, you can add multiple conditional branches to test 
     #endif
     ```
 
-Note
+#### Note
 
 Each statement in the body of a build configuration statement is parsed even if it’s not complied.
 

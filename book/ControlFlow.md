@@ -201,7 +201,7 @@ A `while` loop is appropriate in this case because the length of the game is not
 
 The other variation of the `while` loop, known as the `repeat`-`while` loop, performs a single pass through the loop block first, *before* considering the loop’s condition. It then continues to repeat the loop until the condition is `false`.
 
-Note
+#### Note
 
 The `repeat`-`while` loop in Swift is analogous to a `do`-`while` loop in other languages.
 
@@ -371,7 +371,7 @@ It is not practical to write all other possible characters as part of a `switch`
 
 In contrast with `switch` statements in C and Objective-C, `switch` statements in Swift do not fall through the bottom of each case and into the next one by default. Instead, the entire `switch` statement finishes its execution as soon as the first matching `switch` case is completed, without requiring an explicit `break` statement. This makes the `switch` statement safer and easier to use than in C, and avoids executing more than one `switch` case by mistake.
 
-Note
+#### Note
 
 Although `break` is not required in Swift, you can still use a `break` statement to match and ignore a particular case, or to break out of a matched case before that case has completed its execution. See [Break in a Switch Statement](ControlFlow.md#TP40016643-CH9-ID139) for details.
 
@@ -411,7 +411,7 @@ Multiple matches for a single `switch` case can be separated by commas, and can 
     }
     ```
 
-Note
+#### Note
 
 To opt in to fallthrough behavior for a particular `switch` case, use the `fallthrough` keyword, as described in [Fallthrough](ControlFlow.md#TP40016643-CH9-ID140).
 
@@ -441,7 +441,7 @@ Values in `switch` cases can be checked for their inclusion in an interval. This
 
 In the above example, `approximateCount` is evaluated in a `switch` statement. Each `case` compares that value to a number or interval. Because the value of `approximateCount` falls between 12 and 100, `naturalCount` is assigned the value `"dozens of"`, and execution is transferred out of the `switch` statement.
 
-Note
+#### Note
 
 Both the closed range operator (`...`) and half-open range operator (`..<`) functions are overloaded to return either an `IntervalType` or `Range`. An interval can determine whether it contains a particular element, such as when matching a `switch` statement `case`. A range is a collection of consecutive values, which can be iterated on in a `for-in` statement.
 
@@ -544,7 +544,7 @@ The `continue`, `break`, and `fallthrough` statements are described below. The `
 
 The `continue` statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop. It says “I am done with the current loop iteration” without leaving the loop altogether.
 
-Note
+#### Note
 
 In a `for` loop with a condition and incrementer, the loop’s incrementer is still evaluated after calling the `continue` statement. The loop itself continues to work as usual; only the code within the loop’s body is skipped.
 
@@ -579,7 +579,7 @@ When used inside a `switch` statement, `break` causes the `switch` statement to 
 
 This behavior can be used to match and ignore one or more cases in a `switch` statement. Because Swift’s `switch` statement is exhaustive and does not allow empty cases, it is sometimes necessary to deliberately match and ignore a case in order to make your intentions explicit. You do this by writing the `break` statement as the entire body of the case you want to ignore. When that case is matched by the `switch` statement, the `break` statement inside the case ends the `switch` statement’s execution immediately.
 
-Note
+#### Note
 
 A `switch` case that only contains a comment is reported as a compile-time error. Comments are not statements and do not cause a `switch` case to be ignored. Always use a `break` statement to ignore a `switch` case.
 
@@ -636,7 +636,7 @@ If the value of `integerToDescribe` is *not* in the list of known prime numbers,
 
 After the `switch` statement has finished executing, the number’s description is printed using the `print(_:separator:terminator:)` function. In this example, the number `5` is correctly identified as a prime number.
 
-Note
+#### Note
 
 The `fallthrough` keyword does not check the case conditions for the `switch` case that it causes execution to fall into. The `fallthrough` keyword simply causes code execution to move directly to the statements inside the next case (or `default` case) block, as in C’s standard `switch` statement behavior.
 
@@ -708,7 +708,7 @@ The dice is rolled at the start of each loop. Rather than moving the player imme
 
 -   In all other cases, the dice roll is a valid move. The player moves forward by `diceRoll` squares, and the game logic checks for any snakes and ladders. The loop then ends, and control returns to the `while` condition to decide whether another turn is required.
 
-Note
+#### Note
 
 If the `break` statement above did not use the `gameLoop` label, it would break out of the `switch` statement, not the `while` statement. Using the `gameLoop` label makes it clear which control statement should be terminated.
 

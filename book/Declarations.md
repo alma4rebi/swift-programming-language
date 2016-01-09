@@ -287,7 +287,7 @@ A *variable declaration* introduces a variable named value into your program and
 
 Variable declarations have several forms that declare different kinds of named, mutable values, including stored and computed variables and properties, stored variable and property observers, and static variable properties. The appropriate form to use depends on the scope at which the variable is declared and the kind of variable you intend to declare.
 
-Note
+#### Note
 
 You can also declare properties in the context of a protocol declaration, as described in [Protocol Property Declaration](Declarations.md#TP40016643-CH34-ID370).
 
@@ -411,7 +411,7 @@ For more information and to see an example of how to use property observers, see
 
 To declare a type variable property, mark the declaration with the `static` declaration modifier. Classes may mark type computed properties with the `class` declaration modifier instead to allow subclasses to override the superclass’s implementation. Type properties are discussed in [Type Properties](Properties.md#TP40016643-CH14-ID264).
 
-Note
+#### Note
 
 In a class declaration, the `static` keyword has the same effect as marking the declaration with both the `class` and `final` declaration modifiers.
 
@@ -1314,7 +1314,7 @@ The body of a protocol contains zero or more *protocol member declarations*, whi
 
 Protocol types can inherit from any number of other protocols. When a protocol type inherits from other protocols, the set of requirements from those other protocols are aggregated, and any type that inherits from the current protocol must conform to all those requirements. For an example of how to use protocol inheritance, see [Protocol Inheritance](Protocols.md#TP40016643-CH25-ID280).
 
-Note
+#### Note
 
 You can also aggregate the conformance requirements of multiple protocols using protocol composition types, as described in [Protocol Composition Type](Types.md#TP40016643-CH31-ID454) and [Protocol Composition](Protocols.md#TP40016643-CH25-ID282).
 
@@ -1330,7 +1330,7 @@ To restrict the adoption of a protocol to class types only, mark the protocol wi
 
 Any protocol that inherits from a protocol that’s marked with the `class` requirement can likewise be adopted only by class types.
 
-Note
+#### Note
 
 If a protocol is marked with the `objc` attribute, the `class` requirement is implicitly applied to that protocol; there’s no need to mark the protocol with the `class` requirement explicitly.
 
@@ -1553,7 +1553,7 @@ By default, initializers declared in a superclass are not inherited by subclasse
 
 As with methods, properties, and subscripts, you need to mark overridden designated initializers with the `override` declaration modifier.
 
-Note
+#### Note
 
 If you mark an initializer with the `required` declaration modifier, you don’t also mark the initializer with the `override` modifier when you override the required initializer in a subclass.
 

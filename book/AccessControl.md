@@ -7,7 +7,7 @@ You can assign specific access levels to individual types (classes, structures, 
 
 In addition to offering various levels of access control, Swift reduces the need to specify explicit access control levels by providing default access levels for typical scenarios. Indeed, if you are writing a single-target app, you may not need to specify explicit access control levels at all.
 
-Note
+#### Note
 
 The various aspects of your code that can have access control applied to them (properties, types, functions, and so on) are referred to as “entities” in the sections below, for brevity.
 
@@ -33,7 +33,7 @@ Swift provides three different *access levels* for entities within your code. Th
 
 Public access is the highest (least restrictive) access level and private access is the lowest (or most restrictive) access level.
 
-Note
+#### Note
 
 Private access in Swift differs from private access in most other languages, as it’s scoped to the enclosing source file rather than to the enclosing declaration. This means that a type can access any private entities that are defined in the same source file as itself, but an extension cannot access that type’s private members if it’s defined in a separate source file.
 
@@ -61,7 +61,7 @@ When you write a simple single-target app, the code in your app is typically sel
 
 When you develop a framework, mark the public-facing interface to that framework as public so that it can be viewed and accessed by other modules, such as an app that imports the framework. This public-facing interface is the application programming interface (or API) for the framework.
 
-Note
+#### Note
 
 Any internal implementation details of your framework can still use the default access level of internal, or can be marked as private if you want to hide them from other parts of the framework’s internal code. You need to mark an entity as public only if you want it to become part of your framework’s API.
 
@@ -92,7 +92,7 @@ If you want to specify an explicit access level for a custom type, do so at the 
 
 The access control level of a type also affects the default access level of that type’s *members* (its properties, methods, initializers, and subscripts). If you define a type’s access level as private, the default access level of its members will also be private. If you define a type’s access level as internal or public (or use the default access level of internal without specifying an access level explicitly), the default access level of the type’s members will be internal.
 
-Note
+#### Note
 
 As mentioned above, a public type defaults to having internal members, not public members. If you want a type member to be public, you must explicitly mark it as such. This requirement ensures that the public-facing API for a type is something you opt in to publishing, and avoids presenting the internal workings of a type as public API by mistake.
 
@@ -116,7 +116,7 @@ As mentioned above, a public type defaults to having internal members, not publi
 
 The access level for a tuple type is the most restrictive access level of all types used in that tuple. For example, if you compose a tuple from two different types, one with internal access and one with private access, the access level for that compound tuple type will be private.
 
-Note
+#### Note
 
 Tuple types do not have a standalone definition in the way that classes, structures, enumerations, and functions do. A tuple type’s access level is deduced automatically when the tuple type is used, and cannot be specified explicitly.
 
@@ -205,7 +205,7 @@ Getters and setters for constants, variables, properties, and subscripts automat
 
 You can give a setter a *lower* access level than its corresponding getter, to restrict the read-write scope of that variable, property, or subscript. You assign a lower access level by writing `private(set)` or `internal(set)` before the `var` or `subscript` introducer.
 
-Note
+#### Note
 
 This rule applies to stored properties as well as computed properties. Even though you do not write an explicit getter and setter for a stored property, Swift still synthesizes an implicit getter and setter for you to provide access to the stored property’s backing storage. Use `private(set)` and `internal(set)` to change the access level of this synthesized setter in exactly the same way as for an explicit setter in a computed property.
 
@@ -271,7 +271,7 @@ If you want to assign an explicit access level to a protocol type, do so at the 
 
 The access level of each requirement within a protocol definition is automatically set to the same access level as the protocol. You cannot set a protocol requirement to a different access level than the protocol it supports. This ensures that all of the protocol’s requirements will be visible on any type that adopts the protocol.
 
-Note
+#### Note
 
 If you define a public protocol, the protocol’s requirements require a public access level for those requirements when they are implemented. This behavior is different from other types, where a public type definition implies an access level of internal for the type’s members.
 
@@ -287,7 +287,7 @@ The context in which a type conforms to a particular protocol is the minimum of 
 
 When you write or extend a type to conform to a protocol, you must ensure that the type’s implementation of each protocol requirement has at least the same access level as the type’s conformance to that protocol. For example, if a public type conforms to an internal protocol, the type’s implementation of each protocol requirement must be at least “internal”.
 
-Note
+#### Note
 
 In Swift, as in Objective-C, protocol conformance is global—it is not possible for a type to conform to a protocol in two different ways within the same program.
 
@@ -309,7 +309,7 @@ The access level for a generic type or generic function is the minimum of the ac
 
 Any type aliases you define are treated as distinct types for the purposes of access control. A type alias can have an access level less than or equal to the access level of the type it aliases. For example, a private type alias can alias a private, internal, or public type, but a public type alias cannot alias an internal or private type.
 
-Note
+#### Note
 
 This rule also applies to type aliases for associated types used to satisfy protocol conformances.
 

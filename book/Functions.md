@@ -91,7 +91,7 @@ Functions are not required to define a return type. Here’s a version of the `s
 
 Because it does not need to return a value, the function’s definition does not include the return arrow (`->`) or a return type.
 
-Note
+#### Note
 
 Strictly speaking, the `sayGoodbye(_:)` function *does* still return a value, even though no return value is defined. Functions without a defined return type return a special value of type `Void`. This is simply an empty tuple, in effect a tuple with zero elements, which can be written as `()`.
 
@@ -111,7 +111,7 @@ The return value of a function can be ignored when it is called:
 
 The first function, `printAndCount(_:)`, prints a string, and then returns its character count as an `Int`. The second function, `printWithoutCounting`, calls the first function, but ignores its return value. When the second function is called, the message is still printed by the first function, but the returned value is not used.
 
-Note
+#### Note
 
 Return values can be ignored, but a function that says it will return a value must always do so. A function with a defined return type cannot allow control to fall out of the bottom of the function without returning a value, and attempting to do so will result in a compile-time error.
 
@@ -150,7 +150,7 @@ Note that the tuple’s members do not need to be named at the point that the tu
 
 If the tuple type to be returned from a function has the potential to have “no value” for the entire tuple, you can use an *optional* tuple return type to reflect the fact that the entire tuple can be `nil`. You write an optional tuple return type by placing a question mark after the tuple type’s closing parenthesis, such as `(Int, Int)?` or `(String, Int, Bool)?`.
 
-Note
+#### Note
 
 An optional tuple type such as `(Int, Int)?` is different from a tuple that contains optional types such as `(Int?, Int?)`. With an optional tuple type, the entire tuple is optional, not just each individual value within the tuple.
 
@@ -201,7 +201,7 @@ You write an external parameter name before the local parameter name it supports
         // to refer to the argument value for that parameter
     }
 
-Note
+#### Note
 
 If you provide an external parameter name for a parameter, that external name must *always* be used when you call the function.
 
@@ -228,7 +228,7 @@ If you do not want to use an external name for the second or subsequent paramete
     }
     someFunction(1, 2)
 
-Note
+#### Note
 
 Because the first parameter omits its external parameter name by default, explicitly writing an underscore is extraneous.
 
@@ -244,7 +244,7 @@ You can define a *default value* for any parameter in a function by assigning a 
     someFunction(6) // parameterWithDefault is 6
     someFunction() // parameterWithDefault is 12
 
-Note
+#### Note
 
 Place parameters with default values at the end of a function’s parameter list. This ensures that all calls to the function use the same order for their nondefault arguments, and makes it clear that the same function is being called in each case.
 
@@ -268,7 +268,7 @@ The example below calculates the *arithmetic mean* (also known as the *average*)
     arithmeticMean(3, 8.25, 18.75)
     // returns 10.0, which is the arithmetic mean of these three numbers
 
-Note
+#### Note
 
 A function may have at most one variadic parameter.
 
@@ -280,7 +280,7 @@ You write an in-out parameter by placing the `inout` keyword at the start of its
 
 You can only pass a variable as the argument for an in-out parameter. You cannot pass a constant or a literal value as the argument, because constants and literals cannot be modified. You place an ampersand (`&`) directly before a variable’s name when you pass it as an argument to an in-out parameter, to indicate that it can be modified by the function.
 
-Note
+#### Note
 
 In-out parameters cannot have default values, and variadic parameters cannot be marked as `inout`.
 
@@ -304,7 +304,7 @@ You can call the `swapTwoInts(_:_:)` function with two variables of type `Int` t
 
 The example above shows that the original values of `someInt` and `anotherInt` are modified by the `swapTwoInts(_:_:)` function, even though they were originally defined outside of the function.
 
-Note
+#### Note
 
 In-out parameters are not the same as returning a value from a function. The `swapTwoInts` example above does not define a return type or return a value, but it still modifies the values of `someInt` and `anotherInt`. In-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.
 

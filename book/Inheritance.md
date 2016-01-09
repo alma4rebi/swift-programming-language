@@ -11,7 +11,7 @@ Classes can also add property observers to inherited properties in order to be n
 
 Any class that does not inherit from another class is known as a *base class*.
 
-Note
+#### Note
 
 Swift classes do not inherit from a universal base class. Classes you define without specifying a superclass automatically become base classes for you to build upon.
 
@@ -136,7 +136,7 @@ You can provide a custom getter (and setter, if appropriate) to override *any* i
 
 You can present an inherited read-only property as a read-write property by providing both a getter and a setter in your subclass property override. You cannot, however, present an inherited read-write property as a read-only property.
 
-Note
+#### Note
 
 If you provide a setter as part of a property override, you must also provide a getter for that override. If you don’t want to modify the inherited property’s value within the overriding getter, you can simply pass through the inherited value by returning `super.someProperty` from the getter, where `someProperty` is the name of the property you are overriding.
 
@@ -163,7 +163,7 @@ If you create an instance of the `Car` class and set its `gear` and `currentSpee
 
 You can use property overriding to add property observers to an inherited property. This enables you to be notified when the value of an inherited property changes, regardless of how that property was originally implemented. For more information on property observers, see [Property Observers](Properties.md#TP40016643-CH14-ID262).
 
-Note
+#### Note
 
 You cannot add property observers to inherited constant stored properties or inherited read-only computed properties. The value of these properties cannot be set, and so it is not appropriate to provide a `willSet` or `didSet` implementation as part of an override.
 

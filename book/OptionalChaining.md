@@ -3,7 +3,7 @@ Optional Chaining
 
 *Optional chaining* is a process for querying and calling properties, methods, and subscripts on an optional that might currently be `nil`. If the optional contains a value, the property, method, or subscript call succeeds; if the optional is `nil`, the property, method, or subscript call returns `nil`. Multiple queries can be chained together, and the entire chain fails gracefully if any link in the chain is `nil`.
 
-Note
+#### Note
 
 Optional chaining in Swift is similar to messaging `nil` in Objective-C, but in a way that works for any type, and that can be checked for success or failure.
 
@@ -209,7 +209,7 @@ The same is true if you attempt to set a property through optional chaining. The
 
 You can use optional chaining to try to retrieve and set a value from a subscript on an optional value, and to check whether that subscript call is successful.
 
-Note
+#### Note
 
 When you access a subscript on an optional value through optional chaining, you place the question mark *before* the subscript’s brackets, not after. The optional chaining question mark always follows immediately after the part of the expression that is optional.
 
@@ -324,7 +324,7 @@ If you want to perform further optional chaining on this method’s return value
     }
     // prints "John's building identifier begins with "The"."
 
-Note
+#### Note
 
 In the example above, you place the optional chaining question mark *after* the parentheses, because the optional value you are chaining on is the `buildingIdentifier()` method’s return value, and not the `buildingIdentifier()` method itself.
 

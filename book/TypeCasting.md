@@ -111,7 +111,7 @@ Downcasting to `Movie` fails when applied to the `Song` instances in the library
 
 If the downcasting succeeds, the properties of `movie` are then used to print a description for that `Movie` instance, including the name of its `director`. A similar principle is used to check for `Song` instances, and to print an appropriate description (including `artist` name) whenever a `Song` is found in the library.
 
-Note
+#### Note
 
 Casting does not actually modify the instance or change its values. The underlying instance remains the same; it is simply treated and accessed as an instance of the type to which it has been cast.
 
@@ -123,7 +123,7 @@ Swift provides two special type aliases for working with non-specific types:
 
 -   `Any` can represent an instance of any type at all, including function types.
 
-Note
+#### Note
 
 Use `Any` and `AnyObject` only when you explicitly need the behavior and capabilities they provide. It is always better to be specific about the types you expect to work with in your code.
 

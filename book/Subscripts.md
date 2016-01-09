@@ -42,7 +42,7 @@ In this example, a new instance of `TimesTable` is created to represent the thre
 
 You can query the `threeTimesTable` instance by calling its subscript, as shown in the call to `threeTimesTable[6]`. This requests the sixth entry in the three-times-table, which returns a value of `18`, or `3` times `6`.
 
-Note
+#### Note
 
 An *n*-times-table is based on a fixed mathematical rule. It is not appropriate to set `threeTimesTable[someIndex]` to a new value, and so the subscript for `TimesTable` is defined as a read-only subscript.
 
@@ -59,7 +59,7 @@ The example above defines a variable called `numberOfLegs` and initializes it wi
 
 For more information about `Dictionary` subscripting, see [Accessing and Modifying a Dictionary](CollectionTypes.md#TP40016643-CH8-ID116).
 
-Note
+#### Note
 
 Swift’s `Dictionary` type implements its key-value subscripting as a subscript that takes and returns an *optional* type. For the `numberOfLegs` dictionary above, the key-value subscript takes and returns a value of type `Int?`, or “optional int”. The `Dictionary` type uses an optional subscript type to model the fact that not every key will have a value, and to give a way to delete a value for a key by assigning a `nil` value for that key.
 

@@ -689,7 +689,7 @@ The Swift standard library defines a number of operators for your use, many of w
 
 Custom operators can begin with one of the ASCII characters `/`, `=`, `-`, `+`, `!`, `*`, `%`, `<`, `>`, `&`, `|`, `^`, `?`, or `~`, or one of the Unicode characters defined in the grammar below (which include characters from the *Mathematical Operators*, *Miscellaneous Symbols*, and *Dingbats* Unicode blocks, among others). After the first character, combining Unicode characters are also allowed. You can also define custom operators as a sequence of two or more dots (for example, `....`). Although you can define custom operators that contain a question mark character (`?`), they can’t consist of a single question mark character only.
 
-Note
+#### Note
 
 The tokens `=`, `->`, `//`, `/*`, `*/`, `.`, the prefix operators `<`, `&`, and `?`, the infix operator `?`, and the postfix operators `>`, `!`, and `?` are reserved. These tokens can’t be overloaded, nor can they be used as custom operators.
 

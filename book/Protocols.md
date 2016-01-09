@@ -126,7 +126,7 @@ It is sometimes necessary for a method to modify (or *mutate*) the instance it b
 
 If you define a protocol instance method requirement that is intended to mutate instances of any type that adopts the protocol, mark the method with the `mutating` keyword as part of the protocol’s definition. This enables structures and enumerations to adopt the protocol and satisfy that method requirement.
 
-Note
+#### Note
 
 If you mark a protocol instance method requirement as `mutating`, you do not need to write the `mutating` keyword when writing an implementation of that method for a class. The `mutating` keyword is only used by structures and enumerations.
 
@@ -179,7 +179,7 @@ The use of the `required` modifier ensures that you provide an explicit or inher
 
 For more information on required initializers, see [Required Initializers](Initialization.md#TP40016643-CH18-ID231).
 
-Note
+#### Note
 
 You do not need to mark protocol initializer implementations with the `required` modifier on classes that are marked with the `final` modifier, because final classes cannot be subclassed. For more on the `final` modifier, see [Preventing Overrides](Inheritance.md#TP40016643-CH17-ID202).
 
@@ -220,7 +220,7 @@ Because it is a type, you can use a protocol in many places where other types ar
 
 -   As the type of items in an array, dictionary, or other container
 
-Note
+#### Note
 
 Because protocols are types, begin their names with a capital letter (such as `FullyNamed` and `RandomNumberGenerator`) to match the names of other types in Swift (such as `Int`, `String`, and `Double`).
 
@@ -365,7 +365,7 @@ Here’s how `DiceGameTracker` looks in action:
 
 You can extend an existing type to adopt and conform to a new protocol, even if you do not have access to the source code for the existing type. Extensions can add new properties, methods, and subscripts to an existing type, and are therefore able to add any requirements that a protocol may demand. For more about extensions, see [Extensions](Extensions.md).
 
-Note
+#### Note
 
 Existing instances of a type automatically adopt and conform to a protocol when that conformance is added to the instance’s type in an extension.
 
@@ -420,7 +420,7 @@ Instances of `Hamster` can now be used wherever `TextRepresentable` is the requi
     print(somethingTextRepresentable.textualDescription)
     // prints "A hamster named Simon"
 
-Note
+#### Note
 
 Types do not automatically adopt a protocol just by satisfying its requirements. They must always explicitly declare their adoption of the protocol.
 
@@ -500,7 +500,7 @@ You can limit protocol adoption to class types (and not structures or enumeratio
 
 In the example above, `SomeClassOnlyProtocol` can only be adopted by class types. It is a compile-time error to write a structure or enumeration definition that tries to adopt `SomeClassOnlyProtocol`.
 
-Note
+#### Note
 
 Use a class-only protocol when the behavior defined by that protocol’s requirements assumes or requires that a conforming type has reference semantics rather than value semantics. For more on reference and value semantics, see [Structures and Enumerations Are Value Types](ClassesAndStructures.md#TP40016643-CH13-ID88) and [Classes Are Reference Types](ClassesAndStructures.md#TP40016643-CH13-ID89).
 
@@ -533,7 +533,7 @@ The example also defines a function called `wishHappyBirthday`, which takes a si
 
 The example then creates a new `Person` instance called `birthdayPerson` and passes this new instance to the `wishHappyBirthday(_:)` function. Because `Person` conforms to both protocols, this is a valid call, and the `wishHappyBirthday(_:)` function is able to print its birthday greeting.
 
-Note
+#### Note
 
 Protocol compositions do not define a new, permanent protocol type. Rather, they define a temporary local protocol that has the combined requirements of all protocols in the composition.
 
@@ -608,7 +608,7 @@ You can define *optional requirements* for protocols, These requirements do not 
 
 An optional protocol requirement can be called with optional chaining, to account for the possibility that the requirement was not implemented by a type that conforms to the protocol. You check for an implementation of an optional method by writing a question mark after the name of the method when it is called, such as `someOptionalMethod?(someArgument)`. For information on optional chaining, see [Optional Chaining](OptionalChaining.md).
 
-Note
+#### Note
 
 Optional protocol requirements can only be specified if your protocol is marked with the `@objc` attribute.
 
@@ -625,7 +625,7 @@ The following example defines an integer-counting class called `Counter`, which 
 
 The `CounterDataSource` protocol defines an optional method requirement called `incrementForCount(_:)` and an optional property requirement called `fixedIncrement`. These requirements define two different ways for data sources to provide an appropriate increment amount for a `Counter` instance.
 
-Note
+#### Note
 
 Strictly speaking, you can write a custom class that conforms to `CounterDataSource` without implementing *either* protocol requirement. They are both optional, after all. Although technically allowed, this wouldn’t make for a very good data source.
 
@@ -730,7 +730,7 @@ By creating an extension on the protocol, all conforming types automatically gai
 
 You can use protocol extensions to provide a default implementation to any method or property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension.
 
-Note
+#### Note
 
 Protocol requirements with default implementations provided by extensions are distinct from optional protocol requirements. Although conforming types don’t have to provide their own implementation of either, requirements with default implementations can be called without optional chaining.
 
@@ -769,7 +769,7 @@ Because `Array` conforms to `CollectionType` and the array’s elements conform 
     print(hamsters.textualDescription)
     // prints "[A hamster named Murray, A hamster named Morgan, A hamster named Maurice]"
 
-Note
+#### Note
 
 If a conforming type satisfies the requirements for multiple constrained extensions that provide implementations for the same method or property, Swift will use the implementation corresponding to the most specialized constraints.
 

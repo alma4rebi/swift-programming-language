@@ -34,7 +34,7 @@ You can declare multiple constants or multiple variables on a single line, separ
 
     var x = 0.0, y = 0.0, z = 0.0
 
-Note
+#### Note
 
 If a stored value in your code is not going to change, always declare it as a constant with the `let` keyword. Use variables only for storing values that need to be able to change.
 
@@ -60,7 +60,7 @@ You can define multiple related variables of the same type on a single line, sep
 
     var red, green, blue: Double
 
-Note
+#### Note
 
 It is rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable at the point that it is defined, Swift can almost always infer the type to be used for that constant or variable, as described in [Type Safety and Type Inference](TheBasics.md#TP40016643-CH5-ID322). In the `welcomeMessage` example above, no initial value is provided, and so the type of the `welcomeMessage` variable is specified with a type annotation rather than being inferred from an initial value.
 
@@ -76,7 +76,7 @@ Constant and variable names cannot contain whitespace characters, mathematical s
 
 Once you’ve declared a constant or variable of a certain type, you can’t redeclare it again with the same name, or change it to store values of a different type. Nor can you change a constant into a variable or a variable into a constant.
 
-Note
+#### Note
 
 If you need to give a constant or variable the same name as a reserved Swift keyword, surround the keyword with back ticks (`` ` ``) when using it as a name. However, avoid using keywords as names unless you have absolutely no choice.
 
@@ -106,7 +106,7 @@ Swift uses *string interpolation* to include the name of a constant or variable 
     print("The current value of friendlyWelcome is \(friendlyWelcome)")
     // prints "The current value of friendlyWelcome is Bonjour!"
 
-Note
+#### Note
 
 All options you can use with string interpolation are described in [String Interpolation](StringsAndCharacters.md#TP40016643-CH7-ID292).
 
@@ -171,7 +171,7 @@ Swift also provides an unsigned integer type, `UInt`, which has the same size as
 
 -   On a 64-bit platform, `UInt` is the same size as `UInt64`.
 
-Note
+#### Note
 
 Use `UInt` only when you specifically need an unsigned integer type with the same size as the platform’s native word size. If this is not the case, `Int` is preferred, even when the values to be stored are known to be non-negative. A consistent use of `Int` for integer values aids code interoperability, avoids the need to convert between different number types, and matches integer type inference, as described in [Type Safety and Type Inference](TheBasics.md#TP40016643-CH5-ID322).
 
@@ -185,7 +185,7 @@ Floating-point types can represent a much wider range of values than integer typ
 
 -   `Float` represents a 32-bit floating-point number.
 
-Note
+#### Note
 
 `Double` has a precision of at least 15 decimal digits, whereas the precision of `Float` can be as little as 6 decimal digits. The appropriate floating-point type to use depends on the nature and range of values you need to work with in your code. In situations where either type would be appropriate, `Double` is preferred.
 
@@ -311,7 +311,7 @@ Floating-point to integer conversion must also be made explicit. An integer type
 
 Floating-point values are always truncated when used to initialize a new integer value in this way. This means that `4.75` becomes `4`, and `-3.9` becomes `-3`.
 
-Note
+#### Note
 
 The rules for combining numeric constants and variables are different from the rules for numeric literals. The literal value `3` can be added directly to the literal value `0.14159`, because number literals do not have an explicit type in and of themselves. Their type is inferred only at the point that they are evaluated by the compiler.
 
@@ -415,7 +415,7 @@ If you name the elements in a tuple, you can use the element names to access the
 
 Tuples are particularly useful as the return values of functions. A function that tries to retrieve a web page might return the `(Int, String)` tuple type to describe the success or failure of the page retrieval. By returning a tuple with two distinct values, each of a different type, the function provides more useful information about its outcome than if it could only return a single value of a single type. For more information, see [Functions with Multiple Return Values](Functions.md#TP40016643-CH10-ID164).
 
-Note
+#### Note
 
 Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple. For more information, see [Classes and Structures](ClassesAndStructures.md).
 
@@ -429,7 +429,7 @@ You use *optionals* in situations where a value may be absent. An optional says:
 
 -   There *isn’t* a value at all
 
-Note
+#### Note
 
 The concept of optionals doesn’t exist in C or Objective-C. The nearest thing in Objective-C is the ability to return `nil` from a method that would otherwise return an object, with `nil` meaning “the absence of a valid object.” However, this only works for objects—it doesn’t work for structures, basic C types, or enumeration values. For these types, Objective-C methods typically return a special value (such as `NSNotFound`) to indicate the absence of a value. This approach assumes that the method’s caller knows there is a special value to test against and remembers to check for it. Swift’s optionals let you indicate the absence of a value for *any type at all*, without the need for special constants.
 
@@ -452,7 +452,7 @@ You set an optional variable to a valueless state by assigning it the special va
     serverResponseCode = nil
     // serverResponseCode now contains no value
 
-Note
+#### Note
 
 `nil` cannot be used with nonoptional constants and variables. If a constant or variable in your code needs to work with the absence of a value under certain conditions, always declare it as an optional value of the appropriate type.
 
@@ -461,7 +461,7 @@ If you define an optional variable without providing a default value, the variab
     var surveyAnswer: String?
     // surveyAnswer is automatically set to nil
 
-Note
+#### Note
 
 Swift’s `nil` is not the same as `nil` in Objective-C. In Objective-C, `nil` is a pointer to a nonexistent object. In Swift, `nil` is not a pointer—it is the absence of a value of a certain type. Optionals of *any* type can be set to `nil`, not just object types.
 
@@ -485,7 +485,7 @@ Once you’re sure that the optional *does* contain a value, you can access its 
 
 For more on the `if` statement, see [Control Flow](ControlFlow.md).
 
-Note
+#### Note
 
 Trying to use `!` to access a nonexistent optional value triggers a runtime error. Always make sure that an optional contains a non-`nil` value before using `!` to force-unwrap its value.
 
@@ -529,7 +529,7 @@ You can include multiple optional bindings in a single `if` statement and use a 
     }
     // prints "4 < 42"
 
-Note
+#### Note
 
 Constants created with optional binding in an `if` statement. are available only within the body of the `if` statement. In contrast, the constants created with a `guard` statement are available in the lines of code that follow the `guard` statement, as described in [Early Exit](ControlFlow.md#TP40016643-CH9-ID525),
 
@@ -553,7 +553,7 @@ An implicitly unwrapped optional is a normal optional behind the scenes, but can
 
 You can think of an implicitly unwrapped optional as giving permission for the optional to be unwrapped automatically whenever it is used. Rather than placing an exclamation mark after the optional’s name each time you use it, you place an exclamation mark after the optional’s type when you declare it.
 
-Note
+#### Note
 
 If an implicitly unwrapped optional is `nil` and you try to access its wrapped value, you’ll trigger a runtime error. The result is exactly the same as if you place an exclamation mark after a normal optional that does not contain a value.
 
@@ -571,7 +571,7 @@ You can also use an implicitly unwrapped optional with optional binding, to chec
     }
     // prints "An implicitly unwrapped optional string."
 
-Note
+#### Note
 
 Do not use an implicitly unwrapped optional when there is a possibility of a variable becoming `nil` at a later point. Always use a normal optional type if you need to check for a `nil` value during the lifetime of a variable.
 
@@ -643,7 +643,7 @@ The assertion message can be omitted if desired, as in the following example:
 
     assert(age >= 0)
 
-Note
+#### Note
 
 Assertions are disabled when your code is compiled with optimizations, such as when building with an app target’s default Release configuration in Xcode.
 
@@ -659,7 +659,7 @@ Use an assertion whenever a condition has the potential to be false, but must *d
 
 See also [Subscripts](Subscripts.md) and [Functions](Functions.md).
 
-Note
+#### Note
 
 Assertions cause your app to terminate and are not a substitute for designing your code in such a way that invalid conditions are unlikely to arise. Nonetheless, in situations where invalid conditions are possible, an assertion is an effective way to ensure that such conditions are highlighted and noticed during development, before your app is published.
 

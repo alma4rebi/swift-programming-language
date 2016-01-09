@@ -7,7 +7,7 @@ Swift’s `String` and `Character` types provide a fast, Unicode-compliant way t
 
 Despite this simplicity of syntax, Swift’s `String` type is a fast, modern string implementation. Every string is composed of encoding-independent Unicode characters, and provides support for accessing those characters in various Unicode representations.
 
-Note
+#### Note
 
 Swift’s `String` type is bridged with Foundation’s `NSString` class. If you are working with the Foundation framework in Cocoa, the entire `NSString` API is available to call on any `String` value you create when type cast to `NSString`, as described in [AnyObject](TypeCasting.md#TP40016643-CH22-ID343). You can also use a `String` value with any API that requires an `NSString` instance.
 
@@ -23,7 +23,7 @@ Use a string literal as an initial value for a constant or variable:
 
 Note that Swift infers a type of `String` for the `someString` constant, because it is initialized with a string literal value.
 
-Note
+#### Note
 
 For information about using special characters in string literals, see [Special Characters in String Literals](StringsAndCharacters.md#TP40016643-CH7-ID295).
 
@@ -54,7 +54,7 @@ You indicate whether a particular `String` can be modified (or *mutated*) by ass
     constantString += " and another Highlander"
     // this reports a compile-time error - a constant string cannot be modified
 
-Note
+#### Note
 
 This approach is different from string mutation in Objective-C and Cocoa, where you choose between two classes (`NSString` and `NSMutableString`) to indicate whether a string can be mutated.
 
@@ -113,7 +113,7 @@ You can append a `Character` value to a `String` variable with the `String` type
     welcome.append(exclamationMark)
     // welcome now equals "hello there!"
 
-Note
+#### Note
 
 You can’t append a `String` or `Character` to an existing `Character` variable, because a `Character` value must contain a single character only.
 
@@ -129,7 +129,7 @@ In the example above, the value of `multiplier` is inserted into a string litera
 
 The value of `multiplier` is also part of a larger expression later in the string. This expression calculates the value of `Double(multiplier) * 2.5` and inserts the result (`7.5`) into the string. In this case, the expression is written as `(Double(multiplier) * 2.5)` when it is included inside the string literal.
 
-Note
+#### Note
 
 The expressions you write inside parentheses within an interpolated string cannot contain an unescaped backslash (``), a carriage return, or a line feed. However, they can contain other string literals.
 
@@ -141,7 +141,7 @@ The expressions you write inside parentheses within an interpolated string canno
 
 Behind the scenes, Swift’s native `String` type is built from *Unicode scalar* values. A Unicode scalar is a unique 21-bit number for a character or modifier, such as `U+0061` for `LATIN SMALL LETTER A` (`"a"`), or `U+1F425` for `FRONT-FACING BABY CHICK` (`"🐥"`).
 
-Note
+#### Note
 
 A Unicode scalar is any Unicode *code point* in the range `U+0000` to `U+D7FF` inclusive or `U+E000` to `U+10FFFF` inclusive. Unicode scalars do not include the Unicode *surrogate pair* code points, which are the code points in the range `U+D800` to `U+DFFF` inclusive.
 
@@ -212,7 +212,7 @@ For example, if you initialize a new string with the four-character word `cafe`,
     print("the number of characters in \(word) is \(word.characters.count)")
     // prints "the number of characters in café is 4"
 
-Note
+#### Note
 
 Extended grapheme clusters can be composed of one or more Unicode scalars. This means that different characters—and different representations of the same character—can require different amounts of memory to store. Because of this, characters in Swift do not each take up the same amount of memory within a string’s representation. As a result, the number of characters in a string cannot be calculated without iterating through the string to determine its extended grapheme cluster boundaries. If you are working with particularly long string values, be aware that the `characters` property must iterate over the Unicode scalars in the entire string in order to determine the characters for that string.
 
@@ -322,7 +322,7 @@ Conversely, `LATIN CAPITAL LETTER A` (`U+0041`, or `"A"`), as used in English, i
     }
     // prints "These two characters are not equivalent"
 
-Note
+#### Note
 
 String and character comparisons in Swift are not locale-sensitive.
 
@@ -371,7 +371,7 @@ Similarly, use the `hasSuffix(_:)` method to count the number of scenes that tak
     print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
     // prints "6 mansion scenes; 2 cell scenes"
 
-Note
+#### Note
 
 The `hasPrefix(_:)` and `hasSuffix(_:)` methods perform a character-by-character canonical equivalence comparison between the extended grapheme clusters in each string, as described in [String and Character Equality](StringsAndCharacters.md#TP40016643-CH7-ID299).
 

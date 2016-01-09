@@ -5,7 +5,7 @@ Classes and Structures
 
 Unlike other programming languages, Swift does not require you to create separate interface and implementation files for custom classes and structures. In Swift, you define a class or a structure in a single file, and the external interface to that class or structure is automatically made available for other code to use.
 
-Note
+#### Note
 
 An instance of a *class* is traditionally known as an *object*. However, Swift classes and structures are much closer in functionality than in other languages, and much of this chapter describes functionality that can apply to instances of *either* a class or a structure type. Because of this, the more general term *instance* is used.
 
@@ -39,7 +39,7 @@ Classes have additional capabilities that structures do not:
 
 For more information, see [Inheritance](Inheritance.md), [Type Casting](TypeCasting.md), [Deinitialization](Deinitialization.md), and [Automatic Reference Counting](AutomaticReferenceCounting.md).
 
-Note
+#### Note
 
 Structures are always copied when they are passed around in your code, and do not use reference counting.
 
@@ -54,7 +54,7 @@ Classes and structures have a similar definition syntax. You introduce classes w
         // structure definition goes here
     }
 
-Note
+#### Note
 
 Whenever you define a new class or structure, you effectively define a brand new Swift type. Give types `UpperCamelCase` names (such as `SomeClass` and `SomeStructure` here) to match the capitalization of standard Swift types (such as `String`, `Int`, and `Bool`). Conversely, always give properties and methods `lowerCamelCase` names (such as `frameRate` and `incrementCount`) to differentiate them from type names.
 
@@ -106,7 +106,7 @@ You can also use dot syntax to assign a new value to a variable property:
     print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
     // prints "The width of someVideoMode is now 1280"
 
-Note
+#### Note
 
 Unlike Objective-C, Swift enables you to set sub-properties of a structure property directly. In the last example above, the `width` property of the `resolution` property of `someVideoMode` is set directly, without your needing to set the entire `resolution` property to a new value.
 
@@ -255,7 +255,7 @@ In Swift, many basic data types such as `String`, `Array`, and `Dictionary` are 
 
 This behavior is different from Foundation: `NSString`, `NSArray`, and `NSDictionary` are implemented as classes, not structures. Strings, arrays, and dictionaries in Foundation are always assigned and passed around as a reference to an existing instance, rather than as a copy.
 
-Note
+#### Note
 
 The description above refers to the “copying” of strings, arrays, and dictionaries. The behavior you see in your code will always be as if a copy took place. However, Swift only performs an *actual* copy behind the scenes when it is absolutely necessary to do so. Swift manages all value copying to ensure optimal performance, and you should not avoid assignment to try to preempt this optimization.
 
