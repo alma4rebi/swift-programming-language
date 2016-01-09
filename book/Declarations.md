@@ -1,141 +1,185 @@
-<div class="content-wrapper">
 
-<div id="chapter_container" class="conceptualwithtasks">
+
+
 
 [‌](){#TP40016643-CH34}[‌](){#TP40016643-CH34-ID351}
 Declarations {#declarations .chapter-name}
 ------------
 
-<div class="section section">
 
-A *declaration* introduces a new name or construct into your program.
-For example, you use declarations to introduce functions and methods,
-variables and constants, and to define new, named enumeration,
-structure, class, and protocol types. You can also use a declaration to
-extend the behavior of an existing named type and to import symbols into
-your program that are declared elsewhere.
 
-In Swift, most declarations are also definitions in the sense that they
-are implemented or initialized at the same time they are declared. That
-said, because protocols don’t implement their members, most protocol
-members are declarations only. For convenience and because the
-distinction isn’t that important in Swift, the term *declaration* covers
-both declarations and definitions.
+A *declaration* introduces a new name or construct into your program. For example, you use declarations to introduce functions and methods, variables and constants, and to define new, named enumeration, structure, class, and protocol types. You can also use a declaration to extend the behavior of an existing named type and to import symbols into your program that are declared elsewhere.
 
-<div class="syntax-defs">
+In Swift, most declarations are also definitions in the sense that they are implemented or initialized at the same time they are declared. That said, because protocols don’t implement their members, most protocol members are declarations only. For convenience and because the distinction isn’t that important in Swift, the term *declaration* covers both declarations and definitions.
+
+
 
 Grammar of a declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#declaration} <span class="syntax-def-name"> declaration </span>
-<span class="arrow"> → </span><span
-class="syntactic-cat">[import-declaration](Declarations.md#import-declaration)</span>
 
-[‌](){#TP40016643-CH34-NoLink_232} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[constant-declaration](Declarations.md#constant-declaration)</span>
+[‌](){#declaration}
 
-[‌](){#TP40016643-CH34-NoLink_233} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration](Declarations.md#variable-declaration)</span>
+declaration
 
-[‌](){#TP40016643-CH34-NoLink_234} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[typealias-declaration](Declarations.md#typealias-declaration)</span>
 
-[‌](){#TP40016643-CH34-NoLink_235} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[function-declaration](Declarations.md#function-declaration)</span>
+→
+[import-declaration](Declarations.md#import-declaration)
 
-[‌](){#TP40016643-CH34-NoLink_236} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[enum-declaration](Declarations.md#enum-declaration)</span>
+[‌](){#TP40016643-CH34-NoLink_232}
 
-[‌](){#TP40016643-CH34-NoLink_237} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[struct-declaration](Declarations.md#struct-declaration)</span>
+declaration
 
-[‌](){#TP40016643-CH34-NoLink_238} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[class-declaration](Declarations.md#class-declaration)</span>
 
-[‌](){#TP40016643-CH34-NoLink_239} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-declaration](Declarations.md#protocol-declaration)</span>
+→
+[constant-declaration](Declarations.md#constant-declaration)
 
-[‌](){#TP40016643-CH34-NoLink_240} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[initializer-declaration](Declarations.md#initializer-declaration)</span>
+[‌](){#TP40016643-CH34-NoLink_233}
 
-[‌](){#TP40016643-CH34-NoLink_241} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[deinitializer-declaration](Declarations.md#deinitializer-declaration)</span>
+declaration
 
-[‌](){#TP40016643-CH34-NoLink_242} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[extension-declaration](Declarations.md#extension-declaration)</span>
 
-[‌](){#TP40016643-CH34-NoLink_243} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[subscript-declaration](Declarations.md#subscript-declaration)</span>
+→
+[variable-declaration](Declarations.md#variable-declaration)
 
-[‌](){#TP40016643-CH34-NoLink_244} <span class="syntax-def-name">
-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[operator-declaration](Declarations.md#operator-declaration)</span>
+[‌](){#TP40016643-CH34-NoLink_234}
 
-[‌](){#declarations} <span class="syntax-def-name"> declarations </span>
-<span class="arrow"> → </span><span
-class="syntactic-cat">[declaration](Declarations.md#declaration)</span><span
-class="optional"><span
-class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>
+declaration
 
-</div>
 
-</div>
+→
+[typealias-declaration](Declarations.md#typealias-declaration)
 
-</div>
+[‌](){#TP40016643-CH34-NoLink_235}
 
-<div class="section section">
+declaration
+
+
+→
+[function-declaration](Declarations.md#function-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_236}
+
+declaration
+
+
+→
+[enum-declaration](Declarations.md#enum-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_237}
+
+declaration
+
+
+→
+[struct-declaration](Declarations.md#struct-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_238}
+
+declaration
+
+
+→
+[class-declaration](Declarations.md#class-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_239}
+
+declaration
+
+
+→
+[protocol-declaration](Declarations.md#protocol-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_240}
+
+declaration
+
+
+→
+[initializer-declaration](Declarations.md#initializer-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_241}
+
+declaration
+
+
+→
+[deinitializer-declaration](Declarations.md#deinitializer-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_242}
+
+declaration
+
+
+→
+[extension-declaration](Declarations.md#extension-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_243}
+
+declaration
+
+
+→
+[subscript-declaration](Declarations.md#subscript-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_244}
+
+declaration
+
+
+→
+[operator-declaration](Declarations.md#operator-declaration)
+
+[‌](){#declarations}
+
+declarations
+
+
+→
+[declaration](Declarations.md#declaration)[declarations](Declarations.md#declarations)~opt~
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID352}
 ### Top-Level Code {#top-level-code .section-name}
 
-The top-level code in a Swift source file consists of zero or more
-statements, declarations, and expressions. By default, variables,
-constants, and other named declarations that are declared at the
-top-level of a source file are accessible to code in every source file
-that is part of the same module. You can override this default behavior
-by marking the declaration with an access level modifier, as described
-in [Access Control Levels](Declarations.md#TP40016643-CH34-ID382).
+The top-level code in a Swift source file consists of zero or more statements, declarations, and expressions. By default, variables, constants, and other named declarations that are declared at the top-level of a source file are accessible to code in every source file that is part of the same module. You can override this default behavior by marking the declaration with an access level modifier, as described in [Access Control Levels](Declarations.md#TP40016643-CH34-ID382).
 
-<div class="syntax-defs">
+
 
 Grammar of a top-level declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#top-level-declaration} <span class="syntax-def-name">
-top-level-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>
 
-</div>
+[‌](){#top-level-declaration}
 
-</div>
+top-level-declaration
 
-</div>
 
-<div class="section section">
+→
+[statements](Statements.md#statements)~opt~
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID353}
 ### Code Blocks {#code-blocks .section-name}
 
-A *code block* is used by a variety of declarations and control
-structures to group statements together. It has the following form:
+A *code block* is used by a variety of declarations and control structures to group statements together. It has the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     {
@@ -149,54 +193,50 @@ structures to group statements together. It has the following form:
     }
     ```
 
-</div>
 
-The *statements* inside a code block include declarations, expressions,
-and other kinds of statements and are executed in order of their
-appearance in source code.
 
-<div class="syntax-defs">
+The *statements* inside a code block include declarations, expressions, and other kinds of statements and are executed in order of their appearance in source code.
+
+
 
 Grammar of a code block
 
-<div class="syntax-defs-group">
 
-[‌](){#code-block} <span class="syntax-def-name"> code-block </span>
-<span class="arrow"> → </span>`{`{.literal}<span class="optional"><span
-class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>`}`{.literal}
 
-</div>
+[‌](){#code-block}
 
-</div>
+code-block
 
-</div>
 
-<div class="section section">
+→
+`{`{.literal}[statements](Statements.md#statements)~opt~`}`{.literal}
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID354}
 ### Import Declaration {#import-declaration .section-name}
 
-An *import declaration* lets you access symbols that are declared
-outside the current file. The basic form imports the entire module; it
-consists of the `import`{.code-voice} keyword followed by a module name:
+An *import declaration* lets you access symbols that are declared outside the current file. The basic form imports the entire module; it consists of the `import`{.code-voice} keyword followed by a module name:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     import module
     ```
 
-</div>
 
-Providing more detail limits which symbols are imported—you can specify
-a specific submodule or a specific declaration within a module or
-submodule. When this detailed form is used, only the imported symbol
-(and not the module that declares it) is made available in the current
-scope.
 
-<span class="caption"></span>
-<div class="code-outline">
+Providing more detail limits which symbols are imported—you can specify a specific submodule or a specific declaration within a module or submodule. When this detailed form is used, only the imported symbol (and not the module that declares it) is made available in the current scope.
+
+
+
 
 -   ``` {.code-voice}
     import import kind module.symbol name
@@ -206,263 +246,245 @@ scope.
     import module.submodule
     ```
 
-</div>
 
-<div class="syntax-defs">
+
+
 
 Grammar of an import declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#import-declaration} <span class="syntax-def-name">
-import-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`import`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[import-kind](Declarations.md#import-kind)</span>~opt~</span><span
-class="syntactic-cat">[import-path](Declarations.md#import-path)</span>
 
-</div>
+[‌](){#import-declaration}
 
-<div class="syntax-defs-group">
+import-declaration
 
-[‌](){#import-kind} <span class="syntax-def-name"> import-kind </span>
-<span class="arrow"> → </span><span class="alternative">
-`typealias`{.literal} </span><span class="alternative">
-`struct`{.literal} </span><span class="alternative"> `class`{.literal}
-</span><span class="alternative"> `enum`{.literal} </span><span
-class="alternative"> `protocol`{.literal} </span><span
-class="alternative"> `var`{.literal} </span><span class="alternative">
-`func`{.literal} </span>
 
-[‌](){#import-path} <span class="syntax-def-name"> import-path </span>
-<span class="arrow"> → </span><span class="alternative"> <span
-class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)</span>`.`{.literal}<span
-class="syntactic-cat">[import-path](Declarations.md#import-path)</span>
-</span>
+→
+[attributes](Attributes.md#attributes)~opt~`import`{.literal}[import-kind](Declarations.md#import-kind)~opt~[import-path](Declarations.md#import-path)
 
-[‌](){#import-path-identifier} <span class="syntax-def-name">
-import-path-identifier </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
-</span>
 
-</div>
 
-</div>
 
-</div>
 
-<div class="section section">
+[‌](){#import-kind}
+
+import-kind
+
+
+→
+
+`typealias`{.literal}
+
+`struct`{.literal}
+
+`class`{.literal}
+
+`enum`{.literal}
+
+`protocol`{.literal}
+
+`var`{.literal}
+
+`func`{.literal}
+
+
+[‌](){#import-path}
+
+import-path
+
+
+→
+
+[import-path-identifier](Declarations.md#import-path-identifier)
+
+[import-path-identifier](Declarations.md#import-path-identifier)`.`{.literal}[import-path](Declarations.md#import-path)
+
+
+[‌](){#import-path-identifier}
+
+import-path-identifier
+
+
+→
+
+[identifier](LexicalStructure.md#identifier)
+
+[operator](LexicalStructure.md#operator)
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID355}
 ### Constant Declaration {#constant-declaration .section-name}
 
-A *constant declaration* introduces a constant named value into your
-program. Constant declarations are declared using the `let`{.code-voice}
-keyword and have the following form:
+A *constant declaration* introduces a constant named value into your program. Constant declarations are declared using the `let`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     let constant name: type = expression
     ```
 
-</div>
 
-A constant declaration defines an immutable binding between the
-*constant name* and the value of the initializer *expression*; after the
-value of a constant is set, it cannot be changed. That said, if a
-constant is initialized with a class object, the object itself can
-change, but the binding between the constant name and the object it
-refers to can’t.
 
-When a constant is declared at global scope, it must be initialized with
-a value. When a constant declaration occurs in the context of a class or
-structure declaration, it is considered a *constant property*. Constant
-declarations are not computed properties and therefore do not have
-getters or setters.
+A constant declaration defines an immutable binding between the *constant name* and the value of the initializer *expression*; after the value of a constant is set, it cannot be changed. That said, if a constant is initialized with a class object, the object itself can change, but the binding between the constant name and the object it refers to can’t.
 
-If the *constant name* of a constant declaration is a tuple pattern, the
-name of each item in the tuple is bound to the corresponding value in
-the initializer *expression*.
+When a constant is declared at global scope, it must be initialized with a value. When a constant declaration occurs in the context of a class or structure declaration, it is considered a *constant property*. Constant declarations are not computed properties and therefore do not have getters or setters.
 
-<div class="section code-listing">
+If the *constant name* of a constant declaration is a tuple pattern, the name of each item in the tuple is bound to the corresponding value in the initializer *expression*.
 
-<div class="code-sample">
 
-<div class="Swift">
 
-1.  `let`{.code-voice} (`firstNumber`{.vc}, `secondNumber`{.vc}) =
-    (`10`{.m}, `42`{.m})
 
-</div>
 
-</div>
 
-</div>
 
-In this example, `firstNumber`{.code-voice} is a named constant for the
-value `10`{.code-voice}, and `secondNumber`{.code-voice} is a named
-constant for the value `42`{.code-voice}. Both constants can now be used
-independently:
+1.  `let`{.code-voice} (`firstNumber`{.vc}, `secondNumber`{.vc}) = (`10`{.m}, `42`{.m})
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
+
+In this example, `firstNumber`{.code-voice} is a named constant for the value `10`{.code-voice}, and `secondNumber`{.code-voice} is a named constant for the value `42`{.code-voice}. Both constants can now be used independently:
+
+
+
+
+
+
 
 1.  `print`{.code-voice}(`"The first number is `{.s}\\(`firstNumber`{.vc})`."`{.s})
 2.  `// prints "The first number is 10."`{.code-voice}
 3.  `print`{.code-voice}(`"The second number is `{.s}\\(`secondNumber`{.vc})`."`{.s})
 4.  `// prints "The second number is 42."`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-The type annotation (`:`{.code-voice} *type*) is optional in a constant
-declaration when the type of the *constant name* can be inferred, as
-described in [Type Inference](Types.md#TP40016643-CH31-ID457).
 
-To declare a constant type property, mark the declaration with the
-`static`{.code-voice} declaration modifier. Type properties are
-discussed in [Type Properties](Properties.md#TP40016643-CH14-ID264).
 
-For more information about constants and for guidance about when to use
-them, see [Constants and
-Variables](TheBasics.md#TP40016643-CH5-ID310) and [Stored
-Properties](Properties.md#TP40016643-CH14-ID255).
 
-<div class="syntax-defs">
+The type annotation (`:`{.code-voice} *type*) is optional in a constant declaration when the type of the *constant name* can be inferred, as described in [Type Inference](Types.md#TP40016643-CH31-ID457).
+
+To declare a constant type property, mark the declaration with the `static`{.code-voice} declaration modifier. Type properties are discussed in [Type Properties](Properties.md#TP40016643-CH14-ID264).
+
+For more information about constants and for guidance about when to use them, see [Constants and Variables](TheBasics.md#TP40016643-CH5-ID310) and [Stored Properties](Properties.md#TP40016643-CH14-ID255).
+
+
 
 Grammar of a constant declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#constant-declaration} <span class="syntax-def-name">
-constant-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`let`{.literal}<span
-class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
 
-</div>
+[‌](){#constant-declaration}
 
-<div class="syntax-defs-group">
+constant-declaration
 
-[‌](){#pattern-initializer-list} <span class="syntax-def-name">
-pattern-initializer-list </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)</span>`,`{.literal}<span
-class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
-</span>
 
-[‌](){#pattern-initializer} <span class="syntax-def-name">
-pattern-initializer </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span
-class="optional"><span
-class="syntactic-cat">[initializer](Declarations.md#initializer)</span>~opt~</span>
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`let`{.literal}[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
-[‌](){#initializer} <span class="syntax-def-name"> initializer </span>
-<span class="arrow"> → </span>`=`{.literal}<span
-class="syntactic-cat">[expression](Expressions.md#expression)</span>
 
-</div>
 
-</div>
 
-</div>
 
-<div class="section section">
+[‌](){#pattern-initializer-list}
+
+pattern-initializer-list
+
+
+→
+
+[pattern-initializer](Declarations.md#pattern-initializer)
+
+[pattern-initializer](Declarations.md#pattern-initializer)`,`{.literal}[pattern-initializer-list](Declarations.md#pattern-initializer-list)
+
+
+[‌](){#pattern-initializer}
+
+pattern-initializer
+
+
+→
+[pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)~opt~
+
+[‌](){#initializer}
+
+initializer
+
+
+→
+`=`{.literal}[expression](Expressions.md#expression)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID356}
 ### Variable Declaration {#variable-declaration .section-name}
 
-A *variable declaration* introduces a variable named value into your
-program and is declared using the `var`{.code-voice} keyword.
+A *variable declaration* introduces a variable named value into your program and is declared using the `var`{.code-voice} keyword.
 
-Variable declarations have several forms that declare different kinds of
-named, mutable values, including stored and computed variables and
-properties, stored variable and property observers, and static variable
-properties. The appropriate form to use depends on the scope at which
-the variable is declared and the kind of variable you intend to declare.
+Variable declarations have several forms that declare different kinds of named, mutable values, including stored and computed variables and properties, stored variable and property observers, and static variable properties. The appropriate form to use depends on the scope at which the variable is declared and the kind of variable you intend to declare.
 
-<div class="note">
+
 
 Note
 
-You can also declare properties in the context of a protocol
-declaration, as described in [Protocol Property
-Declaration](Declarations.md#TP40016643-CH34-ID370).
+You can also declare properties in the context of a protocol declaration, as described in [Protocol Property Declaration](Declarations.md#TP40016643-CH34-ID370).
 
-</div>
 
-You can override a property in a subclass by marking the subclass’s
-property declaration with the `override`{.code-voice} declaration
-modifier, as described in
-[Overriding](Inheritance.md#TP40016643-CH17-ID196).
 
-<div class="section section">
+You can override a property in a subclass by marking the subclass’s property declaration with the `override`{.code-voice} declaration modifier, as described in [Overriding](Inheritance.md#TP40016643-CH17-ID196).
+
+
 
 [‌](){#TP40016643-CH34-ID357}
 ### Stored Variables and Stored Variable Properties {#stored-variables-and-stored-variable-properties .section-name}
 
-The following form declares a stored variable or stored variable
-property:
+The following form declares a stored variable or stored variable property:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     var variable name: type = expression
     ```
 
-</div>
 
-You define this form of a variable declaration at global scope, the
-local scope of a function, or in the context of a class or structure
-declaration. When a variable declaration of this form is declared at
-global scope or the local scope of a function, it is referred to as a
-*stored variable*. When it is declared in the context of a class or
-structure declaration, it is referred to as a *stored variable
-property*.
 
-The initializer *expression* can’t be present in a protocol declaration,
-but in all other contexts, the initializer *expression* is optional.
-That said, if no initializer *expression* is present, the variable
-declaration must include an explicit type annotation (`:`{.code-voice}
-*type*).
+You define this form of a variable declaration at global scope, the local scope of a function, or in the context of a class or structure declaration. When a variable declaration of this form is declared at global scope or the local scope of a function, it is referred to as a *stored variable*. When it is declared in the context of a class or structure declaration, it is referred to as a *stored variable property*.
 
-As with constant declarations, if the *variable name* is a tuple
-pattern, the name of each item in the tuple is bound to the
-corresponding value in the initializer *expression*.
+The initializer *expression* can’t be present in a protocol declaration, but in all other contexts, the initializer *expression* is optional. That said, if no initializer *expression* is present, the variable declaration must include an explicit type annotation (`:`{.code-voice} *type*).
 
-As their names suggest, the value of a stored variable or a stored
-variable property is stored in memory.
+As with constant declarations, if the *variable name* is a tuple pattern, the name of each item in the tuple is bound to the corresponding value in the initializer *expression*.
 
-</div>
+As their names suggest, the value of a stored variable or a stored variable property is stored in memory.
 
-<div class="section section">
+
+
+
 
 [‌](){#TP40016643-CH34-ID358}
 ### Computed Variables and Computed Properties {#computed-variables-and-computed-properties .section-name}
 
 The following form declares a computed variable or computed property:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     var variable name: type {
@@ -496,48 +518,29 @@ The following form declares a computed variable or computed property:
     }
     ```
 
-</div>
 
-You define this form of a variable declaration at global scope, the
-local scope of a function, or in the context of a class, structure,
-enumeration, or extension declaration. When a variable declaration of
-this form is declared at global scope or the local scope of a function,
-it is referred to as a *computed variable*. When it is declared in the
-context of a class, structure, or extension declaration, it is referred
-to as a *computed property*.
 
-The getter is used to read the value, and the setter is used to write
-the value. The setter clause is optional, and when only a getter is
-needed, you can omit both clauses and simply return the requested value
-directly, as described in [Read-Only Computed
-Properties](Properties.md#TP40016643-CH14-ID261). But if you provide
-a setter clause, you must also provide a getter clause.
+You define this form of a variable declaration at global scope, the local scope of a function, or in the context of a class, structure, enumeration, or extension declaration. When a variable declaration of this form is declared at global scope or the local scope of a function, it is referred to as a *computed variable*. When it is declared in the context of a class, structure, or extension declaration, it is referred to as a *computed property*.
 
-The *setter name* and enclosing parentheses is optional. If you provide
-a setter name, it is used as the name of the parameter to the setter. If
-you do not provide a setter name, the default parameter name to the
-setter is `newValue`{.code-voice}, as described in [Shorthand Setter
-Declaration](Properties.md#TP40016643-CH14-ID260).
+The getter is used to read the value, and the setter is used to write the value. The setter clause is optional, and when only a getter is needed, you can omit both clauses and simply return the requested value directly, as described in [Read-Only Computed Properties](Properties.md#TP40016643-CH14-ID261). But if you provide a setter clause, you must also provide a getter clause.
 
-Unlike stored named values and stored variable properties, the value of
-a computed named value or a computed property is not stored in memory.
+The *setter name* and enclosing parentheses is optional. If you provide a setter name, it is used as the name of the parameter to the setter. If you do not provide a setter name, the default parameter name to the setter is `newValue`{.code-voice}, as described in [Shorthand Setter Declaration](Properties.md#TP40016643-CH14-ID260).
 
-For more information and to see examples of computed properties, see
-[Computed Properties](Properties.md#TP40016643-CH14-ID259).
+Unlike stored named values and stored variable properties, the value of a computed named value or a computed property is not stored in memory.
 
-</div>
+For more information and to see examples of computed properties, see [Computed Properties](Properties.md#TP40016643-CH14-ID259).
 
-<div class="section section">
+
+
+
 
 [‌](){#TP40016643-CH34-ID359}
 ### Stored Variable Observers and Property Observers {#stored-variable-observers-and-property-observers .section-name}
 
-You can also declare a stored variable or property with
-`willSet`{.code-voice} and `didSet`{.code-voice} observers. A stored
-variable or property declared with observers has the following form:
+You can also declare a stored variable or property with `willSet`{.code-voice} and `didSet`{.code-voice} observers. A stored variable or property declared with observers has the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     var variable name: type = expression {
@@ -571,325 +574,320 @@ variable or property declared with observers has the following form:
     }
     ```
 
-</div>
 
-You define this form of a variable declaration at global scope, the
-local scope of a function, or in the context of a class or structure
-declaration. When a variable declaration of this form is declared at
-global scope or the local scope of a function, the observers are
-referred to as *stored variable observers*. When it is declared in the
-context of a class or structure declaration, the observers are referred
-to as *property observers*.
 
-You can add property observers to any stored property. You can also add
-property observers to any inherited property (whether stored or
-computed) by overriding the property within a subclass, as described in
-[Overriding Property
-Observers](Inheritance.md#TP40016643-CH17-ID201).
+You define this form of a variable declaration at global scope, the local scope of a function, or in the context of a class or structure declaration. When a variable declaration of this form is declared at global scope or the local scope of a function, the observers are referred to as *stored variable observers*. When it is declared in the context of a class or structure declaration, the observers are referred to as *property observers*.
 
-The initializer *expression* is optional in the context of a class or
-structure declaration, but required elsewhere. The *type* annotation is
-optional when the type can be inferred from the initializer
-*expression*.
+You can add property observers to any stored property. You can also add property observers to any inherited property (whether stored or computed) by overriding the property within a subclass, as described in [Overriding Property Observers](Inheritance.md#TP40016643-CH17-ID201).
 
-The `willSet`{.code-voice} and `didSet`{.code-voice} observers provide a
-way to observe (and to respond appropriately) when the value of a
-variable or property is being set. The observers are not called when the
-variable or property is first initialized. Instead, they are called only
-when the value is set outside of an initialization context.
+The initializer *expression* is optional in the context of a class or structure declaration, but required elsewhere. The *type* annotation is optional when the type can be inferred from the initializer *expression*.
 
-A `willSet`{.code-voice} observer is called just before the value of the
-variable or property is set. The new value is passed to the
-`willSet`{.code-voice} observer as a constant, and therefore it can’t be
-changed in the implementation of the `willSet`{.code-voice} clause. The
-`didSet`{.code-voice} observer is called immediately after the new value
-is set. In contrast to the `willSet`{.code-voice} observer, the old
-value of the variable or property is passed to the `didSet`{.code-voice}
-observer in case you still need access to it. That said, if you assign a
-value to a variable or property within its own `didSet`{.code-voice}
-observer clause, that new value that you assign will replace the one
-that was just set and passed to the `willSet`{.code-voice} observer.
+The `willSet`{.code-voice} and `didSet`{.code-voice} observers provide a way to observe (and to respond appropriately) when the value of a variable or property is being set. The observers are not called when the variable or property is first initialized. Instead, they are called only when the value is set outside of an initialization context.
 
-The *setter name* and enclosing parentheses in the
-`willSet`{.code-voice} and `didSet`{.code-voice} clauses are optional.
-If you provide setter names, they are used as the parameter names to the
-`willSet`{.code-voice} and `didSet`{.code-voice} observers. If you do
-not provide setter names, the default parameter name to the
-`willSet`{.code-voice} observer is `newValue`{.code-voice} and the
-default parameter name to the `didSet`{.code-voice} observer is
-`oldValue`{.code-voice}.
+A `willSet`{.code-voice} observer is called just before the value of the variable or property is set. The new value is passed to the `willSet`{.code-voice} observer as a constant, and therefore it can’t be changed in the implementation of the `willSet`{.code-voice} clause. The `didSet`{.code-voice} observer is called immediately after the new value is set. In contrast to the `willSet`{.code-voice} observer, the old value of the variable or property is passed to the `didSet`{.code-voice} observer in case you still need access to it. That said, if you assign a value to a variable or property within its own `didSet`{.code-voice} observer clause, that new value that you assign will replace the one that was just set and passed to the `willSet`{.code-voice} observer.
 
-The `didSet`{.code-voice} clause is optional when you provide a
-`willSet`{.code-voice} clause. Likewise, the `willSet`{.code-voice}
-clause is optional when you provide a `didSet`{.code-voice} clause.
+The *setter name* and enclosing parentheses in the `willSet`{.code-voice} and `didSet`{.code-voice} clauses are optional. If you provide setter names, they are used as the parameter names to the `willSet`{.code-voice} and `didSet`{.code-voice} observers. If you do not provide setter names, the default parameter name to the `willSet`{.code-voice} observer is `newValue`{.code-voice} and the default parameter name to the `didSet`{.code-voice} observer is `oldValue`{.code-voice}.
 
-For more information and to see an example of how to use property
-observers, see [Property
-Observers](Properties.md#TP40016643-CH14-ID262).
+The `didSet`{.code-voice} clause is optional when you provide a `willSet`{.code-voice} clause. Likewise, the `willSet`{.code-voice} clause is optional when you provide a `didSet`{.code-voice} clause.
 
-</div>
+For more information and to see an example of how to use property observers, see [Property Observers](Properties.md#TP40016643-CH14-ID262).
 
-<div class="section section">
+
+
+
 
 [‌](){#TP40016643-CH34-ID483}
 ### Type Variable Properties {#type-variable-properties .section-name}
 
-To declare a type variable property, mark the declaration with the
-`static`{.code-voice} declaration modifier. Classes may mark type
-computed properties with the `class`{.code-voice} declaration modifier
-instead to allow subclasses to override the superclass’s implementation.
-Type properties are discussed in [Type
-Properties](Properties.md#TP40016643-CH14-ID264).
+To declare a type variable property, mark the declaration with the `static`{.code-voice} declaration modifier. Classes may mark type computed properties with the `class`{.code-voice} declaration modifier instead to allow subclasses to override the superclass’s implementation. Type properties are discussed in [Type Properties](Properties.md#TP40016643-CH14-ID264).
 
-<div class="note">
+
 
 Note
 
-In a class declaration, the `static`{.code-voice} keyword has the same
-effect as marking the declaration with both the `class`{.code-voice} and
-`final`{.code-voice} declaration modifiers.
+In a class declaration, the `static`{.code-voice} keyword has the same effect as marking the declaration with both the `class`{.code-voice} and `final`{.code-voice} declaration modifiers.
 
-</div>
 
-<div class="syntax-defs">
+
+
 
 Grammar of a variable declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#variable-declaration} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
 
-[‌](){#TP40016643-CH34-NoLink_264} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+[‌](){#variable-declaration}
 
-[‌](){#TP40016643-CH34-NoLink_265} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)</span>
+variable-declaration
 
-[‌](){#TP40016643-CH34-NoLink_266} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
 
-[‌](){#TP40016643-CH34-NoLink_267} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[initializer](Declarations.md#initializer)</span><span
-class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)</span>
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
-[‌](){#TP40016643-CH34-NoLink_268} <span class="syntax-def-name">
-variable-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="optional"><span
-class="syntactic-cat">[initializer](Declarations.md#initializer)</span>~opt~</span><span
-class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)</span>
+[‌](){#TP40016643-CH34-NoLink_264}
 
-</div>
+variable-declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#variable-declaration-head} <span class="syntax-def-name">
-variable-declaration-head </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`var`{.literal}
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[code-block](Declarations.md#code-block)
 
-[‌](){#variable-name} <span class="syntax-def-name"> variable-name
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+[‌](){#TP40016643-CH34-NoLink_265}
 
-</div>
+variable-declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#getter-setter-block} <span class="syntax-def-name">
-getter-setter-block </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[getter-setter-block](Declarations.md#getter-setter-block)
 
-[‌](){#TP40016643-CH34-NoLink_272} <span class="syntax-def-name">
-getter-setter-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span><span
-class="optional"><span
-class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span>~opt~</span>`}`{.literal}
+[‌](){#TP40016643-CH34-NoLink_266}
 
-[‌](){#TP40016643-CH34-NoLink_273} <span class="syntax-def-name">
-getter-setter-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span><span
-class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span>`}`{.literal}
+variable-declaration
 
-[‌](){#getter-clause} <span class="syntax-def-name"> getter-clause
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`get`{.literal}<span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
 
-[‌](){#setter-clause} <span class="syntax-def-name"> setter-clause
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`set`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
-[‌](){#setter-name} <span class="syntax-def-name"> setter-name </span>
-<span class="arrow"> → </span>`(`{.literal}<span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>`)`{.literal}
+[‌](){#TP40016643-CH34-NoLink_267}
 
-</div>
+variable-declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#getter-setter-keyword-block} <span class="syntax-def-name">
-getter-setter-keyword-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)</span><span
-class="optional"><span
-class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)</span>~opt~</span>`}`{.literal}
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[initializer](Declarations.md#initializer)[willSet-didSet-block](Declarations.md#willSet-didSet-block)
 
-[‌](){#TP40016643-CH34-NoLink_278} <span class="syntax-def-name">
-getter-setter-keyword-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)</span><span
-class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)</span>`}`{.literal}
+[‌](){#TP40016643-CH34-NoLink_268}
 
-[‌](){#getter-keyword-clause} <span class="syntax-def-name">
-getter-keyword-clause </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`get`{.literal}
+variable-declaration
 
-[‌](){#setter-keyword-clause} <span class="syntax-def-name">
-setter-keyword-clause </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`set`{.literal}
 
-</div>
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[initializer](Declarations.md#initializer)~opt~[willSet-didSet-block](Declarations.md#willSet-didSet-block)
 
-<div class="syntax-defs-group">
 
-[‌](){#willSet-didSet-block} <span class="syntax-def-name">
-willSet-didSet-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)</span><span
-class="optional"><span
-class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)</span>~opt~</span>`}`{.literal}
 
-[‌](){#TP40016643-CH34-NoLink_282} <span class="syntax-def-name">
-willSet-didSet-block </span> <span class="arrow"> →
-</span>`{`{.literal}<span
-class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)</span><span
-class="optional"><span
-class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)</span>~opt~</span>`}`{.literal}
 
-[‌](){#willSet-clause} <span class="syntax-def-name"> willSet-clause
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`willSet`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
 
-[‌](){#didSet-clause} <span class="syntax-def-name"> didSet-clause
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`didSet`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+[‌](){#variable-declaration-head}
 
-</div>
+variable-declaration-head
 
-</div>
 
-</div>
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`var`{.literal}
 
-</div>
+[‌](){#variable-name}
 
-<div class="section section">
+variable-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+
+
+
+
+[‌](){#getter-setter-block}
+
+getter-setter-block
+
+
+→
+[code-block](Declarations.md#code-block)
+
+[‌](){#TP40016643-CH34-NoLink_272}
+
+getter-setter-block
+
+
+→
+`{`{.literal}[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`{.literal}
+
+[‌](){#TP40016643-CH34-NoLink_273}
+
+getter-setter-block
+
+
+→
+`{`{.literal}[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`{.literal}
+
+[‌](){#getter-clause}
+
+getter-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`get`{.literal}[code-block](Declarations.md#code-block)
+
+[‌](){#setter-clause}
+
+setter-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`set`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+
+[‌](){#setter-name}
+
+setter-name
+
+
+→
+`(`{.literal}[identifier](LexicalStructure.md#identifier)`)`{.literal}
+
+
+
+
+
+[‌](){#getter-setter-keyword-block}
+
+getter-setter-keyword-block
+
+
+→
+`{`{.literal}[getter-keyword-clause](Declarations.md#getter-keyword-clause)[setter-keyword-clause](Declarations.md#setter-keyword-clause)~opt~`}`{.literal}
+
+[‌](){#TP40016643-CH34-NoLink_278}
+
+getter-setter-keyword-block
+
+
+→
+`{`{.literal}[setter-keyword-clause](Declarations.md#setter-keyword-clause)[getter-keyword-clause](Declarations.md#getter-keyword-clause)`}`{.literal}
+
+[‌](){#getter-keyword-clause}
+
+getter-keyword-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`get`{.literal}
+
+[‌](){#setter-keyword-clause}
+
+setter-keyword-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`set`{.literal}
+
+
+
+
+
+[‌](){#willSet-didSet-block}
+
+willSet-didSet-block
+
+
+→
+`{`{.literal}[willSet-clause](Declarations.md#willSet-clause)[didSet-clause](Declarations.md#didSet-clause)~opt~`}`{.literal}
+
+[‌](){#TP40016643-CH34-NoLink_282}
+
+willSet-didSet-block
+
+
+→
+`{`{.literal}[didSet-clause](Declarations.md#didSet-clause)[willSet-clause](Declarations.md#willSet-clause)~opt~`}`{.literal}
+
+[‌](){#willSet-clause}
+
+willSet-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`willSet`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+
+[‌](){#didSet-clause}
+
+didSet-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`didSet`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID361}
 ### Type Alias Declaration {#type-alias-declaration .section-name}
 
-A *type alias declaration* introduces a named alias of an existing type
-into your program. Type alias declarations are declared using the
-`typealias`{.code-voice} keyword and have the following form:
+A *type alias declaration* introduces a named alias of an existing type into your program. Type alias declarations are declared using the `typealias`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     typealias name = existing type
     ```
 
-</div>
 
-After a type alias is declared, the aliased *name* can be used instead
-of the *existing type* everywhere in your program. The *existing type*
-can be a named type or a compound type. Type aliases do not create new
-types; they simply allow a name to refer to an existing type.
 
-See also [Protocol Associated Type
-Declaration](Declarations.md#TP40016643-CH34-ID374).
+After a type alias is declared, the aliased *name* can be used instead of the *existing type* everywhere in your program. The *existing type* can be a named type or a compound type. Type aliases do not create new types; they simply allow a name to refer to an existing type.
 
-<div class="syntax-defs">
+See also [Protocol Associated Type Declaration](Declarations.md#TP40016643-CH34-ID374).
+
+
 
 Grammar of a type alias declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#typealias-declaration} <span class="syntax-def-name">
-typealias-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)</span><span
-class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)</span>
 
-[‌](){#typealias-head} <span class="syntax-def-name"> typealias-head
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`typealias`{.literal}<span
-class="syntactic-cat">[typealias-name](Declarations.md#typealias-name)</span>
+[‌](){#typealias-declaration}
 
-[‌](){#typealias-name} <span class="syntax-def-name"> typealias-name
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+typealias-declaration
 
-[‌](){#typealias-assignment} <span class="syntax-def-name">
-typealias-assignment </span> <span class="arrow"> →
-</span>`=`{.literal}<span
-class="syntactic-cat">[type](Types.md#type)</span>
 
-</div>
+→
+[typealias-head](Declarations.md#typealias-head)[typealias-assignment](Declarations.md#typealias-assignment)
 
-</div>
+[‌](){#typealias-head}
 
-</div>
+typealias-head
 
-<div class="section section">
+
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`typealias`{.literal}[typealias-name](Declarations.md#typealias-name)
+
+[‌](){#typealias-name}
+
+typealias-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+[‌](){#typealias-assignment}
+
+typealias-assignment
+
+
+→
+`=`{.literal}[type](Types.md#type)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID362}
 ### Function Declaration {#function-declaration .section-name}
 
-A *function declaration* introduces a function or method into your
-program. A function declared in the context of class, structure,
-enumeration, or protocol is referred to as a *method*. Function
-declarations are declared using the `func`{.code-voice} keyword and have
-the following form:
+A *function declaration* introduces a function or method into your program. A function declared in the context of class, structure, enumeration, or protocol is referred to as a *method*. Function declarations are declared using the `func`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     func function name(parameters) -> return type {
@@ -903,13 +901,12 @@ the following form:
     }
     ```
 
-</div>
 
-If the function has a return type of `Void`{.code-voice}, the return
-type can be omitted as follows:
 
-<span class="caption"></span>
-<div class="code-outline">
+If the function has a return type of `Void`{.code-voice}, the return type can be omitted as follows:
+
+
+
 
 -   ``` {.code-voice}
     func function name(parameters) {
@@ -923,71 +920,51 @@ type can be omitted as follows:
     }
     ```
 
-</div>
 
-The type of each parameter must be included—it can’t be inferred.
-Although the parameters to a function are constants by default, you can
-write `let`{.code-voice} in front of a parameter’s name to emphasize
-this behavior. If you write `inout`{.code-voice} in front of a
-parameter’s name, the parameter can be modified inside the scope of the
-function. In-out parameters are discussed in detail in [In-Out
-Parameters](Declarations.md#TP40016643-CH34-ID545), below.
 
-Functions can return multiple values using a tuple type as the return
-type of the function.
+The type of each parameter must be included—it can’t be inferred. Although the parameters to a function are constants by default, you can write `let`{.code-voice} in front of a parameter’s name to emphasize this behavior. If you write `inout`{.code-voice} in front of a parameter’s name, the parameter can be modified inside the scope of the function. In-out parameters are discussed in detail in [In-Out Parameters](Declarations.md#TP40016643-CH34-ID545), below.
 
-A function definition can appear inside another function declaration.
-This kind of function is known as a *nested function*. For a discussion
-of nested functions, see [Nested
-Functions](Functions.md#TP40016643-CH10-ID178).
+Functions can return multiple values using a tuple type as the return type of the function.
 
-<div class="section section">
+A function definition can appear inside another function declaration. This kind of function is known as a *nested function*. For a discussion of nested functions, see [Nested Functions](Functions.md#TP40016643-CH10-ID178).
+
+
 
 [‌](){#TP40016643-CH34-ID471}
 ### Parameter Names {#parameter-names .section-name}
 
-Function parameters are a comma separated list where each parameter has
-one of several forms. The order of arguments in a function call must
-match the order of parameters in the function’s declaration. The
-simplest entry in a parameter list has the following form:
+Function parameters are a comma separated list where each parameter has one of several forms. The order of arguments in a function call must match the order of parameters in the function’s declaration. The simplest entry in a parameter list has the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     parameter name: parameter type
     ```
 
-</div>
 
-A parameter has a local name, which is used within the function body, as
-well as an external name, which is used as a label for the argument when
-calling the method. By default, the external name of the first parameter
-is omitted, and the second and subsequent parameters use their local
-names as external names. For example:
 
-<div class="section code-listing">
+A parameter has a local name, which is used within the function body, as well as an external name, which is used as a label for the argument when calling the method. By default, the external name of the first parameter is omitted, and the second and subsequent parameters use their local names as external names. For example:
 
-<div class="code-sample">
 
-<div class="Swift">
 
-1.  `func`{.code-voice} `f`{.vc}(`x`{.vc}: `Int`{.n}, `y`{.vc}:
-    `Int`{.n}) -&gt; `Int`{.n} { `return`{.kt} `x`{.vc} + `y`{.vc} }
-2.  `f`{.code-voice}(`1`{.m}, `y`{.vc}: `2`{.m})
-    `// y is labeled, x is not`{.c}
 
-</div>
 
-</div>
 
-</div>
 
-You can override the default behavior for how parameter names are used
-with one of the following forms:
+1.  `func`{.code-voice} `f`{.vc}(`x`{.vc}: `Int`{.n}, `y`{.vc}: `Int`{.n}) -&gt; `Int`{.n} { `return`{.kt} `x`{.vc} + `y`{.vc} }
+2.  `f`{.code-voice}(`1`{.m}, `y`{.vc}: `2`{.m}) `// y is labeled, x is not`{.c}
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
+
+
+
+
+You can override the default behavior for how parameter names are used with one of the following forms:
+
+
+
 
 -   ``` {.code-voice}
     external parameter name local parameter name: parameter type
@@ -997,39 +974,30 @@ with one of the following forms:
     _ local parameter name: parameter type
     ```
 
-</div>
 
-A name before the local parameter name gives the parameter an external
-name, which can be different from the local parameter name. The external
-parameter name must be used when the function is called. The
-corresponding argument must have the external name in function or method
-calls.
 
-An underscore (`_`{.code-voice}) before a local parameter name gives
-that parameter no name to be used in function calls. The corresponding
-argument must have no name in function or method calls.
+A name before the local parameter name gives the parameter an external name, which can be different from the local parameter name. The external parameter name must be used when the function is called. The corresponding argument must have the external name in function or method calls.
 
-<div class="section code-listing">
+An underscore (`_`{.code-voice}) before a local parameter name gives that parameter no name to be used in function calls. The corresponding argument must have no name in function or method calls.
 
-<div class="code-sample">
 
-<div class="Swift">
 
-1.  `func`{.code-voice} `f`{.vc}(`x`{.vc} `x`{.vc}: `Int`{.n},
-    `withY`{.vc} `y`{.vc}: `Int`{.n}, `_`{.kt} `z`{.vc}: `Int`{.n})
-    -&gt; `Int`{.n} { `return`{.kt} `x`{.vc} + `y`{.vc} + `z`{.vc} }
-2.  `f`{.code-voice}(`x`{.vc}: `1`{.m}, `withY`{.vc}: `2`{.m}, `3`{.m})
-    `// x and y are labeled, z is not`{.c}
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+1.  `func`{.code-voice} `f`{.vc}(`x`{.vc} `x`{.vc}: `Int`{.n}, `withY`{.vc} `y`{.vc}: `Int`{.n}, `_`{.kt} `z`{.vc}: `Int`{.n}) -&gt; `Int`{.n} { `return`{.kt} `x`{.vc} + `y`{.vc} + `z`{.vc} }
+2.  `f`{.code-voice}(`x`{.vc}: `1`{.m}, `withY`{.vc}: `2`{.m}, `3`{.m}) `// x and y are labeled, z is not`{.c}
 
-<div class="section section">
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID545}
 ### In-Out Parameters {#in-out-parameters .section-name}
@@ -1040,69 +1008,44 @@ In-out parameters are passed as follows:
 
 2.  In the body of the function, the copy is modified.
 
-3.  When the function returns, the copy’s value is assigned to the
-    original argument.
+3.  When the function returns, the copy’s value is assigned to the original argument.
 
-This behavior is known as *copy-in copy-out* or *call by value result*.
-For example, when a computed property or a property with observers is
-passed as an in-out parameter, its getter is called as part of the
-function call and its setter is called as part of the function return.
+This behavior is known as *copy-in copy-out* or *call by value result*. For example, when a computed property or a property with observers is passed as an in-out parameter, its getter is called as part of the function call and its setter is called as part of the function return.
 
-As an optimization, when the argument is a value stored at a physical
-address in memory, the same memory location is used both inside and
-outside the function body. The optimized behavior is known as *call by
-reference*; it satisfies all of the requirements of the copy-in copy-out
-model while removing the overhead of copying. Write your code using the
-model given by copy-in copy-out, without depending on the
-call-by-reference optimization, so that it behaves correctly with or
-without the optimization.
+As an optimization, when the argument is a value stored at a physical address in memory, the same memory location is used both inside and outside the function body. The optimized behavior is known as *call by reference*; it satisfies all of the requirements of the copy-in copy-out model while removing the overhead of copying. Write your code using the model given by copy-in copy-out, without depending on the call-by-reference optimization, so that it behaves correctly with or without the optimization.
 
-Do not access the value that was passed as an in-out argument, even if
-the original argument is available in the current scope. When the
-function returns, your changes to the original are overwritten with the
-value of the copy. Do not depend on the implementation of the
-call-by-reference optimization to try to keep the changes from being
-overwritten.
+Do not access the value that was passed as an in-out argument, even if the original argument is available in the current scope. When the function returns, your changes to the original are overwritten with the value of the copy. Do not depend on the implementation of the call-by-reference optimization to try to keep the changes from being overwritten.
 
-You can’t pass the same argument to multiple in-out parameters because
-the order in which the copies are written back is not well defined,
-which means the final value of the original would also not be well
-defined. For example:
+You can’t pass the same argument to multiple in-out parameters because the order in which the copies are written back is not well defined, which means the final value of the original would also not be well defined. For example:
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
 
 1.  `var`{.code-voice} `x`{.vc} = `10`{.m}
-2.  `func`{.code-voice} `f`{.vc}(`inout`{.kt} `a`{.vc}: `Int`{.n},
-    `inout`{.kt} `_`{.kt} `b`{.vc}: `Int`{.n}) {
+2.  `func`{.code-voice} `f`{.vc}(`inout`{.kt} `a`{.vc}: `Int`{.n}, `inout`{.kt} `_`{.kt} `b`{.vc}: `Int`{.n}) {
 3.  `    a`{.code-voice} += `1`{.m}
 4.  `    b`{.code-voice} += `10`{.m}
 5.  `}`{.code-voice}
-6.  `f`{.code-voice}(&`x`{.vc}, &`x`{.vc})
-    `// Invalid, in-out arguments alias each other`{.c}
+6.  `f`{.code-voice}(&`x`{.vc}, &`x`{.vc}) `// Invalid, in-out arguments alias each other`{.c}
 
-</div>
 
-</div>
 
-</div>
 
-There is no copy-out at the end of closures or nested functions. This
-means if a closure is called after the function returns, any changes
-that closure makes to the in-out parameters do not get copied back to
-the original. For example:
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+There is no copy-out at the end of closures or nested functions. This means if a closure is called after the function returns, any changes that closure makes to the in-out parameters do not get copied back to the original. For example:
 
-1.  `func`{.code-voice} `outer`{.vc}(`inout`{.kt} `a`{.vc}: `Int`{.n})
-    -&gt; () -&gt; `Void`{.n} {
+
+
+
+
+
+
+1.  `func`{.code-voice} `outer`{.vc}(`inout`{.kt} `a`{.vc}: `Int`{.n}) -&gt; () -&gt; `Void`{.n} {
 2.  `    func`{.code-voice} `inner`{.vc}() {
 3.  `        a`{.code-voice} += `1`{.m}
 4.  `    }`{.code-voice}
@@ -1115,33 +1058,27 @@ the original. For example:
 11. `print`{.code-voice}(`x`{.vc})
 12. `// prints "10"`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-The value of `x`{.code-voice} is not changed by `inner()`{.code-voice}
-incrementing `a`{.code-voice}, because `inner()`{.code-voice} is called
-after `outer()`{.code-voice} returns. To change the value of
-`x`{.code-voice}, `inner()`{.code-voice} would need to be called before
-`outer()`{.code-voice} returned.
 
-For more discussion and examples of in-out parameters, see [In-Out
-Parameters](Functions.md#TP40016643-CH10-ID173).
 
-</div>
 
-<div class="section section">
+The value of `x`{.code-voice} is not changed by `inner()`{.code-voice} incrementing `a`{.code-voice}, because `inner()`{.code-voice} is called after `outer()`{.code-voice} returns. To change the value of `x`{.code-voice}, `inner()`{.code-voice} would need to be called before `outer()`{.code-voice} returned.
+
+For more discussion and examples of in-out parameters, see [In-Out Parameters](Functions.md#TP40016643-CH10-ID173).
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID472}
 ### Special Kinds of Parameters {#special-kinds-of-parameters .section-name}
 
-Parameters can be ignored, take a variable number of values, and provide
-default values using the following forms:
+Parameters can be ignored, take a variable number of values, and provide default values using the following forms:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     _ : parameter type
@@ -1155,80 +1092,55 @@ default values using the following forms:
     parameter name: parameter type = default argument value
     ```
 
-</div>
 
-An underscore (`_`{.code-voice}) parameter is explicitly ignored and
-can’t be accessed within the body of the function.
 
-A parameter with a base type name followed immediately by three dots
-(`...`{.code-voice}) is understood as a variadic parameter. A function
-can have at most one variadic parameter. A variadic parameter is treated
-as an array that contains elements of the base type name. For instance,
-the variadic parameter `Int...`{.code-voice} is treated as
-`[Int]`{.code-voice}. For an example that uses a variadic parameter, see
-[Variadic Parameters](Functions.md#TP40016643-CH10-ID171).
+An underscore (`_`{.code-voice}) parameter is explicitly ignored and can’t be accessed within the body of the function.
 
-A parameter with an equals sign (`=`{.code-voice}) and an expression
-after its type is understood to have a default value of the given
-expression. The given expression is evaluated when the function is
-called. If the parameter is omitted when calling the function, the
-default value is used instead.
+A parameter with a base type name followed immediately by three dots (`...`{.code-voice}) is understood as a variadic parameter. A function can have at most one variadic parameter. A variadic parameter is treated as an array that contains elements of the base type name. For instance, the variadic parameter `Int...`{.code-voice} is treated as `[Int]`{.code-voice}. For an example that uses a variadic parameter, see [Variadic Parameters](Functions.md#TP40016643-CH10-ID171).
 
-<div class="section code-listing">
+A parameter with an equals sign (`=`{.code-voice}) and an expression after its type is understood to have a default value of the given expression. The given expression is evaluated when the function is called. If the parameter is omitted when calling the function, the default value is used instead.
 
-<div class="code-sample">
 
-<div class="Swift">
 
-1.  `func`{.code-voice} `f`{.vc}(`x`{.vc}: `Int`{.n} = `42`{.m}) -&gt;
-    `Int`{.n} { `return`{.kt} `x`{.vc} }
+
+
+
+
+1.  `func`{.code-voice} `f`{.vc}(`x`{.vc}: `Int`{.n} = `42`{.m}) -&gt; `Int`{.n} { `return`{.kt} `x`{.vc} }
 2.  `f`{.code-voice}() `// Valid, uses default value`{.c}
-3.  `f`{.code-voice}(`7`{.m})
-    `// Valid, value provided without its name`{.c}
-4.  `f`{.code-voice}(`x`{.vc}: `7`{.m})
-    `// Invalid, name and value provided`{.c}
+3.  `f`{.code-voice}(`7`{.m}) `// Valid, value provided without its name`{.c}
+4.  `f`{.code-voice}(`x`{.vc}: `7`{.m}) `// Invalid, name and value provided`{.c}
 
-</div>
 
-</div>
 
-</div>
 
-</div>
 
-<div class="section section">
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID473}
 ### Special Kinds of Methods {#special-kinds-of-methods .section-name}
 
-Methods on an enumeration or a structure that modify `self`{.code-voice}
-must be marked with the `mutating`{.code-voice} declaration modifier.
+Methods on an enumeration or a structure that modify `self`{.code-voice} must be marked with the `mutating`{.code-voice} declaration modifier.
 
-Methods that override a superclass method must be marked with the
-`override`{.code-voice} declaration modifier. It’s a compile-time error
-to override a method without the `override`{.code-voice} modifier or to
-use the `override`{.code-voice} modifier on a method that doesn’t
-override a superclass method.
+Methods that override a superclass method must be marked with the `override`{.code-voice} declaration modifier. It’s a compile-time error to override a method without the `override`{.code-voice} modifier or to use the `override`{.code-voice} modifier on a method that doesn’t override a superclass method.
 
-Methods associated with a type rather than an instance of a type must be
-marked with the `static`{.code-voice} declaration modifier for
-enumerations and structures or the `class`{.code-voice} declaration
-modifier for classes.
+Methods associated with a type rather than an instance of a type must be marked with the `static`{.code-voice} declaration modifier for enumerations and structures or the `class`{.code-voice} declaration modifier for classes.
 
-</div>
 
-<div class="section section">
+
+
 
 [‌](){#TP40016643-CH34-ID530}
 ### Throwing Functions and Methods {#throwing-functions-and-methods .section-name}
 
-Functions and methods that can throw an error must be marked with the
-`throws`{.code-voice} keyword. These functions and methods are known as
-*throwing functions* and *throwing methods*. They have the following
-form:
+Functions and methods that can throw an error must be marked with the `throws`{.code-voice} keyword. These functions and methods are known as *throwing functions* and *throwing methods*. They have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     func function name(parameters) throws -> return type {
@@ -1242,234 +1154,235 @@ form:
     }
     ```
 
-</div>
 
-Calls to a throwing function or method must be wrapped in a
-`try`{.code-voice} or `try!`{.code-voice} expression (that is, in the
-scope of a `try`{.code-voice} or `try!`{.code-voice} operator).
 
-The `throws`{.code-voice} keyword is part of a function’s type, and
-nonthrowing functions are subtypes of throwing functions. As a result,
-you can use a nonthrowing function in the same places as a throwing one.
+Calls to a throwing function or method must be wrapped in a `try`{.code-voice} or `try!`{.code-voice} expression (that is, in the scope of a `try`{.code-voice} or `try!`{.code-voice} operator).
 
-You can’t overload a function based only on whether the function can
-throw an error. That said, you can overload a function based on whether
-a function *parameter* can throw an error.
+The `throws`{.code-voice} keyword is part of a function’s type, and nonthrowing functions are subtypes of throwing functions. As a result, you can use a nonthrowing function in the same places as a throwing one.
 
-A throwing method can’t override a nonthrowing method, and a throwing
-method can’t satisfy a protocol requirement for a nonthrowing method.
-That said, a nonthrowing method can override a throwing method, and a
-nonthrowing method can satisfy a protocol requirement for a throwing.
+You can’t overload a function based only on whether the function can throw an error. That said, you can overload a function based on whether a function *parameter* can throw an error.
 
-</div>
+A throwing method can’t override a nonthrowing method, and a throwing method can’t satisfy a protocol requirement for a nonthrowing method. That said, a nonthrowing method can override a throwing method, and a nonthrowing method can satisfy a protocol requirement for a throwing.
 
-<div class="section section">
+
+
+
 
 [‌](){#TP40016643-CH34-ID531}
 ### Rethrowing Functions and Methods {#rethrowing-functions-and-methods .section-name}
 
-A function or method can be declared with the `rethrows`{.code-voice}
-keyword to indicate that it throws an error only if one of it’s function
-parameters throws an error. These functions and methods are known as
-*rethrowing functions* and *rethrowing methods*. Rethrowing functions
-and methods must have at least one throwing function parameter.
+A function or method can be declared with the `rethrows`{.code-voice} keyword to indicate that it throws an error only if one of it’s function parameters throws an error. These functions and methods are known as *rethrowing functions* and *rethrowing methods*. Rethrowing functions and methods must have at least one throwing function parameter.
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
 
-1.  `func`{.code-voice} `functionWithCallback`{.vc}(`callback`{.vc}: ()
-    `throws`{.kt} -&gt; `Int`{.vc}) `rethrows`{.kt} {
+
+
+
+1.  `func`{.code-voice} `functionWithCallback`{.vc}(`callback`{.vc}: () `throws`{.kt} -&gt; `Int`{.vc}) `rethrows`{.kt} {
 2.  `    try`{.code-voice} `callback`{.vc}()
 3.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-A throwing method can’t override a rethrowing method, and a throwing
-method can’t satisfy a protocol requirement for a rethrowing method.
-That said, a rethrowing method can override a throwing method, and a
-rethrowing method can satisfy a protocol requirement for a throwing
-method.
 
-<div class="syntax-defs">
+
+
+A throwing method can’t override a rethrowing method, and a throwing method can’t satisfy a protocol requirement for a rethrowing method. That said, a rethrowing method can override a throwing method, and a rethrowing method can satisfy a protocol requirement for a throwing method.
+
+
 
 Grammar of a function declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#function-declaration} <span class="syntax-def-name">
-function-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[function-head](Declarations.md#function-head)</span><span
-class="syntactic-cat">[function-name](Declarations.md#function-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[function-signature](Declarations.md#function-signature)</span><span
-class="optional"><span
-class="syntactic-cat">[function-body](Declarations.md#function-body)</span>~opt~</span>
 
-</div>
+[‌](){#function-declaration}
 
-<div class="syntax-defs-group">
+function-declaration
 
-[‌](){#function-head} <span class="syntax-def-name"> function-head
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`func`{.literal}
 
-[‌](){#function-name} <span class="syntax-def-name"> function-name
-</span> <span class="arrow"> → </span><span class="alternative"> <span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
-</span>
+→
+[function-head](Declarations.md#function-head)[function-name](Declarations.md#function-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[function-signature](Declarations.md#function-signature)[function-body](Declarations.md#function-body)~opt~
 
-</div>
 
-<div class="syntax-defs-group">
 
-[‌](){#function-signature} <span class="syntax-def-name">
-function-signature </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span
-class="optional">`throws`{.literal}~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>
 
-[‌](){#TP40016643-CH34-NoLink_295} <span class="syntax-def-name">
-function-signature </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>
 
-[‌](){#function-result} <span class="syntax-def-name"> function-result
-</span> <span class="arrow"> → </span>`->`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="syntactic-cat">[type](Types.md#type)</span>
+[‌](){#function-head}
 
-[‌](){#function-body} <span class="syntax-def-name"> function-body
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+function-head
 
-</div>
 
-<div class="syntax-defs-group">
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`func`{.literal}
 
-[‌](){#parameter-clause} <span class="syntax-def-name"> parameter-clause
-</span> <span class="arrow"> → </span><span class="alternative">
-`(`{.literal}`)`{.literal} </span><span class="alternative">
-`(`{.literal}<span
-class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)</span>`)`{.literal}
-</span>
+[‌](){#function-name}
 
-[‌](){#parameter-list} <span class="syntax-def-name"> parameter-list
-</span> <span class="arrow"> → </span><span class="alternative"> <span
-class="syntactic-cat">[parameter](Declarations.md#parameter)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[parameter](Declarations.md#parameter)</span>`,`{.literal}<span
-class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)</span>
-</span>
+function-name
 
-[‌](){#parameter} <span class="syntax-def-name"> parameter </span> <span
-class="arrow"> → </span><span
-class="optional">`let`{.literal}~opt~</span><span class="optional"><span
-class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span
-class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="optional"><span
-class="syntactic-cat">[default-argument-clause](Declarations.md#default-argument-clause)</span>~opt~</span>
 
-[‌](){#TP40016643-CH34-NoLink_301} <span class="syntax-def-name">
-parameter </span> <span class="arrow"> → </span>`inout`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span
-class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>
+→
 
-[‌](){#TP40016643-CH34-NoLink_302} <span class="syntax-def-name">
-parameter </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span
-class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>`...`{.literal}
+[identifier](LexicalStructure.md#identifier)
 
-[‌](){#external-parameter-name} <span class="syntax-def-name">
-external-parameter-name </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative"> `_`{.literal} </span>
+[operator](LexicalStructure.md#operator)
 
-[‌](){#local-parameter-name} <span class="syntax-def-name">
-local-parameter-name </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative"> `_`{.literal} </span>
 
-[‌](){#default-argument-clause} <span class="syntax-def-name">
-default-argument-clause </span> <span class="arrow"> →
-</span>`=`{.literal}<span
-class="syntactic-cat">[expression](Expressions.md#expression)</span>
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+[‌](){#function-signature}
 
-<div class="section section">
+function-signature
+
+
+→
+[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~[function-result](Declarations.md#function-result)~opt~
+
+[‌](){#TP40016643-CH34-NoLink_295}
+
+function-signature
+
+
+→
+[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}[function-result](Declarations.md#function-result)~opt~
+
+[‌](){#function-result}
+
+function-result
+
+
+→
+`->`{.literal}[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
+
+[‌](){#function-body}
+
+function-body
+
+
+→
+[code-block](Declarations.md#code-block)
+
+
+
+
+
+[‌](){#parameter-clause}
+
+parameter-clause
+
+
+→
+
+`(`{.literal}`)`{.literal}
+
+`(`{.literal}[parameter-list](Declarations.md#parameter-list)`)`{.literal}
+
+
+[‌](){#parameter-list}
+
+parameter-list
+
+
+→
+
+[parameter](Declarations.md#parameter)
+
+[parameter](Declarations.md#parameter)`,`{.literal}[parameter-list](Declarations.md#parameter-list)
+
+
+[‌](){#parameter}
+
+parameter
+
+
+→
+`let`{.literal}~opt~[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)[default-argument-clause](Declarations.md#default-argument-clause)~opt~
+
+[‌](){#TP40016643-CH34-NoLink_301}
+
+parameter
+
+
+→
+`inout`{.literal}[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)
+
+[‌](){#TP40016643-CH34-NoLink_302}
+
+parameter
+
+
+→
+[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)`...`{.literal}
+
+[‌](){#external-parameter-name}
+
+external-parameter-name
+
+
+→
+
+[identifier](LexicalStructure.md#identifier)
+
+`_`{.literal}
+
+
+[‌](){#local-parameter-name}
+
+local-parameter-name
+
+
+→
+
+[identifier](LexicalStructure.md#identifier)
+
+`_`{.literal}
+
+
+[‌](){#default-argument-clause}
+
+default-argument-clause
+
+
+→
+`=`{.literal}[expression](Expressions.md#expression)
+
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID364}
 ### Enumeration Declaration {#enumeration-declaration .section-name}
 
-An *enumeration declaration* introduces a named enumeration type into
-your program.
+An *enumeration declaration* introduces a named enumeration type into your program.
 
-Enumeration declarations have two basic forms and are declared using the
-`enum`{.code-voice} keyword. The body of an enumeration declared using
-either form contains zero or more values—called *enumeration cases*—and
-any number of declarations, including computed properties, instance
-methods, type methods, initializers, type aliases, and even other
-enumeration, structure, and class declarations. Enumeration declarations
-can’t contain deinitializer or protocol declarations.
+Enumeration declarations have two basic forms and are declared using the `enum`{.code-voice} keyword. The body of an enumeration declared using either form contains zero or more values—called *enumeration cases*—and any number of declarations, including computed properties, instance methods, type methods, initializers, type aliases, and even other enumeration, structure, and class declarations. Enumeration declarations can’t contain deinitializer or protocol declarations.
 
-Enumeration types can adopt any number of protocols, but can’t inherit
-from classes, structures, or other enumerations.
+Enumeration types can adopt any number of protocols, but can’t inherit from classes, structures, or other enumerations.
 
-Unlike classes and structures, enumeration types do not have an
-implicitly provided default initializer; all initializers must be
-declared explicitly. Initializers can delegate to other initializers in
-the enumeration, but the initialization process is complete only after
-an initializer assigns one of the enumeration cases to
-`self`{.code-voice}.
+Unlike classes and structures, enumeration types do not have an implicitly provided default initializer; all initializers must be declared explicitly. Initializers can delegate to other initializers in the enumeration, but the initialization process is complete only after an initializer assigns one of the enumeration cases to `self`{.code-voice}.
 
-Like structures but unlike classes, enumerations are value types;
-instances of an enumeration are copied when assigned to variables or
-constants, or when passed as arguments to a function call. For
-information about value types, see [Structures and Enumerations Are
-Value Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
+Like structures but unlike classes, enumerations are value types; instances of an enumeration are copied when assigned to variables or constants, or when passed as arguments to a function call. For information about value types, see [Structures and Enumerations Are Value Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
 
-You can extend the behavior of an enumeration type with an extension
-declaration, as discussed in [Extension
-Declaration](Declarations.md#TP40016643-CH34-ID378).
+You can extend the behavior of an enumeration type with an extension declaration, as discussed in [Extension Declaration](Declarations.md#TP40016643-CH34-ID378).
 
-<div class="section section">
+
 
 [‌](){#TP40016643-CH34-ID365}
 ### Enumerations with Cases of Any Type {#enumerations-with-cases-of-any-type .section-name}
 
-The following form declares an enumeration type that contains
-enumeration cases of any type:
+The following form declares an enumeration type that contains enumeration cases of any type:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     enum enumeration name: adopted protocols {
@@ -1487,28 +1400,19 @@ enumeration cases of any type:
     }
     ```
 
-</div>
 
-Enumerations declared in this form are sometimes called *discriminated
-unions* in other programming languages.
 
-In this form, each case block consists of the `case`{.code-voice}
-keyword followed by one or more enumeration cases, separated by commas.
-The name of each case must be unique. Each case can also specify that it
-stores values of a given type. These types are specified in the
-*associated value types* tuple, immediately following the name of the
-case.
+Enumerations declared in this form are sometimes called *discriminated unions* in other programming languages.
 
-Enumeration cases that store associated values can be used as functions
-that create instances of the enumeration with the specified associated
-values. And just like functions, you can get a reference to an
-enumeration case and apply it later in your code.
+In this form, each case block consists of the `case`{.code-voice} keyword followed by one or more enumeration cases, separated by commas. The name of each case must be unique. Each case can also specify that it stores values of a given type. These types are specified in the *associated value types* tuple, immediately following the name of the case.
 
-<div class="section code-listing">
+Enumeration cases that store associated values can be used as functions that create instances of the enumeration with the specified associated values. And just like functions, you can get a reference to an enumeration case and apply it later in your code.
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
+
 
 1.  `enum`{.code-voice} `Number`{.vc} {
 2.  `    case`{.code-voice} `Integer`{.vc}(`Int`{.vc})
@@ -1518,77 +1422,59 @@ enumeration case and apply it later in your code.
 6.  `// f is a function of type (Int) -> Number`{.code-voice}
 7.  ` `{.code-voice}
 8.  `// Apply f to create an array of Number instances with integer values`{.code-voice}
-9.  `let`{.code-voice} `evenInts`{.vc}: \[`Number`{.n}\] = \[`0`{.m},
-    `2`{.m}, `4`{.m}, `6`{.m}\].`map`{.vc}(`f`{.vc})
+9.  `let`{.code-voice} `evenInts`{.vc}: \[`Number`{.n}\] = \[`0`{.m}, `2`{.m}, `4`{.m}, `6`{.m}\].`map`{.vc}(`f`{.vc})
 
-</div>
 
-</div>
 
-</div>
 
-For more information and to see examples of cases with associated value
-types, see [Associated
-Values](Enumerations.md#TP40016643-CH12-ID148).
 
-<div class="section section">
+
+
+For more information and to see examples of cases with associated value types, see [Associated Values](Enumerations.md#TP40016643-CH12-ID148).
+
+
 
 [‌](){#TP40016643-CH34-ID537}
 ### Enumerations with Indirection {#enumerations-with-indirection .section-name}
 
-Enumerations can have a recursive structure, that is, they can have
-cases with associated values that are instances of the enumeration type
-itself. However, instances of enumeration types have value semantics,
-which means they have a fixed layout in memory. To support recursion,
-the compiler must insert a layer of indirection.
+Enumerations can have a recursive structure, that is, they can have cases with associated values that are instances of the enumeration type itself. However, instances of enumeration types have value semantics, which means they have a fixed layout in memory. To support recursion, the compiler must insert a layer of indirection.
 
-To enable indirection for a particular enumeration case, mark it with
-the `indirect`{.code-voice} declaration modifier.
+To enable indirection for a particular enumeration case, mark it with the `indirect`{.code-voice} declaration modifier.
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
 
 1.  `enum`{.code-voice} `Tree`{.vc}&lt;`T`{.vc}&gt; {
 2.  `    case`{.code-voice} `Empty`{.vc}
-3.  `    indirect`{.code-voice} `case`{.kt} `Node`{.vc}(`value`{.vc}:
-    `T`{.vc}, `left`{.vc}: `Tree`{.vc}, `right`{.vc}: `Tree`{.vc})
+3.  `    indirect`{.code-voice} `case`{.kt} `Node`{.vc}(`value`{.vc}: `T`{.vc}, `left`{.vc}: `Tree`{.vc}, `right`{.vc}: `Tree`{.vc})
 4.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-To enable indirection for all the cases of an enumeration, mark the
-entire enumeration with the `indirect`{.code-voice} modifier—this is
-convenient when the enumeration contains many cases that would each need
-to be marked with the `indirect`{.code-voice} modifier.
 
-An enumeration case that’s marked with the `indirect`{.code-voice}
-modifier must have an associated value. An enumeration that is marked
-with the `indirect`{.code-voice} modifier can contain a mixture of cases
-that have associated values and cases those that don’t. That said, it
-can’t contain any cases that are also marked with the
-`indirect`{.code-voice} modifier.
 
-</div>
 
-</div>
+To enable indirection for all the cases of an enumeration, mark the entire enumeration with the `indirect`{.code-voice} modifier—this is convenient when the enumeration contains many cases that would each need to be marked with the `indirect`{.code-voice} modifier.
 
-<div class="section section">
+An enumeration case that’s marked with the `indirect`{.code-voice} modifier must have an associated value. An enumeration that is marked with the `indirect`{.code-voice} modifier can contain a mixture of cases that have associated values and cases those that don’t. That said, it can’t contain any cases that are also marked with the `indirect`{.code-voice} modifier.
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID366}
 ### Enumerations with Cases of a Raw-Value Type {#enumerations-with-cases-of-a-raw-value-type .section-name}
 
-The following form declares an enumeration type that contains
-enumeration cases of the same basic type:
+The following form declares an enumeration type that contains enumeration cases of the same basic type:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     enum enumeration name: raw-value type, adopted protocols {
@@ -1606,277 +1492,260 @@ enumeration cases of the same basic type:
     }
     ```
 
-</div>
 
-In this form, each case block consists of the `case`{.code-voice}
-keyword, followed by one or more enumeration cases, separated by commas.
-Unlike the cases in the first form, each case has an underlying value,
-called a *raw value*, of the same basic type. The type of these values
-is specified in the *raw-value type* and must represent an integer,
-floating-point number, string, or single character. In particular, the
-*raw-value type* must conform to the `Equatable`{.code-voice} protocol
-and one of the following literal-convertible protocols:
-`IntegerLiteralConvertible`{.code-voice} for integer literals,
-`FloatingPointLiteralConvertible`{.code-voice} for floating-point
-literals, `StringLiteralConvertible`{.code-voice} for string literals
-that contain any number of characters, and
-`ExtendedGraphemeClusterLiteralConvertible`{.code-voice} for string
-literals that contain only a single character. Each case must have a
-unique name and be assigned a unique raw value.
 
-If the raw-value type is specified as `Int`{.code-voice} and you don’t
-assign a value to the cases explicitly, they are implicitly assigned the
-values `0`{.code-voice}, `1`{.code-voice}, `2`{.code-voice}, and so on.
-Each unassigned case of type `Int`{.code-voice} is implicitly assigned a
-raw value that is automatically incremented from the raw value of the
-previous case.
+In this form, each case block consists of the `case`{.code-voice} keyword, followed by one or more enumeration cases, separated by commas. Unlike the cases in the first form, each case has an underlying value, called a *raw value*, of the same basic type. The type of these values is specified in the *raw-value type* and must represent an integer, floating-point number, string, or single character. In particular, the *raw-value type* must conform to the `Equatable`{.code-voice} protocol and one of the following literal-convertible protocols: `IntegerLiteralConvertible`{.code-voice} for integer literals, `FloatingPointLiteralConvertible`{.code-voice} for floating-point literals, `StringLiteralConvertible`{.code-voice} for string literals that contain any number of characters, and `ExtendedGraphemeClusterLiteralConvertible`{.code-voice} for string literals that contain only a single character. Each case must have a unique name and be assigned a unique raw value.
 
-<div class="section code-listing">
+If the raw-value type is specified as `Int`{.code-voice} and you don’t assign a value to the cases explicitly, they are implicitly assigned the values `0`{.code-voice}, `1`{.code-voice}, `2`{.code-voice}, and so on. Each unassigned case of type `Int`{.code-voice} is implicitly assigned a raw value that is automatically incremented from the raw value of the previous case.
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
+
 
 1.  `enum`{.code-voice} `ExampleEnum`{.vc}: `Int`{.n} {
-2.  `    case`{.code-voice} `A`{.vc}, `B`{.vc}, `C`{.vc} = `5`{.m},
-    `D`{.vc}
+2.  `    case`{.code-voice} `A`{.vc}, `B`{.vc}, `C`{.vc} = `5`{.m}, `D`{.vc}
 3.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-In the above example, the raw value of `ExampleEnum.A`{.code-voice} is
-`0`{.code-voice} and the value of `ExampleEnum.B`{.code-voice} is
-`1`{.code-voice}. And because the value of `ExampleEnum.C`{.code-voice}
-is explicitly set to `5`{.code-voice}, the value of
-`ExampleEnum.D`{.code-voice} is automatically incremented from
-`5`{.code-voice} and is therefore `6`{.code-voice}.
 
-If the raw-value type is specified as `String`{.code-voice} and you
-don’t assign values to the cases explicitly, each unassigned case is
-implicitly assigned a string with the same text as the name of that
-case.
 
-<div class="section code-listing">
 
-<div class="code-sample">
+In the above example, the raw value of `ExampleEnum.A`{.code-voice} is `0`{.code-voice} and the value of `ExampleEnum.B`{.code-voice} is `1`{.code-voice}. And because the value of `ExampleEnum.C`{.code-voice} is explicitly set to `5`{.code-voice}, the value of `ExampleEnum.D`{.code-voice} is automatically incremented from `5`{.code-voice} and is therefore `6`{.code-voice}.
 
-<div class="Swift">
+If the raw-value type is specified as `String`{.code-voice} and you don’t assign values to the cases explicitly, each unassigned case is implicitly assigned a string with the same text as the name of that case.
+
+
+
+
+
+
 
 1.  `enum`{.code-voice} `WeekendDay`{.vc}: `String`{.n} {
 2.  `    case`{.code-voice} `Saturday`{.vc}, `Sunday`{.vc}
 3.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-In the above example, the raw value of
-`WeekendDay.Saturday`{.code-voice} is `"Saturday"`{.code-voice}, and the
-raw value of `WeekendDay.Sunday`{.code-voice} is
-`"Sunday"`{.code-voice}.
 
-Enumerations that have cases of a raw-value type implicitly conform to
-the `RawRepresentable`{.code-voice} protocol, defined in the Swift
-standard library. As a result, they have a `rawValue`{.code-voice}
-property and a failable initializer with the signature
-`init?(rawValue: RawValue)`{.code-voice}. You can use the
-`rawValue`{.code-voice} property to access the raw value of an
-enumeration case, as in `ExampleEnum.B.rawValue`{.code-voice}. You can
-also use a raw value to find a corresponding case, if there is one, by
-calling the enumeration’s failable initializer, as in
-`ExampleEnum(rawValue: 5)`{.code-voice}, which returns an optional case.
-For more information and to see examples of cases with raw-value types,
-see [Raw Values](Enumerations.md#TP40016643-CH12-ID149).
 
-</div>
 
-<div class="section section">
+In the above example, the raw value of `WeekendDay.Saturday`{.code-voice} is `"Saturday"`{.code-voice}, and the raw value of `WeekendDay.Sunday`{.code-voice} is `"Sunday"`{.code-voice}.
+
+Enumerations that have cases of a raw-value type implicitly conform to the `RawRepresentable`{.code-voice} protocol, defined in the Swift standard library. As a result, they have a `rawValue`{.code-voice} property and a failable initializer with the signature `init?(rawValue: RawValue)`{.code-voice}. You can use the `rawValue`{.code-voice} property to access the raw value of an enumeration case, as in `ExampleEnum.B.rawValue`{.code-voice}. You can also use a raw value to find a corresponding case, if there is one, by calling the enumeration’s failable initializer, as in `ExampleEnum(rawValue: 5)`{.code-voice}, which returns an optional case. For more information and to see examples of cases with raw-value types, see [Raw Values](Enumerations.md#TP40016643-CH12-ID149).
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID474}
 ### Accessing Enumeration Cases {#accessing-enumeration-cases .section-name}
 
-To reference the case of an enumeration type, use dot (`.`{.code-voice})
-syntax, as in `EnumerationType.EnumerationCase`{.code-voice}. When the
-enumeration type can be inferred from context, you can omit it (the dot
-is still required), as described in [Enumeration
-Syntax](Enumerations.md#TP40016643-CH12-ID146) and [Implicit Member
-Expression](Expressions.md#TP40016643-CH32-ID394).
+To reference the case of an enumeration type, use dot (`.`{.code-voice}) syntax, as in `EnumerationType.EnumerationCase`{.code-voice}. When the enumeration type can be inferred from context, you can omit it (the dot is still required), as described in [Enumeration Syntax](Enumerations.md#TP40016643-CH12-ID146) and [Implicit Member Expression](Expressions.md#TP40016643-CH32-ID394).
 
-To check the values of enumeration cases, use a `switch`{.code-voice}
-statement, as shown in [Matching Enumeration Values with a Switch
-Statement](Enumerations.md#TP40016643-CH12-ID147). The enumeration
-type is pattern-matched against the enumeration case patterns in the
-case blocks of the `switch`{.code-voice} statement, as described in
-[Enumeration Case Pattern](Patterns.md#TP40016643-CH36-ID424).
+To check the values of enumeration cases, use a `switch`{.code-voice} statement, as shown in [Matching Enumeration Values with a Switch Statement](Enumerations.md#TP40016643-CH12-ID147). The enumeration type is pattern-matched against the enumeration case patterns in the case blocks of the `switch`{.code-voice} statement, as described in [Enumeration Case Pattern](Patterns.md#TP40016643-CH36-ID424).
 
-<div class="syntax-defs">
+
 
 Grammar of an enumeration declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#enum-declaration} <span class="syntax-def-name"> enum-declaration
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span><span
-class="syntactic-cat">[union-style-enum](Declarations.md#union-style-enum)</span>
 
-[‌](){#TP40016643-CH34-NoLink_308} <span class="syntax-def-name">
-enum-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span><span
-class="syntactic-cat">[raw-value-style-enum](Declarations.md#raw-value-style-enum)</span>
+[‌](){#enum-declaration}
 
-</div>
+enum-declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#union-style-enum} <span class="syntax-def-name"> union-style-enum
-</span> <span class="arrow"> → </span><span
-class="optional">`indirect`{.literal}~opt~</span>`enum`{.literal}<span
-class="syntactic-cat">[enum-name](Declarations.md#enum-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span>`{`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)</span>~opt~</span>`}`{.literal}
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~[union-style-enum](Declarations.md#union-style-enum)
 
-[‌](){#union-style-enum-members} <span class="syntax-def-name">
-union-style-enum-members </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[union-style-enum-member](Declarations.md#union-style-enum-member)</span><span
-class="optional"><span
-class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)</span>~opt~</span>
+[‌](){#TP40016643-CH34-NoLink_308}
 
-[‌](){#union-style-enum-member} <span class="syntax-def-name">
-union-style-enum-member </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[declaration](Declarations.md#declaration)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[union-style-enum-case-clause](Declarations.md#union-style-enum-case-clause)</span>
-</span>
+enum-declaration
 
-[‌](){#union-style-enum-case-clause} <span class="syntax-def-name">
-union-style-enum-case-clause </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional">`indirect`{.literal}~opt~</span>`case`{.literal}<span
-class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)</span>
 
-[‌](){#union-style-enum-case-list} <span class="syntax-def-name">
-union-style-enum-case-list </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)</span>`,`{.literal}<span
-class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)</span>
-</span>
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~[raw-value-style-enum](Declarations.md#raw-value-style-enum)
 
-[‌](){#union-style-enum-case} <span class="syntax-def-name">
-union-style-enum-case </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)</span><span
-class="optional"><span
-class="syntactic-cat">[tuple-type](Types.md#tuple-type)</span>~opt~</span>
 
-[‌](){#enum-name} <span class="syntax-def-name"> enum-name </span> <span
-class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
 
-[‌](){#enum-case-name} <span class="syntax-def-name"> enum-case-name
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
 
-</div>
 
-<div class="syntax-defs-group">
+[‌](){#union-style-enum}
 
-[‌](){#raw-value-style-enum} <span class="syntax-def-name">
-raw-value-style-enum </span> <span class="arrow"> →
-</span>`enum`{.literal}<span
-class="syntactic-cat">[enum-name](Declarations.md#enum-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>`{`{.literal}<span
-class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)</span>`}`{.literal}
+union-style-enum
 
-[‌](){#raw-value-style-enum-members} <span class="syntax-def-name">
-raw-value-style-enum-members </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[raw-value-style-enum-member](Declarations.md#raw-value-style-enum-member)</span><span
-class="optional"><span
-class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)</span>~opt~</span>
 
-[‌](){#raw-value-style-enum-member} <span class="syntax-def-name">
-raw-value-style-enum-member </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[declaration](Declarations.md#declaration)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[raw-value-style-enum-case-clause](Declarations.md#raw-value-style-enum-case-clause)</span>
-</span>
+→
+`indirect`{.literal}~opt~`enum`{.literal}[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~`{`{.literal}[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~`}`{.literal}
 
-[‌](){#raw-value-style-enum-case-clause} <span class="syntax-def-name">
-raw-value-style-enum-case-clause </span> <span class="arrow"> →
-</span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`case`{.literal}<span
-class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)</span>
+[‌](){#union-style-enum-members}
 
-[‌](){#raw-value-style-enum-case-list} <span class="syntax-def-name">
-raw-value-style-enum-case-list </span> <span class="arrow"> →
-</span><span class="alternative"> <span
-class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)</span>`,`{.literal}<span
-class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)</span>
-</span>
+union-style-enum-members
 
-[‌](){#raw-value-style-enum-case} <span class="syntax-def-name">
-raw-value-style-enum-case </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)</span><span
-class="optional"><span
-class="syntactic-cat">[raw-value-assignment](Declarations.md#raw-value-assignment)</span>~opt~</span>
 
-[‌](){#raw-value-assignment} <span class="syntax-def-name">
-raw-value-assignment </span> <span class="arrow"> →
-</span>`=`{.literal}<span
-class="syntactic-cat">[raw-value-literal](Declarations.md#raw-value-literal)</span>
+→
+[union-style-enum-member](Declarations.md#union-style-enum-member)[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~
 
-[‌](){#raw-value-literal} <span class="syntax-def-name">
-raw-value-literal </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[numeric-literal](LexicalStructure.md#numeric-literal)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)</span>
-</span>
+[‌](){#union-style-enum-member}
 
-</div>
+union-style-enum-member
 
-</div>
 
-</div>
+→
 
-</div>
+[declaration](Declarations.md#declaration)
 
-<div class="section section">
+[union-style-enum-case-clause](Declarations.md#union-style-enum-case-clause)
+
+
+[‌](){#union-style-enum-case-clause}
+
+union-style-enum-case-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`indirect`{.literal}~opt~`case`{.literal}[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
+
+[‌](){#union-style-enum-case-list}
+
+union-style-enum-case-list
+
+
+→
+
+[union-style-enum-case](Declarations.md#union-style-enum-case)
+
+[union-style-enum-case](Declarations.md#union-style-enum-case)`,`{.literal}[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
+
+
+[‌](){#union-style-enum-case}
+
+union-style-enum-case
+
+
+→
+[enum-case-name](Declarations.md#enum-case-name)[tuple-type](Types.md#tuple-type)~opt~
+
+[‌](){#enum-name}
+
+enum-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+[‌](){#enum-case-name}
+
+enum-case-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+
+
+
+
+[‌](){#raw-value-style-enum}
+
+raw-value-style-enum
+
+
+→
+`enum`{.literal}[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)`{`{.literal}[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)`}`{.literal}
+
+[‌](){#raw-value-style-enum-members}
+
+raw-value-style-enum-members
+
+
+→
+[raw-value-style-enum-member](Declarations.md#raw-value-style-enum-member)[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)~opt~
+
+[‌](){#raw-value-style-enum-member}
+
+raw-value-style-enum-member
+
+
+→
+
+[declaration](Declarations.md#declaration)
+
+[raw-value-style-enum-case-clause](Declarations.md#raw-value-style-enum-case-clause)
+
+
+[‌](){#raw-value-style-enum-case-clause}
+
+raw-value-style-enum-case-clause
+
+
+→
+[attributes](Attributes.md#attributes)~opt~`case`{.literal}[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
+
+[‌](){#raw-value-style-enum-case-list}
+
+raw-value-style-enum-case-list
+
+
+→
+
+[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)
+
+[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)`,`{.literal}[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
+
+
+[‌](){#raw-value-style-enum-case}
+
+raw-value-style-enum-case
+
+
+→
+[enum-case-name](Declarations.md#enum-case-name)[raw-value-assignment](Declarations.md#raw-value-assignment)~opt~
+
+[‌](){#raw-value-assignment}
+
+raw-value-assignment
+
+
+→
+`=`{.literal}[raw-value-literal](Declarations.md#raw-value-literal)
+
+[‌](){#raw-value-literal}
+
+raw-value-literal
+
+
+→
+
+[numeric-literal](LexicalStructure.md#numeric-literal)
+
+[static-string-literal](LexicalStructure.md#static-string-literal)
+
+[boolean-literal](LexicalStructure.md#boolean-literal)
+
+
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID367}
 ### Structure Declaration {#structure-declaration .section-name}
 
-A *structure declaration* introduces a named structure type into your
-program. Structure declarations are declared using the
-`struct`{.code-voice} keyword and have the following form:
+A *structure declaration* introduces a named structure type into your program. Structure declarations are declared using the `struct`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     struct structure name: adopted protocols {
@@ -1890,97 +1759,73 @@ program. Structure declarations are declared using the
     }
     ```
 
-</div>
 
-The body of a structure contains zero or more *declarations*. These
-*declarations* can include both stored and computed properties, type
-properties, instance methods, type methods, initializers, subscripts,
-type aliases, and even other structure, class, and enumeration
-declarations. Structure declarations can’t contain deinitializer or
-protocol declarations. For a discussion and several examples of
-structures that include various kinds of declarations, see [Classes and
-Structures](ClassesAndStructures.md).
 
-Structure types can adopt any number of protocols, but can’t inherit
-from classes, enumerations, or other structures.
+The body of a structure contains zero or more *declarations*. These *declarations* can include both stored and computed properties, type properties, instance methods, type methods, initializers, subscripts, type aliases, and even other structure, class, and enumeration declarations. Structure declarations can’t contain deinitializer or protocol declarations. For a discussion and several examples of structures that include various kinds of declarations, see [Classes and Structures](ClassesAndStructures.md).
 
-There are three ways create an instance of a previously declared
-structure:
+Structure types can adopt any number of protocols, but can’t inherit from classes, enumerations, or other structures.
 
--   Call one of the initializers declared within the structure, as
-    described in
-    [Initializers](Initialization.md#TP40016643-CH18-ID205).
+There are three ways create an instance of a previously declared structure:
 
--   If no initializers are declared, call the structure’s memberwise
-    initializer, as described in [Memberwise Initializers for Structure
-    Types](Initialization.md#TP40016643-CH18-ID214).
+-   Call one of the initializers declared within the structure, as described in [Initializers](Initialization.md#TP40016643-CH18-ID205).
 
--   If no initializers are declared, and all properties of the structure
-    declaration were given initial values, call the structure’s default
-    initializer, as described in [Default
-    Initializers](Initialization.md#TP40016643-CH18-ID213).
+-   If no initializers are declared, call the structure’s memberwise initializer, as described in [Memberwise Initializers for Structure Types](Initialization.md#TP40016643-CH18-ID214).
 
-The process of initializing a structure’s declared properties is
-described in [Initialization](Initialization.md).
+-   If no initializers are declared, and all properties of the structure declaration were given initial values, call the structure’s default initializer, as described in [Default Initializers](Initialization.md#TP40016643-CH18-ID213).
 
-Properties of a structure instance can be accessed using dot
-(`.`{.code-voice}) syntax, as described in [Accessing
-Properties](ClassesAndStructures.md#TP40016643-CH13-ID86).
+The process of initializing a structure’s declared properties is described in [Initialization](Initialization.md).
 
-Structures are value types; instances of a structure are copied when
-assigned to variables or constants, or when passed as arguments to a
-function call. For information about value types, see [Structures and
-Enumerations Are Value
-Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
+Properties of a structure instance can be accessed using dot (`.`{.code-voice}) syntax, as described in [Accessing Properties](ClassesAndStructures.md#TP40016643-CH13-ID86).
 
-You can extend the behavior of a structure type with an extension
-declaration, as discussed in [Extension
-Declaration](Declarations.md#TP40016643-CH34-ID378).
+Structures are value types; instances of a structure are copied when assigned to variables or constants, or when passed as arguments to a function call. For information about value types, see [Structures and Enumerations Are Value Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
 
-<div class="syntax-defs">
+You can extend the behavior of a structure type with an extension declaration, as discussed in [Extension Declaration](Declarations.md#TP40016643-CH34-ID378).
+
+
 
 Grammar of a structure declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#struct-declaration} <span class="syntax-def-name">
-struct-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`struct`{.literal}<span
-class="syntactic-cat">[struct-name](Declarations.md#struct-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span
-class="syntactic-cat">[struct-body](Declarations.md#struct-body)</span>
 
-[‌](){#struct-name} <span class="syntax-def-name"> struct-name </span>
-<span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+[‌](){#struct-declaration}
 
-[‌](){#struct-body} <span class="syntax-def-name"> struct-body </span>
-<span class="arrow"> → </span>`{`{.literal}<span class="optional"><span
-class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`{.literal}
+struct-declaration
 
-</div>
 
-</div>
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`struct`{.literal}[struct-name](Declarations.md#struct-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[struct-body](Declarations.md#struct-body)
 
-</div>
+[‌](){#struct-name}
 
-<div class="section section">
+struct-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+[‌](){#struct-body}
+
+struct-body
+
+
+→
+`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID368}
 ### Class Declaration {#class-declaration .section-name}
 
-A *class declaration* introduces a named class type into your program.
-Class declarations are declared using the `class`{.code-voice} keyword
-and have the following form:
+A *class declaration* introduces a named class type into your program. Class declarations are declared using the `class`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     class class name: superclass, adopted protocols {
@@ -1994,118 +1839,77 @@ and have the following form:
     }
     ```
 
-</div>
 
-The body of a class contains zero or more *declarations*. These
-*declarations* can include both stored and computed properties, instance
-methods, type methods, initializers, a single deinitializer, subscripts,
-type aliases, and even other class, structure, and enumeration
-declarations. Class declarations can’t contain protocol declarations.
-For a discussion and several examples of classes that include various
-kinds of declarations, see [Classes and
-Structures](ClassesAndStructures.md).
 
-A class type can inherit from only one parent class, its *superclass*,
-but can adopt any number of protocols. The *superclass* appears first
-after the *class name* and colon, followed by any *adopted protocols*.
-Generic classes can inherit from other generic and nongeneric classes,
-but a nongeneric class can inherit only from other nongeneric classes.
-When you write the name of a generic superclass class after the colon,
-you must include the full name of that generic class, including its
-generic parameter clause.
+The body of a class contains zero or more *declarations*. These *declarations* can include both stored and computed properties, instance methods, type methods, initializers, a single deinitializer, subscripts, type aliases, and even other class, structure, and enumeration declarations. Class declarations can’t contain protocol declarations. For a discussion and several examples of classes that include various kinds of declarations, see [Classes and Structures](ClassesAndStructures.md).
 
-As discussed in [Initializer
-Declaration](Declarations.md#TP40016643-CH34-ID375), classes can have
-designated and convenience initializers. The designated initializer of a
-class must initialize all of the class’s declared properties and it must
-do so before calling any of its superclass’s designated initializers.
+A class type can inherit from only one parent class, its *superclass*, but can adopt any number of protocols. The *superclass* appears first after the *class name* and colon, followed by any *adopted protocols*. Generic classes can inherit from other generic and nongeneric classes, but a nongeneric class can inherit only from other nongeneric classes. When you write the name of a generic superclass class after the colon, you must include the full name of that generic class, including its generic parameter clause.
 
-A class can override properties, methods, subscripts, and initializers
-of its superclass. Overridden properties, methods, subscripts, and
-designated initializers must be marked with the `override`{.code-voice}
-declaration modifier.
+As discussed in [Initializer Declaration](Declarations.md#TP40016643-CH34-ID375), classes can have designated and convenience initializers. The designated initializer of a class must initialize all of the class’s declared properties and it must do so before calling any of its superclass’s designated initializers.
 
-To require that subclasses implement a superclass’s initializer, mark
-the superclass’s initializer with the `required`{.code-voice}
-declaration modifier. The subclass’s implementation of that initializer
-must also be marked with the `required`{.code-voice} declaration
-modifier.
+A class can override properties, methods, subscripts, and initializers of its superclass. Overridden properties, methods, subscripts, and designated initializers must be marked with the `override`{.code-voice} declaration modifier.
 
-Although properties and methods declared in the *superclass* are
-inherited by the current class, designated initializers declared in the
-*superclass* are not. That said, if the current class overrides all of
-the superclass’s designated initializers, it inherits the superclass’s
-convenience initializers. Swift classes do not inherit from a universal
-base class.
+To require that subclasses implement a superclass’s initializer, mark the superclass’s initializer with the `required`{.code-voice} declaration modifier. The subclass’s implementation of that initializer must also be marked with the `required`{.code-voice} declaration modifier.
+
+Although properties and methods declared in the *superclass* are inherited by the current class, designated initializers declared in the *superclass* are not. That said, if the current class overrides all of the superclass’s designated initializers, it inherits the superclass’s convenience initializers. Swift classes do not inherit from a universal base class.
 
 There are two ways create an instance of a previously declared class:
 
--   Call one of the initializers declared within the class, as described
-    in [Initializers](Initialization.md#TP40016643-CH18-ID205).
+-   Call one of the initializers declared within the class, as described in [Initializers](Initialization.md#TP40016643-CH18-ID205).
 
--   If no initializers are declared, and all properties of the class
-    declaration were given initial values, call the class’s default
-    initializer, as described in [Default
-    Initializers](Initialization.md#TP40016643-CH18-ID213).
+-   If no initializers are declared, and all properties of the class declaration were given initial values, call the class’s default initializer, as described in [Default Initializers](Initialization.md#TP40016643-CH18-ID213).
 
-Access properties of a class instance with dot (`.`{.code-voice})
-syntax, as described in [Accessing
-Properties](ClassesAndStructures.md#TP40016643-CH13-ID86).
+Access properties of a class instance with dot (`.`{.code-voice}) syntax, as described in [Accessing Properties](ClassesAndStructures.md#TP40016643-CH13-ID86).
 
-Classes are reference types; instances of a class are referred to,
-rather than copied, when assigned to variables or constants, or when
-passed as arguments to a function call. For information about reference
-types, see [Structures and Enumerations Are Value
-Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
+Classes are reference types; instances of a class are referred to, rather than copied, when assigned to variables or constants, or when passed as arguments to a function call. For information about reference types, see [Structures and Enumerations Are Value Types](ClassesAndStructures.md#TP40016643-CH13-ID88).
 
-You can extend the behavior of a class type with an extension
-declaration, as discussed in [Extension
-Declaration](Declarations.md#TP40016643-CH34-ID378).
+You can extend the behavior of a class type with an extension declaration, as discussed in [Extension Declaration](Declarations.md#TP40016643-CH34-ID378).
 
-<div class="syntax-defs">
+
 
 Grammar of a class declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#class-declaration} <span class="syntax-def-name">
-class-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`class`{.literal}<span
-class="syntactic-cat">[class-name](Declarations.md#class-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span
-class="syntactic-cat">[class-body](Declarations.md#class-body)</span>
 
-[‌](){#class-name} <span class="syntax-def-name"> class-name </span>
-<span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+[‌](){#class-declaration}
 
-[‌](){#class-body} <span class="syntax-def-name"> class-body </span>
-<span class="arrow"> → </span>`{`{.literal}<span class="optional"><span
-class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`{.literal}
+class-declaration
 
-</div>
 
-</div>
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`class`{.literal}[class-name](Declarations.md#class-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[class-body](Declarations.md#class-body)
 
-</div>
+[‌](){#class-name}
 
-<div class="section section">
+class-name
+
+
+→
+[identifier](LexicalStructure.md#identifier)
+
+[‌](){#class-body}
+
+class-body
+
+
+→
+`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID369}
 ### Protocol Declaration {#protocol-declaration .section-name}
 
-A *protocol declaration* introduces a named protocol type into your
-program. Protocol declarations are declared at global scope using the
-`protocol`{.code-voice} keyword and have the following form:
+A *protocol declaration* introduces a named protocol type into your program. Protocol declarations are declared at global scope using the `protocol`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     protocol protocol name: inherited protocols {
@@ -2119,433 +1923,340 @@ program. Protocol declarations are declared at global scope using the
     }
     ```
 
-</div>
 
-The body of a protocol contains zero or more *protocol member
-declarations*, which describe the conformance requirements that any type
-adopting the protocol must fulfill. In particular, a protocol can
-declare that conforming types must implement certain properties,
-methods, initializers, and subscripts. Protocols can also declare
-special kinds of type aliases, called *associated types*, that can
-specify relationships among the various declarations of the protocol.
-Protocol declarations can’t contain class, structure, enumeration, or
-other protocol declarations. The *protocol member declarations* are
-discussed in detail below.
 
-Protocol types can inherit from any number of other protocols. When a
-protocol type inherits from other protocols, the set of requirements
-from those other protocols are aggregated, and any type that inherits
-from the current protocol must conform to all those requirements. For an
-example of how to use protocol inheritance, see [Protocol
-Inheritance](Protocols.md#TP40016643-CH25-ID280).
+The body of a protocol contains zero or more *protocol member declarations*, which describe the conformance requirements that any type adopting the protocol must fulfill. In particular, a protocol can declare that conforming types must implement certain properties, methods, initializers, and subscripts. Protocols can also declare special kinds of type aliases, called *associated types*, that can specify relationships among the various declarations of the protocol. Protocol declarations can’t contain class, structure, enumeration, or other protocol declarations. The *protocol member declarations* are discussed in detail below.
 
-<div class="note">
+Protocol types can inherit from any number of other protocols. When a protocol type inherits from other protocols, the set of requirements from those other protocols are aggregated, and any type that inherits from the current protocol must conform to all those requirements. For an example of how to use protocol inheritance, see [Protocol Inheritance](Protocols.md#TP40016643-CH25-ID280).
+
+
 
 Note
 
-You can also aggregate the conformance requirements of multiple
-protocols using protocol composition types, as described in [Protocol
-Composition Type](Types.md#TP40016643-CH31-ID454) and [Protocol
-Composition](Protocols.md#TP40016643-CH25-ID282).
+You can also aggregate the conformance requirements of multiple protocols using protocol composition types, as described in [Protocol Composition Type](Types.md#TP40016643-CH31-ID454) and [Protocol Composition](Protocols.md#TP40016643-CH25-ID282).
 
-</div>
 
-You can add protocol conformance to a previously declared type by
-adopting the protocol in an extension declaration of that type. In the
-extension, you must implement all of the adopted protocol’s
-requirements. If the type already implements all of the requirements,
-you can leave the body of the extension declaration empty.
 
-By default, types that conform to a protocol must implement all
-properties, methods, and subscripts declared in the protocol. That said,
-you can mark these protocol member declarations with the
-`optional`{.code-voice} declaration modifier to specify that their
-implementation by a conforming type is optional. The
-`optional`{.code-voice} modifier can be applied only to protocols that
-are marked with the `objc`{.code-voice} attribute. As a result, only
-class types can adopt and conform to a protocol that contains optional
-member requirements. For more information about how to use the
-`optional`{.code-voice} declaration modifier and for guidance about how
-to access optional protocol members—for example, when you’re not sure
-whether a conforming type implements them—see [Optional Protocol
-Requirements](Protocols.md#TP40016643-CH25-ID284).
+You can add protocol conformance to a previously declared type by adopting the protocol in an extension declaration of that type. In the extension, you must implement all of the adopted protocol’s requirements. If the type already implements all of the requirements, you can leave the body of the extension declaration empty.
 
-To restrict the adoption of a protocol to class types only, mark the
-protocol with the `class`{.code-voice} requirement by writing the
-`class`{.code-voice} keyword as the first item in the *inherited
-protocols* list after the colon. For example, the following protocol can
-be adopted only by class types:
+By default, types that conform to a protocol must implement all properties, methods, and subscripts declared in the protocol. That said, you can mark these protocol member declarations with the `optional`{.code-voice} declaration modifier to specify that their implementation by a conforming type is optional. The `optional`{.code-voice} modifier can be applied only to protocols that are marked with the `objc`{.code-voice} attribute. As a result, only class types can adopt and conform to a protocol that contains optional member requirements. For more information about how to use the `optional`{.code-voice} declaration modifier and for guidance about how to access optional protocol members—for example, when you’re not sure whether a conforming type implements them—see [Optional Protocol Requirements](Protocols.md#TP40016643-CH25-ID284).
 
-<div class="section code-listing">
+To restrict the adoption of a protocol to class types only, mark the protocol with the `class`{.code-voice} requirement by writing the `class`{.code-voice} keyword as the first item in the *inherited protocols* list after the colon. For example, the following protocol can be adopted only by class types:
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
+
 
 1.  `protocol`{.code-voice} `SomeProtocol`{.vc}: `class`{.kt} {
 2.  `    /* Protocol members go here */`{.code-voice}
 3.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-Any protocol that inherits from a protocol that’s marked with the
-`class`{.code-voice} requirement can likewise be adopted only by class
-types.
 
-<div class="note">
+
+
+Any protocol that inherits from a protocol that’s marked with the `class`{.code-voice} requirement can likewise be adopted only by class types.
+
+
 
 Note
 
-If a protocol is marked with the `objc`{.code-voice} attribute, the
-`class`{.code-voice} requirement is implicitly applied to that protocol;
-there’s no need to mark the protocol with the `class`{.code-voice}
-requirement explicitly.
+If a protocol is marked with the `objc`{.code-voice} attribute, the `class`{.code-voice} requirement is implicitly applied to that protocol; there’s no need to mark the protocol with the `class`{.code-voice} requirement explicitly.
 
-</div>
 
-Protocols are named types, and thus they can appear in all the same
-places in your code as other named types, as discussed in [Protocols as
-Types](Protocols.md#TP40016643-CH25-ID275). However, you can’t
-construct an instance of a protocol, because protocols do not actually
-provide the implementations for the requirements they specify.
 
-You can use protocols to declare which methods a delegate of a class or
-structure should implement, as described in
-[Delegation](Protocols.md#TP40016643-CH25-ID276).
+Protocols are named types, and thus they can appear in all the same places in your code as other named types, as discussed in [Protocols as Types](Protocols.md#TP40016643-CH25-ID275). However, you can’t construct an instance of a protocol, because protocols do not actually provide the implementations for the requirements they specify.
 
-<div class="syntax-defs">
+You can use protocols to declare which methods a delegate of a class or structure should implement, as described in [Delegation](Protocols.md#TP40016643-CH25-ID276).
+
+
 
 Grammar of a protocol declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-declaration} <span class="syntax-def-name">
-protocol-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`protocol`{.literal}<span
-class="syntactic-cat">[protocol-name](Declarations.md#protocol-name)</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span
-class="syntactic-cat">[protocol-body](Declarations.md#protocol-body)</span>
 
-[‌](){#protocol-name} <span class="syntax-def-name"> protocol-name
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+[‌](){#protocol-declaration}
 
-[‌](){#protocol-body} <span class="syntax-def-name"> protocol-body
-</span> <span class="arrow"> → </span>`{`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)</span>~opt~</span>`}`{.literal}
+protocol-declaration
 
-</div>
 
-<div class="syntax-defs-group">
+→
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`protocol`{.literal}[protocol-name](Declarations.md#protocol-name)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[protocol-body](Declarations.md#protocol-body)
 
-[‌](){#protocol-member-declaration} <span class="syntax-def-name">
-protocol-member-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-property-declaration](Declarations.md#protocol-property-declaration)</span>
+[‌](){#protocol-name}
 
-[‌](){#TP40016643-CH34-NoLink_340} <span class="syntax-def-name">
-protocol-member-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-method-declaration](Declarations.md#protocol-method-declaration)</span>
+protocol-name
 
-[‌](){#TP40016643-CH34-NoLink_341} <span class="syntax-def-name">
-protocol-member-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-initializer-declaration](Declarations.md#protocol-initializer-declaration)</span>
 
-[‌](){#TP40016643-CH34-NoLink_342} <span class="syntax-def-name">
-protocol-member-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-subscript-declaration](Declarations.md#protocol-subscript-declaration)</span>
+→
+[identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH34-NoLink_343} <span class="syntax-def-name">
-protocol-member-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-associated-type-declaration](Declarations.md#protocol-associated-type-declaration)</span>
+[‌](){#protocol-body}
 
-[‌](){#protocol-member-declarations} <span class="syntax-def-name">
-protocol-member-declarations </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[protocol-member-declaration](Declarations.md#protocol-member-declaration)</span><span
-class="optional"><span
-class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)</span>~opt~</span>
+protocol-body
 
-</div>
 
-</div>
+→
+`{`{.literal}[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~`}`{.literal}
 
-<div class="section section">
+
+
+
+
+[‌](){#protocol-member-declaration}
+
+protocol-member-declaration
+
+
+→
+[protocol-property-declaration](Declarations.md#protocol-property-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_340}
+
+protocol-member-declaration
+
+
+→
+[protocol-method-declaration](Declarations.md#protocol-method-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_341}
+
+protocol-member-declaration
+
+
+→
+[protocol-initializer-declaration](Declarations.md#protocol-initializer-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_342}
+
+protocol-member-declaration
+
+
+→
+[protocol-subscript-declaration](Declarations.md#protocol-subscript-declaration)
+
+[‌](){#TP40016643-CH34-NoLink_343}
+
+protocol-member-declaration
+
+
+→
+[protocol-associated-type-declaration](Declarations.md#protocol-associated-type-declaration)
+
+[‌](){#protocol-member-declarations}
+
+protocol-member-declarations
+
+
+→
+[protocol-member-declaration](Declarations.md#protocol-member-declaration)[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID370}
 ### Protocol Property Declaration {#protocol-property-declaration .section-name}
 
-Protocols declare that conforming types must implement a property by
-including a *protocol property declaration* in the body of the protocol
-declaration. Protocol property declarations have a special form of a
-variable declaration:
+Protocols declare that conforming types must implement a property by including a *protocol property declaration* in the body of the protocol declaration. Protocol property declarations have a special form of a variable declaration:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     var property name: type { get set }
     ```
 
-</div>
 
-As with other protocol member declarations, these property declarations
-declare only the getter and setter requirements for types that conform
-to the protocol. As a result, you don’t implement the getter or setter
-directly in the protocol in which it is declared.
 
-The getter and setter requirements can be satisfied by a conforming type
-in a variety of ways. If a property declaration includes both the
-`get`{.code-voice} and `set`{.code-voice} keywords, a conforming type
-can implement it with a stored variable property or a computed property
-that is both readable and writeable (that is, one that implements both a
-getter and a setter). However, that property declaration can’t be
-implemented as a constant property or a read-only computed property. If
-a property declaration includes only the `get`{.code-voice} keyword, it
-can be implemented as any kind of property. For examples of conforming
-types that implement the property requirements of a protocol, see
-[Property Requirements](Protocols.md#TP40016643-CH25-ID269).
+As with other protocol member declarations, these property declarations declare only the getter and setter requirements for types that conform to the protocol. As a result, you don’t implement the getter or setter directly in the protocol in which it is declared.
 
-See also [Variable
-Declaration](Declarations.md#TP40016643-CH34-ID356).
+The getter and setter requirements can be satisfied by a conforming type in a variety of ways. If a property declaration includes both the `get`{.code-voice} and `set`{.code-voice} keywords, a conforming type can implement it with a stored variable property or a computed property that is both readable and writeable (that is, one that implements both a getter and a setter). However, that property declaration can’t be implemented as a constant property or a read-only computed property. If a property declaration includes only the `get`{.code-voice} keyword, it can be implemented as any kind of property. For examples of conforming types that implement the property requirements of a protocol, see [Property Requirements](Protocols.md#TP40016643-CH25-ID269).
 
-<div class="syntax-defs">
+See also [Variable Declaration](Declarations.md#TP40016643-CH34-ID356).
+
+
 
 Grammar of a protocol property declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-property-declaration} <span class="syntax-def-name">
-protocol-property-declaration </span> <span class="arrow"> →
-</span><span
-class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span
-class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span
-class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span
-class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
 
-</div>
+[‌](){#protocol-property-declaration}
 
-</div>
+protocol-property-declaration
 
-</div>
 
-<div class="section section">
+→
+[variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID371}
 ### Protocol Method Declaration {#protocol-method-declaration .section-name}
 
-Protocols declare that conforming types must implement a method by
-including a protocol method declaration in the body of the protocol
-declaration. Protocol method declarations have the same form as function
-declarations, with two exceptions: They don’t include a function body,
-and you can’t provide any default parameter values as part of the
-function declaration. For examples of conforming types that implement
-the method requirements of a protocol, see [Method
-Requirements](Protocols.md#TP40016643-CH25-ID270).
+Protocols declare that conforming types must implement a method by including a protocol method declaration in the body of the protocol declaration. Protocol method declarations have the same form as function declarations, with two exceptions: They don’t include a function body, and you can’t provide any default parameter values as part of the function declaration. For examples of conforming types that implement the method requirements of a protocol, see [Method Requirements](Protocols.md#TP40016643-CH25-ID270).
 
-To declare a class or static method requirement in a protocol
-declaration, mark the method declaration with the `static`{.code-voice}
-declaration modifier. Classes that implement this method declare the
-method with the `class`{.code-voice} modifier. Structures that implement
-it must declare the method with the `static`{.code-voice} declaration
-modifier instead. If you’re implementing the method in an extension, use
-the `class`{.code-voice} modifier if you’re extending a class and the
-`static`{.code-voice} modifier if you’re extending a structure.
+To declare a class or static method requirement in a protocol declaration, mark the method declaration with the `static`{.code-voice} declaration modifier. Classes that implement this method declare the method with the `class`{.code-voice} modifier. Structures that implement it must declare the method with the `static`{.code-voice} declaration modifier instead. If you’re implementing the method in an extension, use the `class`{.code-voice} modifier if you’re extending a class and the `static`{.code-voice} modifier if you’re extending a structure.
 
-See also [Function
-Declaration](Declarations.md#TP40016643-CH34-ID362).
+See also [Function Declaration](Declarations.md#TP40016643-CH34-ID362).
 
-<div class="syntax-defs">
+
 
 Grammar of a protocol method declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-method-declaration} <span class="syntax-def-name">
-protocol-method-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[function-head](Declarations.md#function-head)</span><span
-class="syntactic-cat">[function-name](Declarations.md#function-name)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[function-signature](Declarations.md#function-signature)</span>
 
-</div>
+[‌](){#protocol-method-declaration}
 
-</div>
+protocol-method-declaration
 
-</div>
 
-<div class="section section">
+→
+[function-head](Declarations.md#function-head)[function-name](Declarations.md#function-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[function-signature](Declarations.md#function-signature)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID372}
 ### Protocol Initializer Declaration {#protocol-initializer-declaration .section-name}
 
-Protocols declare that conforming types must implement an initializer by
-including a protocol initializer declaration in the body of the protocol
-declaration. Protocol initializer declarations have the same form as
-initializer declarations, except they don’t include the initializer’s
-body.
+Protocols declare that conforming types must implement an initializer by including a protocol initializer declaration in the body of the protocol declaration. Protocol initializer declarations have the same form as initializer declarations, except they don’t include the initializer’s body.
 
-A conforming type can satisfy a nonfailable protocol initializer
-requirement by implementing a nonfailable initializer or an
-`init!`{.code-voice} failable initializer. A conforming type can satisfy
-a failable protocol initializer requirement by implementing any kind of
-initializer.
+A conforming type can satisfy a nonfailable protocol initializer requirement by implementing a nonfailable initializer or an `init!`{.code-voice} failable initializer. A conforming type can satisfy a failable protocol initializer requirement by implementing any kind of initializer.
 
-When a class implements an initializer to satisfy a protocol’s
-initializer requirement, the initializer must be marked with the
-`required`{.code-voice} declaration modifier if the class is not already
-marked with the `final`{.code-voice} declaration modifier.
+When a class implements an initializer to satisfy a protocol’s initializer requirement, the initializer must be marked with the `required`{.code-voice} declaration modifier if the class is not already marked with the `final`{.code-voice} declaration modifier.
 
-See also [Initializer
-Declaration](Declarations.md#TP40016643-CH34-ID375).
+See also [Initializer Declaration](Declarations.md#TP40016643-CH34-ID375).
 
-<div class="syntax-defs">
+
 
 Grammar of a protocol initializer declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-initializer-declaration} <span class="syntax-def-name">
-protocol-initializer-declaration </span> <span class="arrow"> →
-</span><span
-class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span
-class="optional">`throws`{.literal}~opt~</span>
 
-[‌](){#TP40016643-CH34-NoLink_351} <span class="syntax-def-name">
-protocol-initializer-declaration </span> <span class="arrow"> →
-</span><span
-class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`{.literal}
+[‌](){#protocol-initializer-declaration}
 
-</div>
+protocol-initializer-declaration
 
-</div>
 
-</div>
+→
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~
 
-<div class="section section">
+[‌](){#TP40016643-CH34-NoLink_351}
+
+protocol-initializer-declaration
+
+
+→
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID373}
 ### Protocol Subscript Declaration {#protocol-subscript-declaration .section-name}
 
-Protocols declare that conforming types must implement a subscript by
-including a protocol subscript declaration in the body of the protocol
-declaration. Protocol subscript declarations have a special form of a
-subscript declaration:
+Protocols declare that conforming types must implement a subscript by including a protocol subscript declaration in the body of the protocol declaration. Protocol subscript declarations have a special form of a subscript declaration:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     subscript (parameters) -> return type { get set }
     ```
 
-</div>
 
-Subscript declarations only declare the minimum getter and setter
-implementation requirements for types that conform to the protocol. If
-the subscript declaration includes both the `get`{.code-voice} and
-`set`{.code-voice} keywords, a conforming type must implement both a
-getter and a setter clause. If the subscript declaration includes only
-the `get`{.code-voice} keyword, a conforming type must implement *at
-least* a getter clause and optionally can implement a setter clause.
 
-See also [Subscript
-Declaration](Declarations.md#TP40016643-CH34-ID379).
+Subscript declarations only declare the minimum getter and setter implementation requirements for types that conform to the protocol. If the subscript declaration includes both the `get`{.code-voice} and `set`{.code-voice} keywords, a conforming type must implement both a getter and a setter clause. If the subscript declaration includes only the `get`{.code-voice} keyword, a conforming type must implement *at least* a getter clause and optionally can implement a setter clause.
 
-<div class="syntax-defs">
+See also [Subscript Declaration](Declarations.md#TP40016643-CH34-ID379).
+
+
 
 Grammar of a protocol subscript declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-subscript-declaration} <span class="syntax-def-name">
-protocol-subscript-declaration </span> <span class="arrow"> →
-</span><span
-class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span
-class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span
-class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
 
-</div>
+[‌](){#protocol-subscript-declaration}
 
-</div>
+protocol-subscript-declaration
 
-</div>
 
-<div class="section section">
+→
+[subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID374}
 ### Protocol Associated Type Declaration {#protocol-associated-type-declaration .section-name}
 
-Protocols declare associated types using the `typealias`{.code-voice}
-keyword. An associated type provides an alias for a type that is used as
-part of a protocol’s declaration. Associated types are similar to type
-parameters in generic parameter clauses, but they’re associated with
-`Self`{.code-voice} in the protocol in which they’re declared. In that
-context, `Self`{.code-voice} refers to the eventual type that conforms
-to the protocol. For more information and examples, see [Associated
-Types](Generics.md#TP40016643-CH26-ID189).
+Protocols declare associated types using the `typealias`{.code-voice} keyword. An associated type provides an alias for a type that is used as part of a protocol’s declaration. Associated types are similar to type parameters in generic parameter clauses, but they’re associated with `Self`{.code-voice} in the protocol in which they’re declared. In that context, `Self`{.code-voice} refers to the eventual type that conforms to the protocol. For more information and examples, see [Associated Types](Generics.md#TP40016643-CH26-ID189).
 
-See also [Type Alias
-Declaration](Declarations.md#TP40016643-CH34-ID361).
+See also [Type Alias Declaration](Declarations.md#TP40016643-CH34-ID361).
 
-<div class="syntax-defs">
+
 
 Grammar of a protocol associated type declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#protocol-associated-type-declaration} <span
-class="syntax-def-name"> protocol-associated-type-declaration </span>
-<span class="arrow"> → </span><span
-class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)</span>~opt~</span>
 
-</div>
+[‌](){#protocol-associated-type-declaration}
 
-</div>
+protocol-associated-type-declaration
 
-</div>
 
-</div>
+→
+[typealias-head](Declarations.md#typealias-head)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[typealias-assignment](Declarations.md#typealias-assignment)~opt~
 
-<div class="section section">
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID375}
 ### Initializer Declaration {#initializer-declaration .section-name}
 
-An *initializer declaration* introduces an initializer for a class,
-structure, or enumeration into your program. Initializer declarations
-are declared using the `init`{.code-voice} keyword and have two basic
-forms.
+An *initializer declaration* introduces an initializer for a class, structure, or enumeration into your program. Initializer declarations are declared using the `init`{.code-voice} keyword and have two basic forms.
 
-Structure, enumeration, and class types can have any number of
-initializers, but the rules and associated behavior for class
-initializers are different. Unlike structures and enumerations, classes
-have two kinds of initializers: designated initializers and convenience
-initializers, as described in [Initialization](Initialization.md).
+Structure, enumeration, and class types can have any number of initializers, but the rules and associated behavior for class initializers are different. Unlike structures and enumerations, classes have two kinds of initializers: designated initializers and convenience initializers, as described in [Initialization](Initialization.md).
 
-The following form declares initializers for structures, enumerations,
-and designated initializers of classes:
+The following form declares initializers for structures, enumerations, and designated initializers of classes:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     init(parameters) {
@@ -2559,28 +2270,18 @@ and designated initializers of classes:
     }
     ```
 
-</div>
 
-A designated initializer of a class initializes all of the class’s
-properties directly. It can’t call any other initializers of the same
-class, and if the class has a superclass, it must call one of the
-superclass’s designated initializers. If the class inherits any
-properties from its superclass, one of the superclass’s designated
-initializers must be called before any of these properties can be set or
-modified in the current class.
 
-Designated initializers can be declared in the context of a class
-declaration only and therefore can’t be added to a class using an
-extension declaration.
+A designated initializer of a class initializes all of the class’s properties directly. It can’t call any other initializers of the same class, and if the class has a superclass, it must call one of the superclass’s designated initializers. If the class inherits any properties from its superclass, one of the superclass’s designated initializers must be called before any of these properties can be set or modified in the current class.
 
-Initializers in structures and enumerations can call other declared
-initializers to delegate part or all of the initialization process.
+Designated initializers can be declared in the context of a class declaration only and therefore can’t be added to a class using an extension declaration.
 
-To declare convenience initializers for a class, mark the initializer
-declaration with the `convenience`{.code-voice} declaration modifier.
+Initializers in structures and enumerations can call other declared initializers to delegate part or all of the initialization process.
 
-<span class="caption"></span>
-<div class="code-outline">
+To declare convenience initializers for a class, mark the initializer declaration with the `convenience`{.code-voice} declaration modifier.
+
+
+
 
 -   ``` {.code-voice}
     convenience init(parameters) {
@@ -2594,74 +2295,42 @@ declaration with the `convenience`{.code-voice} declaration modifier.
     }
     ```
 
-</div>
 
-Convenience initializers can delegate the initialization process to
-another convenience initializer or to one of the class’s designated
-initializers. That said, the initialization processes must end with a
-call to a designated initializer that ultimately initializes the class’s
-properties. Convenience initializers can’t call a superclass’s
-initializers.
 
-You can mark designated and convenience initializers with the
-`required`{.code-voice} declaration modifier to require that every
-subclass implement the initializer. A subclass’s implementation of that
-initializer must also be marked with the `required`{.code-voice}
-declaration modifier.
+Convenience initializers can delegate the initialization process to another convenience initializer or to one of the class’s designated initializers. That said, the initialization processes must end with a call to a designated initializer that ultimately initializes the class’s properties. Convenience initializers can’t call a superclass’s initializers.
 
-By default, initializers declared in a superclass are not inherited by
-subclasses. That said, if a subclass initializes all of its stored
-properties with default values and doesn’t define any initializers of
-its own, it inherits all of the superclass’s initializers. If the
-subclass overrides all of the superclass’s designated initializers, it
-inherits the superclass’s convenience initializers.
+You can mark designated and convenience initializers with the `required`{.code-voice} declaration modifier to require that every subclass implement the initializer. A subclass’s implementation of that initializer must also be marked with the `required`{.code-voice} declaration modifier.
 
-As with methods, properties, and subscripts, you need to mark overridden
-designated initializers with the `override`{.code-voice} declaration
-modifier.
+By default, initializers declared in a superclass are not inherited by subclasses. That said, if a subclass initializes all of its stored properties with default values and doesn’t define any initializers of its own, it inherits all of the superclass’s initializers. If the subclass overrides all of the superclass’s designated initializers, it inherits the superclass’s convenience initializers.
 
-<div class="note">
+As with methods, properties, and subscripts, you need to mark overridden designated initializers with the `override`{.code-voice} declaration modifier.
+
+
 
 Note
 
-If you mark an initializer with the `required`{.code-voice} declaration
-modifier, you don’t also mark the initializer with the
-`override`{.code-voice} modifier when you override the required
-initializer in a subclass.
+If you mark an initializer with the `required`{.code-voice} declaration modifier, you don’t also mark the initializer with the `override`{.code-voice} modifier when you override the required initializer in a subclass.
 
-</div>
 
-Just like functions and methods, initializers can throw or rethrow
-errors. And just like functions and methods, you use the
-`throws`{.code-voice} or `rethrows`{.code-voice} keyword after an
-initializer’s parameters to indicate the appropriate behavior.
 
-To see examples of initializers in various type declarations, see
-[Initialization](Initialization.md).
+Just like functions and methods, initializers can throw or rethrow errors. And just like functions and methods, you use the `throws`{.code-voice} or `rethrows`{.code-voice} keyword after an initializer’s parameters to indicate the appropriate behavior.
 
-<div class="section section">
+To see examples of initializers in various type declarations, see [Initialization](Initialization.md).
+
+
 
 [‌](){#TP40016643-CH34-ID376}
 ### Failable Initializers {#failable-initializers .section-name}
 
-A *failable initializer* is a type of initializer that produces an
-optional instance or an implicitly unwrapped optional instance of the
-type the initializer is declared on. As a result, a failable initializer
-can return `nil`{.code-voice} to indicate that initialization failed.
+A *failable initializer* is a type of initializer that produces an optional instance or an implicitly unwrapped optional instance of the type the initializer is declared on. As a result, a failable initializer can return `nil`{.code-voice} to indicate that initialization failed.
 
-To declare a failable initializer that produces an optional instance,
-append a question mark to the `init`{.code-voice} keyword in the
-initializer declaration (`init?`{.code-voice}). To declare a failable
-initializer that produces an implicitly unwrapped optional instance,
-append an exclamation mark instead (`init!`{.code-voice}). The example
-below shows an `init?`{.code-voice} failable initializer that produces
-an optional instance of a structure.
+To declare a failable initializer that produces an optional instance, append a question mark to the `init`{.code-voice} keyword in the initializer declaration (`init?`{.code-voice}). To declare a failable initializer that produces an implicitly unwrapped optional instance, append an exclamation mark instead (`init!`{.code-voice}). The example below shows an `init?`{.code-voice} failable initializer that produces an optional instance of a structure.
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+
+
+
 
 1.  `struct`{.code-voice} `SomeStruct`{.vc} {
 2.  `    let`{.code-voice} `string`{.vc}: `String`{.n}
@@ -2675,132 +2344,113 @@ an optional instance of a structure.
 10. `    }`{.code-voice}
 11. `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-You call an `init?`{.code-voice} failable initializer in the same way
-that you call a nonfailable initializer, except that you must deal with
-the optionality of the result.
 
-<div class="section code-listing">
 
-<div class="code-sample">
 
-<div class="Swift">
+You call an `init?`{.code-voice} failable initializer in the same way that you call a nonfailable initializer, except that you must deal with the optionality of the result.
 
-1.  `if`{.code-voice} `let`{.kt} `actualInstance`{.vc} =
-    `SomeStruct`{.vc}(`input`{.vc}: `"Hello"`{.s}) {
+
+
+
+
+
+
+1.  `if`{.code-voice} `let`{.kt} `actualInstance`{.vc} = `SomeStruct`{.vc}(`input`{.vc}: `"Hello"`{.s}) {
 2.  `    // do something with the instance of 'SomeStruct'`{.code-voice}
 3.  `} else`{.code-voice} {
 4.  `    // initialization of 'SomeStruct' failed and the initializer returned 'nil'`{.code-voice}
 5.  `}`{.code-voice}
 
-</div>
 
-</div>
 
-</div>
 
-A failable initializer of a structure or an enumeration can return
-`nil`{.code-voice} at any point in the implementation of the
-initializer’s body. A failable initializer of a class, however, can
-return `nil`{.code-voice} only after all stored properties of that class
-are initialized and `self.init`{.code-voice} or
-`super.init`{.code-voice} is called (that is, any initializer delegation
-is performed).
 
-A failable initializer can delegate to any kind of initializer. A
-nonfailable initializer can delegate to another nonfailable initializer
-or to an `init!`{.code-voice} failable initializer. A nonfailable
-initializer can delegate to an `init?`{.code-voice} failable initializer
-by force-unwrapping the result of the superclass’s initializer—for
-example, by writing `super.init()!`{.code-voice}.
 
-Initialization failure propagates through initializer delegation.
-Specifically, if a failable initializer delegates to an initializer that
-fails and returns `nil`{.code-voice}, then the initializer that
-delegated also fails and implicitly returns `nil`{.code-voice}. If a
-nonfailable initializer delegates to an `init!`{.code-voice} failable
-initializer that fails and returns `nil`{.code-voice}, then a runtime
-error is raised (as if you used the `!`{.code-voice} operator to unwrap
-an optional that has a `nil`{.code-voice} value).
 
-A failable designated initializer can be overridden in a subclass by any
-kind of designated initializer. A nonfailable designated initializer can
-be overridden in a subclass by a nonfailable designated initializer
-only.
+A failable initializer of a structure or an enumeration can return `nil`{.code-voice} at any point in the implementation of the initializer’s body. A failable initializer of a class, however, can return `nil`{.code-voice} only after all stored properties of that class are initialized and `self.init`{.code-voice} or `super.init`{.code-voice} is called (that is, any initializer delegation is performed).
 
-For more information and to see examples of failable initializers, see
-[Failable Initializers](Initialization.md#TP40016643-CH18-ID224).
+A failable initializer can delegate to any kind of initializer. A nonfailable initializer can delegate to another nonfailable initializer or to an `init!`{.code-voice} failable initializer. A nonfailable initializer can delegate to an `init?`{.code-voice} failable initializer by force-unwrapping the result of the superclass’s initializer—for example, by writing `super.init()!`{.code-voice}.
 
-<div class="syntax-defs">
+Initialization failure propagates through initializer delegation. Specifically, if a failable initializer delegates to an initializer that fails and returns `nil`{.code-voice}, then the initializer that delegated also fails and implicitly returns `nil`{.code-voice}. If a nonfailable initializer delegates to an `init!`{.code-voice} failable initializer that fails and returns `nil`{.code-voice}, then a runtime error is raised (as if you used the `!`{.code-voice} operator to unwrap an optional that has a `nil`{.code-voice} value).
+
+A failable designated initializer can be overridden in a subclass by any kind of designated initializer. A nonfailable designated initializer can be overridden in a subclass by a nonfailable designated initializer only.
+
+For more information and to see examples of failable initializers, see [Failable Initializers](Initialization.md#TP40016643-CH18-ID224).
+
+
 
 Grammar of an initializer declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#initializer-declaration} <span class="syntax-def-name">
-initializer-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span
-class="optional">`throws`{.literal}~opt~</span><span
-class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)</span>
 
-[‌](){#TP40016643-CH34-NoLink_359} <span class="syntax-def-name">
-initializer-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span
-class="optional"><span
-class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`{.literal}<span
-class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)</span>
+[‌](){#initializer-declaration}
 
-[‌](){#initializer-head} <span class="syntax-def-name"> initializer-head
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init`{.literal}
+initializer-declaration
 
-[‌](){#TP40016643-CH34-NoLink_361} <span class="syntax-def-name">
-initializer-head </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init`{.literal}`?`{.literal}
 
-[‌](){#TP40016643-CH34-NoLink_362} <span class="syntax-def-name">
-initializer-head </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init`{.literal}`!`{.literal}
+→
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~[initializer-body](Declarations.md#initializer-body)
 
-[‌](){#initializer-body} <span class="syntax-def-name"> initializer-body
-</span> <span class="arrow"> → </span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+[‌](){#TP40016643-CH34-NoLink_359}
 
-</div>
+initializer-declaration
 
-</div>
 
-</div>
+→
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}[initializer-body](Declarations.md#initializer-body)
 
-</div>
+[‌](){#initializer-head}
 
-<div class="section section">
+initializer-head
+
+
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}
+
+[‌](){#TP40016643-CH34-NoLink_361}
+
+initializer-head
+
+
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}`?`{.literal}
+
+[‌](){#TP40016643-CH34-NoLink_362}
+
+initializer-head
+
+
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}`!`{.literal}
+
+[‌](){#initializer-body}
+
+initializer-body
+
+
+→
+[code-block](Declarations.md#code-block)
+
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID377}
 ### Deinitializer Declaration {#deinitializer-declaration .section-name}
 
-A *deinitializer declaration* declares a deinitializer for a class type.
-Deinitializers take no parameters and have the following form:
+A *deinitializer declaration* declares a deinitializer for a class type. Deinitializers take no parameters and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     deinit {
@@ -2814,54 +2464,45 @@ Deinitializers take no parameters and have the following form:
     }
     ```
 
-</div>
 
-A deinitializer is called automatically when there are no longer any
-references to a class object, just before the class object is
-deallocated. A deinitializer can be declared only in the body of a class
-declaration—but not in an extension of a class—and each class can have
-at most one.
 
-A subclass inherits its superclass’s deinitializer, which is implicitly
-called just before the subclass object is deallocated. The subclass
-object is not deallocated until all deinitializers in its inheritance
-chain have finished executing.
+A deinitializer is called automatically when there are no longer any references to a class object, just before the class object is deallocated. A deinitializer can be declared only in the body of a class declaration—but not in an extension of a class—and each class can have at most one.
+
+A subclass inherits its superclass’s deinitializer, which is implicitly called just before the subclass object is deallocated. The subclass object is not deallocated until all deinitializers in its inheritance chain have finished executing.
 
 Deinitializers are not called directly.
 
-For an example of how to use a deinitializer in a class declaration, see
-[Deinitialization](Deinitialization.md).
+For an example of how to use a deinitializer in a class declaration, see [Deinitialization](Deinitialization.md).
 
-<div class="syntax-defs">
+
 
 Grammar of a deinitializer declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#deinitializer-declaration} <span class="syntax-def-name">
-deinitializer-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`deinit`{.literal}<span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
 
-</div>
+[‌](){#deinitializer-declaration}
 
-</div>
+deinitializer-declaration
 
-</div>
 
-<div class="section section">
+→
+[attributes](Attributes.md#attributes)~opt~`deinit`{.literal}[code-block](Declarations.md#code-block)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID378}
 ### Extension Declaration {#extension-declaration .section-name}
 
-An *extension declaration* allows you to extend the behavior of existing
-class, structure, and enumeration types. Extension declarations are
-declared using the `extension`{.code-voice} keyword and have the
-following form:
+An *extension declaration* allows you to extend the behavior of existing class, structure, and enumeration types. Extension declarations are declared using the `extension`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     extension type name: adopted protocols {
@@ -2875,71 +2516,53 @@ following form:
     }
     ```
 
-</div>
 
-The body of an extension declaration contains zero or more
-*declarations*. These *declarations* can include computed properties,
-computed type properties, instance methods, type methods, initializers,
-subscript declarations, and even class, structure, and enumeration
-declarations. Extension declarations can’t contain deinitializer or
-protocol declarations, stored properties, property observers, or other
-extension declarations. For a discussion and several examples of
-extensions that include various kinds of declarations, see
-[Extensions](Extensions.md).
 
-Extension declarations can add protocol conformance to an existing
-class, structure, and enumeration type in the *adopted protocols*.
-Extension declarations can’t add class inheritance to an existing class,
-and therefore you can specify only a list of protocols after the *type
-name* and colon.
+The body of an extension declaration contains zero or more *declarations*. These *declarations* can include computed properties, computed type properties, instance methods, type methods, initializers, subscript declarations, and even class, structure, and enumeration declarations. Extension declarations can’t contain deinitializer or protocol declarations, stored properties, property observers, or other extension declarations. For a discussion and several examples of extensions that include various kinds of declarations, see [Extensions](Extensions.md).
 
-Properties, methods, and initializers of an existing type can’t be
-overridden in an extension of that type.
+Extension declarations can add protocol conformance to an existing class, structure, and enumeration type in the *adopted protocols*. Extension declarations can’t add class inheritance to an existing class, and therefore you can specify only a list of protocols after the *type name* and colon.
 
-Extension declarations can contain initializer declarations. That said,
-if the type you’re extending is defined in another module, an
-initializer declaration must delegate to an initializer already defined
-in that module to ensure members of that type are properly initialized.
+Properties, methods, and initializers of an existing type can’t be overridden in an extension of that type.
 
-<div class="syntax-defs">
+Extension declarations can contain initializer declarations. That said, if the type you’re extending is defined in another module, an initializer declaration must delegate to an initializer already defined in that module to ensure members of that type are properly initialized.
+
+
 
 Grammar of an extension declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#extension-declaration} <span class="syntax-def-name">
-extension-declaration </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`extension`{.literal}<span
-class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span><span
-class="optional"><span
-class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span
-class="syntactic-cat">[extension-body](Declarations.md#extension-body)</span>
 
-[‌](){#extension-body} <span class="syntax-def-name"> extension-body
-</span> <span class="arrow"> → </span>`{`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`{.literal}
+[‌](){#extension-declaration}
 
-</div>
+extension-declaration
 
-</div>
 
-</div>
+→
+[access-level-modifier](Declarations.md#access-level-modifier)~opt~`extension`{.literal}[type-identifier](Types.md#type-identifier)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[extension-body](Declarations.md#extension-body)
 
-<div class="section section">
+[‌](){#extension-body}
+
+extension-body
+
+
+→
+`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID379}
 ### Subscript Declaration {#subscript-declaration .section-name}
 
-A *subscript* declaration allows you to add subscripting support for
-objects of a particular type and are typically used to provide a
-convenient syntax for accessing the elements in a collection, list, or
-sequence. Subscript declarations are declared using the
-`subscript`{.code-voice} keyword and have the following form:
+A *subscript* declaration allows you to add subscripting support for objects of a particular type and are typically used to provide a convenient syntax for accessing the elements in a collection, list, or sequence. Subscript declarations are declared using the `subscript`{.code-voice} keyword and have the following form:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     subscript (parameters) -> return type {
@@ -2973,114 +2596,89 @@ sequence. Subscript declarations are declared using the
     }
     ```
 
-</div>
 
-Subscript declarations can appear only in the context of a class,
-structure, enumeration, extension, or protocol declaration.
 
-The *parameters* specify one or more indexes used to access elements of
-the corresponding type in a subscript expression (for example, the
-`i`{.code-voice} in the expression `object[i]`{.code-voice}). Although
-the indexes used to access the elements can be of any type, each
-parameter must include a type annotation to specify the type of each
-index. The *return type* specifies the type of the element being
-accessed.
+Subscript declarations can appear only in the context of a class, structure, enumeration, extension, or protocol declaration.
 
-As with computed properties, subscript declarations support reading and
-writing the value of the accessed elements. The getter is used to read
-the value, and the setter is used to write the value. The setter clause
-is optional, and when only a getter is needed, you can omit both clauses
-and simply return the requested value directly. That said, if you
-provide a setter clause, you must also provide a getter clause.
+The *parameters* specify one or more indexes used to access elements of the corresponding type in a subscript expression (for example, the `i`{.code-voice} in the expression `object[i]`{.code-voice}). Although the indexes used to access the elements can be of any type, each parameter must include a type annotation to specify the type of each index. The *return type* specifies the type of the element being accessed.
 
-The *setter name* and enclosing parentheses are optional. If you provide
-a setter name, it is used as the name of the parameter to the setter. If
-you do not provide a setter name, the default parameter name to the
-setter is `value`{.code-voice}. The type of the *setter name* must be
-the same as the *return type*.
+As with computed properties, subscript declarations support reading and writing the value of the accessed elements. The getter is used to read the value, and the setter is used to write the value. The setter clause is optional, and when only a getter is needed, you can omit both clauses and simply return the requested value directly. That said, if you provide a setter clause, you must also provide a getter clause.
 
-You can overload a subscript declaration in the type in which it is
-declared, as long as the *parameters* or the *return type* differ from
-the one you’re overloading. You can also override a subscript
-declaration inherited from a superclass. When you do so, you must mark
-the overridden subscript declaration with the `override`{.code-voice}
-declaration modifier.
+The *setter name* and enclosing parentheses are optional. If you provide a setter name, it is used as the name of the parameter to the setter. If you do not provide a setter name, the default parameter name to the setter is `value`{.code-voice}. The type of the *setter name* must be the same as the *return type*.
 
-You can also declare subscripts in the context of a protocol
-declaration, as described in [Protocol Subscript
-Declaration](Declarations.md#TP40016643-CH34-ID373).
+You can overload a subscript declaration in the type in which it is declared, as long as the *parameters* or the *return type* differ from the one you’re overloading. You can also override a subscript declaration inherited from a superclass. When you do so, you must mark the overridden subscript declaration with the `override`{.code-voice} declaration modifier.
 
-For more information about subscripting and to see examples of subscript
-declarations, see [Subscripts](Subscripts.md).
+You can also declare subscripts in the context of a protocol declaration, as described in [Protocol Subscript Declaration](Declarations.md#TP40016643-CH34-ID373).
 
-<div class="syntax-defs">
+For more information about subscripting and to see examples of subscript declarations, see [Subscripts](Subscripts.md).
+
+
 
 Grammar of a subscript declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#subscript-declaration} <span class="syntax-def-name">
-subscript-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span
-class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span
-class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
 
-[‌](){#TP40016643-CH34-NoLink_371} <span class="syntax-def-name">
-subscript-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span
-class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span
-class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)</span>
+[‌](){#subscript-declaration}
 
-[‌](){#TP40016643-CH34-NoLink_372} <span class="syntax-def-name">
-subscript-declaration </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span
-class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span
-class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
+subscript-declaration
 
-[‌](){#subscript-head} <span class="syntax-def-name"> subscript-head
-</span> <span class="arrow"> → </span><span class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`subscript`{.literal}<span
-class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>
 
-[‌](){#subscript-result} <span class="syntax-def-name"> subscript-result
-</span> <span class="arrow"> → </span>`->`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span
-class="syntactic-cat">[type](Types.md#type)</span>
+→
+[subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[code-block](Declarations.md#code-block)
 
-</div>
+[‌](){#TP40016643-CH34-NoLink_371}
 
-</div>
+subscript-declaration
 
-</div>
 
-<div class="section section">
+→
+[subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[getter-setter-block](Declarations.md#getter-setter-block)
+
+[‌](){#TP40016643-CH34-NoLink_372}
+
+subscript-declaration
+
+
+→
+[subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
+
+[‌](){#subscript-head}
+
+subscript-head
+
+
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`subscript`{.literal}[parameter-clause](Declarations.md#parameter-clause)
+
+[‌](){#subscript-result}
+
+subscript-result
+
+
+→
+`->`{.literal}[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID380}
 ### Operator Declaration {#operator-declaration .section-name}
 
-An *operator declaration* introduces a new infix, prefix, or postfix
-operator into your program and is declared using the
-`operator`{.code-voice} keyword.
+An *operator declaration* introduces a new infix, prefix, or postfix operator into your program and is declared using the `operator`{.code-voice} keyword.
 
-You can declare operators of three different fixities: infix, prefix,
-and postfix. The *fixity* of an operator specifies the relative position
-of an operator to its operands.
+You can declare operators of three different fixities: infix, prefix, and postfix. The *fixity* of an operator specifies the relative position of an operator to its operands.
 
-There are three basic forms of an operator declaration, one for each
-fixity. The fixity of the operator is specified by marking the operator
-declaration with the `infix`{.code-voice}, `prefix`{.code-voice}, or
-`postfix`{.code-voice} declaration modifier before the
-`operator`{.code-voice} keyword. In each form, the name of the operator
-can contain only the operator characters defined in
-[Operators](LexicalStructure.md#TP40016643-CH30-ID418).
+There are three basic forms of an operator declaration, one for each fixity. The fixity of the operator is specified by marking the operator declaration with the `infix`{.code-voice}, `prefix`{.code-voice}, or `postfix`{.code-voice} declaration modifier before the `operator`{.code-voice} keyword. In each form, the name of the operator can contain only the operator characters defined in [Operators](LexicalStructure.md#TP40016643-CH30-ID418).
 
 The following form declares a new infix operator:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     infix operator operator name {
@@ -3098,349 +2696,328 @@ The following form declares a new infix operator:
     }
     ```
 
-</div>
 
-An *infix operator* is a binary operator that is written between its two
-operands, such as the familiar addition operator (`+`{.code-voice}) in
-the expression `1 + 2`{.code-voice}.
 
-Infix operators can optionally specify a precedence, associativity, or
-both.
+An *infix operator* is a binary operator that is written between its two operands, such as the familiar addition operator (`+`{.code-voice}) in the expression `1 + 2`{.code-voice}.
 
-The *precedence* of an operator specifies how tightly an operator binds
-to its operands in the absence of grouping parentheses. You specify the
-precedence of an operator by writing the context-sensitive
-`precedence`{.code-voice} keyword followed by the *precedence level*.
-The *precedence level* can be any whole number (decimal integer) from 0
-to 255; unlike decimal integer literals, it can’t contain any underscore
-characters. Although the precedence level is a specific number, it is
-significant only relative to another operator. That is, when two
-operators compete with each other for their operands, such as in the
-expression `2 + 3 * 5`{.code-voice}, the operator with the higher
-precedence level binds more tightly to its operands.
+Infix operators can optionally specify a precedence, associativity, or both.
 
-The *associativity* of an operator specifies how a sequence of operators
-with the same precedence level are grouped together in the absence of
-grouping parentheses. You specify the associativity of an operator by
-writing the context-sensitive `associativity`{.code-voice} keyword
-followed by the *associativity*, which is one of the context-sensitive
-keywords `left`{.code-voice}, `right`{.code-voice}, or
-`none`{.code-voice}. Operators that are left-associative group
-left-to-right. For example, the subtraction operator (`-`{.code-voice})
-is left-associative, and therefore the expression
-`4 - 5 - 6`{.code-voice} is grouped as `(4 - 5) - 6`{.code-voice} and
-evaluates to `-7`{.code-voice}. Operators that are right-associative
-group right-to-left, and operators that are specified with an
-associativity of `none`{.code-voice} don’t associate at all.
-Nonassociative operators of the same precedence level can’t appear
-adjacent to each to other. For example, `1 < 2 < 3`{.code-voice} is not
-a valid expression.
+The *precedence* of an operator specifies how tightly an operator binds to its operands in the absence of grouping parentheses. You specify the precedence of an operator by writing the context-sensitive `precedence`{.code-voice} keyword followed by the *precedence level*. The *precedence level* can be any whole number (decimal integer) from 0 to 255; unlike decimal integer literals, it can’t contain any underscore characters. Although the precedence level is a specific number, it is significant only relative to another operator. That is, when two operators compete with each other for their operands, such as in the expression `2 + 3 * 5`{.code-voice}, the operator with the higher precedence level binds more tightly to its operands.
 
-Infix operators that are declared without specifying a precedence or
-associativity are initialized with a precedence level of 100 and an
-associativity of `none`{.code-voice}.
+The *associativity* of an operator specifies how a sequence of operators with the same precedence level are grouped together in the absence of grouping parentheses. You specify the associativity of an operator by writing the context-sensitive `associativity`{.code-voice} keyword followed by the *associativity*, which is one of the context-sensitive keywords `left`{.code-voice}, `right`{.code-voice}, or `none`{.code-voice}. Operators that are left-associative group left-to-right. For example, the subtraction operator (`-`{.code-voice}) is left-associative, and therefore the expression `4 - 5 - 6`{.code-voice} is grouped as `(4 - 5) - 6`{.code-voice} and evaluates to `-7`{.code-voice}. Operators that are right-associative group right-to-left, and operators that are specified with an associativity of `none`{.code-voice} don’t associate at all. Nonassociative operators of the same precedence level can’t appear adjacent to each to other. For example, `1 < 2 < 3`{.code-voice} is not a valid expression.
+
+Infix operators that are declared without specifying a precedence or associativity are initialized with a precedence level of 100 and an associativity of `none`{.code-voice}.
 
 The following form declares a new prefix operator:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     prefix operator operator name {}
     ```
 
-</div>
 
-A *prefix operator* is a unary operator that is written immediately
-before its operand, such as the prefix increment operator
-(`++`{.code-voice}) is in the expression `++i`{.code-voice}.
 
-Prefix operators declarations don’t specify a precedence level. Prefix
-operators are nonassociative.
+A *prefix operator* is a unary operator that is written immediately before its operand, such as the prefix increment operator (`++`{.code-voice}) is in the expression `++i`{.code-voice}.
+
+Prefix operators declarations don’t specify a precedence level. Prefix operators are nonassociative.
 
 The following form declares a new postfix operator:
 
-<span class="caption"></span>
-<div class="code-outline">
+
+
 
 -   ``` {.code-voice}
     postfix operator operator name {}
     ```
 
-</div>
 
-A *postfix operator* is a unary operator that is written immediately
-after its operand, such as the postfix increment operator
-(`++`{.code-voice}) is in the expression `i++`{.code-voice}.
 
-As with prefix operators, postfix operator declarations don’t specify a
-precedence level. Postfix operators are nonassociative.
+A *postfix operator* is a unary operator that is written immediately after its operand, such as the postfix increment operator (`++`{.code-voice}) is in the expression `i++`{.code-voice}.
 
-After declaring a new operator, you implement it by declaring a function
-that has the same name as the operator. If you’re implementing a prefix
-or postfix operator, you must also mark that function declaration with
-the corresponding `prefix`{.code-voice} or `postfix`{.code-voice}
-declaration modifier. If you’re implementing an infix operator, you
-don’t mark that function declaration with the `infix`{.code-voice}
-declaration modifier. To see an example of how to create and implement a
-new operator, see [Custom
-Operators](AdvancedOperators.md#TP40016643-CH27-ID46).
+As with prefix operators, postfix operator declarations don’t specify a precedence level. Postfix operators are nonassociative.
 
-<div class="syntax-defs">
+After declaring a new operator, you implement it by declaring a function that has the same name as the operator. If you’re implementing a prefix or postfix operator, you must also mark that function declaration with the corresponding `prefix`{.code-voice} or `postfix`{.code-voice} declaration modifier. If you’re implementing an infix operator, you don’t mark that function declaration with the `infix`{.code-voice} declaration modifier. To see an example of how to create and implement a new operator, see [Custom Operators](AdvancedOperators.md#TP40016643-CH27-ID46).
+
+
 
 Grammar of an operator declaration
 
-<div class="syntax-defs-group">
 
-[‌](){#operator-declaration} <span class="syntax-def-name">
-operator-declaration </span> <span class="arrow"> → </span><span
-class="alternative"> <span
-class="syntactic-cat">[prefix-operator-declaration](Declarations.md#prefix-operator-declaration)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[postfix-operator-declaration](Declarations.md#postfix-operator-declaration)</span>
-</span><span class="alternative"> <span
-class="syntactic-cat">[infix-operator-declaration](Declarations.md#infix-operator-declaration)</span>
-</span>
 
-</div>
+[‌](){#operator-declaration}
 
-<div class="syntax-defs-group">
+operator-declaration
 
-[‌](){#prefix-operator-declaration} <span class="syntax-def-name">
-prefix-operator-declaration </span> <span class="arrow"> →
-</span>`prefix`{.literal}`operator`{.literal}<span
-class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{`{.literal}`}`{.literal}
 
-[‌](){#postfix-operator-declaration} <span class="syntax-def-name">
-postfix-operator-declaration </span> <span class="arrow"> →
-</span>`postfix`{.literal}`operator`{.literal}<span
-class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{`{.literal}`}`{.literal}
+→
 
-[‌](){#infix-operator-declaration} <span class="syntax-def-name">
-infix-operator-declaration </span> <span class="arrow"> →
-</span>`infix`{.literal}`operator`{.literal}<span
-class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{`{.literal}<span
-class="optional"><span
-class="syntactic-cat">[infix-operator-attributes](Declarations.md#infix-operator-attributes)</span>~opt~</span>`}`{.literal}
+[prefix-operator-declaration](Declarations.md#prefix-operator-declaration)
 
-</div>
+[postfix-operator-declaration](Declarations.md#postfix-operator-declaration)
 
-<div class="syntax-defs-group">
+[infix-operator-declaration](Declarations.md#infix-operator-declaration)
 
-[‌](){#infix-operator-attributes} <span class="syntax-def-name">
-infix-operator-attributes </span> <span class="arrow"> → </span><span
-class="optional"><span
-class="syntactic-cat">[precedence-clause](Declarations.md#precedence-clause)</span>~opt~</span><span
-class="optional"><span
-class="syntactic-cat">[associativity-clause](Declarations.md#associativity-clause)</span>~opt~</span>
 
-[‌](){#precedence-clause} <span class="syntax-def-name">
-precedence-clause </span> <span class="arrow"> →
-</span>`precedence`{.literal}<span
-class="syntactic-cat">[precedence-level](Declarations.md#precedence-level)</span>
 
-[‌](){#precedence-level} <span class="syntax-def-name"> precedence-level
-</span> <span class="arrow"> → </span><span class="text-description">A
-decimal integer between 0 and 255, inclusive</span>
 
-[‌](){#associativity-clause} <span class="syntax-def-name">
-associativity-clause </span> <span class="arrow"> →
-</span>`associativity`{.literal}<span
-class="syntactic-cat">[associativity](Declarations.md#associativity)</span>
 
-[‌](){#associativity} <span class="syntax-def-name"> associativity
-</span> <span class="arrow"> → </span><span class="alternative">
-`left`{.literal} </span><span class="alternative"> `right`{.literal}
-</span><span class="alternative"> `none`{.literal} </span>
 
-</div>
+[‌](){#prefix-operator-declaration}
 
-</div>
+prefix-operator-declaration
 
-</div>
 
-<div class="section section">
+→
+`prefix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}`}`{.literal}
+
+[‌](){#postfix-operator-declaration}
+
+postfix-operator-declaration
+
+
+→
+`postfix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}`}`{.literal}
+
+[‌](){#infix-operator-declaration}
+
+infix-operator-declaration
+
+
+→
+`infix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}[infix-operator-attributes](Declarations.md#infix-operator-attributes)~opt~`}`{.literal}
+
+
+
+
+
+[‌](){#infix-operator-attributes}
+
+infix-operator-attributes
+
+
+→
+[precedence-clause](Declarations.md#precedence-clause)~opt~[associativity-clause](Declarations.md#associativity-clause)~opt~
+
+[‌](){#precedence-clause}
+
+precedence-clause
+
+
+→
+`precedence`{.literal}[precedence-level](Declarations.md#precedence-level)
+
+[‌](){#precedence-level}
+
+precedence-level
+
+
+→
+A decimal integer between 0 and 255, inclusive
+
+[‌](){#associativity-clause}
+
+associativity-clause
+
+
+→
+`associativity`{.literal}[associativity](Declarations.md#associativity)
+
+[‌](){#associativity}
+
+associativity
+
+
+→
+
+`left`{.literal}
+
+`right`{.literal}
+
+`none`{.literal}
+
+
+
+
+
+
+
+
+
 
 [‌](){#TP40016643-CH34-ID381}
 ### Declaration Modifiers {#declaration-modifiers .section-name}
 
-*Declaration modifiers* are keywords or context-sensitive keywords that
-modify the behavior or meaning of a declaration. You specify a
-declaration modifier by writing the appropriate keyword or
-context-sensitive keyword between a declaration’s attributes (if any)
-and the keyword that introduces the declaration.
+*Declaration modifiers* are keywords or context-sensitive keywords that modify the behavior or meaning of a declaration. You specify a declaration modifier by writing the appropriate keyword or context-sensitive keyword between a declaration’s attributes (if any) and the keyword that introduces the declaration.
 
 `dynamic`{.code-voice}
 
-:   Apply this modifier to any member of a class that can be represented
-    by Objective-C. When you mark a member declaration with the
-    `dynamic`{.code-voice} modifier, access to that member is always
-    dynamically dispatched using the Objective-C runtime. Access to that
-    member is never inlined or devirtualized by the compiler.
+:   Apply this modifier to any member of a class that can be represented by Objective-C. When you mark a member declaration with the `dynamic`{.code-voice} modifier, access to that member is always dynamically dispatched using the Objective-C runtime. Access to that member is never inlined or devirtualized by the compiler.
 
-    Because declarations marked with the `dynamic`{.code-voice} modifier
-    are dispatched using the Objective-C runtime, they’re implicitly
-    marked with the `objc`{.code-voice} attribute.
+    Because declarations marked with the `dynamic`{.code-voice} modifier are dispatched using the Objective-C runtime, they’re implicitly marked with the `objc`{.code-voice} attribute.
 
 `final`{.code-voice}
 
-:   Apply this modifier to a class or to a property, method, or
-    subscript member of a class. It’s applied to a class to indicate
-    that the class can’t be subclassed. It’s applied to a property,
-    method, or subscript of a class to indicate that a class member
-    can’t be overridden in any subclass.
+:   Apply this modifier to a class or to a property, method, or subscript member of a class. It’s applied to a class to indicate that the class can’t be subclassed. It’s applied to a property, method, or subscript of a class to indicate that a class member can’t be overridden in any subclass.
 
-<!-- -->
+
 
 `lazy`{.code-voice}
 
-:   Apply this modifier to a stored variable property of a class or
-    structure to indicate that the property’s initial value is
-    calculated and stored at most once, when the property is
-    first accessed. For an example of how to use the `lazy`{.code-voice}
-    modifier, see [Lazy Stored
-    Properties](Properties.md#TP40016643-CH14-ID257).
+:   Apply this modifier to a stored variable property of a class or structure to indicate that the property’s initial value is calculated and stored at most once, when the property is first accessed. For an example of how to use the `lazy`{.code-voice} modifier, see [Lazy Stored Properties](Properties.md#TP40016643-CH14-ID257).
 
 `optional`{.code-voice}
 
-:   Apply this modifier to a protocol’s property, method, or subscript
-    members to indicate that a conforming type isn’t required to
-    implement those members.
+:   Apply this modifier to a protocol’s property, method, or subscript members to indicate that a conforming type isn’t required to implement those members.
 
-    You can apply the `optional`{.code-voice} modifier only to protocols
-    that are marked with the `objc`{.code-voice} attribute. As a result,
-    only class types can adopt and conform to a protocol that contains
-    optional member requirements. For more information about how to use
-    the `optional`{.code-voice} modifier and for guidance about how to
-    access optional protocol members—for example, when you’re not sure
-    whether a conforming type implements them—see [Optional Protocol
-    Requirements](Protocols.md#TP40016643-CH25-ID284).
+    You can apply the `optional`{.code-voice} modifier only to protocols that are marked with the `objc`{.code-voice} attribute. As a result, only class types can adopt and conform to a protocol that contains optional member requirements. For more information about how to use the `optional`{.code-voice} modifier and for guidance about how to access optional protocol members—for example, when you’re not sure whether a conforming type implements them—see [Optional Protocol Requirements](Protocols.md#TP40016643-CH25-ID284).
 
-<!-- -->
+
 
 `required`{.code-voice}
 
-:   Apply this modifier to a designated or convenience initializer of a
-    class to indicate that every subclass must implement
-    that initializer. The subclass’s implementation of that initializer
-    must also be marked with the `required`{.code-voice} modifier.
+:   Apply this modifier to a designated or convenience initializer of a class to indicate that every subclass must implement that initializer. The subclass’s implementation of that initializer must also be marked with the `required`{.code-voice} modifier.
 
 `weak`{.code-voice}
 
-:   The `weak`{.code-voice} modifier is applied to a variable or a
-    stored variable property to indicate that the variable or property
-    has a weak reference to the object stored as its value. The type of
-    the variable or property must be an optional class type. Use the
-    `weak`{.code-voice} modifier to avoid strong reference cycles. For
-    an example and more information about the `weak`{.code-voice}
-    modifier, see [Weak
-    References](AutomaticReferenceCounting.md#TP40016643-CH20-ID53).
+:   The `weak`{.code-voice} modifier is applied to a variable or a stored variable property to indicate that the variable or property has a weak reference to the object stored as its value. The type of the variable or property must be an optional class type. Use the `weak`{.code-voice} modifier to avoid strong reference cycles. For an example and more information about the `weak`{.code-voice} modifier, see [Weak References](AutomaticReferenceCounting.md#TP40016643-CH20-ID53).
 
-<div class="section section">
+
 
 [‌](){#TP40016643-CH34-ID382}
 ### Access Control Levels {#access-control-levels .section-name}
 
-Swift provides three levels of access control: public, internal, and
-private. You can mark a declaration with one of the access-level
-modifiers below to specify the declaration’s access level. Access
-control is discussed in detail in [Access Control](AccessControl.md).
+Swift provides three levels of access control: public, internal, and private. You can mark a declaration with one of the access-level modifiers below to specify the declaration’s access level. Access control is discussed in detail in [Access Control](AccessControl.md).
 
 `public`{.code-voice}
 
-:   Apply this modifier to a declaration to indicate the declaration can
-    be accessed by code in the same module as the declaration.
-    Declarations marked with the `public`{.code-voice} access-level
-    modifier can also be accessed by code in a module that imports the
-    module that contains that declaration.
+:   Apply this modifier to a declaration to indicate the declaration can be accessed by code in the same module as the declaration. Declarations marked with the `public`{.code-voice} access-level modifier can also be accessed by code in a module that imports the module that contains that declaration.
 
 `internal`{.code-voice}
 
-:   Apply this modifier to a declaration to indicate the declaration can
-    be accessed only by code in the same module as the declaration. By
-    default, most declarations are implicitly marked with the
-    `internal`{.code-voice} access-level modifier.
+:   Apply this modifier to a declaration to indicate the declaration can be accessed only by code in the same module as the declaration. By default, most declarations are implicitly marked with the `internal`{.code-voice} access-level modifier.
 
 `private`{.code-voice}
 
-:   Apply this modifier to a declaration to indicate the declaration can
-    be accessed only by code in the same source file as the declaration.
+:   Apply this modifier to a declaration to indicate the declaration can be accessed only by code in the same source file as the declaration.
 
-Each access-level modifier above optionally accepts a single argument,
-which consists of the `set`{.code-voice} keyword enclosed in parentheses
-(for instance, `private(set)`{.code-voice}). Use this form of an
-access-level modifier when you want to specify an access level for the
-setter of a variable or subscript that’s less than or equal to the
-access level of the variable or subscript itself, as discussed in
-[Getters and Setters](AccessControl.md#TP40016643-CH41-ID18).
+Each access-level modifier above optionally accepts a single argument, which consists of the `set`{.code-voice} keyword enclosed in parentheses (for instance, `private(set)`{.code-voice}). Use this form of an access-level modifier when you want to specify an access level for the setter of a variable or subscript that’s less than or equal to the access level of the variable or subscript itself, as discussed in [Getters and Setters](AccessControl.md#TP40016643-CH41-ID18).
 
-<div class="syntax-defs">
+
 
 Grammar of a declaration modifier
 
-<div class="syntax-defs-group">
 
-[‌](){#declaration-modifier} <span class="syntax-def-name">
-declaration-modifier </span> <span class="arrow"> → </span><span
-class="alternative"> `class`{.literal} </span><span class="alternative">
-`convenience`{.literal} </span><span class="alternative">
-`dynamic`{.literal} </span><span class="alternative"> `final`{.literal}
-</span><span class="alternative"> `infix`{.literal} </span><span
-class="alternative"> `lazy`{.literal} </span><span class="alternative">
-`mutating`{.literal} </span><span class="alternative">
-`nonmutating`{.literal} </span><span class="alternative">
-`optional`{.literal} </span><span class="alternative">
-`override`{.literal} </span><span class="alternative">
-`postfix`{.literal} </span><span class="alternative"> `prefix`{.literal}
-</span><span class="alternative"> `required`{.literal} </span><span
-class="alternative"> `static`{.literal} </span><span
-class="alternative"> `unowned`{.literal} </span><span
-class="alternative">
+
+[‌](){#declaration-modifier}
+
+declaration-modifier
+
+
+→
+
+`class`{.literal}
+
+`convenience`{.literal}
+
+`dynamic`{.literal}
+
+`final`{.literal}
+
+`infix`{.literal}
+
+`lazy`{.literal}
+
+`mutating`{.literal}
+
+`nonmutating`{.literal}
+
+`optional`{.literal}
+
+`override`{.literal}
+
+`postfix`{.literal}
+
+`prefix`{.literal}
+
+`required`{.literal}
+
+`static`{.literal}
+
+`unowned`{.literal}
+
 `unowned`{.literal}`(`{.literal}`safe`{.literal}`)`{.literal}
-</span><span class="alternative">
+
 `unowned`{.literal}`(`{.literal}`unsafe`{.literal}`)`{.literal}
-</span><span class="alternative"> `weak`{.literal} </span>
 
-[‌](){#TP40016643-CH34-NoLink_387} <span class="syntax-def-name">
-declaration-modifier </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>
+`weak`{.literal}
 
-[‌](){#declaration-modifiers} <span class="syntax-def-name">
-declaration-modifiers </span> <span class="arrow"> → </span><span
-class="syntactic-cat">[declaration-modifier](Declarations.md#declaration-modifier)</span><span
-class="optional"><span
-class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>
 
-</div>
+[‌](){#TP40016643-CH34-NoLink_387}
 
-<div class="syntax-defs-group">
+declaration-modifier
 
-[‌](){#access-level-modifier} <span class="syntax-def-name">
-access-level-modifier </span> <span class="arrow"> → </span><span
-class="alternative"> `internal`{.literal} </span><span
-class="alternative">
-`internal`{.literal}`(`{.literal}`set`{.literal}`)`{.literal} </span>
 
-[‌](){#TP40016643-CH34-NoLink_390} <span class="syntax-def-name">
-access-level-modifier </span> <span class="arrow"> → </span><span
-class="alternative"> `private`{.literal} </span><span
-class="alternative">
-`private`{.literal}`(`{.literal}`set`{.literal}`)`{.literal} </span>
+→
+[access-level-modifier](Declarations.md#access-level-modifier)
 
-[‌](){#TP40016643-CH34-NoLink_391} <span class="syntax-def-name">
-access-level-modifier </span> <span class="arrow"> → </span><span
-class="alternative"> `public`{.literal} </span><span
-class="alternative">
-`public`{.literal}`(`{.literal}`set`{.literal}`)`{.literal} </span>
+[‌](){#declaration-modifiers}
 
-</div>
+declaration-modifiers
 
-</div>
 
-</div>
+→
+[declaration-modifier](Declarations.md#declaration-modifier)[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~
 
-</div>
 
-</div>
 
-</div>
+
+
+[‌](){#access-level-modifier}
+
+access-level-modifier
+
+
+→
+
+`internal`{.literal}
+
+`internal`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
+
+
+[‌](){#TP40016643-CH34-NoLink_390}
+
+access-level-modifier
+
+
+→
+
+`private`{.literal}
+
+`private`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
+
+
+[‌](){#TP40016643-CH34-NoLink_391}
+
+access-level-modifier
+
+
+→
+
+`public`{.literal}
+
+`public`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
+
+
+
+
+
+
+
+
+
+
+
+
+

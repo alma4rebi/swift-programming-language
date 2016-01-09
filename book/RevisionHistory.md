@@ -1,16 +1,16 @@
-<div class="content-wrapper">
 
-<div id="chapter_container" class="conceptualwithtasks">
+
+
 
 [‌](){#TP40016643-CH40}[‌](){#TP40016643-CH40-ID459}
 Document Revision History {#document-revision-history .chapter-name}
 -------------------------
 
-<div class="section section">
+
 
 This table describes the changes to *The Swift Programming Language*.
 
-<div class="tableholder">
+
 
 +--------------------------------------+--------------------------------------+
 | Date                                 | Notes                                |
@@ -1072,10 +1072,10 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | CH26-ID185).                         |
 +--------------------------------------+--------------------------------------+
 
-</div>
 
-</div>
 
-</div>
 
-</div>
+
+
+
+
