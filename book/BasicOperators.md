@@ -206,10 +206,10 @@ Each of the comparison operators returns a `Bool` value to indicate whether or n
 
     1 == 1 // true, because 1 is equal to 1
     2 != 1 // true, because 2 is not equal to 1
-    2 &gt; 1 // true, because 2 is greater than 1
-    1 &lt; 2 // true, because 1 is less than 2
-    1 &gt;= 1 // true, because 1 is greater than or equal to 1
-    2 &lt;= 1 // false, because 2 is not less than or equal to 1
+    2 > 1 // true, because 2 is greater than 1
+    1 < 2 // true, because 1 is less than 2
+    1 >= 1 // true, because 1 is greater than or equal to 1
+    2 <= 1 // false, because 2 is not less than or equal to 1
 
 Comparison operators are often used in conditional statements, such as the `if` statement:
 
@@ -317,7 +317,7 @@ Half-open ranges are particularly useful when you work with zero-based lists suc
 
     let names = \["Anna", "Alex", "Brian", "Jack"\]
     let count = names.count
-    for i in 0..&lt;count {
+    for i in 0..<count {
         print("Person \\(i + 1) is called \\(names\[i\])")
     }
     // Person 1 is called Anna

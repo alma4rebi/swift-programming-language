@@ -15,7 +15,7 @@ Every function has a *function name*, which describes the task that the function
 
 The function in the example below is called `sayHello(_:)`, because that’s what it does—it takes a person’s name as input and returns a greeting for that person. To accomplish this, you define one input parameter—a `String` value called `personName`—and a return type of `String`, which will contain a greeting for that person:
 
-    func sayHello(personName: String) -&gt; String {
+    func sayHello(personName: String) -> String {
         let greeting = "Hello, " + personName + "!"
         return greeting
     }
@@ -37,7 +37,7 @@ You can call the `sayHello(_:)` function multiple times with different input val
 
 To simplify the body of this function, combine the message creation and the return statement into one line:
 
-    func sayHelloAgain(personName: String) -&gt; String {
+    func sayHelloAgain(personName: String) -> String {
         return "Hello again, " + personName + "!"
     }
     print(sayHelloAgain("Anna"))
@@ -51,7 +51,7 @@ Function parameters and return values are extremely flexible in Swift. You can d
 
 Functions are not required to define input parameters. Here’s a function with no input parameters, which always returns the same `String` message whenever it is called:
 
-    func sayHelloWorld() -&gt; String {
+    func sayHelloWorld() -> String {
         return "hello, world"
     }
     print(sayHelloWorld())
@@ -65,7 +65,7 @@ Functions can have multiple input parameters, which are written within the funct
 
 This function takes a person’s name and whether they have already been greeted as input, and returns an appropriate greeting for that person:
 
-    func sayHello(personName: String, alreadyGreeted: Bool) -&gt; String {
+    func sayHello(personName: String, alreadyGreeted: Bool) -> String {
         if alreadyGreeted {
             return sayHelloAgain(personName)
         } else {
@@ -97,7 +97,7 @@ Strictly speaking, the `sayGoodbye(_:)` function *does* still return a value, ev
 
 The return value of a function can be ignored when it is called:
 
-    func printAndCount(stringToPrint: String) -&gt; Int {
+    func printAndCount(stringToPrint: String) -> Int {
         print(stringToPrint)
         return stringToPrint.characters.count
     }
@@ -121,13 +121,13 @@ You can use a tuple type as the return type for a function to return multiple va
 
 The example below defines a function called `minMax(_:)`, which finds the smallest and largest numbers in an array of `Int` values:
 
-    func minMax(array: \[Int\]) -&gt; (min: Int, max: Int) {
+    func minMax(array: \[Int\]) -> (min: Int, max: Int) {
         var currentMin = array\[0\]
         var currentMax = array\[0\]
-        for value in array\[1..&lt;array.count\] {
-            if value &lt; currentMin {
+        for value in array\[1..<array.count\] {
+            if value < currentMin {
                 currentMin = value
-            } else if value &gt; currentMax {
+            } else if value > currentMax {
                 currentMax = value
             }
         }
@@ -158,14 +158,14 @@ The `minMax(_:)` function above returns a tuple containing two `Int` values. How
 
 To handle this “empty array” scenario safely, write the `minMax(_:)` function with an optional tuple return type and return a value of `nil` when the array is empty:
 
-    func minMax(array: \[Int\]) -&gt; (min: Int, max: Int)? {
+    func minMax(array: \[Int\]) -> (min: Int, max: Int)? {
         if array.isEmpty { return nil }
         var currentMin = array\[0\]
         var currentMax = array\[0\]
-        for value in array\[1..&lt;array.count\] {
-            if value &lt; currentMin {
+        for value in array\[1..<array.count\] {
+            if value < currentMin {
                 currentMin = value
-            } else if value &gt; currentMax {
+            } else if value > currentMax {
                 currentMax = value
             }
         }
@@ -207,7 +207,7 @@ If you provide an external parameter name for a parameter, that external name mu
 
 Here’s a version of the `sayHello(_:)` function that takes the names of two people and returns a greeting for both of them:
 
-    func sayHello(to person: String, and anotherPerson: String) -&gt; String {
+    func sayHello(to person: String, and anotherPerson: String) -> String {
         return "Hello \\(person) and \\(anotherPerson)!"
     }
     print(sayHello(to: "Bill", and: "Ted"))
@@ -256,7 +256,7 @@ The values passed to a variadic parameter are made available within the function
 
 The example below calculates the *arithmetic mean* (also known as the *average*) for a list of numbers of any length:
 
-    func arithmeticMean(numbers: Double...) -&gt; Double {
+    func arithmeticMean(numbers: Double...) -> Double {
         var total: Double = 0
         for number in numbers {
             total += number
@@ -314,10 +314,10 @@ Every function has a specific *function type*, made up of the parameter types an
 
 For example:
 
-    func addTwoInts(a: Int, _ b: Int) -&gt; Int {
+    func addTwoInts(a: Int, _ b: Int) -> Int {
         return a + b
     }
-    func multiplyTwoInts(a: Int, _ b: Int) -&gt; Int {
+    func multiplyTwoInts(a: Int, _ b: Int) -> Int {
         return a \* b
     }
 
@@ -339,7 +339,7 @@ The type of this function is `() -> Void`, or “a function that has no paramete
 
 You use function types just like any other types in Swift. For example, you can define a constant or variable to be of a function type and assign an appropriate function to that variable:
 
-    var mathFunction: (Int, Int) -&gt; Int = addTwoInts
+    var mathFunction: (Int, Int) -> Int = addTwoInts
 
 This can be read as:
 
@@ -369,7 +369,7 @@ You can use a function type such as `(Int, Int) -> Int` as a parameter type for 
 
 Here’s an example to print the results of the math functions from above:
 
-    func printMathResult(mathFunction: (Int, Int) -&gt; Int, _ a: Int, _ b: Int) {
+    func printMathResult(mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
         print("Result: \\(mathFunction(a, b))")
     }
     printMathResult(addTwoInts, 3, 5)
@@ -387,23 +387,23 @@ You can use a function type as the return type of another function. You do this 
 
 The next example defines two simple functions called `stepForward(_:)` and `stepBackward(_:)`. The `stepForward(_:)` function returns a value one more than its input value, and the `stepBackward(_:)` function returns a value one less than its input value. Both functions have a type of `(Int) -> Int`:
 
-    func stepForward(input: Int) -&gt; Int {
+    func stepForward(input: Int) -> Int {
         return input + 1
     }
-    func stepBackward(input: Int) -&gt; Int {
+    func stepBackward(input: Int) -> Int {
         return input - 1
     }
 
 Here’s a function called `chooseStepFunction(_:)`, whose return type is “a function of type `(Int) -> Int`”. The ``` chooseStepFunction(_:)``function returns the ``stepForward(_:) ``` function or the `stepBackward(_:)` function based on a Boolean parameter called `backwards`:
 
-    func chooseStepFunction(backwards: Bool) -&gt; (Int) -&gt; Int {
+    func chooseStepFunction(backwards: Bool) -> (Int) -> Int {
         return backwards ? stepBackward : stepForward
     }
 
 You can now use `chooseStepFunction(_:)` to obtain a function that will step in one direction or the other:
 
     var currentValue = 3
-    let moveNearerToZero = chooseStepFunction(currentValue &gt; 0)
+    let moveNearerToZero = chooseStepFunction(currentValue > 0)
     // moveNearerToZero now refers to the stepBackward() function
 
 The preceding example determines whether a positive or negative step is needed to move a variable called `currentValue` progressively closer to zero. `currentValue` has an initial value of `3`, which means that `currentValue > 0` returns `true`, causing `chooseStepFunction(_:)` to return the `stepBackward(_:)` function. A reference to the returned function is stored in a constant called `moveNearerToZero`.
@@ -430,13 +430,13 @@ Nested functions are hidden from the outside world by default, but can still be 
 
 You can rewrite the `chooseStepFunction(_:)` example above to use and return nested functions:
 
-    func chooseStepFunction(backwards: Bool) -&gt; (Int) -&gt; Int {
-        func stepForward(input: Int) -&gt; Int { return input + 1 }
-        func stepBackward(input: Int) -&gt; Int { return input - 1 }
+    func chooseStepFunction(backwards: Bool) -> (Int) -> Int {
+        func stepForward(input: Int) -> Int { return input + 1 }
+        func stepBackward(input: Int) -> Int { return input - 1 }
         return backwards ? stepBackward : stepForward
     }
     var currentValue = -4
-    let moveNearerToZero = chooseStepFunction(currentValue &gt; 0)
+    let moveNearerToZero = chooseStepFunction(currentValue > 0)
     // moveNearerToZero now refers to the nested stepForward() function
     while currentValue != 0 {
         print("\\(currentValue)... ")

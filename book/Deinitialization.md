@@ -23,7 +23,7 @@ Here’s an example of a deinitializer in action. This example defines two new t
 
     class Bank {
         static var coinsInBank = 10_000
-        static func vendCoins(var numberOfCoinsToVend: Int) -&gt; Int {
+        static func vendCoins(var numberOfCoinsToVend: Int) -> Int {
             numberOfCoinsToVend = min(numberOfCoinsToVend, coinsInBank)
             coinsInBank -= numberOfCoinsToVend
             return numberOfCoinsToVend

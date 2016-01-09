@@ -524,7 +524,7 @@ If the conversion is successful, the `actualNumber` constant becomes available f
 
 You can include multiple optional bindings in a single `if` statement and use a `where` clause to check for a Boolean condition. If any of the values in the optional bindings are `nil` or the `where` clause evaluates to `false`, the whole optional binding is considered unsuccessful.
 
-    if let firstNumber = Int("4"), secondNumber = Int("42") where firstNumber &lt; secondNumber {
+    if let firstNumber = Int("4"), secondNumber = Int("42") where firstNumber < secondNumber {
         print("\\(firstNumber) < \\(secondNumber)")
     }
     // prints "4 < 42"
@@ -634,14 +634,14 @@ If your code triggers an assertion while running in a debug environment, such as
 You write an assertion by calling the Swift standard library global `assert(_:_file:line:)` function. You pass this function an expression that evaluates to `true` or `false` and a message that should be displayed if the result of the condition is `false`:
 
     let age = -3
-    assert(age &gt;= 0, "A person's age cannot be less than zero")
+    assert(age >= 0, "A person's age cannot be less than zero")
     // this causes the assertion to trigger, because age is not >= 0
 
 In this example, code execution will continue only if `age >= 0` evaluates to `true`, that is, if the value of `age` is non-negative. If the value of `age` *is* negative, as in the code above, then `age >= 0` evaluates to `false`, and the assertion is triggered, terminating the application.
 
 The assertion message can be omitted if desired, as in the following example:
 
-    assert(age &gt;= 0)
+    assert(age >= 0)
 
 Note
 

@@ -643,7 +643,7 @@ There are several special forms that allow closures to be written more concisely
 The following closure expressions are equivalent:
 
     myFunction {
-        (x: Int, y: Int) -&gt; Int in
+        (x: Int, y: Int) -> Int in
         return x + y
     }
      
@@ -1018,7 +1018,7 @@ You use the initializer expression in a function call expression to initialize a
 Like a function, an initializer can be used as a value. For example:
 
     // Type annotation is required because String has multiple initializers.
-    let initializer: Int -&gt; String = String.init
+    let initializer: Int -> String = String.init
     let oneTwoThree = \[1, 2, 3\].map(initializer).reduce("", combine: +)
     print(oneTwoThree)
     // prints "123"
@@ -1068,7 +1068,7 @@ If a period appears at the beginning of a line, it is understood as part of an e
 
     let x = \[10, 3, 20, 15, 4\]
         .sort()
-        .filter { $0 &gt; 5 }
+        .filter { $0 > 5 }
         .map { $0 \* 100 }
 
 Grammar of an explicit member expression
@@ -1223,7 +1223,7 @@ The following example shows the behavior of the example above without using opti
 
 The unwrapped value of an optional-chaining expression can be modified, either by mutating the value itself, or by assigning to one of the value’s members. If the value of the optional-chaining expression is `nil`, the expression on the right hand side of the assignment operator is not evaluated. For example:
 
-    func someFunctionWithSideEffects() -&gt; Int {
+    func someFunctionWithSideEffects() -> Int {
         return 42 // No actual side effects.
     }
     var someDictionary = \["a": \[1, 2, 3\], "b": \[10, 20\]\]

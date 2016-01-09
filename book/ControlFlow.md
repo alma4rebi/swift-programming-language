@@ -74,7 +74,7 @@ Items in a `Dictionary` may not necessarily be iterated in the same order as the
 
 In addition to `for`-`in` loops, Swift supports traditional C-style `for` loops with a condition and an incrementer:
 
-    for var index = 0; index &lt; 3; ++index {
+    for var index = 0; index < 3; ++index {
         print("index is \\(index)")
     }
     // index is 0
@@ -108,7 +108,7 @@ The loop is executed as follows:
 Constants and variables declared within the initialization expression (such as `var index = 0`) are only valid within the scope of the `for` loop itself. To retrieve the final value of `index` after the loop ends, you must declare `index` before the loop’s scope begins:
 
     var index: Int
-    for index = 0; index &lt; 3; ++index {
+    for index = 0; index < 3; ++index {
         print("index is \\(index)")
     }
     // index is 0
@@ -175,12 +175,12 @@ The player’s starting square is “square zero”, which is just off the botto
 
     var square = 0
     var diceRoll = 0
-    while square &lt; finalSquare {
+    while square < finalSquare {
         // roll the dice
         if ++diceRoll == 7 { diceRoll = 1 }
         // move by the rolled amount
         square += diceRoll
-        if square &lt; board.count {
+        if square < board.count {
             // if we're still on the board, move up or down for a snake or a ladder
             square += board\[square\]
         }
@@ -239,7 +239,7 @@ At the start of the game, the player is on “square zero”. `board[0]` always 
         if ++diceRoll == 7 { diceRoll = 1 }
         // move by the rolled amount
         square += diceRoll
-    } while square &lt; finalSquare
+    } while square < finalSquare
     print("Game over!")
 
 After the code checks for snakes and ladders, the dice is rolled, and the player is moved forward by `diceRoll` squares. The current loop execution then ends.
@@ -257,7 +257,7 @@ Swift provides two ways to add conditional branches to your code, known as the `
 In its simplest form, the `if` statement has a single `if` condition. It executes a set of statements only if that condition is `true`:
 
     var temperatureInFahrenheit = 30
-    if temperatureInFahrenheit &lt;= 32 {
+    if temperatureInFahrenheit <= 32 {
         print("It's very cold. Consider wearing a scarf.")
     }
     // prints "It's very cold. Consider wearing a scarf."
@@ -267,7 +267,7 @@ The preceding example checks whether the temperature is less than or equal to 32
 The `if` statement can provide an alternative set of statements, known as an *else clause*, for when the `if` condition is `false`. These statements are indicated by the `else` keyword:
 
     temperatureInFahrenheit = 40
-    if temperatureInFahrenheit &lt;= 32 {
+    if temperatureInFahrenheit <= 32 {
         print("It's very cold. Consider wearing a scarf.")
     } else {
         print("It's not that cold. Wear a t-shirt.")
@@ -279,9 +279,9 @@ One of these two branches is always executed. Because the temperature has increa
 You can chain multiple `if` statements together, to consider additional clauses:
 
     temperatureInFahrenheit = 90
-    if temperatureInFahrenheit &lt;= 32 {
+    if temperatureInFahrenheit <= 32 {
         print("It's very cold. Consider wearing a scarf.")
-    } else if temperatureInFahrenheit &gt;= 86 {
+    } else if temperatureInFahrenheit >= 86 {
         print("It's really warm. Don't forget to wear sunscreen.")
     } else {
         print("It's not that cold. Wear a t-shirt.")
@@ -293,9 +293,9 @@ Here, an additional `if` statement is added to respond to particularly warm temp
 The final `else` clause is optional, however, and can be excluded if the set of conditions does not need to be complete:
 
     temperatureInFahrenheit = 72
-    if temperatureInFahrenheit &lt;= 32 {
+    if temperatureInFahrenheit <= 32 {
         print("It's very cold. Consider wearing a scarf.")
-    } else if temperatureInFahrenheit &gt;= 86 {
+    } else if temperatureInFahrenheit >= 86 {
         print("It's really warm. Don't forget to wear sunscreen.")
     }
 
@@ -425,13 +425,13 @@ Values in `switch` cases can be checked for their inclusion in an interval. This
     switch approximateCount {
     case 0:
         naturalCount = "no"
-    case 1..&lt;5:
+    case 1..<5:
         naturalCount = "a few"
-    case 5..&lt;12:
+    case 5..<12:
         naturalCount = "several"
-    case 12..&lt;100:
+    case 12..<100:
         naturalCount = "dozens of"
-    case 100..&lt;1000:
+    case 100..<1000:
         naturalCount = "hundreds of"
     default:
         naturalCount = "many"
@@ -689,7 +689,7 @@ The `while` loop’s condition is `while square != finalSquare`, to reflect that
         case finalSquare:
             // diceRoll will move us to the final square, so the game is over
             break gameLoop
-        case let newSquare where newSquare &gt; finalSquare:
+        case let newSquare where newSquare > finalSquare:
             // diceRoll will move us beyond the final square, so roll again
             continue gameLoop
         default:

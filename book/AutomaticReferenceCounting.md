@@ -348,7 +348,7 @@ The example below shows how you can create a strong reference cycle when using a
         let name: String
         let text: String?
         
-        lazy var asHTML: Void -&gt; String = {
+        lazy var asHTML: Void -> String = {
             if let text = self.text {
                 return "<\\(self.name)>\\(text)</\\(self.name)>"
             } else {
@@ -431,14 +431,14 @@ Each item in a capture list is a pairing of the `weak` or `unowned` keyword with
 
 Place the capture list before a closure’s parameter list and return type if they are provided:
 
-    lazy var someClosure: (Int, String) -&gt; String = {
-        [unowned self, weak delegate = self.delegate!\] (index: Int, stringToProcess: String) -&gt; String in
+    lazy var someClosure: (Int, String) -> String = {
+        [unowned self, weak delegate = self.delegate!\] (index: Int, stringToProcess: String) -> String in
         // closure body goes here
     }
 
 If a closure does not specify a parameter list or return type because they can be inferred from context, place the capture list at the very start of the closure, followed by the `in` keyword:
 
-    lazy var someClosure: Void -&gt; String = {
+    lazy var someClosure: Void -> String = {
         [unowned self, weak delegate = self.delegate!\] in
         // closure body goes here
     }
@@ -460,7 +460,7 @@ An unowned reference is the appropriate capture method to use to resolve the str
         let name: String
         let text: String?
         
-        lazy var asHTML: Void -&gt; String = {
+        lazy var asHTML: Void -> String = {
             [unowned self\] in
             if let text = self.text {
                 return "<\\(self.name)>\\(text)</\\(self.name)>"

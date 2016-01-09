@@ -43,9 +43,9 @@ Error handling in Swift resembles exception handling in other languages, with th
 
 To indicate that a function, method, or initializer can throw an error, you write the `throws` keyword in the function’s declaration after its parameters. A function marked with `throws` is called a *throwing function*. If the function specifies a return type, you write the `throws` keyword before the return arrow (`->`).
 
-    func canThrowErrors() throws -&gt; String
+    func canThrowErrors() throws -> String
      
-    func cannotThrowErrors() -&gt; String
+    func cannotThrowErrors() -> String
 
 A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.
 
@@ -76,11 +76,11 @@ In the example below, the `VendingMachine` class has a `vend(itemNamed:)` method
                 throw VendingMachineError.InvalidSelection
             }
             
-            guard item.count &gt; 0 else {
+            guard item.count > 0 else {
                 throw VendingMachineError.OutOfStock
             }
             
-            guard item.price &lt;= coinsDeposited else {
+            guard item.price <= coinsDeposited else {
                 throw VendingMachineError.InsufficientFunds(coinsNeeded: item.price - coinsDeposited)
             }
             
@@ -168,7 +168,7 @@ In the above example, the `buyFavoriteSnack(_:vendingMachine:)` function is call
 
 You use `try?` to handle an error by converting it to an optional value. If an error is thrown while evaluating the `try?` expression, the value of the expression is `nil`. For example, in the following code `x` and `y` have the same value and behavior:
 
-    func someThrowingFunction() throws -&gt; Int {
+    func someThrowingFunction() throws -> Int {
         // ...
     }
      
@@ -185,7 +185,7 @@ If `someThrowingFunction()` throws an error, the value of `x` and `y` is `nil`. 
 
 Using `try?` lets you write concise error handling code when you want to handle all errors in the same way. For example, the following code uses several approaches to fetch data, or returns `nil` if all of the approaches fail.
 
-    func fetchData() -&gt; Data? {
+    func fetchData() -> Data? {
         if let data = try? fetchDataFromDisk() { return data }
         if let data = try? fetchDataFromServer() { return data }
         return nil

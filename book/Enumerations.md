@@ -259,7 +259,7 @@ This enumeration can store three kinds of arithmetic expressions: a plain number
 
 A recursive function is a straightforward way to work with data that has a recursive structure. For example, here’s a function that evaluates an arithmetic expression:
 
-    func evaluate(expression: ArithmeticExpression) -&gt; Int {
+    func evaluate(expression: ArithmeticExpression) -> Int {
         switch expression {
         case .Number(let value):
             return value

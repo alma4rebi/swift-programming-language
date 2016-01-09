@@ -133,8 +133,8 @@ If you provide a new initializer with an extension, you are still responsible fo
 Extensions can add new instance methods and type methods to existing types. The following example adds a new instance method called `repetitions` to the `Int` type:
 
     extension Int {
-        func repetitions(task: () -&gt; Void) {
-            for _ in 0..&lt;self {
+        func repetitions(task: () -> Void) {
+            for _ in 0..<self {
                 task()
             }
         }
@@ -186,9 +186,9 @@ Extensions can add new subscripts to an existing type. This example adds an inte
 …and so on:
 
     extension Int {
-        subscript(var digitIndex: Int) -&gt; Int {
+        subscript(var digitIndex: Int) -> Int {
             var decimalBase = 1
-            while digitIndex &gt; 0 {
+            while digitIndex > 0 {
                 decimalBase \*= 10
                 --digitIndex
             }
@@ -222,7 +222,7 @@ Extensions can add new nested types to existing classes, structures and enumerat
             switch self {
             case 0:
                 return .Zero
-            case let x where x &gt; 0:
+            case let x where x > 0:
                 return .Positive
             default:
                 return .Negative

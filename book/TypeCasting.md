@@ -173,7 +173,7 @@ Here’s an example of using `Any` to work with a mix of different types, includ
     things.append("hello")
     things.append((3.0, 5.0))
     things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))
-    things.append({ (name: String) -&gt; String in "Hello, \\(name)" })
+    things.append({ (name: String) -> String in "Hello, \\(name)" })
 
 The `things` array contains two `Int` values, two `Double` values, a `String` value, a tuple of type `(Double, Double)`, the movie “Ghostbusters”, and a closure expression that takes a `String` value and returns another `String` value.
 
@@ -187,7 +187,7 @@ You can use the `is` and `as` operators in a `switch` statement’s cases to dis
             print("zero as a Double")
         case let someInt as Int:
             print("an integer value of \\(someInt)")
-        case let someDouble as Double where someDouble &gt; 0:
+        case let someDouble as Double where someDouble > 0:
             print("a positive double value of \\(someDouble)")
         case is Double:
             print("some other double value that I don't want to print")
@@ -197,7 +197,7 @@ You can use the `is` and `as` operators in a `switch` statement’s cases to dis
             print("an (x, y) point at \\(x), \\(y)")
         case let movie as Movie:
             print("a movie called '\\(movie.name)', dir. \\(movie.director)")
-        case let stringConverter as String -&gt; String:
+        case let stringConverter as String -> String:
             print(stringConverter("Michael"))
         default:
             print("something else")

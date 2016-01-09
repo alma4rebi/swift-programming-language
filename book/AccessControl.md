@@ -126,7 +126,7 @@ The access level for a function type is calculated as the most restrictive acces
 
 The example below defines a global function called `someFunction`, without providing a specific access level modifier for the function itself. You might expect this function to have the default access level of “internal”, but this is not the case. In fact, `someFunction` will not compile as written below:
 
-    func someFunction() -&gt; (SomeInternalClass, SomePrivateClass) {
+    func someFunction() -> (SomeInternalClass, SomePrivateClass) {
         // function implementation goes here
     }
 
@@ -134,7 +134,7 @@ The function’s return type is a tuple type composed from two of the custom cla
 
 Because the function’s return type is private, you must mark the function’s overall access level with the `private` modifier for the function declaration to be valid:
 
-    private func someFunction() -&gt; (SomeInternalClass, SomePrivateClass) {
+    private func someFunction() -> (SomeInternalClass, SomePrivateClass) {
         // function implementation goes here
     }
 

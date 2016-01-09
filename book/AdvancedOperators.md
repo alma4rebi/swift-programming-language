@@ -91,17 +91,17 @@ The illustration below shows the results of `11111111 << 1` (which is `11111111`
 Here’s how bit shifting looks in Swift code:
 
     let shiftBits: UInt8 = 4 // 00000100 in binary
-    shiftBits &lt;&lt; 1 // 00001000
-    shiftBits &lt;&lt; 2 // 00010000
-    shiftBits &lt;&lt; 5 // 10000000
-    shiftBits &lt;&lt; 6 // 00000000
-    shiftBits &gt;&gt; 2 // 00000001
+    shiftBits << 1 // 00001000
+    shiftBits << 2 // 00010000
+    shiftBits << 5 // 10000000
+    shiftBits << 6 // 00000000
+    shiftBits >> 2 // 00000001
 
 You can use bit shifting to encode and decode values within other data types:
 
     let pink: UInt32 = 0xCC6699
-    let redComponent = (pink & 0xFF0000) &gt;&gt; 16 // redComponent is 0xCC, or 204
-    let greenComponent = (pink & 0x00FF00) &gt;&gt; 8 // greenComponent is 0x66, or 102
+    let redComponent = (pink & 0xFF0000) >> 16 // redComponent is 0xCC, or 204
+    let greenComponent = (pink & 0x00FF00) >> 8 // greenComponent is 0x66, or 102
     let blueComponent = pink & 0x0000FF // blueComponent is 0x99, or 153
 
 This example uses a `UInt32` constant called `pink` to store a Cascading Style Sheets color value for the color pink. The CSS color value `#CC6699` is written as `0xCC6699` in Swift’s hexadecimal number representation. This color is then decomposed into its red (`CC`), green (`66`), and blue (`99`) components by the bitwise AND operator (`&`) and the bitwise right shift operator (`>>`).
@@ -264,7 +264,7 @@ The example defines a `Vector2D` structure for a two-dimensional position vector
     struct Vector2D {
         var x = 0.0, y = 0.0
     }
-    func + (left: Vector2D, right: Vector2D) -&gt; Vector2D {
+    func + (left: Vector2D, right: Vector2D) -> Vector2D {
         return Vector2D(x: left.x + right.x, y: left.y + right.y)
     }
 
@@ -289,7 +289,7 @@ The example shown above demonstrates a custom implementation of a binary infix o
 
 You implement a prefix or postfix unary operator by writing the `prefix` or `postfix` modifier before the `func` keyword when declaring the operator function:
 
-    prefix func - (vector: Vector2D) -&gt; Vector2D {
+    prefix func - (vector: Vector2D) -> Vector2D {
         return Vector2D(x: -vector.x, y: -vector.y)
     }
 
@@ -322,7 +322,7 @@ Because an addition operator was defined earlier, you don’t need to reimplemen
 
 You can combine assignment with either the `prefix` or `postfix` modifier, as in this implementation of the prefix increment operator (`++a`) for `Vector2D` instances:
 
-    prefix func ++ (inout vector: Vector2D) -&gt; Vector2D {
+    prefix func ++ (inout vector: Vector2D) -> Vector2D {
         vector += Vector2D(x: 1.0, y: 1.0)
         return vector
     }
@@ -344,10 +344,10 @@ Custom classes and structures do not receive a default implementation of the *eq
 
 To use the equivalence operators to check for equivalence of your own custom type, provide an implementation of the operators in the same way as for other infix operators:
 
-    func == (left: Vector2D, right: Vector2D) -&gt; Bool {
+    func == (left: Vector2D, right: Vector2D) -> Bool {
         return (left.x == right.x) && (left.y == right.y)
     }
-    func != (left: Vector2D, right: Vector2D) -&gt; Bool {
+    func != (left: Vector2D, right: Vector2D) -> Bool {
         return !(left == right)
     }
 
@@ -372,7 +372,7 @@ New operators are declared at a global level using the `operator` keyword, and a
 
 The example above defines a new prefix operator called `+++`. This operator does not have an existing meaning in Swift, and so it is given its own custom meaning below in the specific context of working with `Vector2D` instances. For the purposes of this example, `+++` is treated as a new “prefix doubling incrementer” operator. It doubles the `x` and `y` values of a `Vector2D` instance, by adding the vector to itself with the addition assignment operator defined earlier:
 
-    prefix func +++ (inout vector: Vector2D) -&gt; Vector2D {
+    prefix func +++ (inout vector: Vector2D) -> Vector2D {
         vector += vector
         return vector
     }
@@ -395,7 +395,7 @@ The `associativity` value defaults to `none` if it is not specified. The `preced
 The following example defines a new custom `infix` operator called `+-`, with `left` associativity and a precedence of `140`:
 
     infix operator +- { associativity left precedence 140 }
-    func +- (left: Vector2D, right: Vector2D) -&gt; Vector2D {
+    func +- (left: Vector2D, right: Vector2D) -> Vector2D {
         return Vector2D(x: left.x + right.x, y: left.y - right.y)
     }
     let firstVector = Vector2D(x: 1.0, y: 2.0)

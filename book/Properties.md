@@ -221,7 +221,7 @@ Here’s an example of `willSet` and `didSet` in action. The example below defin
                 print("About to set totalSteps to \\(newTotalSteps)")
             }
             didSet {
-                if totalSteps &gt; oldValue {
+                if totalSteps > oldValue {
                     print("Added \\(totalSteps - oldValue) steps")
                 }
             }
@@ -339,11 +339,11 @@ The audio channels described above are represented by instances of the `AudioCha
         static var maxInputLevelForAllChannels = 0
         var currentLevel: Int = 0 {
             didSet {
-                if currentLevel &gt; AudioChannel.thresholdLevel {
+                if currentLevel > AudioChannel.thresholdLevel {
                     // cap the new audio level to the threshold level
                     currentLevel = AudioChannel.thresholdLevel
                 }
-                if currentLevel &gt; AudioChannel.maxInputLevelForAllChannels {
+                if currentLevel > AudioChannel.maxInputLevelForAllChannels {
                     // store this as the new overall maximum input level
                     AudioChannel.maxInputLevelForAllChannels = currentLevel
                 }

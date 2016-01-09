@@ -290,7 +290,7 @@ The expression represented by the expression pattern is compared with the value 
 You can overload the `~=` operator to provide custom expression matching behavior. For example, you can rewrite the above example to compare the `point` expression with a string representations of points.
 
     // Overload the ~= operator to match a string with an integer
-    func \~=(pattern: String, value: Int) -&gt; Bool {
+    func \~=(pattern: String, value: Int) -> Bool {
         return pattern == "\\(value)"
     }
     switch point {

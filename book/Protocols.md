@@ -95,7 +95,7 @@ As with type property requirements, you always prefix type method requirements w
 The following example defines a protocol with a single instance method requirement:
 
     protocol RandomNumberGenerator {
-        func random() -&gt; Double
+        func random() -> Double
     }
 
 This protocol, `RandomNumberGenerator`, requires any conforming type to have an instance method called `random`, which returns a `Double` value whenever it is called. Although it is not specified as part of the protocol, it is assumed that this value will be a number from `0.0` up to (but not including) `1.0`.
@@ -109,7 +109,7 @@ Here’s an implementation of a class that adopts and conforms to the `RandomNum
         let m = 139968.0
         let a = 3877.0
         let c = 29573.0
-        func random() -&gt; Double {
+        func random() -> Double {
             lastRandom = ((lastRandom \* a + c) % m)
             return lastRandom / m
         }
@@ -233,7 +233,7 @@ Here’s an example of a protocol used as a type:
             self.sides = sides
             self.generator = generator
         }
-        func roll() -&gt; Int {
+        func roll() -> Int {
             return Int(generator.random() \* Double(sides)) + 1
         }
     }
@@ -298,7 +298,7 @@ Here’s a version of the *Snakes and Ladders* game originally introduced in [Co
                 switch square + diceRoll {
                 case finalSquare:
                     break gameLoop
-                case let newSquare where newSquare &gt; finalSquare:
+                case let newSquare where newSquare > finalSquare:
                     continue gameLoop
                 default:
                     square += diceRoll
@@ -464,9 +464,9 @@ The `SnakesAndLadders` class can be extended to adopt and conform to `PrettyText
             var output = textualDescription + ":\n"
             for index in 1...finalSquare {
                 switch board\[index\] {
-                case let ladder where ladder &gt; 0:
+                case let ladder where ladder > 0:
                     output += "▲ "
-                case let snake where snake &lt; 0:
+                case let snake where snake < 0:
                     output += "▼ "
                 default:
                     output += "○ "
@@ -520,7 +520,7 @@ Here’s an example that combines two protocols called `Named` and `Aged` into a
         var name: String
         var age: Int
     }
-    func wishHappyBirthday(celebrator: protocol&lt;Named, Aged&gt;) {
+    func wishHappyBirthday(celebrator: protocol<Named, Aged>) {
         print("Happy birthday \\(celebrator.name) - you're \\(celebrator.age)!")
     }
     let birthdayPerson = Person(name: "Malcolm", age: 21)
@@ -619,7 +619,7 @@ Note also that `@objc` protocols can be adopted only by classes that inherit fro
 The following example defines an integer-counting class called `Counter`, which uses an external data source to provide its increment amount. This data source is defined by the `CounterDataSource` protocol, which has two optional requirements:
 
     @objc protocol CounterDataSource {
-        optional func incrementForCount(count: Int) -&gt; Int
+        optional func incrementForCount(count: Int) -> Int
         optional var fixedIncrement: Int { get }
     }
 
@@ -679,10 +679,10 @@ The code above creates a new `Counter` instance; sets its data source to be a ne
 Here’s a more complex data source called `TowardsZeroSource`, which makes a `Counter` instance count up or down towards zero from its current `count` value:
 
     @objc class TowardsZeroSource: NSObject, CounterDataSource {
-        func incrementForCount(count: Int) -&gt; Int {
+        func incrementForCount(count: Int) -> Int {
             if count == 0 {
                 return 0
-            } else if count &lt; 0 {
+            } else if count < 0 {
                 return 1
             } else {
                 return -1
@@ -713,8 +713,8 @@ Protocols can be extended to provide method and property implementations to conf
 For example, the `RandomNumberGenerator` protocol can be extended to provide a `randomBool()` method, which uses the result of the required `random()` method to return a random `Bool` value:
 
     extension RandomNumberGenerator {
-        func randomBool() -&gt; Bool {
-            return random() &gt; 0.5
+        func randomBool() -> Bool {
+            return random() > 0.5
         }
     }
 

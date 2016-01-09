@@ -87,7 +87,7 @@ The `Residence` class is more complex than before. This time, the `Residence` cl
         var numberOfRooms: Int {
             return rooms.count
         }
-        subscript(i: Int) -&gt; Room {
+        subscript(i: Int) -> Room {
             get {
                 return rooms\[i\]
             }
@@ -122,7 +122,7 @@ The final class in this model is called `Address`. This class has three optional
         var buildingName: String?
         var buildingNumber: String?
         var street: String?
-        func buildingIdentifier() -&gt; String? {
+        func buildingIdentifier() -> String? {
             if buildingName != nil {
                 return buildingName
             } else if buildingNumber != nil && street != nil {
@@ -162,7 +162,7 @@ In this example, the attempt to set the `address` property of `john.residence` w
 
 The assignment is part of the optional chaining, which means none of the code on the right hand side of the `=` operator is evaluated. In the previous example, it’s not easy to see that `someAddress` is never evaluated, because accessing a constant doesn’t have any side effects. The listing below does the same assignment, but it uses a function to create the address. The function prints “Function was called” before returning a value, which lets you see whether the right hand side of the `=` operator was evaluated.
 
-    func createAddress() -&gt; Address {
+    func createAddress() -> Address {
         print("Function was called.")
         
         let someAddress = Address()

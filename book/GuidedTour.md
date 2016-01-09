@@ -82,7 +82,7 @@ Use `if` and `switch` to make conditionals, and use `for`-`in`, `for`, `while`, 
     let individualScores = \[75, 43, 103, 87, 12\]
     var teamScore = 0
     for score in individualScores {
-        if score &gt; 50 {
+        if score > 50 {
             teamScore += 3
         } else {
             teamScore += 1
@@ -147,7 +147,7 @@ You use `for`-`in` to iterate over items in a dictionary by providing a pair of 
     var largest = 0
     for (kind, numbers) in interestingNumbers {
         for number in numbers {
-            if number &gt; largest {
+            if number > largest {
                 largest = number
             }
         }
@@ -161,7 +161,7 @@ Add another variable to keep track of which kind of number was the largest, as w
 Use `while` to repeat a block of code until a condition changes. The condition of a loop can be at the end instead, ensuring that the loop is run at least once.
 
     var n = 2
-    while n &lt; 100 {
+    while n < 100 {
         n = n \* 2
     }
     print(n)
@@ -169,19 +169,19 @@ Use `while` to repeat a block of code until a condition changes. The condition o
     var m = 2
     repeat {
         m = m \* 2
-    } while m &lt; 100
+    } while m < 100
     print(m)
 
 You can keep an index in a loop—either by using `..<` to make a range of indexes or by writing an explicit initialization, condition, and increment. These two loops do the same thing:
 
     var firstForLoop = 0
-    for i in 0..&lt;4 {
+    for i in 0..<4 {
         firstForLoop += i
     }
     print(firstForLoop)
      
     var secondForLoop = 0
-    for var i = 0; i &lt; 4; ++i {
+    for var i = 0; i < 4; ++i {
         secondForLoop += i
     }
     print(secondForLoop)
@@ -192,7 +192,7 @@ Use `..<` to make a range that omits its upper value, and use `...` to make a ra
 
 Use `func` to declare a function. Call a function by following its name with a list of arguments in parentheses. Use `->` to separate the parameter names and types from the function’s return type.
 
-    func greet(name: String, day: String) -&gt; String {
+    func greet(name: String, day: String) -> String {
         return "Hello \\(name), today is \\(day)."
     }
     greet("Bob", day: "Tuesday")
@@ -203,15 +203,15 @@ Remove the `day` parameter. Add a parameter to include today’s lunch special i
 
 Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
 
-    func calculateStatistics(scores: \[Int\]) -&gt; (min: Int, max: Int, sum: Int) {
+    func calculateStatistics(scores: \[Int\]) -> (min: Int, max: Int, sum: Int) {
         var min = scores\[0\]
         var max = scores\[0\]
         var sum = 0
         
         for score in scores {
-            if score &gt; max {
+            if score > max {
                 max = score
-            } else if score &lt; min {
+            } else if score < min {
                 min = score
             }
             sum += score
@@ -225,7 +225,7 @@ Use a tuple to make a compound value—for example, to return multiple values fr
 
 Functions can also take a variable number of arguments, collecting them into an array.
 
-    func sumOf(numbers: Int...) -&gt; Int {
+    func sumOf(numbers: Int...) -> Int {
         var sum = 0
         for number in numbers {
             sum += number
@@ -241,7 +241,7 @@ Write a function that calculates the average of its arguments.
 
 Functions can be nested. Nested functions have access to variables that were declared in the outer function. You can use nested functions to organize the code in a function that is long or complex.
 
-    func returnFifteen() -&gt; Int {
+    func returnFifteen() -> Int {
         var y = 10
         func add() {
             y += 5
@@ -253,8 +253,8 @@ Functions can be nested. Nested functions have access to variables that were dec
 
 Functions are a first-class type. This means that a function can return another function as its value.
 
-    func makeIncrementer() -&gt; ((Int) -&gt; Int) {
-        func addOne(number: Int) -&gt; Int {
+    func makeIncrementer() -> ((Int) -> Int) {
+        func addOne(number: Int) -> Int {
             return 1 + number
         }
         return addOne
@@ -264,7 +264,7 @@ Functions are a first-class type. This means that a function can return another 
 
 A function can take another function as one of its arguments.
 
-    func hasAnyMatches(list: \[Int\], condition: (Int) -&gt; Bool) -&gt; Bool {
+    func hasAnyMatches(list: \[Int\], condition: (Int) -> Bool) -> Bool {
         for item in list {
             if condition(item) {
                 return true
@@ -272,8 +272,8 @@ A function can take another function as one of its arguments.
         }
         return false
     }
-    func lessThanTen(number: Int) -&gt; Bool {
-        return number &lt; 10
+    func lessThanTen(number: Int) -> Bool {
+        return number < 10
     }
     var numbers = \[20, 19, 7, 12\]
     hasAnyMatches(numbers, condition: lessThanTen)
@@ -281,7 +281,7 @@ A function can take another function as one of its arguments.
 Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it is executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces (`{}`). Use `in` to separate the arguments and return type from the body.
 
     numbers.map({
-        (number: Int) -&gt; Int in
+        (number: Int) -> Int in
         let result = 3 \* number
         return result
     })
@@ -297,7 +297,7 @@ You have several options for writing closures more concisely. When a closure’s
 
 You can refer to parameters by number instead of by name—this approach is especially useful in very short closures. A closure passed as the last argument to a function can appear immediately after the parentheses. When a closure is the only argument to a function, you can omit the parentheses entirely.
 
-    let sortedNumbers = numbers.sort { $0 &gt; $1 }
+    let sortedNumbers = numbers.sort { $0 > $1 }
     print(sortedNumbers)
 
 ### Objects and Classes
@@ -306,7 +306,7 @@ Use `class` followed by the class’s name to create a class. A property declara
 
     class Shape {
         var numberOfSides = 0
-        func simpleDescription() -&gt; String {
+        func simpleDescription() -> String {
             return "A shape with \\(numberOfSides) sides."
         }
     }
@@ -331,7 +331,7 @@ This version of the `Shape` class is missing something important: an initializer
             self.name = name
         }
         
-        func simpleDescription() -&gt; String {
+        func simpleDescription() -> String {
             return "A shape with \\(numberOfSides) sides."
         }
     }
@@ -353,11 +353,11 @@ Methods on a subclass that override the superclass’s implementation are marked
             numberOfSides = 4
         }
         
-        func area() -&gt; Double {
+        func area() -> Double {
             return sideLength \* sideLength
         }
         
-        override func simpleDescription() -&gt; String {
+        override func simpleDescription() -> String {
             return "A square with sides of length \\(sideLength)."
         }
     }
@@ -389,7 +389,7 @@ In addition to simple properties that are stored, properties can have a getter a
             }
         }
         
-        override func simpleDescription() -&gt; String {
+        override func simpleDescription() -> String {
             return "An equilateral triangle with sides of length \\(sideLength)."
         }
     }
@@ -445,7 +445,7 @@ Use `enum` to create an enumeration. Like classes and all other named types, enu
         case Ace = 1
         case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
         case Jack, Queen, King
-        func simpleDescription() -&gt; String {
+        func simpleDescription() -> String {
             switch self {
             case .Ace:
                 return "ace"
@@ -479,7 +479,7 @@ The case values of an enumeration are actual values, not just another way of wri
 
     enum Suit {
         case Spades, Hearts, Diamonds, Clubs
-        func simpleDescription() -&gt; String {
+        func simpleDescription() -> String {
             switch self {
             case .Spades:
                 return "spades"
@@ -506,7 +506,7 @@ Use `struct` to create a structure. Structures support many of the same behavior
     struct Card {
         var rank: Rank
         var suit: Suit
-        func simpleDescription() -&gt; String {
+        func simpleDescription() -> String {
             return "The \\(rank.simpleDescription()) of \\(suit.simpleDescription())"
         }
     }
@@ -608,9 +608,9 @@ Even though the variable `protocolValue` has a runtime type of `SimpleClass`, th
 
 Write a name inside angle brackets to make a generic function or type.
 
-    func repeatItem&lt;Item&gt;(item: Item, numberOfTimes: Int) -&gt; \[Item\] {
+    func repeatItem<Item>(item: Item, numberOfTimes: Int) -> \[Item\] {
         var result = \[Item\]()
-        for _ in 0..&lt;numberOfTimes {
+        for _ in 0..<numberOfTimes {
             result.append(item)
         }
         return result
@@ -620,16 +620,16 @@ Write a name inside angle brackets to make a generic function or type.
 You can make generic forms of functions and methods, as well as classes, enumerations, and structures.
 
     // Reimplement the Swift standard library's optional type
-    enum OptionalValue&lt;Wrapped&gt; {
+    enum OptionalValue<Wrapped> {
         case None
         case Some(Wrapped)
     }
-    var possibleInteger: OptionalValue&lt;Int&gt; = .None
+    var possibleInteger: OptionalValue<Int> = .None
     possibleInteger = .Some(100)
 
 Use `where` after the type name to specify a list of requirements—for example, to require the type to implement a protocol, to require two types to be the same, or to require a class to have a particular superclass.
 
-    func anyCommonElements &lt;T: SequenceType, U: SequenceType where T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element&gt; (lhs: T, _ rhs: U) -&gt; Bool {
+    func anyCommonElements <T: SequenceType, U: SequenceType where T.Generator.Element: Equatable, T.Generator.Element == U.Generator.Element> (lhs: T, _ rhs: U) -> Bool {
         for lhsItem in lhs {
             for rhsItem in rhs {
                 if lhsItem == rhsItem {

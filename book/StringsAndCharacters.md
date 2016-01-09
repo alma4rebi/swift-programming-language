@@ -277,7 +277,7 @@ To remove a character from a string at a specified index, use the `removeAtIndex
 
 To remove a substring at a specified range, use the `removeRange(_:)` method:
 
-    let range = welcome.endIndex.advancedBy(-6)..&lt;welcome.endIndex
+    let range = welcome.endIndex.advancedBy(-6)..<welcome.endIndex
     welcome.removeRange(range)
     // welcome now equals "hello"
 

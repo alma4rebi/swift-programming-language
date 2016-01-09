@@ -659,7 +659,7 @@ Function parameters are a comma separated list where each parameter has one of s
 
 A parameter has a local name, which is used within the function body, as well as an external name, which is used as a label for the argument when calling the method. By default, the external name of the first parameter is omitted, and the second and subsequent parameters use their local names as external names. For example:
 
-    func f(x: Int, y: Int) -&gt; Int { return x + y }
+    func f(x: Int, y: Int) -> Int { return x + y }
     f(1, y: 2) // y is labeled, x is not
 
 You can override the default behavior for how parameter names are used with one of the following forms:
@@ -676,7 +676,7 @@ A name before the local parameter name gives the parameter an external name, whi
 
 An underscore (`_`) before a local parameter name gives that parameter no name to be used in function calls. The corresponding argument must have no name in function or method calls.
 
-    func f(x x: Int, withY y: Int, _ z: Int) -&gt; Int { return x + y + z }
+    func f(x x: Int, withY y: Int, _ z: Int) -> Int { return x + y + z }
     f(x: 1, withY: 2, 3) // x and y are labeled, z is not
 
 ### In-Out Parameters
@@ -706,7 +706,7 @@ You can’t pass the same argument to multiple in-out parameters because the ord
 
 There is no copy-out at the end of closures or nested functions. This means if a closure is called after the function returns, any changes that closure makes to the in-out parameters do not get copied back to the original. For example:
 
-    func outer(inout a: Int) -&gt; () -&gt; Void {
+    func outer(inout a: Int) -> () -> Void {
         func inner() {
             a += 1
         }
@@ -745,7 +745,7 @@ A parameter with a base type name followed immediately by three dots (`...`) is 
 
 A parameter with an equals sign (`=`) and an expression after its type is understood to have a default value of the given expression. The given expression is evaluated when the function is called. If the parameter is omitted when calling the function, the default value is used instead.
 
-    func f(x: Int = 42) -&gt; Int { return x }
+    func f(x: Int = 42) -> Int { return x }
     f() // Valid, uses default value
     f(7) // Valid, value provided without its name
     f(x: 7) // Invalid, name and value provided
@@ -786,7 +786,7 @@ A throwing method can’t override a nonthrowing method, and a throwing method c
 
 A function or method can be declared with the `rethrows` keyword to indicate that it throws an error only if one of it’s function parameters throws an error. These functions and methods are known as *rethrowing functions* and *rethrowing methods*. Rethrowing functions and methods must have at least one throwing function parameter.
 
-    func functionWithCallback(callback: () throws -&gt; Int) rethrows {
+    func functionWithCallback(callback: () throws -> Int) rethrows {
         try callback()
     }
 
@@ -972,7 +972,7 @@ Enumerations can have a recursive structure, that is, they can have cases with a
 
 To enable indirection for a particular enumeration case, mark it with the `indirect` declaration modifier.
 
-    enum Tree&lt;T&gt; {
+    enum Tree<T> {
         case Empty
         indirect case Node(value: T, left: Tree, right: Tree)
     }

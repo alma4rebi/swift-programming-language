@@ -7,7 +7,7 @@ For an overview of generics in Swift, see [Generics](Generics.md).
 
 ### Generic Parameter Clause
 
-A *generic parameter clause* specifies the type parameters of a generic type or function, along with any associated constraints and requirements on those parameters. A generic parameter clause is enclosed in angle brackets (&lt;&gt;) and has one of the following forms:
+A *generic parameter clause* specifies the type parameters of a generic type or function, along with any associated constraints and requirements on those parameters. A generic parameter clause is enclosed in angle brackets (<>) and has one of the following forms:
 
 -   ```
     <generic parameter list>
@@ -27,8 +27,8 @@ A generic parameter consists of a *type parameter* followed by an optional *cons
 
 The *constraint* specifies that a type parameter inherits from a specific class or conforms to a protocol or protocol composition. For instance, in the generic function below, the generic parameter `T: Comparable` indicates that any type argument substituted for the type parameter `T` must conform to the `Comparable` protocol.
 
-    func simpleMax&lt;T: Comparable&gt;(x: T, _ y: T) -&gt; T {
-        if x &lt; y {
+    func simpleMax<T: Comparable>(x: T, _ y: T) -> T {
+        if x < y {
             return y
         }
         return x
@@ -143,7 +143,7 @@ same-type-requirement
 
 ### Generic Argument Clause
 
-A *generic argument clause* specifies the type arguments of a generic type. A generic argument clause is enclosed in angle brackets (&lt;&gt;) and has the following form:
+A *generic argument clause* specifies the type arguments of a generic type. A generic argument clause is enclosed in angle brackets (<>) and has the following form:
 
 -   ```
     <generic argument list>
@@ -151,7 +151,7 @@ A *generic argument clause* specifies the type arguments of a generic type. A ge
 
 The *generic argument list* is a comma-separated list of type arguments. A *type argument* is the name of an actual concrete type that replaces a corresponding type parameter in the generic parameter clause of a generic type. The result is a specialized version of that generic type. As an example, the Swift standard library defines a generic dictionary type as:
 
-    struct Dictionary&lt;Key: Hashable, Value&gt;: CollectionType, DictionaryLiteralConvertible {
+    struct Dictionary<Key: Hashable, Value>: CollectionType, DictionaryLiteralConvertible {
         /* ... */
     }
 
@@ -159,7 +159,7 @@ The specialized version of the generic `Dictionary` type, `Dictionary<String, In
 
 You can also replace a type parameter with a type argument that is itself a specialized version of a generic type (provided it satisfies the appropriate constraints and requirements). For example, you can replace the type parameter `Element` in `Array<Element>` with a specialized version of an array, `Array<Int>`, to form an array whose elements are themselves arrays of integers.
 
-    let arrayOfArrays: Array&lt;Array&lt;Int&gt;&gt; = \[\[1, 2, 3\], \[4, 5, 6\], \[7, 8, 9\]\]
+    let arrayOfArrays: Array<Array<Int>> = \[\[1, 2, 3\], \[4, 5, 6\], \[7, 8, 9\]\]
 
 As mentioned in [Generic Parameter Clause](GenericParametersAndArguments.md#TP40016643-CH37-ID407), you don’t use a generic argument clause to specify the type arguments of a generic function or initializer.
 

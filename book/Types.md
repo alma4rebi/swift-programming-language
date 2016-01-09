@@ -186,7 +186,7 @@ The Swift language provides the following syntactic sugar for the Swift standard
 
 In other words, the following two declarations are equivalent:
 
-    let someArray: Array&lt;String&gt; = \["Alex", "Brian", "Dave"\]
+    let someArray: Array<String> = \["Alex", "Brian", "Dave"\]
     let someArray: \[String\] = \["Alex", "Brian", "Dave"\]
 
 In both cases, the constant `someArray` is declared as an array of strings. The elements of an array can be accessed through subscripting by specifying a valid index value in square brackets: `someArray[0]` refers to the element at index 0, `"Alex"`.
@@ -219,7 +219,7 @@ The Swift language provides the following syntactic sugar for the Swift standard
 In other words, the following two declarations are equivalent:
 
     let someDictionary: \[String: Int\] = \["Alex": 31, "Paul": 39\]
-    let someDictionary: Dictionary&lt;String, Int&gt; = \["Alex": 31, "Paul": 39\]
+    let someDictionary: Dictionary<String, Int> = \["Alex": 31, "Paul": 39\]
 
 In both cases, the constant `someDictionary` is declared as a dictionary with strings as keys and integers as values.
 
@@ -243,7 +243,7 @@ dictionary-type
 The Swift language defines the postfix `?` as syntactic sugar for the named type `Optional<Wrapped>`, which is defined in the Swift standard library. In other words, the following two declarations are equivalent:
 
     var optionalInteger: Int?
-    var optionalInteger: Optional&lt;Int&gt;
+    var optionalInteger: Optional<Int>
 
 In both cases, the variable `optionalInteger` is declared to have the type of an optional integer. Note that no whitespace may appear between the type and the `?`.
 
@@ -274,7 +274,7 @@ optional-type
 The Swift language defines the postfix `!` as syntactic sugar for the named type `ImplicitlyUnwrappedOptional<Wrapped>`, which is defined in the Swift standard library. In other words, the following two declarations are equivalent:
 
     var implicitlyUnwrappedString: String!
-    var implicitlyUnwrappedString: ImplicitlyUnwrappedOptional&lt;String&gt;
+    var implicitlyUnwrappedString: ImplicitlyUnwrappedOptional<String>
 
 In both cases, the variable `implicitlyUnwrappedString` is declared to have the type of an implicitly unwrapped optional string. Note that no whitespace may appear between the type and the `!`.
 

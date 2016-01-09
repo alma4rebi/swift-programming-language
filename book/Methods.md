@@ -98,8 +98,8 @@ Here, `self` disambiguates between a method parameter called `x` and an instance
 
     struct Point {
         var x = 0.0, y = 0.0
-        func isToTheRightOfX(x: Double) -&gt; Bool {
-            return self.x &gt; x
+        func isToTheRightOfX(x: Double) -> Bool {
+            return self.x > x
         }
     }
     let somePoint = Point(x: 4.0, y: 5.0)
@@ -202,13 +202,13 @@ All of the game’s levels (apart from level one) are locked when the game is fi
     struct LevelTracker {
         static var highestUnlockedLevel = 1
         static func unlockLevel(level: Int) {
-            if level &gt; highestUnlockedLevel { highestUnlockedLevel = level }
+            if level > highestUnlockedLevel { highestUnlockedLevel = level }
         }
-        static func levelIsUnlocked(level: Int) -&gt; Bool {
-            return level &lt;= highestUnlockedLevel
+        static func levelIsUnlocked(level: Int) -> Bool {
+            return level <= highestUnlockedLevel
         }
         var currentLevel = 1
-        mutating func advanceToLevel(level: Int) -&gt; Bool {
+        mutating func advanceToLevel(level: Int) -> Bool {
             if LevelTracker.levelIsUnlocked(level) {
                 currentLevel = level
                 return true

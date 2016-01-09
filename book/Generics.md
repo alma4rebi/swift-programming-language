@@ -51,7 +51,7 @@ In all three functions, it is important that the types of `a` and `b` are define
 
 *Generic functions* can work with any type. Here’s a generic version of the `swapTwoInts(_:_:)` function from above, called `swapTwoValues(_:_:)`:
 
-    func swapTwoValues&lt;T&gt;(inout a: T, inout _ b: T) {
+    func swapTwoValues<T>(inout a: T, inout _ b: T) {
         let temporaryA = a
         a = b
         b = temporaryA
@@ -60,7 +60,7 @@ In all three functions, it is important that the types of `a` and `b` are define
 The body of the `swapTwoValues(_:_:)` function is identical to the body of the `swapTwoInts(_:_:)` function. However, the first line of `swapTwoValues(_:_:)` is slightly different from `swapTwoInts(_:_:)`. Here’s how the first lines compare:
 
     func swapTwoInts(inout a: Int, inout _ b: Int)
-    func swapTwoValues&lt;T&gt;(inout a: T, inout _ b: T)
+    func swapTwoValues<T>(inout a: T, inout _ b: T)
 
 The generic version of the function uses a *placeholder* type name (called `T`, in this case) instead of an *actual* type name (such as `Int`, `String`, or `Double`). The placeholder type name doesn’t say anything about what `T` must be, but it *does* say that both `a` and `b` must be of the same type `T`, whatever `T` represents. The actual type to use in place of `T` will be determined each time the `swapTwoValues(_:_:)` function is called.
 
@@ -131,7 +131,7 @@ Here’s how to write a non-generic version of a stack, in this case for a stack
         mutating func push(item: Int) {
             items.append(item)
         }
-        mutating func pop() -&gt; Int {
+        mutating func pop() -> Int {
             return items.removeLast()
         }
     }
@@ -142,12 +142,12 @@ The `IntStack` type shown above can only be used with `Int` values, however. It 
 
 Here’s a generic version of the same code:
 
-    struct Stack&lt;Element&gt; {
+    struct Stack<Element> {
         var items = \[Element\]()
         mutating func push(item: Element) {
             items.append(item)
         }
-        mutating func pop() -&gt; Element {
+        mutating func pop() -> Element {
             return items.removeLast()
         }
     }
@@ -166,7 +166,7 @@ Because it is a generic type, `Stack` can be used to create a stack of *any* val
 
 You create a new `Stack` instance by writing the type to be stored in the stack within angle brackets. For example, to create a new stack of strings, you write `Stack<String>()`:
 
-    var stackOfStrings = Stack&lt;String&gt;()
+    var stackOfStrings = Stack<String>()
     stackOfStrings.push("uno")
     stackOfStrings.push("dos")
     stackOfStrings.push("tres")
@@ -223,7 +223,7 @@ You can define your own type constraints when creating custom generic types, and
 
 You write type constraints by placing a single class or protocol constraint after a type parameter’s name, separated by a colon, as part of the type parameter list. The basic syntax for type constraints on a generic function is shown below (although the syntax is the same for generic types):
 
-    func someFunction&lt;T: SomeClass, U: SomeProtocol&gt;(someT: T, someU: U) {
+    func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
         // function body goes here
     }
 
@@ -233,7 +233,7 @@ The hypothetical function above has two type parameters. The first type paramete
 
 Here’s a non-generic function called `findStringIndex`, which is given a `String` value to find and an array of `String` values within which to find it. The `findStringIndex(_:_:)` function returns an optional `Int` value, which will be the index of the first matching string in the array if it is found, or `nil` if the string cannot be found:
 
-    func findStringIndex(array: \[String\], _ valueToFind: String) -&gt; Int? {
+    func findStringIndex(array: \[String\], _ valueToFind: String) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -254,7 +254,7 @@ The principle of finding the index of a value in an array isn’t useful only fo
 
 Here’s how you might expect a generic version of `findStringIndex`, called `findIndex`, to be written. Note that the return type of this function is still `Int?`, because the function returns an optional index number, not an optional value from the array. Be warned, though—this function does not compile, for reasons explained after the example:
 
-    func findIndex&lt;T&gt;(array: \[T\], _ valueToFind: T) -&gt; Int? {
+    func findIndex<T>(array: \[T\], _ valueToFind: T) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -269,7 +269,7 @@ All is not lost, however. The Swift standard library defines a protocol called `
 
 Any type that is `Equatable` can be used safely with the `findIndex(_:_:)` function, because it is guaranteed to support the equal to operator. To express this fact, you write a type constraint of `Equatable` as part of the type parameter’s definition when you define the function:
 
-    func findIndex&lt;T: Equatable&gt;(array: \[T\], _ valueToFind: T) -&gt; Int? {
+    func findIndex<T: Equatable>(array: \[T\], _ valueToFind: T) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -299,7 +299,7 @@ Here’s an example of a protocol called `Container`, which declares an associat
         typealias ItemType
         mutating func append(item: ItemType)
         var count: Int { get }
-        subscript(i: Int) -&gt; ItemType { get }
+        subscript(i: Int) -> ItemType { get }
     }
 
 The `Container` protocol defines three required capabilities that any container must provide:
@@ -326,7 +326,7 @@ Here’s a version of the non-generic `IntStack` type from earlier, adapted to c
         mutating func push(item: Int) {
             items.append(item)
         }
-        mutating func pop() -&gt; Int {
+        mutating func pop() -> Int {
             return items.removeLast()
         }
         // conformance to the Container protocol
@@ -337,7 +337,7 @@ Here’s a version of the non-generic `IntStack` type from earlier, adapted to c
         var count: Int {
             return items.count
         }
-        subscript(i: Int) -&gt; Int {
+        subscript(i: Int) -> Int {
             return items\[i\]
         }
     }
@@ -350,13 +350,13 @@ Thanks to Swift’s type inference, you don’t actually need to declare a concr
 
 You can also make the generic `Stack` type conform to the `Container` protocol:
 
-    struct Stack&lt;Element&gt;: Container {
+    struct Stack<Element>: Container {
         // original Stack<Element> implementation
         var items = \[Element\]()
         mutating func push(item: Element) {
             items.append(item)
         }
-        mutating func pop() -&gt; Element {
+        mutating func pop() -> Element {
             return items.removeLast()
         }
         // conformance to the Container protocol
@@ -366,7 +366,7 @@ You can also make the generic `Stack` type conform to the `Container` protocol:
         var count: Int {
             return items.count
         }
-        subscript(i: Int) -&gt; Element {
+        subscript(i: Int) -> Element {
             return items\[i\]
         }
     }
@@ -393,10 +393,10 @@ The example below defines a generic function called `allItemsMatch`, which check
 
 The two containers to be checked do not have to be the same type of container (although they can be), but they do have to hold the same type of items. This requirement is expressed through a combination of type constraints and where clauses:
 
-    func allItemsMatch&lt;
+    func allItemsMatch<
         C1: Container, C2: Container
-        where C1.ItemType == C2.ItemType, C1.ItemType: Equatable&gt;
-        (someContainer: C1, _ anotherContainer: C2) -&gt; Bool {
+        where C1.ItemType == C2.ItemType, C1.ItemType: Equatable>
+        (someContainer: C1, _ anotherContainer: C2) -> Bool {
             
             // check that both containers contain the same number of items
             if someContainer.count != anotherContainer.count {
@@ -404,7 +404,7 @@ The two containers to be checked do not have to be the same type of container (a
             }
             
             // check each pair of items to see if they are equivalent
-            for i in 0..&lt;someContainer.count {
+            for i in 0..<someContainer.count {
                 if someContainer\[i\] != anotherContainer\[i\] {
                     return false
                 }
@@ -451,7 +451,7 @@ If the loop finishes without finding a mismatch, the two containers match, and t
 
 Here’s how the `allItemsMatch(_:_:)` function looks in action:
 
-    var stackOfStrings = Stack&lt;String&gt;()
+    var stackOfStrings = Stack<String>()
     stackOfStrings.push("uno")
     stackOfStrings.push("dos")
     stackOfStrings.push("tres")

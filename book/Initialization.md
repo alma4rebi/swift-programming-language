@@ -778,7 +778,7 @@ The example below defines a subclass of `Product` called `CartItem`. The `CartIt
         init?(name: String, quantity: Int) {
             self.quantity = quantity
             super.init(name: name)
-            if quantity &lt; 1 { return nil }
+            if quantity < 1 { return nil }
         }
     }
 
@@ -936,7 +936,7 @@ The `boardColors` array is initialized with a closure to set up its color values
             }
             return temporaryBoard
         }()
-        func squareIsBlackAtRow(row: Int, column: Int) -&gt; Bool {
+        func squareIsBlackAtRow(row: Int, column: Int) -> Bool {
             return boardColors\[(row \* 10) + column\]
         }
     }

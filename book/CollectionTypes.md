@@ -242,7 +242,7 @@ The type of a Swift set is written as `Set<Element>`, where `Element` is the typ
 
 You can create an empty set of a certain type using initializer syntax:
 
-    var letters = Set&lt;Character&gt;()
+    var letters = Set<Character>()
     print("letters is of type Set<Character> with \\(letters.count) items.")
     // prints "letters is of type Set<Character> with 0 items."
 
@@ -263,7 +263,7 @@ You can also initialize a set with an array literal, as a shorthand way to write
 
 The example below creates a set called `favoriteGenres` to store `String` values:
 
-    var favoriteGenres: Set&lt;String&gt; = \["Rock", "Classical", "Hip hop"\]
+    var favoriteGenres: Set<String> = \["Rock", "Classical", "Hip hop"\]
     // favoriteGenres has been initialized with three initial items
 
 The `favoriteGenres` variable is declared as “a set of `String` values”, written as `Set<String>`. Because this particular set has specified a value type of `String`, it is *only* allowed to store `String` values. Here, the `favoriteGenres` set is initialized with three `String` values (`"Rock"`, `"Classical"`, and `"Hip hop"`), written within an array literal.

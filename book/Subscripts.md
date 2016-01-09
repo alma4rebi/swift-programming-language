@@ -9,7 +9,7 @@ You can define multiple subscripts for a single type, and the appropriate subscr
 
 Subscripts enable you to query instances of a type by writing one or more values in square brackets after the instance name. Their syntax is similar to both instance method syntax and computed property syntax. You write subscript definitions with the `subscript` keyword, and specify one or more input parameters and a return type, in the same way as instance methods. Unlike instance methods, subscripts can be read-write or read-only. This behavior is communicated by a getter and setter in the same way as for computed properties:
 
-    subscript(index: Int) -&gt; Int {
+    subscript(index: Int) -> Int {
         get {
             // return an appropriate subscript value here
         }
@@ -22,7 +22,7 @@ The type of `newValue` is the same as the return value of the subscript. As with
 
 As with read-only computed properties, you can drop the `get` keyword for read-only subscripts:
 
-    subscript(index: Int) -&gt; Int {
+    subscript(index: Int) -> Int {
         // return an appropriate subscript value here
     }
 
@@ -30,7 +30,7 @@ Here’s an example of a read-only subscript implementation, which defines a `Ti
 
     struct TimesTable {
         let multiplier: Int
-        subscript(index: Int) -&gt; Int {
+        subscript(index: Int) -> Int {
             return multiplier \* index
         }
     }
@@ -79,10 +79,10 @@ While it is most common for a subscript to take a single parameter, you can also
             self.columns = columns
             grid = Array(count: rows \* columns, repeatedValue: 0.0)
         }
-        func indexIsValidForRow(row: Int, column: Int) -&gt; Bool {
-            return row &gt;= 0 && row &lt; rows && column &gt;= 0 && column &lt; columns
+        func indexIsValidForRow(row: Int, column: Int) -> Bool {
+            return row >= 0 && row < rows && column >= 0 && column < columns
         }
-        subscript(row: Int, column: Int) -&gt; Double {
+        subscript(row: Int, column: Int) -> Double {
             get {
                 assert(indexIsValidForRow(row, column: column), "Index out of range")
                 return grid\[(row \* columns) + column\]
@@ -115,8 +115,8 @@ These two statements call the subscript’s setter to set a value of `1.5` in th
 
 The `Matrix` subscript’s getter and setter both contain an assertion to check that the subscript’s `row` and `column` values are valid. To assist with these assertions, `Matrix` includes a convenience method called `indexIsValidForRow(_:column:)`, which checks whether the requested `row` and `column` are inside the bounds of the matrix:
 
-    func indexIsValidForRow(row: Int, column: Int) -&gt; Bool {
-        return row &gt;= 0 && row &lt; rows && column &gt;= 0 && column &lt; columns
+    func indexIsValidForRow(row: Int, column: Int) -> Bool {
+        return row >= 0 && row < rows && column >= 0 && column < columns
     }
 
 An assertion is triggered if you try to access a subscript that is outside of the matrix bounds:
