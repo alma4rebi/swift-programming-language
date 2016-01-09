@@ -149,7 +149,7 @@ Here’s the general form of a `while` loop:
 
 This example plays a simple game of *Snakes and Ladders* (also known as *Chutes and Ladders*):
 
-![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png){width="623" height="299"}
+![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png)
 
 The rules of the game are as follows:
 
@@ -471,7 +471,7 @@ The example below takes an (x, y) point, expressed as a simple tuple of type `(I
     }
     // prints "(1, 1) is inside the box"
 
-![image: Art/coordinateGraphSimple\_2x.png](Art/coordinateGraphSimple_2x.png){width="288" height="288"}
+![image: Art/coordinateGraphSimple\_2x.png](Art/coordinateGraphSimple_2x.png)
 
 The `switch` statement determines if the point is at the origin (0, 0); on the red x-axis; on the orange y-axis; inside the blue 4-by-4 box centered on the origin; or outside of the box.
 
@@ -494,7 +494,7 @@ The example below takes an (x, y) point, expressed as a tuple of type `(Int, Int
     }
     // prints "on the x-axis with an x value of 2"
 
-![image: Art/coordinateGraphMedium\_2x.png](Art/coordinateGraphMedium_2x.png){width="288" height="288"}
+![image: Art/coordinateGraphMedium\_2x.png](Art/coordinateGraphMedium_2x.png)
 
 The `switch` statement determines if the point is on the red x-axis, on the orange y-axis, or elsewhere, on neither axis.
 
@@ -521,7 +521,7 @@ The example below categorizes an (x, y) point on the following graph:
     }
     // prints "(1, -1) is on the line x == -y"
 
-![image: Art/coordinateGraphComplex\_2x.png](Art/coordinateGraphComplex_2x.png){width="289" height="290"}
+![image: Art/coordinateGraphComplex\_2x.png](Art/coordinateGraphComplex_2x.png)
 
 The `switch` statement determines if the point is on the green diagonal line where `x == y`, on the purple diagonal line where `x == -y`, or neither.
 
@@ -674,7 +674,7 @@ If a particular dice roll would take you beyond square 25, you must roll again u
 
 The game board is the same as before:
 
-![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png){width="623" height="299"}
+![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png)
 
 The values of `finalSquare`, `board`, `square`, and `diceRoll` are initialized in the same way as before:
 

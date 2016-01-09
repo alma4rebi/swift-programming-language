@@ -102,7 +102,7 @@ You can construct a new `Matrix` instance by passing an appropriate row and colu
 
 The preceding example creates a new `Matrix` instance with two rows and two columns. The `grid` array for this `Matrix` instance is effectively a flattened version of the matrix, as read from top left to bottom right:
 
-![image: Art/subscriptMatrix01\_2x.png](Art/subscriptMatrix01_2x.png){width="280" height="173"}
+![image: Art/subscriptMatrix01\_2x.png](Art/subscriptMatrix01_2x.png)
 
 Values in the matrix can be set by passing row and column values into the subscript, separated by a comma:
 
@@ -111,7 +111,7 @@ Values in the matrix can be set by passing row and column values into the subscr
 
 These two statements call the subscript’s setter to set a value of `1.5` in the top right position of the matrix (where `row` is `0` and `column` is `1`), and `3.2` in the bottom left position (where `row` is `1` and `column` is `0`):
 
-![image: Art/subscriptMatrix02\_2x.png](Art/subscriptMatrix02_2x.png){width="98" height="62"}
+![image: Art/subscriptMatrix02\_2x.png](Art/subscriptMatrix02_2x.png)
 
 The `Matrix` subscript’s getter and setter both contain an assertion to check that the subscript’s `row` and `column` values are valid. To assist with these assertions, `Matrix` includes a convenience method called `indexIsValidForRow(_:column:)`, which checks whether the requested `row` and `column` are inside the bounds of the matrix:
 

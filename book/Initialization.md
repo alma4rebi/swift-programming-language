@@ -351,7 +351,7 @@ A simple way to remember this is:
 
 These rules are illustrated in the figure below:
 
-![image: Art/initializerDelegation01\_2x.png](Art/initializerDelegation01_2x.png){width="448" height="214"}
+![image: Art/initializerDelegation01\_2x.png](Art/initializerDelegation01_2x.png)
 
 Here, the superclass has a single designated initializer and two convenience initializers. One convenience initializer calls another convenience initializer, which in turn calls the single designated initializer. This satisfies rules 2 and 3 from above. The superclass does not itself have a further superclass, and so rule 1 does not apply.
 
@@ -363,7 +363,7 @@ These rules don’t affect how users of your classes *create* instances of each 
 
 The figure below shows a more complex class hierarchy for four classes. It illustrates how the designated initializers in this hierarchy act as “funnel” points for class initialization, simplifying the interrelationships among classes in the chain:
 
-![image: Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png){width="448" height="444"}
+![image: Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png)
 
 ### Two-Phase Initialization 
 
@@ -421,7 +421,7 @@ Here’s how two-phase initialization plays out, based on the four safety checks
 
 Here’s how phase 1 looks for an initialization call for a hypothetical subclass and superclass:
 
-![image: Art/twoPhaseInitialization01\_2x.png](Art/twoPhaseInitialization01_2x.png){width="448" height="214"}
+![image: Art/twoPhaseInitialization01\_2x.png](Art/twoPhaseInitialization01_2x.png)
 
 In this example, initialization begins with a call to a convenience initializer on the subclass. This convenience initializer cannot yet modify any properties. It delegates across to a designated initializer from the same class.
 
@@ -433,7 +433,7 @@ As soon as all properties of the superclass have an initial value, its memory is
 
 Here’s how phase 2 looks for the same initialization call:
 
-![image: Art/twoPhaseInitialization02\_2x.png](Art/twoPhaseInitialization02_2x.png){width="448" height="214"}
+![image: Art/twoPhaseInitialization02\_2x.png](Art/twoPhaseInitialization02_2x.png)
 
 The superclass’s designated initializer now has an opportunity to customize the instance further (although it does not have to).
 
@@ -537,7 +537,7 @@ The base class in the hierarchy is called `Food`, which is a simple class to enc
 
 The figure below shows the initializer chain for the `Food` class:
 
-![image: Art/initializersExample01\_2x.png](Art/initializersExample01_2x.png){width="482" height="136"}
+![image: Art/initializersExample01\_2x.png](Art/initializersExample01_2x.png)
 
 Classes do not have a default memberwise initializer, and so the `Food` class provides a designated initializer that takes a single argument called `name`. This initializer can be used to create a new `Food` instance with a specific name:
 
@@ -566,7 +566,7 @@ The second class in the hierarchy is a subclass of `Food` called `RecipeIngredie
 
 The figure below shows the initializer chain for the `RecipeIngredient` class:
 
-![image: Art/initializersExample02\_2x.png](Art/initializersExample02_2x.png){width="482" height="286"}
+![image: Art/initializersExample02\_2x.png](Art/initializersExample02_2x.png)
 
 The `RecipeIngredient` class has a single designated initializer, `init(name: String, quantity: Int)`, which can be used to populate all of the properties of a new `RecipeIngredient` instance. This initializer starts by assigning the passed `quantity` argument to the `quantity` property, which is the only new property introduced by `RecipeIngredient`. After doing so, the initializer delegates up to the `init(name: String)` initializer of the `Food` class. This process satisfies safety check 1 from [Two-Phase Initialization](Initialization.md#TP40016643-CH18-ID220) above.
 
@@ -605,7 +605,7 @@ Because it provides a default value for all of the properties it introduces and 
 
 The figure below shows the overall initializer chain for all three classes:
 
-![image: Art/initializersExample03\_2x.png](Art/initializersExample03_2x.png){width="482" height="436"}
+![image: Art/initializersExample03\_2x.png](Art/initializersExample03_2x.png)
 
 You can use all three of the inherited initializers to create a new `ShoppingListItem` instance:
 
@@ -919,7 +919,7 @@ If you use a closure to initialize a property, remember that the rest of the ins
 
 The example below defines a structure called `Checkerboard`, which models a board for the game of *Checkers* (also known as *Draughts*):
 
-![image: Art/checkersBoard\_2x.png](Art/checkersBoard_2x.png){width="283" height="283"}
+![image: Art/checkersBoard\_2x.png](Art/checkersBoard_2x.png)
 
 The game of *Checkers* is played on a ten-by-ten board, with alternating black and white squares. To represent this game board, the `Checkerboard` structure has a single property called `boardColors`, which is an array of 100 `Bool` values. A value of `true` in the array represents a black square and a value of `false` represents a white square. The first item in the array represents the top left square on the board and the last item in the array represents the bottom right square on the board.
 

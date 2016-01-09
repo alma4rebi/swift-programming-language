@@ -19,7 +19,7 @@ Swift supports all of the bitwise operators found in C, as described below.
 
 The *bitwise NOT operator* (`~`) inverts all bits in a number:
 
-![image: Art/bitwiseNOT\_2x.png](Art/bitwiseNOT_2x.png){width="447" height="129"}
+![image: Art/bitwiseNOT\_2x.png](Art/bitwiseNOT_2x.png)
 
 The bitwise NOT operator is a prefix operator, and appears immediately before the value it operates on, without any white space:
 
@@ -34,7 +34,7 @@ The bitwise NOT operator is then used to create a new constant called `invertedB
 
 The *bitwise AND operator* (`&`) combines the bits of two numbers. It returns a new number whose bits are set to `1` only if the bits were equal to `1` in *both* input numbers:
 
-![image: Art/bitwiseAND\_2x.png](Art/bitwiseAND_2x.png){width="447" height="208"}
+![image: Art/bitwiseAND\_2x.png](Art/bitwiseAND_2x.png)
 
 In the example below, the values of `firstSixBits` and `lastSixBits` both have four middle bits equal to `1`. The bitwise AND operator combines them to make the number `00111100`, which is equal to an unsigned decimal value of `60`:
 
@@ -46,7 +46,7 @@ In the example below, the values of `firstSixBits` and `lastSixBits` both have f
 
 The *bitwise OR operator* (`|`) compares the bits of two numbers. The operator returns a new number whose bits are set to `1` if the bits are equal to `1` in *either* input number:
 
-![image: Art/bitwiseOR\_2x.png](Art/bitwiseOR_2x.png){width="447" height="208"}
+![image: Art/bitwiseOR\_2x.png](Art/bitwiseOR_2x.png)
 
 In the example below, the values of `someBits` and `moreBits` have different bits set to `1`. The bitwise OR operator combines them to make the number `11111110`, which equals an unsigned decimal of `254`:
 
@@ -58,7 +58,7 @@ In the example below, the values of `someBits` and `moreBits` have different bit
 
 The *bitwise XOR operator*, or “exclusive OR operator” (`^`), compares the bits of two numbers. The operator returns a new number whose bits are set to `1` where the input bits are different and are set to `0` where the input bits are the same:
 
-![image: Art/bitwiseXOR\_2x.png](Art/bitwiseXOR_2x.png){width="447" height="208"}
+![image: Art/bitwiseXOR\_2x.png](Art/bitwiseXOR_2x.png)
 
 In the example below, the values of `firstBits` and `otherBits` each have a bit set to `1` in a location that the other does not. The bitwise XOR operator sets both of these bits to `1` in its output value. All of the other bits in `firstBits` and `otherBits` match and are set to `0` in the output value:
 
@@ -86,7 +86,7 @@ This approach is known as a *logical shift*.
 
 The illustration below shows the results of `11111111 << 1` (which is `11111111` shifted to the left by `1` place), and `11111111 >> 1` (which is `11111111` shifted to the right by `1` place). Blue numbers are shifted, gray numbers are discarded, and orange zeros are inserted:
 
-![image: Art/bitshiftUnsigned\_2x.png](Art/bitshiftUnsigned_2x.png){width="649" height="130"}
+![image: Art/bitshiftUnsigned\_2x.png](Art/bitshiftUnsigned_2x.png)
 
 Here’s how bit shifting looks in Swift code:
 
@@ -122,7 +122,7 @@ Signed integers use their first bit (known as the *sign bit*) to indicate whethe
 
 The remaining bits (known as the *value bits*) store the actual value. Positive numbers are stored in exactly the same way as for unsigned integers, counting upwards from `0`. Here’s how the bits inside an `Int8` look for the number `4`:
 
-![image: Art/bitshiftSignedFour\_2x.png](Art/bitshiftSignedFour_2x.png){width="396" height="99"}
+![image: Art/bitshiftSignedFour\_2x.png](Art/bitshiftSignedFour_2x.png)
 
 The sign bit is `0` (meaning “positive”), and the seven value bits are just the number `4`, written in binary notation.
 
@@ -130,23 +130,23 @@ Negative numbers, however, are stored differently. They are stored by subtractin
 
 Here’s how the bits inside an `Int8` look for the number `-4`:
 
-![image: Art/bitshiftSignedMinusFour\_2x.png](Art/bitshiftSignedMinusFour_2x.png){width="396" height="99"}
+![image: Art/bitshiftSignedMinusFour\_2x.png](Art/bitshiftSignedMinusFour_2x.png)
 
 This time, the sign bit is `1` (meaning “negative”), and the seven value bits have a binary value of `124` (which is `128 - 4`):
 
-![image: Art/bitshiftSignedMinusFourValue\_2x.png](Art/bitshiftSignedMinusFourValue_2x.png){width="393" height="85"}
+![image: Art/bitshiftSignedMinusFourValue\_2x.png](Art/bitshiftSignedMinusFourValue_2x.png)
 
 The encoding for negative numbers is known as a *two’s complement* representation. It may seem an unusual way to represent negative numbers, but it has several advantages.
 
 First, you can add `-1` to `-4`, simply by performing a standard binary addition of all eight bits (including the sign bit), and discarding anything that doesn’t fit in the eight bits once you’re done:
 
-![image: Art/bitshiftSignedAddition\_2x.png](Art/bitshiftSignedAddition_2x.png){width="446" height="199"}
+![image: Art/bitshiftSignedAddition\_2x.png](Art/bitshiftSignedAddition_2x.png)
 
 Second, the two’s complement representation also lets you shift the bits of negative numbers to the left and right like positive numbers, and still end up doubling them for every shift you make to the left, or halving them for every shift you make to the right. To achieve this, an extra rule is used when signed integers are shifted to the right:
 
 -   When you shift signed integers to the right, apply the same rules as for unsigned integers, but fill any empty bits on the left with the *sign bit*, rather than with a zero.
 
-![image: Art/bitshiftSigned\_2x.png](Art/bitshiftSigned_2x.png){width="649" height="130"}
+![image: Art/bitshiftSigned\_2x.png](Art/bitshiftSigned_2x.png)
 
 This action ensures that signed integers have the same sign after they are shifted to the right, and is known as an *arithmetic shift*.
 
@@ -186,7 +186,7 @@ Here’s an example of what happens when an unsigned integer is allowed to overf
 
 The variable `unsignedOverflow` is initialized with the maximum value a `UInt8` can hold (`255`, or `11111111` in binary). It is then incremented by `1` using the overflow addition operator (`&+`). This pushes its binary representation just over the size that a `UInt8` can hold, causing it to overflow beyond its bounds, as shown in the diagram below. The value that remains within the bounds of the `UInt8` after the overflow addition is `00000000`, or zero.
 
-![image: Art/overflowAddition\_2x.png](Art/overflowAddition_2x.png){width="486" height="165"}
+![image: Art/overflowAddition\_2x.png](Art/overflowAddition_2x.png)
 
 Something similar happens when an unsigned integer is allowed to overflow in the negative direction. Here’s an example using the overflow subtraction operator (`&-`):
 
@@ -197,7 +197,7 @@ Something similar happens when an unsigned integer is allowed to overflow in the
 
 The minimum value that a `UInt8` can hold is zero, or `00000000` in binary. If you subtract `1` from `00000000` using the overflow subtraction operator (`&-`), the number will overflow and wrap around to `11111111`, or `255` in decimal.
 
-![image: Art/overflowUnsignedSubtraction\_2x.png](Art/overflowUnsignedSubtraction_2x.png){width="486" height="165"}
+![image: Art/overflowUnsignedSubtraction\_2x.png](Art/overflowUnsignedSubtraction_2x.png)
 
 Overflow also occurs for signed integers. All addition and subtraction for signed integers is performed in bitwise fashion, with the sign bit included as part of the numbers being added or subtracted, as described in [Bitwise Left and Right Shift Operators](AdvancedOperators.md#TP40016643-CH27-ID34).
 
@@ -208,7 +208,7 @@ Overflow also occurs for signed integers. All addition and subtraction for signe
 
 The minimum value that an `Int8` can hold is `-128`, or `10000000` in binary. Subtracting `1` from this binary number with the overflow operator gives a binary value of `01111111`, which toggles the sign bit and gives positive `127`, the maximum positive value that an `Int8` can hold.
 
-![image: Art/overflowSignedSubtraction\_2x.png](Art/overflowSignedSubtraction_2x.png){width="486" height="199"}
+![image: Art/overflowSignedSubtraction\_2x.png](Art/overflowSignedSubtraction_2x.png)
 
 For both signed and unsigned integers, overflow in the positive direction wraps around from the maximum valid integer value back to the minimum, and overflow in the negative direction wraps around from the minimum value to the maximum.
 
@@ -281,7 +281,7 @@ The function is defined globally, rather than as a method on the `Vector2D` stru
 
 This example adds together the vectors `(3.0, 1.0)` and `(2.0, 4.0)` to make the vector `(5.0, 5.0)`, as illustrated below.
 
-![image: Art/vectorAddition\_2x.png](Art/vectorAddition_2x.png){width="387" height="387"}
+![image: Art/vectorAddition\_2x.png](Art/vectorAddition_2x.png)
 
 ### Prefix and Postfix Operators 
 

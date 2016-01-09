@@ -397,7 +397,7 @@ Each example below shows a different representation of the following string, whi
 
 You can access a UTF-8 representation of a `String` by iterating over its `utf8` property. This property is of type `String.UTF8View`, which is a collection of unsigned 8-bit (`UInt8`) values, one for each byte in the string’s UTF-8 representation:
 
-![image: Art/UTF8\_2x.png](Art/UTF8_2x.png){width="476" height="229"}
+![image: Art/UTF8\_2x.png](Art/UTF8_2x.png)
 
     for codeUnit in dogString.utf8 {
         print("\\(codeUnit) ", terminator: "")
@@ -411,7 +411,7 @@ In the example above, the first three decimal `codeUnit` values (`68`, `111`, `1
 
 You can access a UTF-16 representation of a `String` by iterating over its `utf16` property. This property is of type `String.UTF16View`, which is a collection of unsigned 16-bit (`UInt16`) values, one for each 16-bit code unit in the string’s UTF-16 representation:
 
-![image: Art/UTF16\_2x.png](Art/UTF16_2x.png){width="477" height="229"}
+![image: Art/UTF16\_2x.png](Art/UTF16_2x.png)
 
     for codeUnit in dogString.utf16 {
         print("\\(codeUnit) ", terminator: "")
@@ -431,7 +431,7 @@ You can access a Unicode scalar representation of a `String` value by iterating 
 
 Each `UnicodeScalar` has a `value` property that returns the scalar’s 21-bit value, represented within a `UInt32` value:
 
-![image: Art/UnicodeScalar\_2x.png](Art/UnicodeScalar_2x.png){width="477" height="229"}
+![image: Art/UnicodeScalar\_2x.png](Art/UnicodeScalar_2x.png)
 
     for scalar in dogString.unicodeScalars {
         print("\\(scalar.value) ", terminator: "")

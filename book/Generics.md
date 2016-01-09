@@ -112,7 +112,7 @@ The concept of a stack is used by the `UINavigationController` class to model th
 
 The illustration below shows the push / pop behavior for a stack:
 
-![image: Art/stackPushPop\_2x.png](Art/stackPushPop_2x.png){width="664" height="273"}
+![image: Art/stackPushPop\_2x.png](Art/stackPushPop_2x.png)
 
 1.  There are currently three values on the stack.
 
@@ -175,7 +175,7 @@ You create a new `Stack` instance by writing the type to be stored in the stack 
 
 Here’s how `stackOfStrings` looks after pushing these four values on to the stack:
 
-![image: Art/stackPushedFourStrings\_2x.png](Art/stackPushedFourStrings_2x.png){width="664" height="218"}
+![image: Art/stackPushedFourStrings\_2x.png](Art/stackPushedFourStrings_2x.png)
 
 Popping a value from the stack returns and removes the top value, `"cuatro"`:
 
@@ -184,7 +184,7 @@ Popping a value from the stack returns and removes the top value, `"cuatro"`:
 
 Here’s how the stack looks after popping its top value:
 
-![image: Art/stackPoppedOneString\_2x.png](Art/stackPoppedOneString_2x.png){width="405" height="207"}
+![image: Art/stackPoppedOneString\_2x.png](Art/stackPoppedOneString_2x.png)
 
 ### Extending a Generic Type 
 

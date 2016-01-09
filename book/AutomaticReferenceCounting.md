@@ -112,7 +112,7 @@ You can now create a specific `Person` instance and `Apartment` instance and ass
 
 Here’s how the strong references look after creating and assigning these two instances. The `john` variable now has a strong reference to the new `Person` instance, and the `unit4A` variable has a strong reference to the new `Apartment` instance:
 
-![image: Art/referenceCycle01\_2x.png](Art/referenceCycle01_2x.png){width="626" height="188"}
+![image: Art/referenceCycle01\_2x.png](Art/referenceCycle01_2x.png)
 
 You can now link the two instances together so that the person has an apartment, and the apartment has a tenant. Note that an exclamation mark (`!`) is used to unwrap and access the instances stored inside the `john` and `unit4A` optional variables, so that the properties of those instances can be set:
 
@@ -121,7 +121,7 @@ You can now link the two instances together so that the person has an apartment,
 
 Here’s how the strong references look after you link the two instances together:
 
-![image: Art/referenceCycle02\_2x.png](Art/referenceCycle02_2x.png){width="626" height="200"}
+![image: Art/referenceCycle02\_2x.png](Art/referenceCycle02_2x.png)
 
 Unfortunately, linking these two instances creates a strong reference cycle between them. The `Person` instance now has a strong reference to the `Apartment` instance, and the `Apartment` instance has a strong reference to the `Person` instance. Therefore, when you break the strong references held by the `john` and `unit4A` variables, the reference counts do not drop to zero, and the instances are not deallocated by ARC:
 
@@ -132,7 +132,7 @@ Note that neither deinitializer was called when you set these two variables to `
 
 Here’s how the strong references look after you set the `john` and `unit4A` variables to `nil`:
 
-![image: Art/referenceCycle03\_2x.png](Art/referenceCycle03_2x.png){width="626" height="200"}
+![image: Art/referenceCycle03\_2x.png](Art/referenceCycle03_2x.png)
 
 The strong references between the `Person` instance and the `Apartment` instance remain and cannot be broken.
 
@@ -187,11 +187,11 @@ The strong references from the two variables (`john` and `unit4A`) and the links
 
 Here’s how the references look now that you’ve linked the two instances together:
 
-![image: Art/weakReference01\_2x.png](Art/weakReference01_2x.png){width="626" height="197"}
+![image: Art/weakReference01\_2x.png](Art/weakReference01_2x.png)
 
 The `Person` instance still has a strong reference to the `Apartment` instance, but the `Apartment` instance now has a *weak* reference to the `Person` instance. This means that when you break the strong reference held by the `john` variables, there are no more strong references to the `Person` instance:
 
-![image: Art/weakReference02\_2x.png](Art/weakReference02_2x.png){width="626" height="197"}
+![image: Art/weakReference02\_2x.png](Art/weakReference02_2x.png)
 
 Because there are no more strong references to the `Person` instance, it is deallocated:
 
@@ -200,7 +200,7 @@ Because there are no more strong references to the `Person` instance, it is deal
 
 The only remaining strong reference to the `Apartment` instance is from the `unit4A` variable. If you break *that* strong reference, there are no more strong references to the `Apartment` instance:
 
-![image: Art/weakReference03\_2x.png](Art/weakReference03_2x.png){width="626" height="197"}
+![image: Art/weakReference03\_2x.png](Art/weakReference03_2x.png)
 
 Because there are no more strong references to the `Apartment` instance, it too is deallocated:
 
@@ -267,13 +267,13 @@ You can now create a `Customer` instance, and use it to initialize and assign a 
 
 Here’s how the references look, now that you’ve linked the two instances:
 
-![image: Art/unownedReference01\_2x.png](Art/unownedReference01_2x.png){width="626" height="197"}
+![image: Art/unownedReference01\_2x.png](Art/unownedReference01_2x.png)
 
 The `Customer` instance now has a strong reference to the `CreditCard` instance, and the `CreditCard` instance has an unowned reference to the `Customer` instance.
 
 Because of the unowned `customer` reference, when you break the strong reference held by the `john` variable, there are no more strong references to the `Customer` instance:
 
-![image: Art/unownedReference02\_2x.png](Art/unownedReference02_2x.png){width="626" height="197"}
+![image: Art/unownedReference02\_2x.png](Art/unownedReference02_2x.png)
 
 Because there are no more strong references to the `Customer` instance, it is deallocated. After this happens, there are no more strong references to the `CreditCard` instance, and it too is deallocated:
 
@@ -403,7 +403,7 @@ The `paragraph` variable above is defined as an *optional* `HTMLElement`, so tha
 
 Unfortunately, the `HTMLElement` class, as written above, creates a strong reference cycle between an `HTMLElement` instance and the closure used for its default `asHTML` value. Here’s how the cycle looks:
 
-![image: Art/closureReferenceCycle01\_2x.png](Art/closureReferenceCycle01_2x.png){width="626" height="218"}
+![image: Art/closureReferenceCycle01\_2x.png](Art/closureReferenceCycle01_2x.png)
 
 The instance’s `asHTML` property holds a strong reference to its closure. However, because the closure refers to `self` within its body (as a way to reference `self.name` and `self.text`), the closure *captures* self, which means that it holds a strong reference back to the `HTMLElement` instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see [Capturing Values](Closures.md#TP40016643-CH11-ID103).)
 
@@ -490,7 +490,7 @@ You can create and print an `HTMLElement` instance as before:
 
 Here’s how the references look with the capture list in place:
 
-![image: Art/closureReferenceCycle02\_2x.png](Art/closureReferenceCycle02_2x.png){width="626" height="218"}
+![image: Art/closureReferenceCycle02\_2x.png](Art/closureReferenceCycle02_2x.png)
 
 This time, the capture of `self` by the closure is an unowned reference, and does not keep a strong hold on the `HTMLElement` instance it has captured. If you set the strong reference from the `paragraph` variable to `nil`, the `HTMLElement` instance is deallocated, as can be seen from the printing of its deinitializer message in the example below:
 

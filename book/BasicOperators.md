@@ -76,7 +76,7 @@ The remainder operator (`%`) is also known as a *modulo operator* in other langu
 
 Here’s how the remainder operator works. To calculate `9 % 4`, you first work out how many `4`s will fit inside `9`:
 
-![image: Art/remainderInteger\_2x.png](Art/remainderInteger_2x.png){width="337" height="66"}
+![image: Art/remainderInteger\_2x.png](Art/remainderInteger_2x.png)
 
 You can fit two `4`s inside `9`, and the remainder is `1` (shown in orange).
 
@@ -114,7 +114,7 @@ Unlike the remainder operator in C and Objective-C, Swift’s remainder operator
 
 In this example, `8` divided by `2.5` equals `3`, with a remainder of `0.5`, so the remainder operator returns a `Double` value of `0.5`.
 
-![image: Art/remainderFloat\_2x.png](Art/remainderFloat_2x.png){width="301" height="66"}
+![image: Art/remainderFloat\_2x.png](Art/remainderFloat_2x.png)
 
 ### Increment and Decrement Operators 
 

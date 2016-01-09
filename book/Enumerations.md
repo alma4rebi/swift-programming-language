@@ -94,11 +94,11 @@ You can define Swift enumerations to store associated values of any given type, 
 
 For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC-A format, which uses the numbers `0` to `9`. Each barcode has a “number system” digit, followed by five “manufacturer code” digits and five “product code” digits. These are followed by a “check” digit to verify that the code has been scanned correctly:
 
-![image: Art/barcode\_UPC\_2x.png](Art/barcode_UPC_2x.png){width="252" height="120"}
+![image: Art/barcode\_UPC\_2x.png](Art/barcode_UPC_2x.png)
 
 Other products are labeled with 2D barcodes in QR code format, which can use any ISO 8859-1 character and can encode a string up to 2,953 characters long:
 
-![image: Art/barcode\_QR\_2x.png](Art/barcode_QR_2x.png){width="169" height="169"}
+![image: Art/barcode\_QR\_2x.png](Art/barcode_QR_2x.png)
 
 It would be convenient for an inventory tracking system to be able to store UPC-A barcodes as a tuple of four integers, and QR code barcodes as a string of any length.
 
