@@ -2,8 +2,8 @@
 
 
 
-[‌](){#TP40016643-CH13}[‌](){#TP40016643-CH13-ID82}
-Classes and Structures {#classes-and-structures .chapter-name}
+[‌]()[‌]()
+Classes and Structures 
 ----------------------
 
 
@@ -24,8 +24,8 @@ An instance of a *class* is traditionally known as an *object*. However, Swift c
 
 
 
-[‌](){#TP40016643-CH13-ID83}
-### Comparing Classes and Structures {#comparing-classes-and-structures .section-name}
+[‌]()
+### Comparing Classes and Structures 
 
 Classes and structures in Swift have many things in common. Both can:
 
@@ -65,23 +65,23 @@ Structures are always copied when they are passed around in your code, and do no
 
 
 
-[‌](){#TP40016643-CH13-ID84}
-### Definition Syntax {#definition-syntax .section-name}
+[‌]()
+### Definition Syntax 
 
-Classes and structures have a similar definition syntax. You introduce classes with the `class`{.code-voice} keyword and structures with the `struct`{.code-voice} keyword. Both place their entire definition within a pair of braces:
-
-
+Classes and structures have a similar definition syntax. You introduce classes with the `class` keyword and structures with the `struct` keyword. Both place their entire definition within a pair of braces:
 
 
 
 
 
-1.  `class`{.code-voice} `SomeClass`{.vc} {
-2.  `    // class definition goes here`{.code-voice}
-3.  `}`{.code-voice}
-4.  `struct`{.code-voice} `SomeStructure`{.vc} {
-5.  `    // structure definition goes here`{.code-voice}
-6.  `}`{.code-voice}
+
+
+1.  `class` `SomeClass` {
+2.  `    // class definition goes here`
+3.  `}`
+4.  `struct` `SomeStructure` {
+5.  `    // structure definition goes here`
+6.  `}`
 
 
 
@@ -93,7 +93,7 @@ Classes and structures have a similar definition syntax. You introduce classes w
 
 Note
 
-Whenever you define a new class or structure, you effectively define a brand new Swift type. Give types `UpperCamelCase`{.code-voice} names (such as `SomeClass`{.code-voice} and `SomeStructure`{.code-voice} here) to match the capitalization of standard Swift types (such as `String`{.code-voice}, `Int`{.code-voice}, and `Bool`{.code-voice}). Conversely, always give properties and methods `lowerCamelCase`{.code-voice} names (such as `frameRate`{.code-voice} and `incrementCount`{.code-voice}) to differentiate them from type names.
+Whenever you define a new class or structure, you effectively define a brand new Swift type. Give types `UpperCamelCase` names (such as `SomeClass` and `SomeStructure` here) to match the capitalization of standard Swift types (such as `String`, `Int`, and `Bool`). Conversely, always give properties and methods `lowerCamelCase` names (such as `frameRate` and `incrementCount`) to differentiate them from type names.
 
 
 
@@ -105,16 +105,16 @@ Here’s an example of a structure definition and a class definition:
 
 
 
-1.  `struct`{.code-voice} `Resolution`{.vc} {
-2.  `    var`{.code-voice} `width`{.vc} = `0`{.m}
-3.  `    var`{.code-voice} `height`{.vc} = `0`{.m}
-4.  `}`{.code-voice}
-5.  `class`{.code-voice} `VideoMode`{.vc} {
-6.  `    var`{.code-voice} `resolution`{.vc} = `Resolution`{.vc}()
-7.  `    var`{.code-voice} `interlaced`{.vc} = `false`{.kt}
-8.  `    var`{.code-voice} `frameRate`{.vc} = `0.0`{.m}
-9.  `    var`{.code-voice} `name`{.vc}: `String`{.n}?
-10. `}`{.code-voice}
+1.  `struct` `Resolution` {
+2.  `    var` `width` = `0`
+3.  `    var` `height` = `0`
+4.  `}`
+5.  `class` `VideoMode` {
+6.  `    var` `resolution` = `Resolution`()
+7.  `    var` `interlaced` = `false`
+8.  `    var` `frameRate` = `0.0`
+9.  `    var` `name`: `String`?
+10. `}`
 
 
 
@@ -122,18 +122,18 @@ Here’s an example of a structure definition and a class definition:
 
 
 
-The example above defines a new structure called `Resolution`{.code-voice}, to describe a pixel-based display resolution. This structure has two stored properties called `width`{.code-voice} and `height`{.code-voice}. Stored properties are constants or variables that are bundled up and stored as part of the class or structure. These two properties are inferred to be of type `Int`{.code-voice} by setting them to an initial integer value of `0`{.code-voice}.
+The example above defines a new structure called `Resolution`, to describe a pixel-based display resolution. This structure has two stored properties called `width` and `height`. Stored properties are constants or variables that are bundled up and stored as part of the class or structure. These two properties are inferred to be of type `Int` by setting them to an initial integer value of `0`.
 
-The example above also defines a new class called `VideoMode`{.code-voice}, to describe a specific video mode for video display. This class has four variable stored properties. The first, `resolution`{.code-voice}, is initialized with a new `Resolution`{.code-voice} structure instance, which infers a property type of `Resolution`{.code-voice}. For the other three properties, new `VideoMode`{.code-voice} instances will be initialized with an `interlaced`{.code-voice} setting of `false`{.code-voice} (meaning “noninterlaced video”), a playback frame rate of `0.0`{.code-voice}, and an optional `String`{.code-voice} value called `name`{.code-voice}. The `name`{.code-voice} property is automatically given a default value of `nil`{.code-voice}, or “no `name`{.code-voice} value”, because it is of an optional type.
-
-
+The example above also defines a new class called `VideoMode`, to describe a specific video mode for video display. This class has four variable stored properties. The first, `resolution`, is initialized with a new `Resolution` structure instance, which infers a property type of `Resolution`. For the other three properties, new `VideoMode` instances will be initialized with an `interlaced` setting of `false` (meaning “noninterlaced video”), a playback frame rate of `0.0`, and an optional `String` value called `name`. The `name` property is automatically given a default value of `nil`, or “no `name` value”, because it is of an optional type.
 
 
 
-[‌](){#TP40016643-CH13-ID85}
-### Class and Structure Instances {#class-and-structure-instances .section-name}
 
-The `Resolution`{.code-voice} structure definition and the `VideoMode`{.code-voice} class definition only describe what a `Resolution`{.code-voice} or `VideoMode`{.code-voice} will look like. They themselves do not describe a specific resolution or video mode. To do that, you need to create an instance of the structure or class.
+
+[‌]()
+### Class and Structure Instances 
+
+The `Resolution` structure definition and the `VideoMode` class definition only describe what a `Resolution` or `VideoMode` will look like. They themselves do not describe a specific resolution or video mode. To do that, you need to create an instance of the structure or class.
 
 The syntax for creating instances is very similar for both structures and classes:
 
@@ -143,8 +143,8 @@ The syntax for creating instances is very similar for both structures and classe
 
 
 
-1.  `let`{.code-voice} `someResolution`{.vc} = `Resolution`{.vc}()
-2.  `let`{.code-voice} `someVideoMode`{.vc} = `VideoMode`{.vc}()
+1.  `let` `someResolution` = `Resolution`()
+2.  `let` `someVideoMode` = `VideoMode`()
 
 
 
@@ -152,25 +152,16 @@ The syntax for creating instances is very similar for both structures and classe
 
 
 
-Structures and classes both use initializer syntax for new instances. The simplest form of initializer syntax uses the type name of the class or structure followed by empty parentheses, such as `Resolution()`{.code-voice} or `VideoMode()`{.code-voice}. This creates a new instance of the class or structure, with any properties initialized to their default values. Class and structure initialization is described in more detail in [Initialization](Initialization.md).
+Structures and classes both use initializer syntax for new instances. The simplest form of initializer syntax uses the type name of the class or structure followed by empty parentheses, such as `Resolution()` or `VideoMode()`. This creates a new instance of the class or structure, with any properties initialized to their default values. Class and structure initialization is described in more detail in [Initialization](Initialization.md).
 
 
 
 
 
-[‌](){#TP40016643-CH13-ID86}
-### Accessing Properties {#accessing-properties .section-name}
+[‌]()
+### Accessing Properties 
 
-You can access the properties of an instance using *dot syntax*. In dot syntax, you write the property name immediately after the instance name, separated by a period (`.`{.code-voice}), without any spaces:
-
-
-
-
-
-
-
-1.  `print`{.code-voice}(`"The width of someResolution is `{.s}\\(`someResolution`{.vc}.`width`{.vc})`"`{.s})
-2.  `// prints "The width of someResolution is 0"`{.code-voice}
+You can access the properties of an instance using *dot syntax*. In dot syntax, you write the property name immediately after the instance name, separated by a period (`.`), without any spaces:
 
 
 
@@ -178,18 +169,27 @@ You can access the properties of an instance using *dot syntax*. In dot syntax, 
 
 
 
-In this example, `someResolution.width`{.code-voice} refers to the `width`{.code-voice} property of `someResolution`{.code-voice}, and returns its default initial value of `0`{.code-voice}.
-
-You can drill down into sub-properties, such as the `width`{.code-voice} property in the `resolution`{.code-voice} property of a `VideoMode`{.code-voice}:
-
+1.  `print`(`"The width of someResolution is `\\(`someResolution`.`width`)`"`)
+2.  `// prints "The width of someResolution is 0"`
 
 
 
 
 
 
-1.  `print`{.code-voice}(`"The width of someVideoMode is `{.s}\\(`someVideoMode`{.vc}.`resolution`{.vc}.`width`{.vc})`"`{.s})
-2.  `// prints "The width of someVideoMode is 0"`{.code-voice}
+
+In this example, `someResolution.width` refers to the `width` property of `someResolution`, and returns its default initial value of `0`.
+
+You can drill down into sub-properties, such as the `width` property in the `resolution` property of a `VideoMode`:
+
+
+
+
+
+
+
+1.  `print`(`"The width of someVideoMode is `\\(`someVideoMode`.`resolution`.`width`)`"`)
+2.  `// prints "The width of someVideoMode is 0"`
 
 
 
@@ -205,9 +205,9 @@ You can also use dot syntax to assign a new value to a variable property:
 
 
 
-1.  `someVideoMode`{.code-voice}.`resolution`{.vc}.`width`{.vc} = `1280`{.m}
-2.  `print`{.code-voice}(`"The width of someVideoMode is now `{.s}\\(`someVideoMode`{.vc}.`resolution`{.vc}.`width`{.vc})`"`{.s})
-3.  `// prints "The width of someVideoMode is now 1280"`{.code-voice}
+1.  `someVideoMode`.`resolution`.`width` = `1280`
+2.  `print`(`"The width of someVideoMode is now `\\(`someVideoMode`.`resolution`.`width`)`"`)
+3.  `// prints "The width of someVideoMode is now 1280"`
 
 
 
@@ -219,7 +219,7 @@ You can also use dot syntax to assign a new value to a variable property:
 
 Note
 
-Unlike Objective-C, Swift enables you to set sub-properties of a structure property directly. In the last example above, the `width`{.code-voice} property of the `resolution`{.code-voice} property of `someVideoMode`{.code-voice} is set directly, without your needing to set the entire `resolution`{.code-voice} property to a new value.
+Unlike Objective-C, Swift enables you to set sub-properties of a structure property directly. In the last example above, the `width` property of the `resolution` property of `someVideoMode` is set directly, without your needing to set the entire `resolution` property to a new value.
 
 
 
@@ -227,8 +227,8 @@ Unlike Objective-C, Swift enables you to set sub-properties of a structure prope
 
 
 
-[‌](){#TP40016643-CH13-ID87}
-### Memberwise Initializers for Structure Types {#memberwise-initializers-for-structure-types .section-name}
+[‌]()
+### Memberwise Initializers for Structure Types 
 
 All structures have an automatically-generated *memberwise initializer*, which you can use to initialize the member properties of new structure instances. Initial values for the properties of the new instance can be passed to the memberwise initializer by name:
 
@@ -238,7 +238,7 @@ All structures have an automatically-generated *memberwise initializer*, which y
 
 
 
-1.  `let`{.code-voice} `vga`{.vc} = `Resolution`{.vc}(`width`{.vc}: `640`{.m}, `height`{.vc}: `480`{.m})
+1.  `let` `vga` = `Resolution`(`width`: `640`, `height`: `480`)
 
 
 
@@ -254,8 +254,8 @@ Unlike structures, class instances do not receive a default memberwise initializ
 
 
 
-[‌](){#TP40016643-CH13-ID88}
-### Structures and Enumerations Are Value Types {#structures-and-enumerations-are-value-types .section-name}
+[‌]()
+### Structures and Enumerations Are Value Types 
 
 A *value type* is a type whose value is *copied* when it is assigned to a variable or constant, or when it is passed to a function.
 
@@ -263,7 +263,7 @@ You’ve actually been using value types extensively throughout the previous cha
 
 All structures and enumerations are value types in Swift. This means that any structure and enumeration instances you create—and any value types they have as properties—are always copied when they are passed around in your code.
 
-Consider this example, which uses the `Resolution`{.code-voice} structure from the previous example:
+Consider this example, which uses the `Resolution` structure from the previous example:
 
 
 
@@ -271,8 +271,8 @@ Consider this example, which uses the `Resolution`{.code-voice} structure from t
 
 
 
-1.  `let`{.code-voice} `hd`{.vc} = `Resolution`{.vc}(`width`{.vc}: `1920`{.m}, `height`{.vc}: `1080`{.m})
-2.  `var`{.code-voice} `cinema`{.vc} = `hd`{.vc}
+1.  `let` `hd` = `Resolution`(`width`: `1920`, `height`: `1080`)
+2.  `var` `cinema` = `hd`
 
 
 
@@ -280,19 +280,11 @@ Consider this example, which uses the `Resolution`{.code-voice} structure from t
 
 
 
-This example declares a constant called `hd`{.code-voice} and sets it to a `Resolution`{.code-voice} instance initialized with the width and height of full HD video (`1920`{.code-voice} pixels wide by `1080`{.code-voice} pixels high).
+This example declares a constant called `hd` and sets it to a `Resolution` instance initialized with the width and height of full HD video (`1920` pixels wide by `1080` pixels high).
 
-It then declares a variable called `cinema`{.code-voice} and sets it to the current value of `hd`{.code-voice}. Because `Resolution`{.code-voice} is a structure, a *copy* of the existing instance is made, and this new copy is assigned to `cinema`{.code-voice}. Even though `hd`{.code-voice} and `cinema`{.code-voice} now have the same width and height, they are two completely different instances behind the scenes.
+It then declares a variable called `cinema` and sets it to the current value of `hd`. Because `Resolution` is a structure, a *copy* of the existing instance is made, and this new copy is assigned to `cinema`. Even though `hd` and `cinema` now have the same width and height, they are two completely different instances behind the scenes.
 
-Next, the `width`{.code-voice} property of `cinema`{.code-voice} is amended to be the width of the slightly-wider 2K standard used for digital cinema projection (`2048`{.code-voice} pixels wide and `1080`{.code-voice} pixels high):
-
-
-
-
-
-
-
-1.  `cinema`{.code-voice}.`width`{.vc} = `2048`{.m}
+Next, the `width` property of `cinema` is amended to be the width of the slightly-wider 2K standard used for digital cinema projection (`2048` pixels wide and `1080` pixels high):
 
 
 
@@ -300,7 +292,7 @@ Next, the `width`{.code-voice} property of `cinema`{.code-voice} is amended to b
 
 
 
-Checking the `width`{.code-voice} property of `cinema`{.code-voice} shows that it has indeed changed to be `2048`{.code-voice}:
+1.  `cinema`.`width` = `2048`
 
 
 
@@ -308,8 +300,7 @@ Checking the `width`{.code-voice} property of `cinema`{.code-voice} shows that i
 
 
 
-1.  `print`{.code-voice}(`"cinema is now `{.s}\\(`cinema`{.vc}.`width`{.vc})` pixels wide"`{.s})
-2.  `// prints "cinema is now 2048 pixels wide"`{.code-voice}
+Checking the `width` property of `cinema` shows that it has indeed changed to be `2048`:
 
 
 
@@ -317,7 +308,8 @@ Checking the `width`{.code-voice} property of `cinema`{.code-voice} shows that i
 
 
 
-However, the `width`{.code-voice} property of the original `hd`{.code-voice} instance still has the old value of `1920`{.code-voice}:
+1.  `print`(`"cinema is now `\\(`cinema`.`width`)` pixels wide"`)
+2.  `// prints "cinema is now 2048 pixels wide"`
 
 
 
@@ -325,8 +317,7 @@ However, the `width`{.code-voice} property of the original `hd`{.code-voice} ins
 
 
 
-1.  `print`{.code-voice}(`"hd is still `{.s}\\(`hd`{.vc}.`width`{.vc})` pixels wide"`{.s})
-2.  `// prints "hd is still 1920 pixels wide"`{.code-voice}
+However, the `width` property of the original `hd` instance still has the old value of `1920`:
 
 
 
@@ -334,7 +325,16 @@ However, the `width`{.code-voice} property of the original `hd`{.code-voice} ins
 
 
 
-When `cinema`{.code-voice} was given the current value of `hd`{.code-voice}, the *values* stored in `hd`{.code-voice} were copied into the new `cinema`{.code-voice} instance. The end result is two completely separate instances, which just happened to contain the same numeric values. Because they are separate instances, setting the width of `cinema`{.code-voice} to `2048`{.code-voice} doesn’t affect the width stored in `hd`{.code-voice}.
+1.  `print`(`"hd is still `\\(`hd`.`width`)` pixels wide"`)
+2.  `// prints "hd is still 1920 pixels wide"`
+
+
+
+
+
+
+
+When `cinema` was given the current value of `hd`, the *values* stored in `hd` were copied into the new `cinema` instance. The end result is two completely separate instances, which just happened to contain the same numeric values. Because they are separate instances, setting the width of `cinema` to `2048` doesn’t affect the width stored in `hd`.
 
 The same behavior applies to enumerations:
 
@@ -344,16 +344,16 @@ The same behavior applies to enumerations:
 
 
 
-1.  `enum`{.code-voice} `CompassPoint`{.vc} {
-2.  `    case`{.code-voice} `North`{.vc}, `South`{.vc}, `East`{.vc}, `West`{.vc}
-3.  `}`{.code-voice}
-4.  `var`{.code-voice} `currentDirection`{.vc} = `CompassPoint`{.vc}.`West`{.vc}
-5.  `let`{.code-voice} `rememberedDirection`{.vc} = `currentDirection`{.vc}
-6.  `currentDirection`{.code-voice} = .`East`{.vc}
-7.  `if`{.code-voice} `rememberedDirection`{.vc} == .`West`{.vc} {
-8.  `    print`{.code-voice}(`"The remembered direction is still .West"`{.s})
-9.  `}`{.code-voice}
-10. `// prints "The remembered direction is still .West"`{.code-voice}
+1.  `enum` `CompassPoint` {
+2.  `    case` `North`, `South`, `East`, `West`
+3.  `}`
+4.  `var` `currentDirection` = `CompassPoint`.`West`
+5.  `let` `rememberedDirection` = `currentDirection`
+6.  `currentDirection` = .`East`
+7.  `if` `rememberedDirection` == .`West` {
+8.  `    print`(`"The remembered direction is still .West"`)
+9.  `}`
+10. `// prints "The remembered direction is still .West"`
 
 
 
@@ -361,18 +361,18 @@ The same behavior applies to enumerations:
 
 
 
-When `rememberedDirection`{.code-voice} is assigned the value of `currentDirection`{.code-voice}, it is actually set to a copy of that value. Changing the value of `currentDirection`{.code-voice} thereafter does not affect the copy of the original value that was stored in `rememberedDirection`{.code-voice}.
+When `rememberedDirection` is assigned the value of `currentDirection`, it is actually set to a copy of that value. Changing the value of `currentDirection` thereafter does not affect the copy of the original value that was stored in `rememberedDirection`.
 
 
 
 
 
-[‌](){#TP40016643-CH13-ID89}
-### Classes Are Reference Types {#classes-are-reference-types .section-name}
+[‌]()
+### Classes Are Reference Types 
 
 Unlike value types, *reference types* are *not* copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used instead.
 
-Here’s an example, using the `VideoMode`{.code-voice} class defined above:
+Here’s an example, using the `VideoMode` class defined above:
 
 
 
@@ -380,11 +380,11 @@ Here’s an example, using the `VideoMode`{.code-voice} class defined above:
 
 
 
-1.  `let`{.code-voice} `tenEighty`{.vc} = `VideoMode`{.vc}()
-2.  `tenEighty`{.code-voice}.`resolution`{.vc} = `hd`{.vc}
-3.  `tenEighty`{.code-voice}.`interlaced`{.vc} = `true`{.kt}
-4.  `tenEighty`{.code-voice}.`name`{.vc} = `"1080i"`{.s}
-5.  `tenEighty`{.code-voice}.`frameRate`{.vc} = `25.0`{.m}
+1.  `let` `tenEighty` = `VideoMode`()
+2.  `tenEighty`.`resolution` = `hd`
+3.  `tenEighty`.`interlaced` = `true`
+4.  `tenEighty`.`name` = `"1080i"`
+5.  `tenEighty`.`frameRate` = `25.0`
 
 
 
@@ -392,18 +392,9 @@ Here’s an example, using the `VideoMode`{.code-voice} class defined above:
 
 
 
-This example declares a new constant called `tenEighty`{.code-voice} and sets it to refer to a new instance of the `VideoMode`{.code-voice} class. The video mode is assigned a copy of the HD resolution of `1920`{.code-voice} by `1080`{.code-voice} from before. It is set to be interlaced, and is given a name of `"1080i"`{.code-voice}. Finally, it is set to a frame rate of `25.0`{.code-voice} frames per second.
+This example declares a new constant called `tenEighty` and sets it to refer to a new instance of the `VideoMode` class. The video mode is assigned a copy of the HD resolution of `1920` by `1080` from before. It is set to be interlaced, and is given a name of `"1080i"`. Finally, it is set to a frame rate of `25.0` frames per second.
 
-Next, `tenEighty`{.code-voice} is assigned to a new constant, called `alsoTenEighty`{.code-voice}, and the frame rate of `alsoTenEighty`{.code-voice} is modified:
-
-
-
-
-
-
-
-1.  `let`{.code-voice} `alsoTenEighty`{.vc} = `tenEighty`{.vc}
-2.  `alsoTenEighty`{.code-voice}.`frameRate`{.vc} = `30.0`{.m}
+Next, `tenEighty` is assigned to a new constant, called `alsoTenEighty`, and the frame rate of `alsoTenEighty` is modified:
 
 
 
@@ -411,18 +402,8 @@ Next, `tenEighty`{.code-voice} is assigned to a new constant, called `alsoTenEig
 
 
 
-Because classes are reference types, `tenEighty`{.code-voice} and `alsoTenEighty`{.code-voice} actually both refer to the *same* `VideoMode`{.code-voice} instance. Effectively, they are just two different names for the same single instance.
-
-Checking the `frameRate`{.code-voice} property of `tenEighty`{.code-voice} shows that it correctly reports the new frame rate of `30.0`{.code-voice} from the underlying `VideoMode`{.code-voice} instance:
-
-
-
-
-
-
-
-1.  `print`{.code-voice}(`"The frameRate property of tenEighty is now `{.s}\\(`tenEighty`{.vc}.`frameRate`{.vc})`"`{.s})
-2.  `// prints "The frameRate property of tenEighty is now 30.0"`{.code-voice}
+1.  `let` `alsoTenEighty` = `tenEighty`
+2.  `alsoTenEighty`.`frameRate` = `30.0`
 
 
 
@@ -430,20 +411,39 @@ Checking the `frameRate`{.code-voice} property of `tenEighty`{.code-voice} shows
 
 
 
-Note that `tenEighty`{.code-voice} and `alsoTenEighty`{.code-voice} are declared as *constants*, rather than variables. However, you can still change `tenEighty.frameRate`{.code-voice} and `alsoTenEighty.frameRate`{.code-voice} because the values of the `tenEighty`{.code-voice} and `alsoTenEighty`{.code-voice} constants themselves do not actually change. `tenEighty`{.code-voice} and `alsoTenEighty`{.code-voice} themselves do not “store” the `VideoMode`{.code-voice} instance—instead, they both *refer* to a `VideoMode`{.code-voice} instance behind the scenes. It is the `frameRate`{.code-voice} property of the underlying `VideoMode`{.code-voice} that is changed, not the values of the constant references to that `VideoMode`{.code-voice}.
+Because classes are reference types, `tenEighty` and `alsoTenEighty` actually both refer to the *same* `VideoMode` instance. Effectively, they are just two different names for the same single instance.
+
+Checking the `frameRate` property of `tenEighty` shows that it correctly reports the new frame rate of `30.0` from the underlying `VideoMode` instance:
 
 
 
-[‌](){#TP40016643-CH13-ID90}
-### Identity Operators {#identity-operators .section-name}
+
+
+
+
+1.  `print`(`"The frameRate property of tenEighty is now `\\(`tenEighty`.`frameRate`)`"`)
+2.  `// prints "The frameRate property of tenEighty is now 30.0"`
+
+
+
+
+
+
+
+Note that `tenEighty` and `alsoTenEighty` are declared as *constants*, rather than variables. However, you can still change `tenEighty.frameRate` and `alsoTenEighty.frameRate` because the values of the `tenEighty` and `alsoTenEighty` constants themselves do not actually change. `tenEighty` and `alsoTenEighty` themselves do not “store” the `VideoMode` instance—instead, they both *refer* to a `VideoMode` instance behind the scenes. It is the `frameRate` property of the underlying `VideoMode` that is changed, not the values of the constant references to that `VideoMode`.
+
+
+
+[‌]()
+### Identity Operators 
 
 Because classes are reference types, it is possible for multiple constants and variables to refer to the same single instance of a class behind the scenes. (The same is not true for structures and enumerations, because they are always copied when they are assigned to a constant or variable, or passed to a function.)
 
 It can sometimes be useful to find out if two constants or variables refer to exactly the same instance of a class. To enable this, Swift provides two identity operators:
 
--   Identical to (`===`{.code-voice})
+-   Identical to (`===`)
 
--   Not identical to (`!==`{.code-voice})
+-   Not identical to (`!==`)
 
 Use these operators to check whether two constants or variables refer to the same single instance:
 
@@ -453,10 +453,10 @@ Use these operators to check whether two constants or variables refer to the sam
 
 
 
-1.  `if`{.code-voice} `tenEighty`{.vc} === `alsoTenEighty`{.vc} {
-2.  `    print`{.code-voice}(`"tenEighty and alsoTenEighty refer to the same VideoMode instance."`{.s})
-3.  `}`{.code-voice}
-4.  `// prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."`{.code-voice}
+1.  `if` `tenEighty` === `alsoTenEighty` {
+2.  `    print`(`"tenEighty and alsoTenEighty refer to the same VideoMode instance."`)
+3.  `}`
+4.  `// prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."`
 
 
 
@@ -464,7 +464,7 @@ Use these operators to check whether two constants or variables refer to the sam
 
 
 
-Note that “identical to” (represented by three equals signs, or `===`{.code-voice}) does not mean the same thing as “equal to” (represented by two equals signs, or `==`{.code-voice}):
+Note that “identical to” (represented by three equals signs, or `===`) does not mean the same thing as “equal to” (represented by two equals signs, or `==`):
 
 -   “Identical to” means that two constants or variables of class type refer to exactly the same class instance.
 
@@ -476,19 +476,19 @@ When you define your own custom classes and structures, it is your responsibilit
 
 
 
-[‌](){#TP40016643-CH13-ID91}
-### Pointers {#pointers .section-name}
+[‌]()
+### Pointers 
 
-If you have experience with C, C++, or Objective-C, you may know that these languages use *pointers* to refer to addresses in memory. A Swift constant or variable that refers to an instance of some reference type is similar to a pointer in C, but is not a direct pointer to an address in memory, and does not require you to write an asterisk (`*`{.code-voice}) to indicate that you are creating a reference. Instead, these references are defined like any other constant or variable in Swift.
-
-
+If you have experience with C, C++, or Objective-C, you may know that these languages use *pointers* to refer to addresses in memory. A Swift constant or variable that refers to an instance of some reference type is similar to a pointer in C, but is not a direct pointer to an address in memory, and does not require you to write an asterisk (`*`) to indicate that you are creating a reference. Instead, these references are defined like any other constant or variable in Swift.
 
 
 
 
 
-[‌](){#TP40016643-CH13-ID92}
-### Choosing Between Classes and Structures {#choosing-between-classes-and-structures .section-name}
+
+
+[‌]()
+### Choosing Between Classes and Structures 
 
 You can use both classes and structures to define custom data types to use as the building blocks of your program’s code.
 
@@ -506,11 +506,11 @@ As a general guideline, consider creating a structure when one or more of these 
 
 Examples of good candidates for structures include:
 
--   The size of a geometric shape, perhaps encapsulating a `width`{.code-voice} property and a `height`{.code-voice} property, both of type `Double`{.code-voice}.
+-   The size of a geometric shape, perhaps encapsulating a `width` property and a `height` property, both of type `Double`.
 
--   A way to refer to ranges within a series, perhaps encapsulating a `start`{.code-voice} property and a `length`{.code-voice} property, both of type `Int`{.code-voice}.
+-   A way to refer to ranges within a series, perhaps encapsulating a `start` property and a `length` property, both of type `Int`.
 
--   A point in a 3D coordinate system, perhaps encapsulating `x`{.code-voice}, `y`{.code-voice} and `z`{.code-voice} properties, each of type `Double`{.code-voice}.
+-   A point in a 3D coordinate system, perhaps encapsulating `x`, `y` and `z` properties, each of type `Double`.
 
 In all other cases, define a class, and create instances of that class to be managed and passed by reference. In practice, this means that most custom data constructs should be classes, not structures.
 
@@ -518,12 +518,12 @@ In all other cases, define a class, and create instances of that class to be man
 
 
 
-[‌](){#TP40016643-CH13-ID93}
-### Assignment and Copy Behavior for Strings, Arrays, and Dictionaries {#assignment-and-copy-behavior-for-strings-arrays-and-dictionaries .section-name}
+[‌]()
+### Assignment and Copy Behavior for Strings, Arrays, and Dictionaries 
 
-In Swift, many basic data types such as `String`{.code-voice}, `Array`{.code-voice}, and `Dictionary`{.code-voice} are implemented as structures. This means that data such as strings, arrays, and dictionaries are copied when they are assigned to a new constant or variable, or when they are passed to a function or method.
+In Swift, many basic data types such as `String`, `Array`, and `Dictionary` are implemented as structures. This means that data such as strings, arrays, and dictionaries are copied when they are assigned to a new constant or variable, or when they are passed to a function or method.
 
-This behavior is different from Foundation: `NSString`{.code-voice}, `NSArray`{.code-voice}, and `NSDictionary`{.code-voice} are implemented as classes, not structures. Strings, arrays, and dictionaries in Foundation are always assigned and passed around as a reference to an existing instance, rather than as a copy.
+This behavior is different from Foundation: `NSString`, `NSArray`, and `NSDictionary` are implemented as classes, not structures. Strings, arrays, and dictionaries in Foundation are always assigned and passed around as a reference to an existing instance, rather than as a copy.
 
 
 

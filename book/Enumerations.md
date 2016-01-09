@@ -2,8 +2,8 @@
 
 
 
-[‌](){#TP40016643-CH12}[‌](){#TP40016643-CH12-ID145}
-Enumerations {#enumerations .chapter-name}
+[‌]()[‌]()
+Enumerations 
 ------------
 
 
@@ -22,20 +22,20 @@ For more on these capabilities, see [Properties](Properties.md), [Methods](Metho
 
 
 
-[‌](){#TP40016643-CH12-ID146}
-### Enumeration Syntax {#enumeration-syntax .section-name}
+[‌]()
+### Enumeration Syntax 
 
-You introduce enumerations with the `enum`{.code-voice} keyword and place their entire definition within a pair of braces:
-
-
+You introduce enumerations with the `enum` keyword and place their entire definition within a pair of braces:
 
 
 
 
 
-1.  `enum`{.code-voice} `SomeEnumeration`{.vc} {
-2.  `    // enumeration definition goes here`{.code-voice}
-3.  `}`{.code-voice}
+
+
+1.  `enum` `SomeEnumeration` {
+2.  `    // enumeration definition goes here`
+3.  `}`
 
 
 
@@ -51,12 +51,12 @@ Here’s an example for the four main points of a compass:
 
 
 
-1.  `enum`{.code-voice} `CompassPoint`{.vc} {
-2.  `    case`{.code-voice} `North`{.vc}
-3.  `    case`{.code-voice} `South`{.vc}
-4.  `    case`{.code-voice} `East`{.vc}
-5.  `    case`{.code-voice} `West`{.vc}
-6.  `}`{.code-voice}
+1.  `enum` `CompassPoint` {
+2.  `    case` `North`
+3.  `    case` `South`
+4.  `    case` `East`
+5.  `    case` `West`
+6.  `}`
 
 
 
@@ -64,13 +64,13 @@ Here’s an example for the four main points of a compass:
 
 
 
-The values defined in an enumeration (such as `North`{.code-voice}, `South`{.code-voice}, `East`{.code-voice}, and `West`{.code-voice}) are its *enumeration cases*. You use the `case`{.code-voice} keyword to introduce new enumeration cases.
+The values defined in an enumeration (such as `North`, `South`, `East`, and `West`) are its *enumeration cases*. You use the `case` keyword to introduce new enumeration cases.
 
 
 
 Note
 
-Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when they are created. In the `CompassPoint`{.code-voice} example above, `North`{.code-voice}, `South`{.code-voice}, `East`{.code-voice} and `West`{.code-voice} do not implicitly equal `0`{.code-voice}, `1`{.code-voice}, `2`{.code-voice} and `3`{.code-voice}. Instead, the different enumeration cases are fully-fledged values in their own right, with an explicitly-defined type of `CompassPoint`{.code-voice}.
+Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when they are created. In the `CompassPoint` example above, `North`, `South`, `East` and `West` do not implicitly equal `0`, `1`, `2` and `3`. Instead, the different enumeration cases are fully-fledged values in their own right, with an explicitly-defined type of `CompassPoint`.
 
 
 
@@ -82,9 +82,9 @@ Multiple cases can appear on a single line, separated by commas:
 
 
 
-1.  `enum`{.code-voice} `Planet`{.vc} {
-2.  `    case`{.code-voice} `Mercury`{.vc}, `Venus`{.vc}, `Earth`{.vc}, `Mars`{.vc}, `Jupiter`{.vc}, `Saturn`{.vc}, `Uranus`{.vc}, `Neptune`{.vc}
-3.  `}`{.code-voice}
+1.  `enum` `Planet` {
+2.  `    case` `Mercury`, `Venus`, `Earth`, `Mars`, `Jupiter`, `Saturn`, `Uranus`, `Neptune`
+3.  `}`
 
 
 
@@ -92,7 +92,7 @@ Multiple cases can appear on a single line, separated by commas:
 
 
 
-Each enumeration definition defines a brand new type. Like other types in Swift, their names (such as `CompassPoint`{.code-voice} and `Planet`{.code-voice}) should start with a capital letter. Give enumeration types singular rather than plural names, so that they read as self-evident:
+Each enumeration definition defines a brand new type. Like other types in Swift, their names (such as `CompassPoint` and `Planet`) should start with a capital letter. Give enumeration types singular rather than plural names, so that they read as self-evident:
 
 
 
@@ -100,7 +100,7 @@ Each enumeration definition defines a brand new type. Like other types in Swift,
 
 
 
-1.  `var`{.code-voice} `directionToHead`{.vc} = `CompassPoint`{.vc}.`West`{.vc}
+1.  `var` `directionToHead` = `CompassPoint`.`West`
 
 
 
@@ -108,7 +108,7 @@ Each enumeration definition defines a brand new type. Like other types in Swift,
 
 
 
-The type of `directionToHead`{.code-voice} is inferred when it is initialized with one of the possible values of `CompassPoint`{.code-voice}. Once `directionToHead`{.code-voice} is declared as a `CompassPoint`{.code-voice}, you can set it to a different `CompassPoint`{.code-voice} value using a shorter dot syntax:
+The type of `directionToHead` is inferred when it is initialized with one of the possible values of `CompassPoint`. Once `directionToHead` is declared as a `CompassPoint`, you can set it to a different `CompassPoint` value using a shorter dot syntax:
 
 
 
@@ -116,7 +116,7 @@ The type of `directionToHead`{.code-voice} is inferred when it is initialized wi
 
 
 
-1.  `directionToHead`{.code-voice} = .`East`{.vc}
+1.  `directionToHead` = .`East`
 
 
 
@@ -124,35 +124,35 @@ The type of `directionToHead`{.code-voice} is inferred when it is initialized wi
 
 
 
-The type of `directionToHead`{.code-voice} is already known, and so you can drop the type when setting its value. This makes for highly readable code when working with explicitly-typed enumeration values.
+The type of `directionToHead` is already known, and so you can drop the type when setting its value. This makes for highly readable code when working with explicitly-typed enumeration values.
 
 
 
 
 
-[‌](){#TP40016643-CH12-ID147}
-### Matching Enumeration Values with a Switch Statement {#matching-enumeration-values-with-a-switch-statement .section-name}
+[‌]()
+### Matching Enumeration Values with a Switch Statement 
 
-You can match individual enumeration values with a `switch`{.code-voice} statement:
-
-
+You can match individual enumeration values with a `switch` statement:
 
 
 
 
 
-1.  `directionToHead`{.code-voice} = .`South`{.vc}
-2.  `switch`{.code-voice} `directionToHead`{.vc} {
-3.  `case`{.code-voice} .`North`{.vc}:
-4.  `    print`{.code-voice}(`"Lots of planets have a north"`{.s})
-5.  `case`{.code-voice} .`South`{.vc}:
-6.  `    print`{.code-voice}(`"Watch out for penguins"`{.s})
-7.  `case`{.code-voice} .`East`{.vc}:
-8.  `    print`{.code-voice}(`"Where the sun rises"`{.s})
-9.  `case`{.code-voice} .`West`{.vc}:
-10. `    print`{.code-voice}(`"Where the skies are blue"`{.s})
-11. `}`{.code-voice}
-12. `// prints "Watch out for penguins"`{.code-voice}
+
+
+1.  `directionToHead` = .`South`
+2.  `switch` `directionToHead` {
+3.  `case` .`North`:
+4.  `    print`(`"Lots of planets have a north"`)
+5.  `case` .`South`:
+6.  `    print`(`"Watch out for penguins"`)
+7.  `case` .`East`:
+8.  `    print`(`"Where the sun rises"`)
+9.  `case` .`West`:
+10. `    print`(`"Where the skies are blue"`)
+11. `}`
+12. `// prints "Watch out for penguins"`
 
 
 
@@ -162,30 +162,28 @@ You can match individual enumeration values with a `switch`{.code-voice} stateme
 
 You can read this code as:
 
-“Consider the value of `directionToHead`{.code-voice}. In the case where it equals `.North`{.code-voice}, print `"Lots of planets have a north"`{.code-voice}. In the case where it equals `.South`{.code-voice}, print `"Watch out for penguins"`{.code-voice}.”
+“Consider the value of `directionToHead`. In the case where it equals `.North`, print `"Lots of planets have a north"`. In the case where it equals `.South`, print `"Watch out for penguins"`.”
 
 …and so on.
 
-As described in [Control Flow](ControlFlow.md), a `switch`{.code-voice} statement must be exhaustive when considering an enumeration’s cases. If the `case`{.code-voice} for `.West`{.code-voice} is omitted, this code does not compile, because it does not consider the complete list of `CompassPoint`{.code-voice} cases. Requiring exhaustiveness ensures that enumeration cases are not accidentally omitted.
+As described in [Control Flow](ControlFlow.md), a `switch` statement must be exhaustive when considering an enumeration’s cases. If the `case` for `.West` is omitted, this code does not compile, because it does not consider the complete list of `CompassPoint` cases. Requiring exhaustiveness ensures that enumeration cases are not accidentally omitted.
 
-When it is not appropriate to provide a `case`{.code-voice} for every enumeration case, you can provide a `default`{.code-voice} case to cover any cases that are not addressed explicitly:
-
-
+When it is not appropriate to provide a `case` for every enumeration case, you can provide a `default` case to cover any cases that are not addressed explicitly:
 
 
 
 
 
-1.  `let`{.code-voice} `somePlanet`{.vc} = `Planet`{.vc}.`Earth`{.vc}
-2.  `switch`{.code-voice} `somePlanet`{.vc} {
-3.  `case`{.code-voice} .`Earth`{.vc}:
-4.  `    print`{.code-voice}(`"Mostly harmless"`{.s})
-5.  `default`{.code-voice}:
-6.  `    print`{.code-voice}(`"Not a safe place for humans"`{.s})
-7.  `}`{.code-voice}
-8.  `// prints "Mostly harmless"`{.code-voice}
 
 
+1.  `let` `somePlanet` = `Planet`.`Earth`
+2.  `switch` `somePlanet` {
+3.  `case` .`Earth`:
+4.  `    print`(`"Mostly harmless"`)
+5.  `default`:
+6.  `    print`(`"Not a safe place for humans"`)
+7.  `}`
+8.  `// prints "Mostly harmless"`
 
 
 
@@ -195,14 +193,16 @@ When it is not appropriate to provide a `case`{.code-voice} for every enumeratio
 
 
 
-[‌](){#TP40016643-CH12-ID148}
-### Associated Values {#associated-values .section-name}
 
-The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to `Planet.Earth`{.code-voice}, and check for this value later. However, it is sometimes useful to be able to store *associated values* of other types alongside these case values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code.
+
+[‌]()
+### Associated Values 
+
+The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to `Planet.Earth`, and check for this value later. However, it is sometimes useful to be able to store *associated values* of other types alongside these case values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code.
 
 You can define Swift enumerations to store associated values of any given type, and the value types can be different for each case of the enumeration if needed. Enumerations similar to these are known as *discriminated unions*, *tagged unions*, or *variants* in other programming languages.
 
-For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC-A format, which uses the numbers `0`{.code-voice} to `9`{.code-voice}. Each barcode has a “number system” digit, followed by five “manufacturer code” digits and five “product code” digits. These are followed by a “check” digit to verify that the code has been scanned correctly:
+For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC-A format, which uses the numbers `0` to `9`. Each barcode has a “number system” digit, followed by five “manufacturer code” digits and five “product code” digits. These are followed by a “check” digit to verify that the code has been scanned correctly:
 
 
 
@@ -230,10 +230,10 @@ In Swift, an enumeration to define product barcodes of either type might look li
 
 
 
-1.  `enum`{.code-voice} `Barcode`{.vc} {
-2.  `    case`{.code-voice} `UPCA`{.vc}(`Int`{.vc}, `Int`{.vc}, `Int`{.vc}, `Int`{.vc})
-3.  `    case`{.code-voice} `QRCode`{.vc}(`String`{.vc})
-4.  `}`{.code-voice}
+1.  `enum` `Barcode` {
+2.  `    case` `UPCA`(`Int`, `Int`, `Int`, `Int`)
+3.  `    case` `QRCode`(`String`)
+4.  `}`
 
 
 
@@ -243,9 +243,9 @@ In Swift, an enumeration to define product barcodes of either type might look li
 
 This can be read as:
 
-“Define an enumeration type called `Barcode`{.code-voice}, which can take either a value of `UPCA`{.code-voice} with an associated value of type (`Int`{.code-voice}, `Int`{.code-voice}, `Int`{.code-voice}, `Int`{.code-voice}), or a value of `QRCode`{.code-voice} with an associated value of type `String`{.code-voice}.”
+“Define an enumeration type called `Barcode`, which can take either a value of `UPCA` with an associated value of type (`Int`, `Int`, `Int`, `Int`), or a value of `QRCode` with an associated value of type `String`.”
 
-This definition does not provide any actual `Int`{.code-voice} or `String`{.code-voice} values—it just defines the *type* of associated values that `Barcode`{.code-voice} constants and variables can store when they are equal to `Barcode.UPCA`{.code-voice} or `Barcode.QRCode`{.code-voice}.
+This definition does not provide any actual `Int` or `String` values—it just defines the *type* of associated values that `Barcode` constants and variables can store when they are equal to `Barcode.UPCA` or `Barcode.QRCode`.
 
 New barcodes can then be created using either type:
 
@@ -255,7 +255,7 @@ New barcodes can then be created using either type:
 
 
 
-1.  `var`{.code-voice} `productBarcode`{.vc} = `Barcode`{.vc}.`UPCA`{.vc}(`8`{.m}, `85909`{.m}, `51226`{.m}, `3`{.m})
+1.  `var` `productBarcode` = `Barcode`.`UPCA`(`8`, `85909`, `51226`, `3`)
 
 
 
@@ -263,7 +263,7 @@ New barcodes can then be created using either type:
 
 
 
-This example creates a new variable called `productBarcode`{.code-voice} and assigns it a value of `Barcode.UPCA`{.code-voice} with an associated tuple value of `(8, 85909, 51226, 3)`{.code-voice}.
+This example creates a new variable called `productBarcode` and assigns it a value of `Barcode.UPCA` with an associated tuple value of `(8, 85909, 51226, 3)`.
 
 The same product can be assigned a different type of barcode:
 
@@ -273,7 +273,7 @@ The same product can be assigned a different type of barcode:
 
 
 
-1.  `productBarcode`{.code-voice} = .`QRCode`{.vc}(`"ABCDEFGHIJKLMNOP"`{.s})
+1.  `productBarcode` = .`QRCode`(`"ABCDEFGHIJKLMNOP"`)
 
 
 
@@ -281,23 +281,9 @@ The same product can be assigned a different type of barcode:
 
 
 
-At this point, the original `Barcode.UPCA`{.code-voice} and its integer values are replaced by the new `Barcode.QRCode`{.code-voice} and its string value. Constants and variables of type `Barcode`{.code-voice} can store either a `.UPCA`{.code-voice} or a `.QRCode`{.code-voice} (together with their associated values), but they can only store one of them at any given time.
+At this point, the original `Barcode.UPCA` and its integer values are replaced by the new `Barcode.QRCode` and its string value. Constants and variables of type `Barcode` can store either a `.UPCA` or a `.QRCode` (together with their associated values), but they can only store one of them at any given time.
 
-The different barcode types can be checked using a switch statement, as before. This time, however, the associated values can be extracted as part of the switch statement. You extract each associated value as a constant with the `let`{.code-voice} prefix for use within the `switch`{.code-voice} case’s body:
-
-
-
-
-
-
-
-1.  `switch`{.code-voice} `productBarcode`{.vc} {
-2.  `case`{.code-voice} .`UPCA`{.vc}(`let`{.kt} `numberSystem`{.vc}, `let`{.kt} `manufacturer`{.vc}, `let`{.kt} `product`{.vc}, `let`{.kt} `check`{.vc}):
-3.  `    print`{.code-voice}(`"UPC-A: `{.s}\\(`numberSystem`{.vc})`, `{.s}\\(`manufacturer`{.vc})`, `{.s}\\(`product`{.vc})`, `{.s}\\(`check`{.vc})`."`{.s})
-4.  `case`{.code-voice} .`QRCode`{.vc}(`let`{.kt} `productCode`{.vc}):
-5.  `    print`{.code-voice}(`"QR code: `{.s}\\(`productCode`{.vc})`."`{.s})
-6.  `}`{.code-voice}
-7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`{.code-voice}
+The different barcode types can be checked using a switch statement, as before. This time, however, the associated values can be extracted as part of the switch statement. You extract each associated value as a constant with the `let` prefix for use within the `switch` case’s body:
 
 
 
@@ -305,7 +291,13 @@ The different barcode types can be checked using a switch statement, as before. 
 
 
 
-If all of the associated values for an enumeration case are extracted as constants, or if all are extracted as variables, you can place a single `let`{.code-voice} annotation before the case name, for brevity:
+1.  `switch` `productBarcode` {
+2.  `case` .`UPCA`(`let` `numberSystem`, `let` `manufacturer`, `let` `product`, `let` `check`):
+3.  `    print`(`"UPC-A: `\\(`numberSystem`)`, `\\(`manufacturer`)`, `\\(`product`)`, `\\(`check`)`."`)
+4.  `case` .`QRCode`(`let` `productCode`):
+5.  `    print`(`"QR code: `\\(`productCode`)`."`)
+6.  `}`
+7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`
 
 
 
@@ -313,15 +305,21 @@ If all of the associated values for an enumeration case are extracted as constan
 
 
 
-1.  `switch`{.code-voice} `productBarcode`{.vc} {
-2.  `case`{.code-voice} `let`{.kt} .`UPCA`{.vc}(`numberSystem`{.vc}, `manufacturer`{.vc}, `product`{.vc}, `check`{.vc}):
-3.  `    print`{.code-voice}(`"UPC-A: `{.s}\\(`numberSystem`{.vc})`, `{.s}\\(`manufacturer`{.vc})`, `{.s}\\(`product`{.vc})`, `{.s}\\(`check`{.vc})`."`{.s})
-4.  `case`{.code-voice} `let`{.kt} .`QRCode`{.vc}(`productCode`{.vc}):
-5.  `    print`{.code-voice}(`"QR code: `{.s}\\(`productCode`{.vc})`."`{.s})
-6.  `}`{.code-voice}
-7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`{.code-voice}
+If all of the associated values for an enumeration case are extracted as constants, or if all are extracted as variables, you can place a single `let` annotation before the case name, for brevity:
 
 
+
+
+
+
+
+1.  `switch` `productBarcode` {
+2.  `case` `let` .`UPCA`(`numberSystem`, `manufacturer`, `product`, `check`):
+3.  `    print`(`"UPC-A: `\\(`numberSystem`)`, `\\(`manufacturer`)`, `\\(`product`)`, `\\(`check`)`."`)
+4.  `case` `let` .`QRCode`(`productCode`):
+5.  `    print`(`"QR code: `\\(`productCode`)`."`)
+6.  `}`
+7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`
 
 
 
@@ -331,8 +329,10 @@ If all of the associated values for an enumeration case are extracted as constan
 
 
 
-[‌](){#TP40016643-CH12-ID149}
-### Raw Values {#raw-values .section-name}
+
+
+[‌]()
+### Raw Values 
 
 The barcode example in [Associated Values](Enumerations.md#TP40016643-CH12-ID148) shows how cases of an enumeration can declare that they store associated values of different types. As an alternative to associated values, enumeration cases can come prepopulated with default values (called *raw values*), which are all of the same type.
 
@@ -344,11 +344,11 @@ Here’s an example that stores raw ASCII values alongside named enumeration cas
 
 
 
-1.  `enum`{.code-voice} `ASCIIControlCharacter`{.vc}: `Character`{.n} {
-2.  `    case`{.code-voice} `Tab`{.vc} = `"\t"`{.s}
-3.  `    case`{.code-voice} `LineFeed`{.vc} = `"\n"`{.s}
-4.  `    case`{.code-voice} `CarriageReturn`{.vc} = `"\r"`{.s}
-5.  `}`{.code-voice}
+1.  `enum` `ASCIIControlCharacter`: `Character` {
+2.  `    case` `Tab` = `"\t"`
+3.  `    case` `LineFeed` = `"\n"`
+4.  `    case` `CarriageReturn` = `"\r"`
+5.  `}`
 
 
 
@@ -356,7 +356,7 @@ Here’s an example that stores raw ASCII values alongside named enumeration cas
 
 
 
-Here, the raw values for an enumeration called `ASCIIControlCharacter`{.code-voice} are defined to be of type `Character`{.code-voice}, and are set to some of the more common ASCII control characters. `Character`{.code-voice} values are described in [Strings and Characters](StringsAndCharacters.md).
+Here, the raw values for an enumeration called `ASCIIControlCharacter` are defined to be of type `Character`, and are set to some of the more common ASCII control characters. `Character` values are described in [Strings and Characters](StringsAndCharacters.md).
 
 Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.
 
@@ -370,24 +370,14 @@ Raw values are *not* the same as associated values. Raw values are set to prepop
 
 
 
-[‌](){#TP40016643-CH12-ID535}
-### Implicitly Assigned Raw Values {#implicitly-assigned-raw-values .section-name}
+[‌]()
+### Implicitly Assigned Raw Values 
 
 When you’re working with enumerations that store integer or string raw values, you don’t have to explicitly assign a raw value for each case. When you don’t, Swift will automatically assign the values for you.
 
-For instance, when integers are used for raw values, the implicit value for each case is one more than the previous case. If the first case doesn’t have a value set, its value is `0`{.code-voice}.
+For instance, when integers are used for raw values, the implicit value for each case is one more than the previous case. If the first case doesn’t have a value set, its value is `0`.
 
-The enumeration below is a refinement of the earlier `Planet`{.code-voice} enumeration, with integer raw values to represent each planet’s order from the sun:
-
-
-
-
-
-
-
-1.  `enum`{.code-voice} `Planet`{.vc}: `Int`{.n} {
-2.  `    case`{.code-voice} `Mercury`{.vc} = `1`{.m}, `Venus`{.vc}, `Earth`{.vc}, `Mars`{.vc}, `Jupiter`{.vc}, `Saturn`{.vc}, `Uranus`{.vc}, `Neptune`{.vc}
-3.  `}`{.code-voice}
+The enumeration below is a refinement of the earlier `Planet` enumeration, with integer raw values to represent each planet’s order from the sun:
 
 
 
@@ -395,11 +385,21 @@ The enumeration below is a refinement of the earlier `Planet`{.code-voice} enume
 
 
 
-In the example above, `Planet.Mercury`{.code-voice} has an explicit raw value of `1`{.code-voice}, `Planet.Venus`{.code-voice} has an implicit raw value of `2`{.code-voice}, and so on.
+1.  `enum` `Planet`: `Int` {
+2.  `    case` `Mercury` = `1`, `Venus`, `Earth`, `Mars`, `Jupiter`, `Saturn`, `Uranus`, `Neptune`
+3.  `}`
+
+
+
+
+
+
+
+In the example above, `Planet.Mercury` has an explicit raw value of `1`, `Planet.Venus` has an implicit raw value of `2`, and so on.
 
 When strings are used for raw values, the implicit value for each case is the text of that case’s name.
 
-The enumeration below is a refinement of the earlier `CompassPoint`{.code-voice} enumeration, with string raw values to represent each direction’s name:
+The enumeration below is a refinement of the earlier `CompassPoint` enumeration, with string raw values to represent each direction’s name:
 
 
 
@@ -407,9 +407,9 @@ The enumeration below is a refinement of the earlier `CompassPoint`{.code-voice}
 
 
 
-1.  `enum`{.code-voice} `CompassPoint`{.vc}: `String`{.n} {
-2.  `    case`{.code-voice} `North`{.vc}, `South`{.vc}, `East`{.vc}, `West`{.vc}
-3.  `}`{.code-voice}
+1.  `enum` `CompassPoint`: `String` {
+2.  `    case` `North`, `South`, `East`, `West`
+3.  `}`
 
 
 
@@ -417,23 +417,21 @@ The enumeration below is a refinement of the earlier `CompassPoint`{.code-voice}
 
 
 
-In the example above, `CompassPoint.South`{.code-voice} has an implicit raw value of `"South"`{.code-voice}, and so on.
+In the example above, `CompassPoint.South` has an implicit raw value of `"South"`, and so on.
 
-You access the raw value of an enumeration case with its `rawValue`{.code-voice} property:
-
-
+You access the raw value of an enumeration case with its `rawValue` property:
 
 
 
 
 
-1.  `let`{.code-voice} `earthsOrder`{.vc} = `Planet`{.vc}.`Earth`{.vc}.`rawValue`{.vc}
-2.  `// earthsOrder is 3`{.code-voice}
-3.  ` `{.code-voice}
-4.  `let`{.code-voice} `sunsetDirection`{.vc} = `CompassPoint`{.vc}.`West`{.vc}.`rawValue`{.vc}
-5.  `// sunsetDirection is "West"`{.code-voice}
 
 
+1.  `let` `earthsOrder` = `Planet`.`Earth`.`rawValue`
+2.  `// earthsOrder is 3`
+3.  ` `
+4.  `let` `sunsetDirection` = `CompassPoint`.`West`.`rawValue`
+5.  `// sunsetDirection is "West"`
 
 
 
@@ -443,21 +441,14 @@ You access the raw value of an enumeration case with its `rawValue`{.code-voice}
 
 
 
-[‌](){#TP40016643-CH12-ID150}
-### Initializing from a Raw Value {#initializing-from-a-raw-value .section-name}
-
-If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value’s type (as a parameter called `rawValue`{.code-voice}) and returns either an enumeration case or `nil`{.code-voice}. You can use this initializer to try to create a new instance of the enumeration.
-
-This example identifies Uranus from its raw value of `7`{.code-voice}:
 
 
+[‌]()
+### Initializing from a Raw Value 
 
+If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value’s type (as a parameter called `rawValue`) and returns either an enumeration case or `nil`. You can use this initializer to try to create a new instance of the enumeration.
 
-
-
-
-1.  `let`{.code-voice} `possiblePlanet`{.vc} = `Planet`{.vc}(`rawValue`{.vc}: `7`{.m})
-2.  `// possiblePlanet is of type Planet? and equals Planet.Uranus`{.code-voice}
+This example identifies Uranus from its raw value of `7`:
 
 
 
@@ -465,7 +456,16 @@ This example identifies Uranus from its raw value of `7`{.code-voice}:
 
 
 
-Not all possible `Int`{.code-voice} values will find a matching planet, however. Because of this, the raw value initializer always returns an *optional* enumeration case. In the example above, `possiblePlanet`{.code-voice} is of type `Planet?`{.code-voice}, or “optional `Planet`{.code-voice}.”
+1.  `let` `possiblePlanet` = `Planet`(`rawValue`: `7`)
+2.  `// possiblePlanet is of type Planet? and equals Planet.Uranus`
+
+
+
+
+
+
+
+Not all possible `Int` values will find a matching planet, however. Because of this, the raw value initializer always returns an *optional* enumeration case. In the example above, `possiblePlanet` is of type `Planet?`, or “optional `Planet`.”
 
 
 
@@ -475,7 +475,7 @@ The raw value initializer is a failable initializer, because not every raw value
 
 
 
-If you try to find a planet with a position of `9`{.code-voice}, the optional `Planet`{.code-voice} value returned by the raw value initializer will be `nil`{.code-voice}:
+If you try to find a planet with a position of `9`, the optional `Planet` value returned by the raw value initializer will be `nil`:
 
 
 
@@ -483,18 +483,18 @@ If you try to find a planet with a position of `9`{.code-voice}, the optional `P
 
 
 
-1.  `let`{.code-voice} `positionToFind`{.vc} = `9`{.m}
-2.  `if`{.code-voice} `let`{.kt} `somePlanet`{.vc} = `Planet`{.vc}(`rawValue`{.vc}: `positionToFind`{.vc}) {
-3.  `    switch`{.code-voice} `somePlanet`{.vc} {
-4.  `    case`{.code-voice} .`Earth`{.vc}:
-5.  `        print`{.code-voice}(`"Mostly harmless"`{.s})
-6.  `    default`{.code-voice}:
-7.  `        print`{.code-voice}(`"Not a safe place for humans"`{.s})
-8.  `    }`{.code-voice}
-9.  `} else`{.code-voice} {
-10. `    print`{.code-voice}(`"There isn't a planet at position `{.s}\\(`positionToFind`{.vc})`"`{.s})
-11. `}`{.code-voice}
-12. `// prints "There isn't a planet at position 9"`{.code-voice}
+1.  `let` `positionToFind` = `9`
+2.  `if` `let` `somePlanet` = `Planet`(`rawValue`: `positionToFind`) {
+3.  `    switch` `somePlanet` {
+4.  `    case` .`Earth`:
+5.  `        print`(`"Mostly harmless"`)
+6.  `    default`:
+7.  `        print`(`"Not a safe place for humans"`)
+8.  `    }`
+9.  `} else` {
+10. `    print`(`"There isn't a planet at position `\\(`positionToFind`)`"`)
+11. `}`
+12. `// prints "There isn't a planet at position 9"`
 
 
 
@@ -502,7 +502,7 @@ If you try to find a planet with a position of `9`{.code-voice}, the optional `P
 
 
 
-This example uses optional binding to try to access a planet with a raw value of `9`{.code-voice}. The statement `if let somePlanet = Planet(rawValue: 9)`{.code-voice} creates an optional `Planet`{.code-voice}, and sets `somePlanet`{.code-voice} to the value of that optional `Planet`{.code-voice} if it can be retrieved. In this case, it is not possible to retrieve a planet with a position of `9`{.code-voice}, and so the `else`{.code-voice} branch is executed instead.
+This example uses optional binding to try to access a planet with a raw value of `9`. The statement `if let somePlanet = Planet(rawValue: 9)` creates an optional `Planet`, and sets `somePlanet` to the value of that optional `Planet` if it can be retrieved. In this case, it is not possible to retrieve a planet with a position of `9`, and so the `else` branch is executed instead.
 
 
 
@@ -510,14 +510,14 @@ This example uses optional binding to try to access a planet with a raw value of
 
 
 
-[‌](){#TP40016643-CH12-ID536}
-### Recursive Enumerations {#recursive-enumerations .section-name}
+[‌]()
+### Recursive Enumerations 
 
-Enumerations work well for modeling data when there is a fixed number of possibilities that need to be considered, such as the operations used for doing simple integer arithmetic. These operations let you combine simple arithmetic expressions that are made up of integers such as `5`{.code-voice} into more complex ones such as `5 + 4`{.code-voice}.
+Enumerations work well for modeling data when there is a fixed number of possibilities that need to be considered, such as the operations used for doing simple integer arithmetic. These operations let you combine simple arithmetic expressions that are made up of integers such as `5` into more complex ones such as `5 + 4`.
 
-One important characteristic of arithmetic expressions is that they can be nested. For example, the expression `(5 + 4) * 2`{.code-voice} has a number on the right hand side of the multiplication and another expression on the left hand side of the multiplication. Because the data is nested, the enumeration used to store the data also needs to support nesting—this means the enumeration needs to be recursive.
+One important characteristic of arithmetic expressions is that they can be nested. For example, the expression `(5 + 4) * 2` has a number on the right hand side of the multiplication and another expression on the left hand side of the multiplication. Because the data is nested, the enumeration used to store the data also needs to support nesting—this means the enumeration needs to be recursive.
 
-A *recursive enumeration* is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. The compiler has to insert a layer of indirection when it works with recursive enumerations. You indicate that an enumeration case is recursive by writing `indirect`{.code-voice} before it.
+A *recursive enumeration* is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. The compiler has to insert a layer of indirection when it works with recursive enumerations. You indicate that an enumeration case is recursive by writing `indirect` before it.
 
 For example, here is an enumeration that stores simple arithmetic expressions:
 
@@ -527,11 +527,11 @@ For example, here is an enumeration that stores simple arithmetic expressions:
 
 
 
-1.  `enum`{.code-voice} `ArithmeticExpression`{.vc} {
-2.  `    case`{.code-voice} `Number`{.vc}(`Int`{.vc})
-3.  `    indirect`{.code-voice} `case`{.kt} `Addition`{.vc}(`ArithmeticExpression`{.vc}, `ArithmeticExpression`{.vc})
-4.  `    indirect`{.code-voice} `case`{.kt} `Multiplication`{.vc}(`ArithmeticExpression`{.vc}, `ArithmeticExpression`{.vc})
-5.  `}`{.code-voice}
+1.  `enum` `ArithmeticExpression` {
+2.  `    case` `Number`(`Int`)
+3.  `    indirect` `case` `Addition`(`ArithmeticExpression`, `ArithmeticExpression`)
+4.  `    indirect` `case` `Multiplication`(`ArithmeticExpression`, `ArithmeticExpression`)
+5.  `}`
 
 
 
@@ -539,7 +539,7 @@ For example, here is an enumeration that stores simple arithmetic expressions:
 
 
 
-You can also write `indirect`{.code-voice} before the beginning of the enumeration, to enable indirection for all of the enumeration’s cases that need it:
+You can also write `indirect` before the beginning of the enumeration, to enable indirection for all of the enumeration’s cases that need it:
 
 
 
@@ -547,11 +547,11 @@ You can also write `indirect`{.code-voice} before the beginning of the enumerati
 
 
 
-1.  `indirect`{.code-voice} `enum`{.kt} `ArithmeticExpression`{.vc} {
-2.  `    case`{.code-voice} `Number`{.vc}(`Int`{.vc})
-3.  `    case`{.code-voice} `Addition`{.vc}(`ArithmeticExpression`{.vc}, `ArithmeticExpression`{.vc})
-4.  `    case`{.code-voice} `Multiplication`{.vc}(`ArithmeticExpression`{.vc}, `ArithmeticExpression`{.vc})
-5.  `}`{.code-voice}
+1.  `indirect` `enum` `ArithmeticExpression` {
+2.  `    case` `Number`(`Int`)
+3.  `    case` `Addition`(`ArithmeticExpression`, `ArithmeticExpression`)
+4.  `    case` `Multiplication`(`ArithmeticExpression`, `ArithmeticExpression`)
+5.  `}`
 
 
 
@@ -559,7 +559,7 @@ You can also write `indirect`{.code-voice} before the beginning of the enumerati
 
 
 
-This enumeration can store three kinds of arithmetic expressions: a plain number, the addition of two expressions, and the multiplication of two expressions. The `Addition`{.code-voice} and `Multiplication`{.code-voice} cases have associated values that are also arithmetic expressions—these associated values make it possible to nest expressions.
+This enumeration can store three kinds of arithmetic expressions: a plain number, the addition of two expressions, and the multiplication of two expressions. The `Addition` and `Multiplication` cases have associated values that are also arithmetic expressions—these associated values make it possible to nest expressions.
 
 A recursive function is a straightforward way to work with data that has a recursive structure. For example, here’s a function that evaluates an arithmetic expression:
 
@@ -569,24 +569,24 @@ A recursive function is a straightforward way to work with data that has a recur
 
 
 
-1.  `func`{.code-voice} `evaluate`{.vc}(`expression`{.vc}: `ArithmeticExpression`{.n}) -&gt; `Int`{.n} {
-2.  `    switch`{.code-voice} `expression`{.vc} {
-3.  `    case`{.code-voice} .`Number`{.vc}(`let`{.kt} `value`{.vc}):
-4.  `        return`{.code-voice} `value`{.vc}
-5.  `    case`{.code-voice} .`Addition`{.vc}(`let`{.kt} `left`{.vc}, `let`{.kt} `right`{.vc}):
-6.  `        return`{.code-voice} `evaluate`{.vc}(`left`{.vc}) + `evaluate`{.vc}(`right`{.vc})
-7.  `    case`{.code-voice} .`Multiplication`{.vc}(`let`{.kt} `left`{.vc}, `let`{.kt} `right`{.vc}):
-8.  `        return`{.code-voice} `evaluate`{.vc}(`left`{.vc}) \* `evaluate`{.vc}(`right`{.vc})
-9.  `    }`{.code-voice}
-10. `}`{.code-voice}
-11. ` `{.code-voice}
-12. `// evaluate (5 + 4) * 2`{.code-voice}
-13. `let`{.code-voice} `five`{.vc} = `ArithmeticExpression`{.vc}.`Number`{.vc}(`5`{.m})
-14. `let`{.code-voice} `four`{.vc} = `ArithmeticExpression`{.vc}.`Number`{.vc}(`4`{.m})
-15. `let`{.code-voice} `sum`{.vc} = `ArithmeticExpression`{.vc}.`Addition`{.vc}(`five`{.vc}, `four`{.vc})
-16. `let`{.code-voice} `product`{.vc} = `ArithmeticExpression`{.vc}.`Multiplication`{.vc}(`sum`{.vc}, `ArithmeticExpression`{.vc}.`Number`{.vc}(`2`{.m}))
-17. `print`{.code-voice}(`evaluate`{.vc}(`product`{.vc}))
-18. `// prints "18"`{.code-voice}
+1.  `func` `evaluate`(`expression`: `ArithmeticExpression`) -&gt; `Int` {
+2.  `    switch` `expression` {
+3.  `    case` .`Number`(`let` `value`):
+4.  `        return` `value`
+5.  `    case` .`Addition`(`let` `left`, `let` `right`):
+6.  `        return` `evaluate`(`left`) + `evaluate`(`right`)
+7.  `    case` .`Multiplication`(`let` `left`, `let` `right`):
+8.  `        return` `evaluate`(`left`) \* `evaluate`(`right`)
+9.  `    }`
+10. `}`
+11. ` `
+12. `// evaluate (5 + 4) * 2`
+13. `let` `five` = `ArithmeticExpression`.`Number`(`5`)
+14. `let` `four` = `ArithmeticExpression`.`Number`(`4`)
+15. `let` `sum` = `ArithmeticExpression`.`Addition`(`five`, `four`)
+16. `let` `product` = `ArithmeticExpression`.`Multiplication`(`sum`, `ArithmeticExpression`.`Number`(`2`))
+17. `print`(`evaluate`(`product`))
+18. `// prints "18"`
 
 
 

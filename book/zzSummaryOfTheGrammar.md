@@ -2,14 +2,14 @@
 
 
 
-[‌](){#TP40016643-CH38}[‌](){#TP40016643-CH38-ID458}
-Summary of the Grammar {#summary-of-the-grammar .chapter-name}
+[‌]()[‌]()
+Summary of the Grammar 
 ----------------------
 
 
 
-[‌](){#TP40016643-CH38-ID475}
-### Statements {#statements .section-name}
+[‌]()
+### Statements 
 
 
 
@@ -17,71 +17,71 @@ Grammar of a statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_812}
+[‌]()
 
 statement
 
 
 →
-[expression](Expressions.md#expression)`;`{.literal}~opt~
+[expression](Expressions.md#expression)`;`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_813}
-
-statement
-
-
-→
-[declaration](Declarations.md#declaration)`;`{.literal}~opt~
-
-[‌](){#TP40016643-CH38-NoLink_814}
+[‌]()
 
 statement
 
 
 →
-[loop-statement](Statements.md#loop-statement)`;`{.literal}~opt~
+[declaration](Declarations.md#declaration)`;`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_815}
-
-statement
-
-
-→
-[branch-statement](Statements.md#branch-statement)`;`{.literal}~opt~
-
-[‌](){#TP40016643-CH38-NoLink_816}
+[‌]()
 
 statement
 
 
 →
-[labeled-statement](Statements.md#labeled-statement)`;`{.literal}~opt~
+[loop-statement](Statements.md#loop-statement)`;`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_817}
-
-statement
-
-
-→
-[control-transfer-statement](Statements.md#control-transfer-statement)`;`{.literal}~opt~
-
-[‌](){#TP40016643-CH38-NoLink_818}
+[‌]()
 
 statement
 
 
 →
-[defer-statement](Statements.md#defer-statement)`;`{.literal}~opt~
+[branch-statement](Statements.md#branch-statement)`;`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_819}
+[‌]()
 
 statement
 
 
 →
-[do-statement](Statements.md#do-statement)`:`{.literal}~opt~
+[labeled-statement](Statements.md#labeled-statement)`;`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_820}
+[‌]()
+
+statement
+
+
+→
+[control-transfer-statement](Statements.md#control-transfer-statement)`;`~opt~
+
+[‌]()
+
+statement
+
+
+→
+[defer-statement](Statements.md#defer-statement)`;`~opt~
+
+[‌]()
+
+statement
+
+
+→
+[do-statement](Statements.md#do-statement)`:`~opt~
+
+[‌]()
 
 statement
 
@@ -89,7 +89,7 @@ statement
 →
 [compiler-control-statement](Statements.md#compiler-control-statement)
 
-[‌](){#TP40016643-CH38-NoLink_821}
+[‌]()
 
 statements
 
@@ -107,7 +107,7 @@ Grammar of a loop statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_823}
+[‌]()
 
 loop-statement
 
@@ -115,7 +115,7 @@ loop-statement
 →
 [for-statement](Statements.md#for-statement)
 
-[‌](){#TP40016643-CH38-NoLink_824}
+[‌]()
 
 loop-statement
 
@@ -123,7 +123,7 @@ loop-statement
 →
 [for-in-statement](Statements.md#for-in-statement)
 
-[‌](){#TP40016643-CH38-NoLink_825}
+[‌]()
 
 loop-statement
 
@@ -131,7 +131,7 @@ loop-statement
 →
 [while-statement](Statements.md#while-statement)
 
-[‌](){#TP40016643-CH38-NoLink_826}
+[‌]()
 
 loop-statement
 
@@ -149,27 +149,27 @@ Grammar of a for statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_828}
+[‌]()
 
 for-statement
 
 
 →
-`for`{.literal}[for-init](Statements.md#for-init)~opt~`;`{.literal}[expression](Expressions.md#expression)~opt~`;`{.literal}[expression-list](Expressions.md#expression-list)~opt~[code-block](Declarations.md#code-block)
+`for`[for-init](Statements.md#for-init)~opt~`;`[expression](Expressions.md#expression)~opt~`;`[expression-list](Expressions.md#expression-list)~opt~[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_829}
+[‌]()
 
 for-statement
 
 
 →
-`for`{.literal}`(`{.literal}[for-init](Statements.md#for-init)~opt~`;`{.literal}[expression](Expressions.md#expression)~opt~`;`{.literal}[expression-list](Expressions.md#expression-list)~opt~`)`{.literal}[code-block](Declarations.md#code-block)
+`for``(`[for-init](Statements.md#for-init)~opt~`;`[expression](Expressions.md#expression)~opt~`;`[expression-list](Expressions.md#expression-list)~opt~`)`[code-block](Declarations.md#code-block)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_830}
+[‌]()
 
 for-init
 
@@ -191,13 +191,13 @@ Grammar of a for-in statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_832}
+[‌]()
 
 for-in-statement
 
 
 →
-`for`{.literal}`case`{.literal}~opt~[pattern](Patterns.md#pattern)`in`{.literal}[expression](Expressions.md#expression)[where-clause](Statements.md#where-clause)~opt~[code-block](Declarations.md#code-block)
+`for``case`~opt~[pattern](Patterns.md#pattern)`in`[expression](Expressions.md#expression)[where-clause](Statements.md#where-clause)~opt~[code-block](Declarations.md#code-block)
 
 
 
@@ -209,19 +209,19 @@ Grammar of a while statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_834}
+[‌]()
 
 while-statement
 
 
 →
-`while`{.literal}[condition-clause](Statements.md#condition-clause)[code-block](Declarations.md#code-block)
+`while`[condition-clause](Statements.md#condition-clause)[code-block](Declarations.md#code-block)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_835}
+[‌]()
 
 condition-clause
 
@@ -229,15 +229,15 @@ condition-clause
 →
 [expression](Expressions.md#expression)
 
-[‌](){#TP40016643-CH38-NoLink_836}
+[‌]()
 
 condition-clause
 
 
 →
-[expression](Expressions.md#expression)`,`{.literal}[condition-list](Statements.md#condition-list)
+[expression](Expressions.md#expression)`,`[condition-list](Statements.md#condition-list)
 
-[‌](){#TP40016643-CH38-NoLink_837}
+[‌]()
 
 condition-clause
 
@@ -245,19 +245,19 @@ condition-clause
 →
 [condition-list](Statements.md#condition-list)
 
-[‌](){#TP40016643-CH38-NoLink_838}
+[‌]()
 
 condition-clause
 
 
 →
-[availability-condition](Statements.md#availability-condition)`,`{.literal}[expression](Expressions.md#expression)
+[availability-condition](Statements.md#availability-condition)`,`[expression](Expressions.md#expression)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_839}
+[‌]()
 
 condition-list
 
@@ -266,10 +266,10 @@ condition-list
 
 [condition](Statements.md#condition)
 
-[condition](Statements.md#condition)`,`{.literal}[condition-list](Statements.md#condition-list)
+[condition](Statements.md#condition)`,`[condition-list](Statements.md#condition-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_840}
+[‌]()
 
 condition
 
@@ -283,19 +283,19 @@ condition
 [optional-binding-condition](Statements.md#optional-binding-condition)
 
 
-[‌](){#TP40016643-CH38-NoLink_841}
+[‌]()
 
 case-condition
 
 
 →
-`case`{.literal}[pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)[where-clause](Statements.md#where-clause)~opt~
+`case`[pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)[where-clause](Statements.md#where-clause)~opt~
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_842}
+[‌]()
 
 optional-binding-condition
 
@@ -303,15 +303,15 @@ optional-binding-condition
 →
 [optional-binding-head](Statements.md#optional-binding-head)[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)~opt~[where-clause](Statements.md#where-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_843}
+[‌]()
 
 optional-binding-head
 
 
 →
-`let`{.literal}[pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)
+`let`[pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)
 
-[‌](){#TP40016643-CH38-NoLink_844}
+[‌]()
 
 optional-binding-continuation-list
 
@@ -320,10 +320,10 @@ optional-binding-continuation-list
 
 [optional-binding-continuation](Statements.md#optional-binding-continuation)
 
-[optional-binding-continuation](Statements.md#optional-binding-continuation)`,`{.literal}[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)
+[optional-binding-continuation](Statements.md#optional-binding-continuation)`,`[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_845}
+[‌]()
 
 optional-binding-continuation
 
@@ -345,13 +345,13 @@ Grammar of a repeat-while statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_847}
+[‌]()
 
 repeat-while-statement
 
 
 →
-`repeat`{.literal}[code-block](Declarations.md#code-block)`while`{.literal}[expression](Expressions.md#expression)
+`repeat`[code-block](Declarations.md#code-block)`while`[expression](Expressions.md#expression)
 
 
 
@@ -363,7 +363,7 @@ Grammar of a branch statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_849}
+[‌]()
 
 branch-statement
 
@@ -371,7 +371,7 @@ branch-statement
 →
 [if-statement](Statements.md#if-statement)
 
-[‌](){#TP40016643-CH38-NoLink_850}
+[‌]()
 
 branch-statement
 
@@ -379,7 +379,7 @@ branch-statement
 →
 [guard-statement](Statements.md#guard-statement)
 
-[‌](){#TP40016643-CH38-NoLink_851}
+[‌]()
 
 branch-statement
 
@@ -397,24 +397,24 @@ Grammar of an if statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_853}
+[‌]()
 
 if-statement
 
 
 →
-`if`{.literal}[condition-clause](Statements.md#condition-clause)[code-block](Declarations.md#code-block)[else-clause](Statements.md#else-clause)~opt~
+`if`[condition-clause](Statements.md#condition-clause)[code-block](Declarations.md#code-block)[else-clause](Statements.md#else-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_854}
+[‌]()
 
 else-clause
 
 
 →
 
-`else`{.literal}[code-block](Declarations.md#code-block)
+`else`[code-block](Declarations.md#code-block)
 
-`else`{.literal}[if-statement](Statements.md#if-statement)
+`else`[if-statement](Statements.md#if-statement)
 
 
 
@@ -427,13 +427,13 @@ Grammar of a guard statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_856}
+[‌]()
 
 guard-statement
 
 
 →
-`guard`{.literal}[condition-clause](Statements.md#condition-clause)`else`{.literal}[code-block](Declarations.md#code-block)
+`guard`[condition-clause](Statements.md#condition-clause)`else`[code-block](Declarations.md#code-block)
 
 
 
@@ -445,15 +445,15 @@ Grammar of a switch statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_858}
+[‌]()
 
 switch-statement
 
 
 →
-`switch`{.literal}[expression](Expressions.md#expression)`{`{.literal}[switch-cases](Statements.md#switch-cases)~opt~`}`{.literal}
+`switch`[expression](Expressions.md#expression)`{`[switch-cases](Statements.md#switch-cases)~opt~`}`
 
-[‌](){#TP40016643-CH38-NoLink_859}
+[‌]()
 
 switch-cases
 
@@ -461,7 +461,7 @@ switch-cases
 →
 [switch-case](Statements.md#switch-case)[switch-cases](Statements.md#switch-cases)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_860}
+[‌]()
 
 switch-case
 
@@ -477,15 +477,15 @@ switch-case
 
 
 
-[‌](){#TP40016643-CH38-NoLink_861}
+[‌]()
 
 case-label
 
 
 →
-`case`{.literal}[case-item-list](Statements.md#case-item-list)`:`{.literal}
+`case`[case-item-list](Statements.md#case-item-list)`:`
 
-[‌](){#TP40016643-CH38-NoLink_862}
+[‌]()
 
 case-item-list
 
@@ -494,30 +494,30 @@ case-item-list
 
 [pattern](Patterns.md#pattern)[where-clause](Statements.md#where-clause)~opt~
 
-[pattern](Patterns.md#pattern)[where-clause](Statements.md#where-clause)~opt~`,`{.literal}[case-item-list](Statements.md#case-item-list)
+[pattern](Patterns.md#pattern)[where-clause](Statements.md#where-clause)~opt~`,`[case-item-list](Statements.md#case-item-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_863}
+[‌]()
 
 default-label
 
 
 →
-`default`{.literal}`:`{.literal}
+`default``:`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_864}
+[‌]()
 
 where-clause
 
 
 →
-`where`{.literal}[where-expression](Statements.md#where-expression)
+`where`[where-expression](Statements.md#where-expression)
 
-[‌](){#TP40016643-CH38-NoLink_865}
+[‌]()
 
 where-expression
 
@@ -535,7 +535,7 @@ Grammar of a labeled statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_867}
+[‌]()
 
 labeled-statement
 
@@ -549,15 +549,15 @@ labeled-statement
 [statement-label](Statements.md#statement-label)[switch-statement](Statements.md#switch-statement)
 
 
-[‌](){#TP40016643-CH38-NoLink_868}
+[‌]()
 
 statement-label
 
 
 →
-[label-name](Statements.md#label-name)`:`{.literal}
+[label-name](Statements.md#label-name)`:`
 
-[‌](){#TP40016643-CH38-NoLink_869}
+[‌]()
 
 label-name
 
@@ -575,7 +575,7 @@ Grammar of a control transfer statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_871}
+[‌]()
 
 control-transfer-statement
 
@@ -583,7 +583,7 @@ control-transfer-statement
 →
 [break-statement](Statements.md#break-statement)
 
-[‌](){#TP40016643-CH38-NoLink_872}
+[‌]()
 
 control-transfer-statement
 
@@ -591,7 +591,7 @@ control-transfer-statement
 →
 [continue-statement](Statements.md#continue-statement)
 
-[‌](){#TP40016643-CH38-NoLink_873}
+[‌]()
 
 control-transfer-statement
 
@@ -599,7 +599,7 @@ control-transfer-statement
 →
 [fallthrough-statement](Statements.md#fallthrough-statement)
 
-[‌](){#TP40016643-CH38-NoLink_874}
+[‌]()
 
 control-transfer-statement
 
@@ -607,7 +607,7 @@ control-transfer-statement
 →
 [return-statement](Statements.md#return-statement)
 
-[‌](){#TP40016643-CH38-NoLink_875}
+[‌]()
 
 control-transfer-statement
 
@@ -625,13 +625,13 @@ Grammar of a break statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_877}
+[‌]()
 
 break-statement
 
 
 →
-`break`{.literal}[label-name](Statements.md#label-name)~opt~
+`break`[label-name](Statements.md#label-name)~opt~
 
 
 
@@ -643,13 +643,13 @@ Grammar of a continue statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_879}
+[‌]()
 
 continue-statement
 
 
 →
-`continue`{.literal}[label-name](Statements.md#label-name)~opt~
+`continue`[label-name](Statements.md#label-name)~opt~
 
 
 
@@ -661,13 +661,13 @@ Grammar of a fallthrough statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_881}
+[‌]()
 
 fallthrough-statement
 
 
 →
-`fallthrough`{.literal}
+`fallthrough`
 
 
 
@@ -679,13 +679,13 @@ Grammar of a return statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_883}
+[‌]()
 
 return-statement
 
 
 →
-`return`{.literal}[expression](Expressions.md#expression)~opt~
+`return`[expression](Expressions.md#expression)~opt~
 
 
 
@@ -697,15 +697,15 @@ Grammar of an availability condition
 
 
 
-[‌](){#TP40016643-CH38-NoLink_885}
+[‌]()
 
 availability-condition
 
 
 →
-`#available`{.literal}`(`{.literal}[availability-arguments](Statements.md#availability-arguments)`)`{.literal}
+`#available``(`[availability-arguments](Statements.md#availability-arguments)`)`
 
-[‌](){#TP40016643-CH38-NoLink_886}
+[‌]()
 
 availability-arguments
 
@@ -714,10 +714,10 @@ availability-arguments
 
 [availability-argument](Statements.md#availability-argument)
 
-[availability-argument](Statements.md#availability-argument)`,`{.literal}[availability-arguments](Statements.md#availability-arguments)
+[availability-argument](Statements.md#availability-argument)`,`[availability-arguments](Statements.md#availability-arguments)
 
 
-[‌](){#TP40016643-CH38-NoLink_887}
+[‌]()
 
 availability-argument
 
@@ -725,51 +725,51 @@ availability-argument
 →
 [platform-name](Statements.md#platform-name)[platform-version](Statements.md#platform-version)
 
-[‌](){#TP40016643-CH38-NoLink_888}
+[‌]()
 
 availability-argument
 
 
 →
-`*`{.literal}
+`*`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_889}
-
-platform-name
-
-
-→
-
-`iOS`{.literal}
-
-`iOSApplicationExtension`{.literal}
-
-
-[‌](){#TP40016643-CH38-NoLink_890}
+[‌]()
 
 platform-name
 
 
 →
 
-`OSX`{.literal}
+`iOS`
 
-`OSXApplicationExtension`{.literal}
+`iOSApplicationExtension`
 
 
-[‌](){#TP40016643-CH38-NoLink_891}
+[‌]()
 
 platform-name
 
 
 →
-`watchOS`{.literal}
 
-[‌](){#TP40016643-CH38-NoLink_892}
+`OSX`
+
+`OSXApplicationExtension`
+
+
+[‌]()
+
+platform-name
+
+
+→
+`watchOS`
+
+[‌]()
 
 platform-version
 
@@ -777,21 +777,21 @@ platform-version
 →
 [decimal-digits](LexicalStructure.md#decimal-digits)
 
-[‌](){#TP40016643-CH38-NoLink_893}
+[‌]()
 
 platform-version
 
 
 →
-[decimal-digits](LexicalStructure.md#decimal-digits)`.`{.literal}[decimal-digits](LexicalStructure.md#decimal-digits)
+[decimal-digits](LexicalStructure.md#decimal-digits)`.`[decimal-digits](LexicalStructure.md#decimal-digits)
 
-[‌](){#TP40016643-CH38-NoLink_894}
+[‌]()
 
 platform-version
 
 
 →
-[decimal-digits](LexicalStructure.md#decimal-digits)`.`{.literal}[decimal-digits](LexicalStructure.md#decimal-digits)`.`{.literal}[decimal-digits](LexicalStructure.md#decimal-digits)
+[decimal-digits](LexicalStructure.md#decimal-digits)`.`[decimal-digits](LexicalStructure.md#decimal-digits)`.`[decimal-digits](LexicalStructure.md#decimal-digits)
 
 
 
@@ -803,13 +803,13 @@ Grammar of a throw statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_896}
+[‌]()
 
 throw-statement
 
 
 →
-`throw`{.literal}[expression](Expressions.md#expression)
+`throw`[expression](Expressions.md#expression)
 
 
 
@@ -821,13 +821,13 @@ Grammar of a defer statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_898}
+[‌]()
 
 defer-statement
 
 
 →
-`defer`{.literal}[code-block](Declarations.md#code-block)
+`defer`[code-block](Declarations.md#code-block)
 
 
 
@@ -839,15 +839,15 @@ Grammar of a do statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_900}
+[‌]()
 
 do-statement
 
 
 →
-`do`{.literal}[code-block](Declarations.md#code-block)[catch-clauses](Statements.md#catch-clauses)~opt~
+`do`[code-block](Declarations.md#code-block)[catch-clauses](Statements.md#catch-clauses)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_901}
+[‌]()
 
 catch-clauses
 
@@ -855,13 +855,13 @@ catch-clauses
 →
 [catch-clause](Statements.md#catch-clause)[catch-clauses](Statements.md#catch-clauses)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_902}
+[‌]()
 
 catch-clause
 
 
 →
-`catch`{.literal}[pattern](Patterns.md#pattern)~opt~[where-clause](Statements.md#where-clause)~opt~[code-block](Declarations.md#code-block)
+`catch`[pattern](Patterns.md#pattern)~opt~[where-clause](Statements.md#where-clause)~opt~[code-block](Declarations.md#code-block)
 
 
 
@@ -873,7 +873,7 @@ Grammar of a compiler control statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_904}
+[‌]()
 
 compiler-control-statement
 
@@ -881,7 +881,7 @@ compiler-control-statement
 →
 [build-configuration-statement](Statements.md#build-configuration-statement)
 
-[‌](){#TP40016643-CH38-NoLink_905}
+[‌]()
 
 compiler-control-statement
 
@@ -899,15 +899,15 @@ Grammar of a build configuration statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_907}
+[‌]()
 
 build-configuration-statement
 
 
 →
-`#if`{.literal}[build-configuration](Statements.md#build-configuration)[statements](Statements.md#statements)~opt~[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)~opt~[build-configuration-else-clause](Statements.md#build-configuration-else-clause)~opt~`#endif`{.literal}
+`#if`[build-configuration](Statements.md#build-configuration)[statements](Statements.md#statements)~opt~[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)~opt~[build-configuration-else-clause](Statements.md#build-configuration-else-clause)~opt~`#endif`
 
-[‌](){#TP40016643-CH38-NoLink_908}
+[‌]()
 
 build-configuration-elseif-clauses
 
@@ -915,27 +915,27 @@ build-configuration-elseif-clauses
 →
 [build-configuration-elseif-clause](Statements.md#build-configuration-elseif-clause)[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_909}
+[‌]()
 
 build-configuration-elseif-clause
 
 
 →
-`#elseif`{.literal}[build-configuration](Statements.md#build-configuration)[statements](Statements.md#statements)~opt~
+`#elseif`[build-configuration](Statements.md#build-configuration)[statements](Statements.md#statements)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_910}
+[‌]()
 
 build-configuration-else-clause
 
 
 →
-`#else`{.literal}[statements](Statements.md#statements)~opt~
+`#else`[statements](Statements.md#statements)~opt~
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_911}
+[‌]()
 
 build-configuration
 
@@ -943,7 +943,7 @@ build-configuration
 →
 [platform-testing-function](Statements.md#platform-testing-function)
 
-[‌](){#TP40016643-CH38-NoLink_912}
+[‌]()
 
 build-configuration
 
@@ -951,7 +951,7 @@ build-configuration
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_913}
+[‌]()
 
 build-configuration
 
@@ -959,88 +959,88 @@ build-configuration
 →
 [boolean-literal](LexicalStructure.md#boolean-literal)
 
-[‌](){#TP40016643-CH38-NoLink_914}
+[‌]()
 
 build-configuration
 
 
 →
-`(`{.literal}[build-configuration](Statements.md#build-configuration)`)`{.literal}
+`(`[build-configuration](Statements.md#build-configuration)`)`
 
-[‌](){#TP40016643-CH38-NoLink_915}
-
-build-configuration
-
-
-→
-`!`{.literal}[build-configuration](Statements.md#build-configuration)
-
-[‌](){#TP40016643-CH38-NoLink_916}
+[‌]()
 
 build-configuration
 
 
 →
-[build-configuration](Statements.md#build-configuration)`&&`{.literal}[build-configuration](Statements.md#build-configuration)
+`!`[build-configuration](Statements.md#build-configuration)
 
-[‌](){#TP40016643-CH38-NoLink_917}
+[‌]()
 
 build-configuration
 
 
 →
-[build-configuration](Statements.md#build-configuration)`||`{.literal}[build-configuration](Statements.md#build-configuration)
+[build-configuration](Statements.md#build-configuration)`&&`[build-configuration](Statements.md#build-configuration)
+
+[‌]()
+
+build-configuration
+
+
+→
+[build-configuration](Statements.md#build-configuration)`||`[build-configuration](Statements.md#build-configuration)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_918}
+[‌]()
 
 platform-testing-function
 
 
 →
-`os`{.literal}`(`{.literal}[operating-system](Statements.md#operating-system)`)`{.literal}
+`os``(`[operating-system](Statements.md#operating-system)`)`
 
-[‌](){#TP40016643-CH38-NoLink_919}
+[‌]()
 
 platform-testing-function
 
 
 →
-`arch`{.literal}`(`{.literal}[architecture](Statements.md#architecture)`)`{.literal}
+`arch``(`[architecture](Statements.md#architecture)`)`
 
-[‌](){#TP40016643-CH38-NoLink_920}
+[‌]()
 
 operating-system
 
 
 →
 
-`OSX`{.literal}
+`OSX`
 
-`iOS`{.literal}
+`iOS`
 
-`watchOS`{.literal}
+`watchOS`
 
-`tvOS`{.literal}
+`tvOS`
 
 
-[‌](){#TP40016643-CH38-NoLink_921}
+[‌]()
 
 architecture
 
 
 →
 
-`i386`{.literal}
+`i386`
 
-`x86_64`{.literal}
+`x86_64`
 
-`arm`{.literal}
+`arm`
 
-`arm64`{.literal}
+`arm64`
 
 
 
@@ -1053,23 +1053,23 @@ Grammar of a line control statement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_923}
+[‌]()
 
 line-control-statement
 
 
 →
-`#line`{.literal}
+`#line`
 
-[‌](){#TP40016643-CH38-NoLink_924}
+[‌]()
 
 line-control-statement
 
 
 →
-`#line`{.literal}[line-number](Statements.md#line-number)[file-name](Statements.md#file-name)
+`#line`[line-number](Statements.md#line-number)[file-name](Statements.md#file-name)
 
-[‌](){#TP40016643-CH38-NoLink_925}
+[‌]()
 
 line-number
 
@@ -1077,7 +1077,7 @@ line-number
 →
 A decimal integer greater than zero
 
-[‌](){#TP40016643-CH38-NoLink_926}
+[‌]()
 
 file-name
 
@@ -1093,8 +1093,8 @@ file-name
 
 
 
-[‌](){#TP40016643-CH38-ID476}
-### Generic Parameters and Arguments {#generic-parameters-and-arguments .section-name}
+[‌]()
+### Generic Parameters and Arguments 
 
 
 
@@ -1102,15 +1102,15 @@ Grammar of a generic parameter clause
 
 
 
-[‌](){#TP40016643-CH38-NoLink_928}
+[‌]()
 
 generic-parameter-clause
 
 
 →
-`[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)[requirement-clause](GenericParametersAndArguments.md#requirement-clause)~opt~`>`{.literal}
+`[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)[requirement-clause](GenericParametersAndArguments.md#requirement-clause)~opt~`>`
 
-[‌](){#TP40016643-CH38-NoLink_929}
+[‌]()
 
 generic-parameter-list
 
@@ -1119,10 +1119,10 @@ generic-parameter-list
 
 [generic-parameter](GenericParametersAndArguments.md#generic-parameter)
 
-[generic-parameter](GenericParametersAndArguments.md#generic-parameter)`,`{.literal}[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)
+[generic-parameter](GenericParametersAndArguments.md#generic-parameter)`,`[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_930}
+[‌]()
 
 generic-parameter
 
@@ -1130,35 +1130,35 @@ generic-parameter
 →
 [type-name](Types.md#type-name)
 
-[‌](){#TP40016643-CH38-NoLink_931}
+[‌]()
 
 generic-parameter
 
 
 →
-[type-name](Types.md#type-name)`:`{.literal}[type-identifier](Types.md#type-identifier)
+[type-name](Types.md#type-name)`:`[type-identifier](Types.md#type-identifier)
 
-[‌](){#TP40016643-CH38-NoLink_932}
+[‌]()
 
 generic-parameter
 
 
 →
-[type-name](Types.md#type-name)`:`{.literal}[protocol-composition-type](Types.md#protocol-composition-type)
+[type-name](Types.md#type-name)`:`[protocol-composition-type](Types.md#protocol-composition-type)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_933}
+[‌]()
 
 requirement-clause
 
 
 →
-`where`{.literal}[requirement-list](GenericParametersAndArguments.md#requirement-list)
+`where`[requirement-list](GenericParametersAndArguments.md#requirement-list)
 
-[‌](){#TP40016643-CH38-NoLink_934}
+[‌]()
 
 requirement-list
 
@@ -1167,10 +1167,10 @@ requirement-list
 
 [requirement](GenericParametersAndArguments.md#requirement)
 
-[requirement](GenericParametersAndArguments.md#requirement)`,`{.literal}[requirement-list](GenericParametersAndArguments.md#requirement-list)
+[requirement](GenericParametersAndArguments.md#requirement)`,`[requirement-list](GenericParametersAndArguments.md#requirement-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_935}
+[‌]()
 
 requirement
 
@@ -1186,29 +1186,29 @@ requirement
 
 
 
-[‌](){#TP40016643-CH38-NoLink_936}
+[‌]()
 
 conformance-requirement
 
 
 →
-[type-identifier](Types.md#type-identifier)`:`{.literal}[type-identifier](Types.md#type-identifier)
+[type-identifier](Types.md#type-identifier)`:`[type-identifier](Types.md#type-identifier)
 
-[‌](){#TP40016643-CH38-NoLink_937}
+[‌]()
 
 conformance-requirement
 
 
 →
-[type-identifier](Types.md#type-identifier)`:`{.literal}[protocol-composition-type](Types.md#protocol-composition-type)
+[type-identifier](Types.md#type-identifier)`:`[protocol-composition-type](Types.md#protocol-composition-type)
 
-[‌](){#TP40016643-CH38-NoLink_938}
+[‌]()
 
 same-type-requirement
 
 
 →
-[type-identifier](Types.md#type-identifier)`==`{.literal}[type](Types.md#type)
+[type-identifier](Types.md#type-identifier)`==`[type](Types.md#type)
 
 
 
@@ -1220,15 +1220,15 @@ Grammar of a generic argument clause
 
 
 
-[‌](){#TP40016643-CH38-NoLink_940}
+[‌]()
 
 generic-argument-clause
 
 
 →
-`[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)`>`{.literal}
+`[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)`>`
 
-[‌](){#TP40016643-CH38-NoLink_941}
+[‌]()
 
 generic-argument-list
 
@@ -1237,10 +1237,10 @@ generic-argument-list
 
 [generic-argument](GenericParametersAndArguments.md#generic-argument)
 
-[generic-argument](GenericParametersAndArguments.md#generic-argument)`,`{.literal}[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)
+[generic-argument](GenericParametersAndArguments.md#generic-argument)`,`[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_942}
+[‌]()
 
 generic-argument
 
@@ -1256,8 +1256,8 @@ generic-argument
 
 
 
-[‌](){#TP40016643-CH38-ID477}
-### Declarations {#declarations .section-name}
+[‌]()
+### Declarations 
 
 
 
@@ -1265,7 +1265,7 @@ Grammar of a declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_944}
+[‌]()
 
 declaration
 
@@ -1273,7 +1273,7 @@ declaration
 →
 [import-declaration](Declarations.md#import-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_945}
+[‌]()
 
 declaration
 
@@ -1281,7 +1281,7 @@ declaration
 →
 [constant-declaration](Declarations.md#constant-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_946}
+[‌]()
 
 declaration
 
@@ -1289,7 +1289,7 @@ declaration
 →
 [variable-declaration](Declarations.md#variable-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_947}
+[‌]()
 
 declaration
 
@@ -1297,7 +1297,7 @@ declaration
 →
 [typealias-declaration](Declarations.md#typealias-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_948}
+[‌]()
 
 declaration
 
@@ -1305,7 +1305,7 @@ declaration
 →
 [function-declaration](Declarations.md#function-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_949}
+[‌]()
 
 declaration
 
@@ -1313,7 +1313,7 @@ declaration
 →
 [enum-declaration](Declarations.md#enum-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_950}
+[‌]()
 
 declaration
 
@@ -1321,7 +1321,7 @@ declaration
 →
 [struct-declaration](Declarations.md#struct-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_951}
+[‌]()
 
 declaration
 
@@ -1329,7 +1329,7 @@ declaration
 →
 [class-declaration](Declarations.md#class-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_952}
+[‌]()
 
 declaration
 
@@ -1337,7 +1337,7 @@ declaration
 →
 [protocol-declaration](Declarations.md#protocol-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_953}
+[‌]()
 
 declaration
 
@@ -1345,7 +1345,7 @@ declaration
 →
 [initializer-declaration](Declarations.md#initializer-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_954}
+[‌]()
 
 declaration
 
@@ -1353,7 +1353,7 @@ declaration
 →
 [deinitializer-declaration](Declarations.md#deinitializer-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_955}
+[‌]()
 
 declaration
 
@@ -1361,7 +1361,7 @@ declaration
 →
 [extension-declaration](Declarations.md#extension-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_956}
+[‌]()
 
 declaration
 
@@ -1369,7 +1369,7 @@ declaration
 →
 [subscript-declaration](Declarations.md#subscript-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_957}
+[‌]()
 
 declaration
 
@@ -1377,7 +1377,7 @@ declaration
 →
 [operator-declaration](Declarations.md#operator-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_958}
+[‌]()
 
 declarations
 
@@ -1395,7 +1395,7 @@ Grammar of a top-level declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_960}
+[‌]()
 
 top-level-declaration
 
@@ -1413,13 +1413,13 @@ Grammar of a code block
 
 
 
-[‌](){#TP40016643-CH38-NoLink_962}
+[‌]()
 
 code-block
 
 
 →
-`{`{.literal}[statements](Statements.md#statements)~opt~`}`{.literal}
+`{`[statements](Statements.md#statements)~opt~`}`
 
 
 
@@ -1431,41 +1431,41 @@ Grammar of an import declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_964}
+[‌]()
 
 import-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`import`{.literal}[import-kind](Declarations.md#import-kind)~opt~[import-path](Declarations.md#import-path)
+[attributes](Attributes.md#attributes)~opt~`import`[import-kind](Declarations.md#import-kind)~opt~[import-path](Declarations.md#import-path)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_965}
+[‌]()
 
 import-kind
 
 
 →
 
-`typealias`{.literal}
+`typealias`
 
-`struct`{.literal}
+`struct`
 
-`class`{.literal}
+`class`
 
-`enum`{.literal}
+`enum`
 
-`protocol`{.literal}
+`protocol`
 
-`var`{.literal}
+`var`
 
-`func`{.literal}
+`func`
 
 
-[‌](){#TP40016643-CH38-NoLink_966}
+[‌]()
 
 import-path
 
@@ -1474,10 +1474,10 @@ import-path
 
 [import-path-identifier](Declarations.md#import-path-identifier)
 
-[import-path-identifier](Declarations.md#import-path-identifier)`.`{.literal}[import-path](Declarations.md#import-path)
+[import-path-identifier](Declarations.md#import-path-identifier)`.`[import-path](Declarations.md#import-path)
 
 
-[‌](){#TP40016643-CH38-NoLink_967}
+[‌]()
 
 import-path-identifier
 
@@ -1499,19 +1499,19 @@ Grammar of a constant declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_969}
+[‌]()
 
 constant-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`let`{.literal}[pattern-initializer-list](Declarations.md#pattern-initializer-list)
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`let`[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_970}
+[‌]()
 
 pattern-initializer-list
 
@@ -1520,10 +1520,10 @@ pattern-initializer-list
 
 [pattern-initializer](Declarations.md#pattern-initializer)
 
-[pattern-initializer](Declarations.md#pattern-initializer)`,`{.literal}[pattern-initializer-list](Declarations.md#pattern-initializer-list)
+[pattern-initializer](Declarations.md#pattern-initializer)`,`[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_971}
+[‌]()
 
 pattern-initializer
 
@@ -1531,13 +1531,13 @@ pattern-initializer
 →
 [pattern](Patterns.md#pattern)[initializer](Declarations.md#initializer)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_972}
+[‌]()
 
 initializer
 
 
 →
-`=`{.literal}[expression](Expressions.md#expression)
+`=`[expression](Expressions.md#expression)
 
 
 
@@ -1549,7 +1549,7 @@ Grammar of a variable declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_974}
+[‌]()
 
 variable-declaration
 
@@ -1557,7 +1557,7 @@ variable-declaration
 →
 [variable-declaration-head](Declarations.md#variable-declaration-head)[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
-[‌](){#TP40016643-CH38-NoLink_975}
+[‌]()
 
 variable-declaration
 
@@ -1565,7 +1565,7 @@ variable-declaration
 →
 [variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_976}
+[‌]()
 
 variable-declaration
 
@@ -1573,7 +1573,7 @@ variable-declaration
 →
 [variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[getter-setter-block](Declarations.md#getter-setter-block)
 
-[‌](){#TP40016643-CH38-NoLink_977}
+[‌]()
 
 variable-declaration
 
@@ -1581,7 +1581,7 @@ variable-declaration
 →
 [variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[type-annotation](Types.md#type-annotation)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
-[‌](){#TP40016643-CH38-NoLink_978}
+[‌]()
 
 variable-declaration
 
@@ -1589,7 +1589,7 @@ variable-declaration
 →
 [variable-declaration-head](Declarations.md#variable-declaration-head)[variable-name](Declarations.md#variable-name)[initializer](Declarations.md#initializer)[willSet-didSet-block](Declarations.md#willSet-didSet-block)
 
-[‌](){#TP40016643-CH38-NoLink_979}
+[‌]()
 
 variable-declaration
 
@@ -1601,15 +1601,15 @@ variable-declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_980}
+[‌]()
 
 variable-declaration-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`var`{.literal}
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`var`
 
-[‌](){#TP40016643-CH38-NoLink_981}
+[‌]()
 
 variable-name
 
@@ -1621,7 +1621,7 @@ variable-name
 
 
 
-[‌](){#TP40016643-CH38-NoLink_982}
+[‌]()
 
 getter-setter-block
 
@@ -1629,117 +1629,117 @@ getter-setter-block
 →
 [code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_983}
+[‌]()
 
 getter-setter-block
 
 
 →
-`{`{.literal}[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`{.literal}
+`{`[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`
 
-[‌](){#TP40016643-CH38-NoLink_984}
+[‌]()
 
 getter-setter-block
 
 
 →
-`{`{.literal}[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`{.literal}
+`{`[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`
 
-[‌](){#TP40016643-CH38-NoLink_985}
+[‌]()
 
 getter-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`get`{.literal}[code-block](Declarations.md#code-block)
+[attributes](Attributes.md#attributes)~opt~`get`[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_986}
+[‌]()
 
 setter-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`set`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+[attributes](Attributes.md#attributes)~opt~`set`[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_987}
+[‌]()
 
 setter-name
 
 
 →
-`(`{.literal}[identifier](LexicalStructure.md#identifier)`)`{.literal}
+`(`[identifier](LexicalStructure.md#identifier)`)`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_988}
-
-getter-setter-keyword-block
-
-
-→
-`{`{.literal}[getter-keyword-clause](Declarations.md#getter-keyword-clause)[setter-keyword-clause](Declarations.md#setter-keyword-clause)~opt~`}`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_989}
+[‌]()
 
 getter-setter-keyword-block
 
 
 →
-`{`{.literal}[setter-keyword-clause](Declarations.md#setter-keyword-clause)[getter-keyword-clause](Declarations.md#getter-keyword-clause)`}`{.literal}
+`{`[getter-keyword-clause](Declarations.md#getter-keyword-clause)[setter-keyword-clause](Declarations.md#setter-keyword-clause)~opt~`}`
 
-[‌](){#TP40016643-CH38-NoLink_990}
+[‌]()
+
+getter-setter-keyword-block
+
+
+→
+`{`[setter-keyword-clause](Declarations.md#setter-keyword-clause)[getter-keyword-clause](Declarations.md#getter-keyword-clause)`}`
+
+[‌]()
 
 getter-keyword-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`get`{.literal}
+[attributes](Attributes.md#attributes)~opt~`get`
 
-[‌](){#TP40016643-CH38-NoLink_991}
+[‌]()
 
 setter-keyword-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`set`{.literal}
+[attributes](Attributes.md#attributes)~opt~`set`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_992}
-
-willSet-didSet-block
-
-
-→
-`{`{.literal}[willSet-clause](Declarations.md#willSet-clause)[didSet-clause](Declarations.md#didSet-clause)~opt~`}`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_993}
+[‌]()
 
 willSet-didSet-block
 
 
 →
-`{`{.literal}[didSet-clause](Declarations.md#didSet-clause)[willSet-clause](Declarations.md#willSet-clause)~opt~`}`{.literal}
+`{`[willSet-clause](Declarations.md#willSet-clause)[didSet-clause](Declarations.md#didSet-clause)~opt~`}`
 
-[‌](){#TP40016643-CH38-NoLink_994}
+[‌]()
+
+willSet-didSet-block
+
+
+→
+`{`[didSet-clause](Declarations.md#didSet-clause)[willSet-clause](Declarations.md#willSet-clause)~opt~`}`
+
+[‌]()
 
 willSet-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`willSet`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+[attributes](Attributes.md#attributes)~opt~`willSet`[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_995}
+[‌]()
 
 didSet-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`didSet`{.literal}[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
+[attributes](Attributes.md#attributes)~opt~`didSet`[setter-name](Declarations.md#setter-name)~opt~[code-block](Declarations.md#code-block)
 
 
 
@@ -1751,7 +1751,7 @@ Grammar of a type alias declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_997}
+[‌]()
 
 typealias-declaration
 
@@ -1759,15 +1759,15 @@ typealias-declaration
 →
 [typealias-head](Declarations.md#typealias-head)[typealias-assignment](Declarations.md#typealias-assignment)
 
-[‌](){#TP40016643-CH38-NoLink_998}
+[‌]()
 
 typealias-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`typealias`{.literal}[typealias-name](Declarations.md#typealias-name)
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`typealias`[typealias-name](Declarations.md#typealias-name)
 
-[‌](){#TP40016643-CH38-NoLink_999}
+[‌]()
 
 typealias-name
 
@@ -1775,13 +1775,13 @@ typealias-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1000}
+[‌]()
 
 typealias-assignment
 
 
 →
-`=`{.literal}[type](Types.md#type)
+`=`[type](Types.md#type)
 
 
 
@@ -1793,7 +1793,7 @@ Grammar of a function declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1002}
+[‌]()
 
 function-declaration
 
@@ -1805,15 +1805,15 @@ function-declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1003}
+[‌]()
 
 function-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`func`{.literal}
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`func`
 
-[‌](){#TP40016643-CH38-NoLink_1004}
+[‌]()
 
 function-name
 
@@ -1829,31 +1829,31 @@ function-name
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1005}
+[‌]()
 
 function-signature
 
 
 →
-[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~[function-result](Declarations.md#function-result)~opt~
+[parameter-clause](Declarations.md#parameter-clause)`throws`~opt~[function-result](Declarations.md#function-result)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1006}
+[‌]()
 
 function-signature
 
 
 →
-[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}[function-result](Declarations.md#function-result)~opt~
+[parameter-clause](Declarations.md#parameter-clause)`rethrows`[function-result](Declarations.md#function-result)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1007}
+[‌]()
 
 function-result
 
 
 →
-`->`{.literal}[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
+`->`[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
 
-[‌](){#TP40016643-CH38-NoLink_1008}
+[‌]()
 
 function-body
 
@@ -1865,19 +1865,19 @@ function-body
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1009}
+[‌]()
 
 parameter-clause
 
 
 →
 
-`(`{.literal}`)`{.literal}
+`(``)`
 
-`(`{.literal}[parameter-list](Declarations.md#parameter-list)`)`{.literal}
+`(`[parameter-list](Declarations.md#parameter-list)`)`
 
 
-[‌](){#TP40016643-CH38-NoLink_1010}
+[‌]()
 
 parameter-list
 
@@ -1886,34 +1886,34 @@ parameter-list
 
 [parameter](Declarations.md#parameter)
 
-[parameter](Declarations.md#parameter)`,`{.literal}[parameter-list](Declarations.md#parameter-list)
+[parameter](Declarations.md#parameter)`,`[parameter-list](Declarations.md#parameter-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1011}
-
-parameter
-
-
-→
-`let`{.literal}~opt~[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)[default-argument-clause](Declarations.md#default-argument-clause)~opt~
-
-[‌](){#TP40016643-CH38-NoLink_1012}
+[‌]()
 
 parameter
 
 
 →
-`inout`{.literal}[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)
+`let`~opt~[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)[default-argument-clause](Declarations.md#default-argument-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1013}
+[‌]()
 
 parameter
 
 
 →
-[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)`...`{.literal}
+`inout`[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)
 
-[‌](){#TP40016643-CH38-NoLink_1014}
+[‌]()
+
+parameter
+
+
+→
+[external-parameter-name](Declarations.md#external-parameter-name)~opt~[local-parameter-name](Declarations.md#local-parameter-name)[type-annotation](Types.md#type-annotation)`...`
+
+[‌]()
 
 external-parameter-name
 
@@ -1922,10 +1922,10 @@ external-parameter-name
 
 [identifier](LexicalStructure.md#identifier)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1015}
+[‌]()
 
 local-parameter-name
 
@@ -1934,16 +1934,16 @@ local-parameter-name
 
 [identifier](LexicalStructure.md#identifier)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1016}
+[‌]()
 
 default-argument-clause
 
 
 →
-`=`{.literal}[expression](Expressions.md#expression)
+`=`[expression](Expressions.md#expression)
 
 
 
@@ -1955,7 +1955,7 @@ Grammar of an enumeration declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1018}
+[‌]()
 
 enum-declaration
 
@@ -1963,7 +1963,7 @@ enum-declaration
 →
 [attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~[union-style-enum](Declarations.md#union-style-enum)
 
-[‌](){#TP40016643-CH38-NoLink_1019}
+[‌]()
 
 enum-declaration
 
@@ -1975,15 +1975,15 @@ enum-declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1020}
+[‌]()
 
 union-style-enum
 
 
 →
-`indirect`{.literal}~opt~`enum`{.literal}[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~`{`{.literal}[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~`}`{.literal}
+`indirect`~opt~`enum`[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~`{`[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~`}`
 
-[‌](){#TP40016643-CH38-NoLink_1021}
+[‌]()
 
 union-style-enum-members
 
@@ -1991,7 +1991,7 @@ union-style-enum-members
 →
 [union-style-enum-member](Declarations.md#union-style-enum-member)[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1022}
+[‌]()
 
 union-style-enum-member
 
@@ -2003,15 +2003,15 @@ union-style-enum-member
 [union-style-enum-case-clause](Declarations.md#union-style-enum-case-clause)
 
 
-[‌](){#TP40016643-CH38-NoLink_1023}
+[‌]()
 
 union-style-enum-case-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`indirect`{.literal}~opt~`case`{.literal}[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
+[attributes](Attributes.md#attributes)~opt~`indirect`~opt~`case`[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
 
-[‌](){#TP40016643-CH38-NoLink_1024}
+[‌]()
 
 union-style-enum-case-list
 
@@ -2020,10 +2020,10 @@ union-style-enum-case-list
 
 [union-style-enum-case](Declarations.md#union-style-enum-case)
 
-[union-style-enum-case](Declarations.md#union-style-enum-case)`,`{.literal}[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
+[union-style-enum-case](Declarations.md#union-style-enum-case)`,`[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1025}
+[‌]()
 
 union-style-enum-case
 
@@ -2031,7 +2031,7 @@ union-style-enum-case
 →
 [enum-case-name](Declarations.md#enum-case-name)[tuple-type](Types.md#tuple-type)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1026}
+[‌]()
 
 enum-name
 
@@ -2039,7 +2039,7 @@ enum-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1027}
+[‌]()
 
 enum-case-name
 
@@ -2051,15 +2051,15 @@ enum-case-name
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1028}
+[‌]()
 
 raw-value-style-enum
 
 
 →
-`enum`{.literal}[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)`{`{.literal}[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)`}`{.literal}
+`enum`[enum-name](Declarations.md#enum-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)`{`[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)`}`
 
-[‌](){#TP40016643-CH38-NoLink_1029}
+[‌]()
 
 raw-value-style-enum-members
 
@@ -2067,7 +2067,7 @@ raw-value-style-enum-members
 →
 [raw-value-style-enum-member](Declarations.md#raw-value-style-enum-member)[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1030}
+[‌]()
 
 raw-value-style-enum-member
 
@@ -2079,15 +2079,15 @@ raw-value-style-enum-member
 [raw-value-style-enum-case-clause](Declarations.md#raw-value-style-enum-case-clause)
 
 
-[‌](){#TP40016643-CH38-NoLink_1031}
+[‌]()
 
 raw-value-style-enum-case-clause
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`case`{.literal}[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
+[attributes](Attributes.md#attributes)~opt~`case`[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
 
-[‌](){#TP40016643-CH38-NoLink_1032}
+[‌]()
 
 raw-value-style-enum-case-list
 
@@ -2096,10 +2096,10 @@ raw-value-style-enum-case-list
 
 [raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)
 
-[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)`,`{.literal}[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
+[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)`,`[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1033}
+[‌]()
 
 raw-value-style-enum-case
 
@@ -2107,15 +2107,15 @@ raw-value-style-enum-case
 →
 [enum-case-name](Declarations.md#enum-case-name)[raw-value-assignment](Declarations.md#raw-value-assignment)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1034}
+[‌]()
 
 raw-value-assignment
 
 
 →
-`=`{.literal}[raw-value-literal](Declarations.md#raw-value-literal)
+`=`[raw-value-literal](Declarations.md#raw-value-literal)
 
-[‌](){#TP40016643-CH38-NoLink_1035}
+[‌]()
 
 raw-value-literal
 
@@ -2139,15 +2139,15 @@ Grammar of a structure declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1037}
+[‌]()
 
 struct-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`struct`{.literal}[struct-name](Declarations.md#struct-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[struct-body](Declarations.md#struct-body)
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`struct`[struct-name](Declarations.md#struct-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[struct-body](Declarations.md#struct-body)
 
-[‌](){#TP40016643-CH38-NoLink_1038}
+[‌]()
 
 struct-name
 
@@ -2155,13 +2155,13 @@ struct-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1039}
+[‌]()
 
 struct-body
 
 
 →
-`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+`{`[declarations](Declarations.md#declarations)~opt~`}`
 
 
 
@@ -2173,15 +2173,15 @@ Grammar of a class declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1041}
+[‌]()
 
 class-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`class`{.literal}[class-name](Declarations.md#class-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[class-body](Declarations.md#class-body)
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`class`[class-name](Declarations.md#class-name)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[class-body](Declarations.md#class-body)
 
-[‌](){#TP40016643-CH38-NoLink_1042}
+[‌]()
 
 class-name
 
@@ -2189,13 +2189,13 @@ class-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1043}
+[‌]()
 
 class-body
 
 
 →
-`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+`{`[declarations](Declarations.md#declarations)~opt~`}`
 
 
 
@@ -2207,15 +2207,15 @@ Grammar of a protocol declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1045}
+[‌]()
 
 protocol-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`protocol`{.literal}[protocol-name](Declarations.md#protocol-name)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[protocol-body](Declarations.md#protocol-body)
+[attributes](Attributes.md#attributes)~opt~[access-level-modifier](Declarations.md#access-level-modifier)~opt~`protocol`[protocol-name](Declarations.md#protocol-name)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[protocol-body](Declarations.md#protocol-body)
 
-[‌](){#TP40016643-CH38-NoLink_1046}
+[‌]()
 
 protocol-name
 
@@ -2223,19 +2223,19 @@ protocol-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1047}
+[‌]()
 
 protocol-body
 
 
 →
-`{`{.literal}[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~`}`{.literal}
+`{`[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~`}`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1048}
+[‌]()
 
 protocol-member-declaration
 
@@ -2243,7 +2243,7 @@ protocol-member-declaration
 →
 [protocol-property-declaration](Declarations.md#protocol-property-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_1049}
+[‌]()
 
 protocol-member-declaration
 
@@ -2251,7 +2251,7 @@ protocol-member-declaration
 →
 [protocol-method-declaration](Declarations.md#protocol-method-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_1050}
+[‌]()
 
 protocol-member-declaration
 
@@ -2259,7 +2259,7 @@ protocol-member-declaration
 →
 [protocol-initializer-declaration](Declarations.md#protocol-initializer-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_1051}
+[‌]()
 
 protocol-member-declaration
 
@@ -2267,7 +2267,7 @@ protocol-member-declaration
 →
 [protocol-subscript-declaration](Declarations.md#protocol-subscript-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_1052}
+[‌]()
 
 protocol-member-declaration
 
@@ -2275,7 +2275,7 @@ protocol-member-declaration
 →
 [protocol-associated-type-declaration](Declarations.md#protocol-associated-type-declaration)
 
-[‌](){#TP40016643-CH38-NoLink_1053}
+[‌]()
 
 protocol-member-declarations
 
@@ -2293,7 +2293,7 @@ Grammar of a protocol property declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1055}
+[‌]()
 
 protocol-property-declaration
 
@@ -2311,7 +2311,7 @@ Grammar of a protocol method declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1057}
+[‌]()
 
 protocol-method-declaration
 
@@ -2329,21 +2329,21 @@ Grammar of a protocol initializer declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1059}
+[‌]()
 
 protocol-initializer-declaration
 
 
 →
-[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1060}
+[‌]()
 
 protocol-initializer-declaration
 
 
 →
-[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`
 
 
 
@@ -2355,7 +2355,7 @@ Grammar of a protocol subscript declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1062}
+[‌]()
 
 protocol-subscript-declaration
 
@@ -2373,7 +2373,7 @@ Grammar of a protocol associated type declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1064}
+[‌]()
 
 protocol-associated-type-declaration
 
@@ -2391,47 +2391,47 @@ Grammar of an initializer declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1066}
+[‌]()
 
 initializer-declaration
 
 
 →
-[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`{.literal}~opt~[initializer-body](Declarations.md#initializer-body)
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`throws`~opt~[initializer-body](Declarations.md#initializer-body)
 
-[‌](){#TP40016643-CH38-NoLink_1067}
+[‌]()
 
 initializer-declaration
 
 
 →
-[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`{.literal}[initializer-body](Declarations.md#initializer-body)
+[initializer-head](Declarations.md#initializer-head)[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~[parameter-clause](Declarations.md#parameter-clause)`rethrows`[initializer-body](Declarations.md#initializer-body)
 
-[‌](){#TP40016643-CH38-NoLink_1068}
-
-initializer-head
-
-
-→
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_1069}
+[‌]()
 
 initializer-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}`?`{.literal}
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`
 
-[‌](){#TP40016643-CH38-NoLink_1070}
+[‌]()
 
 initializer-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`{.literal}`!`{.literal}
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init``?`
 
-[‌](){#TP40016643-CH38-NoLink_1071}
+[‌]()
+
+initializer-head
+
+
+→
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init``!`
+
+[‌]()
 
 initializer-body
 
@@ -2449,13 +2449,13 @@ Grammar of a deinitializer declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1073}
+[‌]()
 
 deinitializer-declaration
 
 
 →
-[attributes](Attributes.md#attributes)~opt~`deinit`{.literal}[code-block](Declarations.md#code-block)
+[attributes](Attributes.md#attributes)~opt~`deinit`[code-block](Declarations.md#code-block)
 
 
 
@@ -2467,21 +2467,21 @@ Grammar of an extension declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1075}
+[‌]()
 
 extension-declaration
 
 
 →
-[access-level-modifier](Declarations.md#access-level-modifier)~opt~`extension`{.literal}[type-identifier](Types.md#type-identifier)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[extension-body](Declarations.md#extension-body)
+[access-level-modifier](Declarations.md#access-level-modifier)~opt~`extension`[type-identifier](Types.md#type-identifier)[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~[extension-body](Declarations.md#extension-body)
 
-[‌](){#TP40016643-CH38-NoLink_1076}
+[‌]()
 
 extension-body
 
 
 →
-`{`{.literal}[declarations](Declarations.md#declarations)~opt~`}`{.literal}
+`{`[declarations](Declarations.md#declarations)~opt~`}`
 
 
 
@@ -2493,7 +2493,7 @@ Grammar of a subscript declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1078}
+[‌]()
 
 subscript-declaration
 
@@ -2501,7 +2501,7 @@ subscript-declaration
 →
 [subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[code-block](Declarations.md#code-block)
 
-[‌](){#TP40016643-CH38-NoLink_1079}
+[‌]()
 
 subscript-declaration
 
@@ -2509,7 +2509,7 @@ subscript-declaration
 →
 [subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[getter-setter-block](Declarations.md#getter-setter-block)
 
-[‌](){#TP40016643-CH38-NoLink_1080}
+[‌]()
 
 subscript-declaration
 
@@ -2517,21 +2517,21 @@ subscript-declaration
 →
 [subscript-head](Declarations.md#subscript-head)[subscript-result](Declarations.md#subscript-result)[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
-[‌](){#TP40016643-CH38-NoLink_1081}
+[‌]()
 
 subscript-head
 
 
 →
-[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`subscript`{.literal}[parameter-clause](Declarations.md#parameter-clause)
+[attributes](Attributes.md#attributes)~opt~[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`subscript`[parameter-clause](Declarations.md#parameter-clause)
 
-[‌](){#TP40016643-CH38-NoLink_1082}
+[‌]()
 
 subscript-result
 
 
 →
-`->`{.literal}[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
+`->`[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
 
 
 
@@ -2543,7 +2543,7 @@ Grammar of an operator declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1084}
+[‌]()
 
 operator-declaration
 
@@ -2561,35 +2561,35 @@ operator-declaration
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1085}
+[‌]()
 
 prefix-operator-declaration
 
 
 →
-`prefix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}`}`{.literal}
+`prefix``operator`[operator](LexicalStructure.md#operator)`{``}`
 
-[‌](){#TP40016643-CH38-NoLink_1086}
+[‌]()
 
 postfix-operator-declaration
 
 
 →
-`postfix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}`}`{.literal}
+`postfix``operator`[operator](LexicalStructure.md#operator)`{``}`
 
-[‌](){#TP40016643-CH38-NoLink_1087}
+[‌]()
 
 infix-operator-declaration
 
 
 →
-`infix`{.literal}`operator`{.literal}[operator](LexicalStructure.md#operator)`{`{.literal}[infix-operator-attributes](Declarations.md#infix-operator-attributes)~opt~`}`{.literal}
+`infix``operator`[operator](LexicalStructure.md#operator)`{`[infix-operator-attributes](Declarations.md#infix-operator-attributes)~opt~`}`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1088}
+[‌]()
 
 infix-operator-attributes
 
@@ -2597,15 +2597,15 @@ infix-operator-attributes
 →
 [precedence-clause](Declarations.md#precedence-clause)~opt~[associativity-clause](Declarations.md#associativity-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1089}
+[‌]()
 
 precedence-clause
 
 
 →
-`precedence`{.literal}[precedence-level](Declarations.md#precedence-level)
+`precedence`[precedence-level](Declarations.md#precedence-level)
 
-[‌](){#TP40016643-CH38-NoLink_1090}
+[‌]()
 
 precedence-level
 
@@ -2613,26 +2613,26 @@ precedence-level
 →
 A decimal integer between 0 and 255, inclusive
 
-[‌](){#TP40016643-CH38-NoLink_1091}
+[‌]()
 
 associativity-clause
 
 
 →
-`associativity`{.literal}[associativity](Declarations.md#associativity)
+`associativity`[associativity](Declarations.md#associativity)
 
-[‌](){#TP40016643-CH38-NoLink_1092}
+[‌]()
 
 associativity
 
 
 →
 
-`left`{.literal}
+`left`
 
-`right`{.literal}
+`right`
 
-`none`{.literal}
+`none`
 
 
 
@@ -2645,51 +2645,51 @@ Grammar of a declaration modifier
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1094}
+[‌]()
 
 declaration-modifier
 
 
 →
 
-`class`{.literal}
+`class`
 
-`convenience`{.literal}
+`convenience`
 
-`dynamic`{.literal}
+`dynamic`
 
-`final`{.literal}
+`final`
 
-`infix`{.literal}
+`infix`
 
-`lazy`{.literal}
+`lazy`
 
-`mutating`{.literal}
+`mutating`
 
-`nonmutating`{.literal}
+`nonmutating`
 
-`optional`{.literal}
+`optional`
 
-`override`{.literal}
+`override`
 
-`postfix`{.literal}
+`postfix`
 
-`prefix`{.literal}
+`prefix`
 
-`required`{.literal}
+`required`
 
-`static`{.literal}
+`static`
 
-`unowned`{.literal}
+`unowned`
 
-`unowned`{.literal}`(`{.literal}`safe`{.literal}`)`{.literal}
+`unowned``(``safe``)`
 
-`unowned`{.literal}`(`{.literal}`unsafe`{.literal}`)`{.literal}
+`unowned``(``unsafe``)`
 
-`weak`{.literal}
+`weak`
 
 
-[‌](){#TP40016643-CH38-NoLink_1095}
+[‌]()
 
 declaration-modifier
 
@@ -2697,7 +2697,7 @@ declaration-modifier
 →
 [access-level-modifier](Declarations.md#access-level-modifier)
 
-[‌](){#TP40016643-CH38-NoLink_1096}
+[‌]()
 
 declaration-modifiers
 
@@ -2709,52 +2709,52 @@ declaration-modifiers
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1097}
+[‌]()
 
 access-level-modifier
 
 
 →
 
-`internal`{.literal}
+`internal`
 
-`internal`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
-
-
-[‌](){#TP40016643-CH38-NoLink_1098}
-
-access-level-modifier
+`internal``(``set``)`
 
 
-→
-
-`private`{.literal}
-
-`private`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
-
-
-[‌](){#TP40016643-CH38-NoLink_1099}
+[‌]()
 
 access-level-modifier
 
 
 →
 
-`public`{.literal}
+`private`
 
-`public`{.literal}`(`{.literal}`set`{.literal}`)`{.literal}
-
-
+`private``(``set``)`
 
 
+[‌]()
+
+access-level-modifier
+
+
+→
+
+`public`
+
+`public``(``set``)`
 
 
 
 
 
 
-[‌](){#TP40016643-CH38-ID478}
-### Patterns {#patterns .section-name}
+
+
+
+
+[‌]()
+### Patterns 
 
 
 
@@ -2762,7 +2762,7 @@ Grammar of a pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1101}
+[‌]()
 
 pattern
 
@@ -2770,7 +2770,7 @@ pattern
 →
 [wildcard-pattern](Patterns.md#wildcard-pattern)[type-annotation](Types.md#type-annotation)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1102}
+[‌]()
 
 pattern
 
@@ -2778,7 +2778,7 @@ pattern
 →
 [identifier-pattern](Patterns.md#identifier-pattern)[type-annotation](Types.md#type-annotation)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1103}
+[‌]()
 
 pattern
 
@@ -2786,7 +2786,7 @@ pattern
 →
 [value-binding-pattern](Patterns.md#value-binding-pattern)
 
-[‌](){#TP40016643-CH38-NoLink_1104}
+[‌]()
 
 pattern
 
@@ -2794,7 +2794,7 @@ pattern
 →
 [tuple-pattern](Patterns.md#tuple-pattern)[type-annotation](Types.md#type-annotation)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1105}
+[‌]()
 
 pattern
 
@@ -2802,7 +2802,7 @@ pattern
 →
 [enum-case-pattern](Patterns.md#enum-case-pattern)
 
-[‌](){#TP40016643-CH38-NoLink_1106}
+[‌]()
 
 pattern
 
@@ -2810,7 +2810,7 @@ pattern
 →
 [optional-pattern](Patterns.md#optional-pattern)
 
-[‌](){#TP40016643-CH38-NoLink_1107}
+[‌]()
 
 pattern
 
@@ -2818,7 +2818,7 @@ pattern
 →
 [type-casting-pattern](Patterns.md#type-casting-pattern)
 
-[‌](){#TP40016643-CH38-NoLink_1108}
+[‌]()
 
 pattern
 
@@ -2836,13 +2836,13 @@ Grammar of a wildcard pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1110}
+[‌]()
 
 wildcard-pattern
 
 
 →
-`_`{.literal}
+`_`
 
 
 
@@ -2854,7 +2854,7 @@ Grammar of an identifier pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1112}
+[‌]()
 
 identifier-pattern
 
@@ -2872,13 +2872,13 @@ Grammar of a value-binding pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1114}
+[‌]()
 
 value-binding-pattern
 
 
 →
-`let`{.literal}[pattern](Patterns.md#pattern)
+`let`[pattern](Patterns.md#pattern)
 
 
 
@@ -2890,15 +2890,15 @@ Grammar of a tuple pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1116}
+[‌]()
 
 tuple-pattern
 
 
 →
-`(`{.literal}[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)~opt~`)`{.literal}
+`(`[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)~opt~`)`
 
-[‌](){#TP40016643-CH38-NoLink_1117}
+[‌]()
 
 tuple-pattern-element-list
 
@@ -2907,10 +2907,10 @@ tuple-pattern-element-list
 
 [tuple-pattern-element](Patterns.md#tuple-pattern-element)
 
-[tuple-pattern-element](Patterns.md#tuple-pattern-element)`,`{.literal}[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)
+[tuple-pattern-element](Patterns.md#tuple-pattern-element)`,`[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1118}
+[‌]()
 
 tuple-pattern-element
 
@@ -2928,13 +2928,13 @@ Grammar of an enumeration case pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1120}
+[‌]()
 
 enum-case-pattern
 
 
 →
-[type-identifier](Types.md#type-identifier)~opt~`.`{.literal}[enum-case-name](Declarations.md#enum-case-name)[tuple-pattern](Patterns.md#tuple-pattern)~opt~
+[type-identifier](Types.md#type-identifier)~opt~`.`[enum-case-name](Declarations.md#enum-case-name)[tuple-pattern](Patterns.md#tuple-pattern)~opt~
 
 
 
@@ -2946,13 +2946,13 @@ Grammar of an optional pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1122}
+[‌]()
 
 optional-pattern
 
 
 →
-[identifier-pattern](Patterns.md#identifier-pattern)`?`{.literal}
+[identifier-pattern](Patterns.md#identifier-pattern)`?`
 
 
 
@@ -2964,7 +2964,7 @@ Grammar of a type casting pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1124}
+[‌]()
 
 type-casting-pattern
 
@@ -2976,21 +2976,21 @@ type-casting-pattern
 [as-pattern](Patterns.md#as-pattern)
 
 
-[‌](){#TP40016643-CH38-NoLink_1125}
+[‌]()
 
 is-pattern
 
 
 →
-`is`{.literal}[type](Types.md#type)
+`is`[type](Types.md#type)
 
-[‌](){#TP40016643-CH38-NoLink_1126}
+[‌]()
 
 as-pattern
 
 
 →
-[pattern](Patterns.md#pattern)`as`{.literal}[type](Types.md#type)
+[pattern](Patterns.md#pattern)`as`[type](Types.md#type)
 
 
 
@@ -3002,7 +3002,7 @@ Grammar of an expression pattern
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1128}
+[‌]()
 
 expression-pattern
 
@@ -3018,8 +3018,8 @@ expression-pattern
 
 
 
-[‌](){#TP40016643-CH38-ID479}
-### Attributes {#attributes .section-name}
+[‌]()
+### Attributes 
 
 
 
@@ -3027,15 +3027,15 @@ Grammar of an attribute
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1130}
+[‌]()
 
 attribute
 
 
 →
-`@`{.literal}[attribute-name](Attributes.md#attribute-name)[attribute-argument-clause](Attributes.md#attribute-argument-clause)~opt~
+`@`[attribute-name](Attributes.md#attribute-name)[attribute-argument-clause](Attributes.md#attribute-argument-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1131}
+[‌]()
 
 attribute-name
 
@@ -3043,15 +3043,15 @@ attribute-name
 →
 [identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1132}
+[‌]()
 
 attribute-argument-clause
 
 
 →
-`(`{.literal}[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`{.literal}
+`(`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
 
-[‌](){#TP40016643-CH38-NoLink_1133}
+[‌]()
 
 attributes
 
@@ -3063,7 +3063,7 @@ attributes
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1134}
+[‌]()
 
 balanced-tokens
 
@@ -3071,31 +3071,31 @@ balanced-tokens
 →
 [balanced-token](Attributes.md#balanced-token)[balanced-tokens](Attributes.md#balanced-tokens)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1135}
+[‌]()
 
 balanced-token
 
 
 →
-`(`{.literal}[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`{.literal}
+`(`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
 
-[‌](){#TP40016643-CH38-NoLink_1136}
-
-balanced-token
-
-
-→
-`[`{.literal}[balanced-tokens](Attributes.md#balanced-tokens)~opt~`]`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_1137}
+[‌]()
 
 balanced-token
 
 
 →
-`{`{.literal}[balanced-tokens](Attributes.md#balanced-tokens)~opt~`}`{.literal}
+`[`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`]`
 
-[‌](){#TP40016643-CH38-NoLink_1138}
+[‌]()
+
+balanced-token
+
+
+→
+`{`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`}`
+
+[‌]()
 
 balanced-token
 
@@ -3103,13 +3103,13 @@ balanced-token
 →
 Any identifier, keyword, literal, or operator
 
-[‌](){#TP40016643-CH38-NoLink_1139}
+[‌]()
 
 balanced-token
 
 
 →
-Any punctuation except `(`{.literal}, `)`{.literal}, `[`{.literal}, `]`{.literal}, `{`{.literal}, or `}`{.literal}
+Any punctuation except `(`, `)`, `[`, `]`, `{`, or `}`
 
 
 
@@ -3119,8 +3119,8 @@ Any punctuation except `(`{.literal}, `)`{.literal}, `[`{.literal}, `]`{.literal
 
 
 
-[‌](){#TP40016643-CH38-ID480}
-### Expressions {#expressions .section-name}
+[‌]()
+### Expressions 
 
 
 
@@ -3128,7 +3128,7 @@ Grammar of an expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1141}
+[‌]()
 
 expression
 
@@ -3136,7 +3136,7 @@ expression
 →
 [try-operator](Expressions.md#try-operator)~opt~[prefix-expression](Expressions.md#prefix-expression)[binary-expressions](Expressions.md#binary-expressions)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1142}
+[‌]()
 
 expression-list
 
@@ -3145,7 +3145,7 @@ expression-list
 
 [expression](Expressions.md#expression)
 
-[expression](Expressions.md#expression)`,`{.literal}[expression-list](Expressions.md#expression-list)
+[expression](Expressions.md#expression)`,`[expression-list](Expressions.md#expression-list)
 
 
 
@@ -3158,7 +3158,7 @@ Grammar of a prefix expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1144}
+[‌]()
 
 prefix-expression
 
@@ -3166,7 +3166,7 @@ prefix-expression
 →
 [prefix-operator](LexicalStructure.md#prefix-operator)~opt~[postfix-expression](Expressions.md#postfix-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1145}
+[‌]()
 
 prefix-expression
 
@@ -3174,13 +3174,13 @@ prefix-expression
 →
 [in-out-expression](Expressions.md#in-out-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1146}
+[‌]()
 
 in-out-expression
 
 
 →
-`&`{.literal}[identifier](LexicalStructure.md#identifier)
+`&`[identifier](LexicalStructure.md#identifier)
 
 
 
@@ -3192,18 +3192,18 @@ Grammar of a try expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1148}
+[‌]()
 
 try-operator
 
 
 →
 
-`try`{.literal}
+`try`
 
-`try`{.literal}`?`{.literal}
+`try``?`
 
-`try`{.literal}`!`{.literal}
+`try``!`
 
 
 
@@ -3216,7 +3216,7 @@ Grammar of a binary expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1150}
+[‌]()
 
 binary-expression
 
@@ -3224,7 +3224,7 @@ binary-expression
 →
 [binary-operator](LexicalStructure.md#binary-operator)[prefix-expression](Expressions.md#prefix-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1151}
+[‌]()
 
 binary-expression
 
@@ -3232,7 +3232,7 @@ binary-expression
 →
 [assignment-operator](Expressions.md#assignment-operator)[try-operator](Expressions.md#try-operator)~opt~[prefix-expression](Expressions.md#prefix-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1152}
+[‌]()
 
 binary-expression
 
@@ -3240,7 +3240,7 @@ binary-expression
 →
 [conditional-operator](Expressions.md#conditional-operator)[try-operator](Expressions.md#try-operator)~opt~[prefix-expression](Expressions.md#prefix-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1153}
+[‌]()
 
 binary-expression
 
@@ -3248,7 +3248,7 @@ binary-expression
 →
 [type-casting-operator](Expressions.md#type-casting-operator)
 
-[‌](){#TP40016643-CH38-NoLink_1154}
+[‌]()
 
 binary-expressions
 
@@ -3266,13 +3266,13 @@ Grammar of an assignment operator
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1156}
+[‌]()
 
 assignment-operator
 
 
 →
-`=`{.literal}
+`=`
 
 
 
@@ -3284,13 +3284,13 @@ Grammar of a conditional operator
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1158}
+[‌]()
 
 conditional-operator
 
 
 →
-`?`{.literal}[try-operator](Expressions.md#try-operator)~opt~[expression](Expressions.md#expression)`:`{.literal}
+`?`[try-operator](Expressions.md#try-operator)~opt~[expression](Expressions.md#expression)`:`
 
 
 
@@ -3302,37 +3302,37 @@ Grammar of a type-casting operator
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1160}
+[‌]()
 
 type-casting-operator
 
 
 →
-`is`{.literal}[type](Types.md#type)
+`is`[type](Types.md#type)
 
-[‌](){#TP40016643-CH38-NoLink_1161}
-
-type-casting-operator
-
-
-→
-`as`{.literal}[type](Types.md#type)
-
-[‌](){#TP40016643-CH38-NoLink_1162}
+[‌]()
 
 type-casting-operator
 
 
 →
-`as`{.literal}`?`{.literal}[type](Types.md#type)
+`as`[type](Types.md#type)
 
-[‌](){#TP40016643-CH38-NoLink_1163}
+[‌]()
 
 type-casting-operator
 
 
 →
-`as`{.literal}`!`{.literal}[type](Types.md#type)
+`as``?`[type](Types.md#type)
+
+[‌]()
+
+type-casting-operator
+
+
+→
+`as``!`[type](Types.md#type)
 
 
 
@@ -3344,7 +3344,7 @@ Grammar of a primary expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1165}
+[‌]()
 
 primary-expression
 
@@ -3352,7 +3352,7 @@ primary-expression
 →
 [identifier](LexicalStructure.md#identifier)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1166}
+[‌]()
 
 primary-expression
 
@@ -3360,7 +3360,7 @@ primary-expression
 →
 [literal-expression](Expressions.md#literal-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1167}
+[‌]()
 
 primary-expression
 
@@ -3368,7 +3368,7 @@ primary-expression
 →
 [self-expression](Expressions.md#self-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1168}
+[‌]()
 
 primary-expression
 
@@ -3376,7 +3376,7 @@ primary-expression
 →
 [superclass-expression](Expressions.md#superclass-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1169}
+[‌]()
 
 primary-expression
 
@@ -3384,7 +3384,7 @@ primary-expression
 →
 [closure-expression](Expressions.md#closure-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1170}
+[‌]()
 
 primary-expression
 
@@ -3392,7 +3392,7 @@ primary-expression
 →
 [parenthesized-expression](Expressions.md#parenthesized-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1171}
+[‌]()
 
 primary-expression
 
@@ -3400,7 +3400,7 @@ primary-expression
 →
 [implicit-member-expression](Expressions.md#implicit-member-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1172}
+[‌]()
 
 primary-expression
 
@@ -3418,7 +3418,7 @@ Grammar of a literal expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1174}
+[‌]()
 
 literal-expression
 
@@ -3426,7 +3426,7 @@ literal-expression
 →
 [literal](LexicalStructure.md#literal)
 
-[‌](){#TP40016643-CH38-NoLink_1175}
+[‌]()
 
 literal-expression
 
@@ -3438,47 +3438,47 @@ literal-expression
 [dictionary-literal](Expressions.md#dictionary-literal)
 
 
-[‌](){#TP40016643-CH38-NoLink_1176}
+[‌]()
 
 literal-expression
 
 
 →
 
-`__FILE__`{.literal}
+`__FILE__`
 
-`__LINE__`{.literal}
+`__LINE__`
 
-`__COLUMN__`{.literal}
+`__COLUMN__`
 
-`__FUNCTION__`{.literal}
-
-
+`__FUNCTION__`
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1177}
+
+
+[‌]()
 
 array-literal
 
 
 →
-`[`{.literal}[array-literal-items](Expressions.md#array-literal-items)~opt~`]`{.literal}
+`[`[array-literal-items](Expressions.md#array-literal-items)~opt~`]`
 
-[‌](){#TP40016643-CH38-NoLink_1178}
+[‌]()
 
 array-literal-items
 
 
 →
 
-[array-literal-item](Expressions.md#array-literal-item)`,`{.literal}~opt~
+[array-literal-item](Expressions.md#array-literal-item)`,`~opt~
 
-[array-literal-item](Expressions.md#array-literal-item)`,`{.literal}[array-literal-items](Expressions.md#array-literal-items)
+[array-literal-item](Expressions.md#array-literal-item)`,`[array-literal-items](Expressions.md#array-literal-items)
 
 
-[‌](){#TP40016643-CH38-NoLink_1179}
+[‌]()
 
 array-literal-item
 
@@ -3490,37 +3490,37 @@ array-literal-item
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1180}
+[‌]()
 
 dictionary-literal
 
 
 →
 
-`[`{.literal}[dictionary-literal-items](Expressions.md#dictionary-literal-items)`]`{.literal}
+`[`[dictionary-literal-items](Expressions.md#dictionary-literal-items)`]`
 
-`[`{.literal}`:`{.literal}`]`{.literal}
+`[``:``]`
 
 
-[‌](){#TP40016643-CH38-NoLink_1181}
+[‌]()
 
 dictionary-literal-items
 
 
 →
 
-[dictionary-literal-item](Expressions.md#dictionary-literal-item)`,`{.literal}~opt~
+[dictionary-literal-item](Expressions.md#dictionary-literal-item)`,`~opt~
 
-[dictionary-literal-item](Expressions.md#dictionary-literal-item)`,`{.literal}[dictionary-literal-items](Expressions.md#dictionary-literal-items)
+[dictionary-literal-item](Expressions.md#dictionary-literal-item)`,`[dictionary-literal-items](Expressions.md#dictionary-literal-items)
 
 
-[‌](){#TP40016643-CH38-NoLink_1182}
+[‌]()
 
 dictionary-literal-item
 
 
 →
-[expression](Expressions.md#expression)`:`{.literal}[expression](Expressions.md#expression)
+[expression](Expressions.md#expression)`:`[expression](Expressions.md#expression)
 
 
 
@@ -3532,14 +3532,14 @@ Grammar of a self expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1184}
+[‌]()
 
 self-expression
 
 
 →
 
-`self`{.literal}
+`self`
 
 [self-method-expression](Expressions.md#self-method-expression)
 
@@ -3552,29 +3552,29 @@ self-expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1185}
+[‌]()
 
 self-method-expression
 
 
 →
-`self`{.literal}`.`{.literal}[identifier](LexicalStructure.md#identifier)
+`self``.`[identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1186}
+[‌]()
 
 self-subscript-expression
 
 
 →
-`self`{.literal}`[`{.literal}[expression-list](Expressions.md#expression-list)`]`{.literal}
+`self``[`[expression-list](Expressions.md#expression-list)`]`
 
-[‌](){#TP40016643-CH38-NoLink_1187}
+[‌]()
 
 self-initializer-expression
 
 
 →
-`self`{.literal}`.`{.literal}`init`{.literal}
+`self``.``init`
 
 
 
@@ -3586,7 +3586,7 @@ Grammar of a superclass expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1189}
+[‌]()
 
 superclass-expression
 
@@ -3604,29 +3604,29 @@ superclass-expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1190}
+[‌]()
 
 superclass-method-expression
 
 
 →
-`super`{.literal}`.`{.literal}[identifier](LexicalStructure.md#identifier)
+`super``.`[identifier](LexicalStructure.md#identifier)
 
-[‌](){#TP40016643-CH38-NoLink_1191}
+[‌]()
 
 superclass-subscript-expression
 
 
 →
-`super`{.literal}`[`{.literal}[expression-list](Expressions.md#expression-list)`]`{.literal}
+`super``[`[expression-list](Expressions.md#expression-list)`]`
 
-[‌](){#TP40016643-CH38-NoLink_1192}
+[‌]()
 
 superclass-initializer-expression
 
 
 →
-`super`{.literal}`.`{.literal}`init`{.literal}
+`super``.``init`
 
 
 
@@ -3638,71 +3638,71 @@ Grammar of a closure expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1194}
+[‌]()
 
 closure-expression
 
 
 →
-`{`{.literal}[closure-signature](Expressions.md#closure-signature)~opt~[statements](Statements.md#statements)`}`{.literal}
+`{`[closure-signature](Expressions.md#closure-signature)~opt~[statements](Statements.md#statements)`}`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1195}
-
-closure-signature
-
-
-→
-[parameter-clause](Declarations.md#parameter-clause)[function-result](Declarations.md#function-result)~opt~`in`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_1196}
+[‌]()
 
 closure-signature
 
 
 →
-[identifier-list](LexicalStructure.md#identifier-list)[function-result](Declarations.md#function-result)~opt~`in`{.literal}
+[parameter-clause](Declarations.md#parameter-clause)[function-result](Declarations.md#function-result)~opt~`in`
 
-[‌](){#TP40016643-CH38-NoLink_1197}
-
-closure-signature
-
-
-→
-[capture-list](Expressions.md#capture-list)[parameter-clause](Declarations.md#parameter-clause)[function-result](Declarations.md#function-result)~opt~`in`{.literal}
-
-[‌](){#TP40016643-CH38-NoLink_1198}
+[‌]()
 
 closure-signature
 
 
 →
-[capture-list](Expressions.md#capture-list)[identifier-list](LexicalStructure.md#identifier-list)[function-result](Declarations.md#function-result)~opt~`in`{.literal}
+[identifier-list](LexicalStructure.md#identifier-list)[function-result](Declarations.md#function-result)~opt~`in`
 
-[‌](){#TP40016643-CH38-NoLink_1199}
+[‌]()
 
 closure-signature
 
 
 →
-[capture-list](Expressions.md#capture-list)`in`{.literal}
+[capture-list](Expressions.md#capture-list)[parameter-clause](Declarations.md#parameter-clause)[function-result](Declarations.md#function-result)~opt~`in`
+
+[‌]()
+
+closure-signature
+
+
+→
+[capture-list](Expressions.md#capture-list)[identifier-list](LexicalStructure.md#identifier-list)[function-result](Declarations.md#function-result)~opt~`in`
+
+[‌]()
+
+closure-signature
+
+
+→
+[capture-list](Expressions.md#capture-list)`in`
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1200}
+[‌]()
 
 capture-list
 
 
 →
-`[`{.literal}[capture-list-items](Expressions.md#capture-list-items)`]`{.literal}
+`[`[capture-list-items](Expressions.md#capture-list-items)`]`
 
-[‌](){#TP40016643-CH38-NoLink_1201}
+[‌]()
 
 capture-list-items
 
@@ -3711,10 +3711,10 @@ capture-list-items
 
 [capture-list-item](Expressions.md#capture-list-item)
 
-[capture-list-item](Expressions.md#capture-list-item)`,`{.literal}[capture-list-items](Expressions.md#capture-list-items)
+[capture-list-item](Expressions.md#capture-list-item)`,`[capture-list-items](Expressions.md#capture-list-items)
 
 
-[‌](){#TP40016643-CH38-NoLink_1202}
+[‌]()
 
 capture-list-item
 
@@ -3722,20 +3722,20 @@ capture-list-item
 →
 [capture-specifier](Expressions.md#capture-specifier)~opt~[expression](Expressions.md#expression)
 
-[‌](){#TP40016643-CH38-NoLink_1203}
+[‌]()
 
 capture-specifier
 
 
 →
 
-`weak`{.literal}
+`weak`
 
-`unowned`{.literal}
+`unowned`
 
-`unowned(safe)`{.literal}
+`unowned(safe)`
 
-`unowned(unsafe)`{.literal}
+`unowned(unsafe)`
 
 
 
@@ -3748,13 +3748,13 @@ Grammar of a implicit member expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1205}
+[‌]()
 
 implicit-member-expression
 
 
 →
-`.`{.literal}[identifier](LexicalStructure.md#identifier)
+`.`[identifier](LexicalStructure.md#identifier)
 
 
 
@@ -3766,15 +3766,15 @@ Grammar of a parenthesized expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1207}
+[‌]()
 
 parenthesized-expression
 
 
 →
-`(`{.literal}[expression-element-list](Expressions.md#expression-element-list)~opt~`)`{.literal}
+`(`[expression-element-list](Expressions.md#expression-element-list)~opt~`)`
 
-[‌](){#TP40016643-CH38-NoLink_1208}
+[‌]()
 
 expression-element-list
 
@@ -3783,10 +3783,10 @@ expression-element-list
 
 [expression-element](Expressions.md#expression-element)
 
-[expression-element](Expressions.md#expression-element)`,`{.literal}[expression-element-list](Expressions.md#expression-element-list)
+[expression-element](Expressions.md#expression-element)`,`[expression-element-list](Expressions.md#expression-element-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1209}
+[‌]()
 
 expression-element
 
@@ -3795,7 +3795,7 @@ expression-element
 
 [expression](Expressions.md#expression)
 
-[identifier](LexicalStructure.md#identifier)`:`{.literal}[expression](Expressions.md#expression)
+[identifier](LexicalStructure.md#identifier)`:`[expression](Expressions.md#expression)
 
 
 
@@ -3808,13 +3808,13 @@ Grammar of a wildcard expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1211}
+[‌]()
 
 wildcard-expression
 
 
 →
-`_`{.literal}
+`_`
 
 
 
@@ -3826,7 +3826,7 @@ Grammar of a postfix expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1213}
+[‌]()
 
 postfix-expression
 
@@ -3834,7 +3834,7 @@ postfix-expression
 →
 [primary-expression](Expressions.md#primary-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1214}
+[‌]()
 
 postfix-expression
 
@@ -3842,7 +3842,7 @@ postfix-expression
 →
 [postfix-expression](Expressions.md#postfix-expression)[postfix-operator](LexicalStructure.md#postfix-operator)
 
-[‌](){#TP40016643-CH38-NoLink_1215}
+[‌]()
 
 postfix-expression
 
@@ -3850,7 +3850,7 @@ postfix-expression
 →
 [function-call-expression](Expressions.md#function-call-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1216}
+[‌]()
 
 postfix-expression
 
@@ -3858,7 +3858,7 @@ postfix-expression
 →
 [initializer-expression](Expressions.md#initializer-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1217}
+[‌]()
 
 postfix-expression
 
@@ -3866,7 +3866,7 @@ postfix-expression
 →
 [explicit-member-expression](Expressions.md#explicit-member-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1218}
+[‌]()
 
 postfix-expression
 
@@ -3874,7 +3874,7 @@ postfix-expression
 →
 [postfix-self-expression](Expressions.md#postfix-self-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1219}
+[‌]()
 
 postfix-expression
 
@@ -3882,7 +3882,7 @@ postfix-expression
 →
 [dynamic-type-expression](Expressions.md#dynamic-type-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1220}
+[‌]()
 
 postfix-expression
 
@@ -3890,7 +3890,7 @@ postfix-expression
 →
 [subscript-expression](Expressions.md#subscript-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1221}
+[‌]()
 
 postfix-expression
 
@@ -3898,7 +3898,7 @@ postfix-expression
 →
 [forced-value-expression](Expressions.md#forced-value-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1222}
+[‌]()
 
 postfix-expression
 
@@ -3916,7 +3916,7 @@ Grammar of a function call expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1224}
+[‌]()
 
 function-call-expression
 
@@ -3924,7 +3924,7 @@ function-call-expression
 →
 [postfix-expression](Expressions.md#postfix-expression)[parenthesized-expression](Expressions.md#parenthesized-expression)
 
-[‌](){#TP40016643-CH38-NoLink_1225}
+[‌]()
 
 function-call-expression
 
@@ -3932,7 +3932,7 @@ function-call-expression
 →
 [postfix-expression](Expressions.md#postfix-expression)[parenthesized-expression](Expressions.md#parenthesized-expression)~opt~[trailing-closure](Expressions.md#trailing-closure)
 
-[‌](){#TP40016643-CH38-NoLink_1226}
+[‌]()
 
 trailing-closure
 
@@ -3950,13 +3950,13 @@ Grammar of an initializer expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1228}
+[‌]()
 
 initializer-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`.`{.literal}`init`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`.``init`
 
 
 
@@ -3968,21 +3968,21 @@ Grammar of an explicit member expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1230}
+[‌]()
 
 explicit-member-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`.`{.literal}[decimal-digits](LexicalStructure.md#decimal-digits)
+[postfix-expression](Expressions.md#postfix-expression)`.`[decimal-digits](LexicalStructure.md#decimal-digits)
 
-[‌](){#TP40016643-CH38-NoLink_1231}
+[‌]()
 
 explicit-member-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`.`{.literal}[identifier](LexicalStructure.md#identifier)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
+[postfix-expression](Expressions.md#postfix-expression)`.`[identifier](LexicalStructure.md#identifier)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
 
 
 
@@ -3994,13 +3994,13 @@ Grammar of a self expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1233}
+[‌]()
 
 postfix-self-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`.`{.literal}`self`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`.``self`
 
 
 
@@ -4012,13 +4012,13 @@ Grammar of a dynamic type expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1235}
+[‌]()
 
 dynamic-type-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`.`{.literal}`dynamicType`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`.``dynamicType`
 
 
 
@@ -4030,13 +4030,13 @@ Grammar of a subscript expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1237}
+[‌]()
 
 subscript-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`[`{.literal}[expression-list](Expressions.md#expression-list)`]`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`[`[expression-list](Expressions.md#expression-list)`]`
 
 
 
@@ -4048,13 +4048,13 @@ Grammar of a forced-value expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1239}
+[‌]()
 
 forced-value-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`!`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`!`
 
 
 
@@ -4066,13 +4066,13 @@ Grammar of an optional-chaining expression
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1241}
+[‌]()
 
 optional-chaining-expression
 
 
 →
-[postfix-expression](Expressions.md#postfix-expression)`?`{.literal}
+[postfix-expression](Expressions.md#postfix-expression)`?`
 
 
 
@@ -4082,8 +4082,8 @@ optional-chaining-expression
 
 
 
-[‌](){#TP40016643-CH38-ID481}
-### Lexical Structure {#lexical-structure .section-name}
+[‌]()
+### Lexical Structure 
 
 
 
@@ -4091,7 +4091,7 @@ Grammar of an identifier
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1243}
+[‌]()
 
 identifier
 
@@ -4099,15 +4099,15 @@ identifier
 →
 [identifier-head](LexicalStructure.md#identifier-head)[identifier-characters](LexicalStructure.md#identifier-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1244}
+[‌]()
 
 identifier
 
 
 →
-`` ` ``{.literal}[identifier-head](LexicalStructure.md#identifier-head)[identifier-characters](LexicalStructure.md#identifier-characters)~opt~`` ` ``{.literal}
+`` ` ``[identifier-head](LexicalStructure.md#identifier-head)[identifier-characters](LexicalStructure.md#identifier-characters)~opt~`` ` ``
 
-[‌](){#TP40016643-CH38-NoLink_1245}
+[‌]()
 
 identifier
 
@@ -4115,7 +4115,7 @@ identifier
 →
 [implicit-parameter-name](LexicalStructure.md#implicit-parameter-name)
 
-[‌](){#TP40016643-CH38-NoLink_1246}
+[‌]()
 
 identifier-list
 
@@ -4124,14 +4124,14 @@ identifier-list
 
 [identifier](LexicalStructure.md#identifier)
 
-[identifier](LexicalStructure.md#identifier)`,`{.literal}[identifier-list](LexicalStructure.md#identifier-list)
+[identifier](LexicalStructure.md#identifier)`,`[identifier-list](LexicalStructure.md#identifier-list)
 
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1247}
+[‌]()
 
 identifier-head
 
@@ -4139,15 +4139,15 @@ identifier-head
 →
 Upper- or lowercase letter A through Z
 
-[‌](){#TP40016643-CH38-NoLink_1248}
+[‌]()
 
 identifier-head
 
 
 →
-`_`{.literal}
+`_`
 
-[‌](){#TP40016643-CH38-NoLink_1249}
+[‌]()
 
 identifier-head
 
@@ -4155,7 +4155,7 @@ identifier-head
 →
 U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, or U+00B7–U+00BA
 
-[‌](){#TP40016643-CH38-NoLink_1250}
+[‌]()
 
 identifier-head
 
@@ -4163,7 +4163,7 @@ identifier-head
 →
 U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, or U+00F8–U+00FF
 
-[‌](){#TP40016643-CH38-NoLink_1251}
+[‌]()
 
 identifier-head
 
@@ -4171,7 +4171,7 @@ identifier-head
 →
 U+0100–U+02FF, U+0370–U+167F, U+1681–U+180D, or U+180F–U+1DBF
 
-[‌](){#TP40016643-CH38-NoLink_1252}
+[‌]()
 
 identifier-head
 
@@ -4179,7 +4179,7 @@ identifier-head
 →
 U+1E00–U+1FFF
 
-[‌](){#TP40016643-CH38-NoLink_1253}
+[‌]()
 
 identifier-head
 
@@ -4187,7 +4187,7 @@ identifier-head
 →
 U+200B–U+200D, U+202A–U+202E, U+203F–U+2040, U+2054, or U+2060–U+206F
 
-[‌](){#TP40016643-CH38-NoLink_1254}
+[‌]()
 
 identifier-head
 
@@ -4195,7 +4195,7 @@ identifier-head
 →
 U+2070–U+20CF, U+2100–U+218F, U+2460–U+24FF, or U+2776–U+2793
 
-[‌](){#TP40016643-CH38-NoLink_1255}
+[‌]()
 
 identifier-head
 
@@ -4203,7 +4203,7 @@ identifier-head
 →
 U+2C00–U+2DFF or U+2E80–U+2FFF
 
-[‌](){#TP40016643-CH38-NoLink_1256}
+[‌]()
 
 identifier-head
 
@@ -4211,7 +4211,7 @@ identifier-head
 →
 U+3004–U+3007, U+3021–U+302F, U+3031–U+303F, or U+3040–U+D7FF
 
-[‌](){#TP40016643-CH38-NoLink_1257}
+[‌]()
 
 identifier-head
 
@@ -4219,7 +4219,7 @@ identifier-head
 →
 U+F900–U+FD3D, U+FD40–U+FDCF, U+FDF0–U+FE1F, or U+FE30–U+FE44
 
-[‌](){#TP40016643-CH38-NoLink_1258}
+[‌]()
 
 identifier-head
 
@@ -4227,7 +4227,7 @@ identifier-head
 →
 U+FE47–U+FFFD
 
-[‌](){#TP40016643-CH38-NoLink_1259}
+[‌]()
 
 identifier-head
 
@@ -4235,7 +4235,7 @@ identifier-head
 →
 U+10000–U+1FFFD, U+20000–U+2FFFD, U+30000–U+3FFFD, or U+40000–U+4FFFD
 
-[‌](){#TP40016643-CH38-NoLink_1260}
+[‌]()
 
 identifier-head
 
@@ -4243,7 +4243,7 @@ identifier-head
 →
 U+50000–U+5FFFD, U+60000–U+6FFFD, U+70000–U+7FFFD, or U+80000–U+8FFFD
 
-[‌](){#TP40016643-CH38-NoLink_1261}
+[‌]()
 
 identifier-head
 
@@ -4251,7 +4251,7 @@ identifier-head
 →
 U+90000–U+9FFFD, U+A0000–U+AFFFD, U+B0000–U+BFFFD, or U+C0000–U+CFFFD
 
-[‌](){#TP40016643-CH38-NoLink_1262}
+[‌]()
 
 identifier-head
 
@@ -4263,7 +4263,7 @@ U+D0000–U+DFFFD or U+E0000–U+EFFFD
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1263}
+[‌]()
 
 identifier-character
 
@@ -4271,7 +4271,7 @@ identifier-character
 →
 Digit 0 through 9
 
-[‌](){#TP40016643-CH38-NoLink_1264}
+[‌]()
 
 identifier-character
 
@@ -4279,7 +4279,7 @@ identifier-character
 →
 U+0300–U+036F, U+1DC0–U+1DFF, U+20D0–U+20FF, or U+FE20–U+FE2F
 
-[‌](){#TP40016643-CH38-NoLink_1265}
+[‌]()
 
 identifier-character
 
@@ -4287,7 +4287,7 @@ identifier-character
 →
 [identifier-head](LexicalStructure.md#identifier-head)
 
-[‌](){#TP40016643-CH38-NoLink_1266}
+[‌]()
 
 identifier-characters
 
@@ -4299,13 +4299,13 @@ identifier-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1267}
+[‌]()
 
 implicit-parameter-name
 
 
 →
-`$`{.literal}[decimal-digits](LexicalStructure.md#decimal-digits)
+`$`[decimal-digits](LexicalStructure.md#decimal-digits)
 
 
 
@@ -4317,7 +4317,7 @@ Grammar of a literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1269}
+[‌]()
 
 literal
 
@@ -4337,37 +4337,37 @@ literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1270}
+[‌]()
 
 numeric-literal
 
 
 →
 
-`-`{.literal}~opt~[integer-literal](LexicalStructure.md#integer-literal)
+`-`~opt~[integer-literal](LexicalStructure.md#integer-literal)
 
-`-`{.literal}~opt~[floating-point-literal](LexicalStructure.md#floating-point-literal)
+`-`~opt~[floating-point-literal](LexicalStructure.md#floating-point-literal)
 
 
-[‌](){#TP40016643-CH38-NoLink_1271}
+[‌]()
 
 boolean-literal
 
 
 →
 
-`true`{.literal}
+`true`
 
-`false`{.literal}
+`false`
 
 
-[‌](){#TP40016643-CH38-NoLink_1272}
+[‌]()
 
 nil-literal
 
 
 →
-`nil`{.literal}
+`nil`
 
 
 
@@ -4379,7 +4379,7 @@ Grammar of an integer literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1274}
+[‌]()
 
 integer-literal
 
@@ -4387,7 +4387,7 @@ integer-literal
 →
 [binary-literal](LexicalStructure.md#binary-literal)
 
-[‌](){#TP40016643-CH38-NoLink_1275}
+[‌]()
 
 integer-literal
 
@@ -4395,7 +4395,7 @@ integer-literal
 →
 [octal-literal](LexicalStructure.md#octal-literal)
 
-[‌](){#TP40016643-CH38-NoLink_1276}
+[‌]()
 
 integer-literal
 
@@ -4403,7 +4403,7 @@ integer-literal
 →
 [decimal-literal](LexicalStructure.md#decimal-literal)
 
-[‌](){#TP40016643-CH38-NoLink_1277}
+[‌]()
 
 integer-literal
 
@@ -4415,15 +4415,15 @@ integer-literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1278}
+[‌]()
 
 binary-literal
 
 
 →
-`0b`{.literal}[binary-digit](LexicalStructure.md#binary-digit)[binary-literal-characters](LexicalStructure.md#binary-literal-characters)~opt~
+`0b`[binary-digit](LexicalStructure.md#binary-digit)[binary-literal-characters](LexicalStructure.md#binary-literal-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1279}
+[‌]()
 
 binary-digit
 
@@ -4431,7 +4431,7 @@ binary-digit
 →
 Digit 0 or 1
 
-[‌](){#TP40016643-CH38-NoLink_1280}
+[‌]()
 
 binary-literal-character
 
@@ -4440,10 +4440,10 @@ binary-literal-character
 
 [binary-digit](LexicalStructure.md#binary-digit)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1281}
+[‌]()
 
 binary-literal-characters
 
@@ -4455,15 +4455,15 @@ binary-literal-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1282}
+[‌]()
 
 octal-literal
 
 
 →
-`0o`{.literal}[octal-digit](LexicalStructure.md#octal-digit)[octal-literal-characters](LexicalStructure.md#octal-literal-characters)~opt~
+`0o`[octal-digit](LexicalStructure.md#octal-digit)[octal-literal-characters](LexicalStructure.md#octal-literal-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1283}
+[‌]()
 
 octal-digit
 
@@ -4471,7 +4471,7 @@ octal-digit
 →
 Digit 0 through 7
 
-[‌](){#TP40016643-CH38-NoLink_1284}
+[‌]()
 
 octal-literal-character
 
@@ -4480,10 +4480,10 @@ octal-literal-character
 
 [octal-digit](LexicalStructure.md#octal-digit)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1285}
+[‌]()
 
 octal-literal-characters
 
@@ -4495,7 +4495,7 @@ octal-literal-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1286}
+[‌]()
 
 decimal-literal
 
@@ -4503,7 +4503,7 @@ decimal-literal
 →
 [decimal-digit](LexicalStructure.md#decimal-digit)[decimal-literal-characters](LexicalStructure.md#decimal-literal-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1287}
+[‌]()
 
 decimal-digit
 
@@ -4511,7 +4511,7 @@ decimal-digit
 →
 Digit 0 through 9
 
-[‌](){#TP40016643-CH38-NoLink_1288}
+[‌]()
 
 decimal-digits
 
@@ -4519,7 +4519,7 @@ decimal-digits
 →
 [decimal-digit](LexicalStructure.md#decimal-digit)[decimal-digits](LexicalStructure.md#decimal-digits)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1289}
+[‌]()
 
 decimal-literal-character
 
@@ -4528,10 +4528,10 @@ decimal-literal-character
 
 [decimal-digit](LexicalStructure.md#decimal-digit)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1290}
+[‌]()
 
 decimal-literal-characters
 
@@ -4543,15 +4543,15 @@ decimal-literal-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1291}
+[‌]()
 
 hexadecimal-literal
 
 
 →
-`0x`{.literal}[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
+`0x`[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1292}
+[‌]()
 
 hexadecimal-digit
 
@@ -4559,7 +4559,7 @@ hexadecimal-digit
 →
 Digit 0 through 9, a through f, or A through F
 
-[‌](){#TP40016643-CH38-NoLink_1293}
+[‌]()
 
 hexadecimal-literal-character
 
@@ -4568,10 +4568,10 @@ hexadecimal-literal-character
 
 [hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)
 
-`_`{.literal}
+`_`
 
 
-[‌](){#TP40016643-CH38-NoLink_1294}
+[‌]()
 
 hexadecimal-literal-characters
 
@@ -4589,7 +4589,7 @@ Grammar of a floating-point literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1296}
+[‌]()
 
 floating-point-literal
 
@@ -4597,7 +4597,7 @@ floating-point-literal
 →
 [decimal-literal](LexicalStructure.md#decimal-literal)[decimal-fraction](LexicalStructure.md#decimal-fraction)~opt~[decimal-exponent](LexicalStructure.md#decimal-exponent)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1297}
+[‌]()
 
 floating-point-literal
 
@@ -4609,15 +4609,15 @@ floating-point-literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1298}
+[‌]()
 
 decimal-fraction
 
 
 →
-`.`{.literal}[decimal-literal](LexicalStructure.md#decimal-literal)
+`.`[decimal-literal](LexicalStructure.md#decimal-literal)
 
-[‌](){#TP40016643-CH38-NoLink_1299}
+[‌]()
 
 decimal-exponent
 
@@ -4629,15 +4629,15 @@ decimal-exponent
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1300}
+[‌]()
 
 hexadecimal-fraction
 
 
 →
-`.`{.literal}[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
+`.`[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1301}
+[‌]()
 
 hexadecimal-exponent
 
@@ -4649,40 +4649,40 @@ hexadecimal-exponent
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1302}
+[‌]()
 
 floating-point-e
 
 
 →
 
-`e`{.literal}
+`e`
 
-`E`{.literal}
+`E`
 
 
-[‌](){#TP40016643-CH38-NoLink_1303}
+[‌]()
 
 floating-point-p
 
 
 →
 
-`p`{.literal}
+`p`
 
-`P`{.literal}
+`P`
 
 
-[‌](){#TP40016643-CH38-NoLink_1304}
+[‌]()
 
 sign
 
 
 →
 
-`+`{.literal}
+`+`
 
-`-`{.literal}
+`-`
 
 
 
@@ -4695,7 +4695,7 @@ Grammar of a string literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1306}
+[‌]()
 
 string-literal
 
@@ -4711,15 +4711,15 @@ string-literal
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1307}
+[‌]()
 
 static-string-literal
 
 
 →
-`"`{.literal}[quoted-text](LexicalStructure.md#quoted-text)~opt~`"`{.literal}
+`"`[quoted-text](LexicalStructure.md#quoted-text)~opt~`"`
 
-[‌](){#TP40016643-CH38-NoLink_1308}
+[‌]()
 
 quoted-text
 
@@ -4727,7 +4727,7 @@ quoted-text
 →
 [quoted-text-item](LexicalStructure.md#quoted-text-item)[quoted-text](LexicalStructure.md#quoted-text)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1309}
+[‌]()
 
 quoted-text-item
 
@@ -4735,27 +4735,27 @@ quoted-text-item
 →
 [escaped-character](LexicalStructure.md#escaped-character)
 
-[‌](){#TP40016643-CH38-NoLink_1310}
+[‌]()
 
 quoted-text-item
 
 
 →
-Any Unicode scalar value except `"`{.literal}, `\`{.literal}, U+000A, or U+000D
+Any Unicode scalar value except `"`, `\`, U+000A, or U+000D
 
 
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1311}
+[‌]()
 
 interpolated-string-literal
 
 
 →
-`"`{.literal}[interpolated-text](LexicalStructure.md#interpolated-text)~opt~`"`{.literal}
+`"`[interpolated-text](LexicalStructure.md#interpolated-text)~opt~`"`
 
-[‌](){#TP40016643-CH38-NoLink_1312}
+[‌]()
 
 interpolated-text
 
@@ -4763,14 +4763,14 @@ interpolated-text
 →
 [interpolated-text-item](LexicalStructure.md#interpolated-text-item)[interpolated-text](LexicalStructure.md#interpolated-text)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1313}
+[‌]()
 
 interpolated-text-item
 
 
 →
 
-`\(`{.literal}[expression](Expressions.md#expression)`)`{.literal}
+`\(`[expression](Expressions.md#expression)`)`
 
 [quoted-text-item](LexicalStructure.md#quoted-text-item)
 
@@ -4779,37 +4779,37 @@ interpolated-text-item
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1314}
+[‌]()
 
 escaped-character
 
 
 →
 
-`\0`{.literal}
+`\0`
 
-`\\`{.literal}
+`\\`
 
-`\t`{.literal}
+`\t`
 
-`\n`{.literal}
+`\n`
 
-`\r`{.literal}
+`\r`
 
-`\"`{.literal}
+`\"`
 
-`\'`{.literal}
+`\'`
 
 
-[‌](){#TP40016643-CH38-NoLink_1315}
+[‌]()
 
 escaped-character
 
 
 →
-`\u`{.literal}`{`{.literal}[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`{.literal}
+`\u``{`[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
 
-[‌](){#TP40016643-CH38-NoLink_1316}
+[‌]()
 
 unicode-scalar-digits
 
@@ -4827,7 +4827,7 @@ Grammar of operators
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1318}
+[‌]()
 
 operator
 
@@ -4835,7 +4835,7 @@ operator
 →
 [operator-head](LexicalStructure.md#operator-head)[operator-characters](LexicalStructure.md#operator-characters)~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1319}
+[‌]()
 
 operator
 
@@ -4847,43 +4847,43 @@ operator
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1320}
+[‌]()
 
 operator-head
 
 
 →
 
-`/`{.literal}
+`/`
 
-`=`{.literal}
+`=`
 
-`-`{.literal}
+`-`
 
-`+`{.literal}
+`+`
 
-`!`{.literal}
+`!`
 
-`*`{.literal}
+`*`
 
-`%`{.literal}
+`%`
 
-`<`{.literal}
+`<`
 
-`>`{.literal}
+`>`
 
-`&`{.literal}
+`&`
 
-`|`{.literal}
+`|`
 
-`^`{.literal}
+`^`
 
-`~`{.literal}
+`~`
 
-`?`{.literal}
+`?`
 
 
-[‌](){#TP40016643-CH38-NoLink_1321}
+[‌]()
 
 operator-head
 
@@ -4891,7 +4891,7 @@ operator-head
 →
 U+00A1–U+00A7
 
-[‌](){#TP40016643-CH38-NoLink_1322}
+[‌]()
 
 operator-head
 
@@ -4899,7 +4899,7 @@ operator-head
 →
 U+00A9 or U+00AB
 
-[‌](){#TP40016643-CH38-NoLink_1323}
+[‌]()
 
 operator-head
 
@@ -4907,7 +4907,7 @@ operator-head
 →
 U+00AC or U+00AE
 
-[‌](){#TP40016643-CH38-NoLink_1324}
+[‌]()
 
 operator-head
 
@@ -4915,7 +4915,7 @@ operator-head
 →
 U+00B0–U+00B1, U+00B6, U+00BB, U+00BF, U+00D7, or U+00F7
 
-[‌](){#TP40016643-CH38-NoLink_1325}
+[‌]()
 
 operator-head
 
@@ -4923,7 +4923,7 @@ operator-head
 →
 U+2016–U+2017 or U+2020–U+2027
 
-[‌](){#TP40016643-CH38-NoLink_1326}
+[‌]()
 
 operator-head
 
@@ -4931,7 +4931,7 @@ operator-head
 →
 U+2030–U+203E
 
-[‌](){#TP40016643-CH38-NoLink_1327}
+[‌]()
 
 operator-head
 
@@ -4939,7 +4939,7 @@ operator-head
 →
 U+2041–U+2053
 
-[‌](){#TP40016643-CH38-NoLink_1328}
+[‌]()
 
 operator-head
 
@@ -4947,7 +4947,7 @@ operator-head
 →
 U+2055–U+205E
 
-[‌](){#TP40016643-CH38-NoLink_1329}
+[‌]()
 
 operator-head
 
@@ -4955,7 +4955,7 @@ operator-head
 →
 U+2190–U+23FF
 
-[‌](){#TP40016643-CH38-NoLink_1330}
+[‌]()
 
 operator-head
 
@@ -4963,7 +4963,7 @@ operator-head
 →
 U+2500–U+2775
 
-[‌](){#TP40016643-CH38-NoLink_1331}
+[‌]()
 
 operator-head
 
@@ -4971,7 +4971,7 @@ operator-head
 →
 U+2794–U+2BFF
 
-[‌](){#TP40016643-CH38-NoLink_1332}
+[‌]()
 
 operator-head
 
@@ -4979,7 +4979,7 @@ operator-head
 →
 U+2E00–U+2E7F
 
-[‌](){#TP40016643-CH38-NoLink_1333}
+[‌]()
 
 operator-head
 
@@ -4987,7 +4987,7 @@ operator-head
 →
 U+3001–U+3003
 
-[‌](){#TP40016643-CH38-NoLink_1334}
+[‌]()
 
 operator-head
 
@@ -4999,7 +4999,7 @@ U+3008–U+3030
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1335}
+[‌]()
 
 operator-character
 
@@ -5007,7 +5007,7 @@ operator-character
 →
 [operator-head](LexicalStructure.md#operator-head)
 
-[‌](){#TP40016643-CH38-NoLink_1336}
+[‌]()
 
 operator-character
 
@@ -5015,7 +5015,7 @@ operator-character
 →
 U+0300–U+036F
 
-[‌](){#TP40016643-CH38-NoLink_1337}
+[‌]()
 
 operator-character
 
@@ -5023,7 +5023,7 @@ operator-character
 →
 U+1DC0–U+1DFF
 
-[‌](){#TP40016643-CH38-NoLink_1338}
+[‌]()
 
 operator-character
 
@@ -5031,7 +5031,7 @@ operator-character
 →
 U+20D0–U+20FF
 
-[‌](){#TP40016643-CH38-NoLink_1339}
+[‌]()
 
 operator-character
 
@@ -5039,7 +5039,7 @@ operator-character
 →
 U+FE00–U+FE0F
 
-[‌](){#TP40016643-CH38-NoLink_1340}
+[‌]()
 
 operator-character
 
@@ -5047,7 +5047,7 @@ operator-character
 →
 U+FE20–U+FE2F
 
-[‌](){#TP40016643-CH38-NoLink_1341}
+[‌]()
 
 operator-character
 
@@ -5055,7 +5055,7 @@ operator-character
 →
 U+E0100–U+E01EF
 
-[‌](){#TP40016643-CH38-NoLink_1342}
+[‌]()
 
 operator-characters
 
@@ -5067,27 +5067,27 @@ operator-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1343}
+[‌]()
 
 dot-operator-head
 
 
 →
-`..`{.literal}
+`..`
 
-[‌](){#TP40016643-CH38-NoLink_1344}
+[‌]()
 
 dot-operator-character
 
 
 →
 
-`.`{.literal}
+`.`
 
 [operator-character](LexicalStructure.md#operator-character)
 
 
-[‌](){#TP40016643-CH38-NoLink_1345}
+[‌]()
 
 dot-operator-characters
 
@@ -5099,7 +5099,7 @@ dot-operator-characters
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1346}
+[‌]()
 
 binary-operator
 
@@ -5107,7 +5107,7 @@ binary-operator
 →
 [operator](LexicalStructure.md#operator)
 
-[‌](){#TP40016643-CH38-NoLink_1347}
+[‌]()
 
 prefix-operator
 
@@ -5115,7 +5115,7 @@ prefix-operator
 →
 [operator](LexicalStructure.md#operator)
 
-[‌](){#TP40016643-CH38-NoLink_1348}
+[‌]()
 
 postfix-operator
 
@@ -5131,8 +5131,8 @@ postfix-operator
 
 
 
-[‌](){#TP40016643-CH38-ID482}
-### Types {#types .section-name}
+[‌]()
+### Types 
 
 
 
@@ -5140,7 +5140,7 @@ Grammar of a type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1350}
+[‌]()
 
 type
 
@@ -5176,13 +5176,13 @@ Grammar of a type annotation
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1352}
+[‌]()
 
 type-annotation
 
 
 →
-`:`{.literal}[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
+`:`[attributes](Attributes.md#attributes)~opt~[type](Types.md#type)
 
 
 
@@ -5194,7 +5194,7 @@ Grammar of a type identifier
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1354}
+[‌]()
 
 type-identifier
 
@@ -5203,10 +5203,10 @@ type-identifier
 
 [type-name](Types.md#type-name)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
 
-[type-name](Types.md#type-name)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~`.`{.literal}[type-identifier](Types.md#type-identifier)
+[type-name](Types.md#type-name)[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~`.`[type-identifier](Types.md#type-identifier)
 
 
-[‌](){#TP40016643-CH38-NoLink_1355}
+[‌]()
 
 type-name
 
@@ -5224,23 +5224,23 @@ Grammar of a tuple type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1357}
+[‌]()
 
 tuple-type
 
 
 →
-`(`{.literal}[tuple-type-body](Types.md#tuple-type-body)~opt~`)`{.literal}
+`(`[tuple-type-body](Types.md#tuple-type-body)~opt~`)`
 
-[‌](){#TP40016643-CH38-NoLink_1358}
+[‌]()
 
 tuple-type-body
 
 
 →
-[tuple-type-element-list](Types.md#tuple-type-element-list)`...`{.literal}~opt~
+[tuple-type-element-list](Types.md#tuple-type-element-list)`...`~opt~
 
-[‌](){#TP40016643-CH38-NoLink_1359}
+[‌]()
 
 tuple-type-element-list
 
@@ -5249,22 +5249,22 @@ tuple-type-element-list
 
 [tuple-type-element](Types.md#tuple-type-element)
 
-[tuple-type-element](Types.md#tuple-type-element)`,`{.literal}[tuple-type-element-list](Types.md#tuple-type-element-list)
+[tuple-type-element](Types.md#tuple-type-element)`,`[tuple-type-element-list](Types.md#tuple-type-element-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1360}
+[‌]()
 
 tuple-type-element
 
 
 →
 
-[attributes](Attributes.md#attributes)~opt~`inout`{.literal}~opt~[type](Types.md#type)
+[attributes](Attributes.md#attributes)~opt~`inout`~opt~[type](Types.md#type)
 
-`inout`{.literal}~opt~[element-name](Types.md#element-name)[type-annotation](Types.md#type-annotation)
+`inout`~opt~[element-name](Types.md#element-name)[type-annotation](Types.md#type-annotation)
 
 
-[‌](){#TP40016643-CH38-NoLink_1361}
+[‌]()
 
 element-name
 
@@ -5282,21 +5282,21 @@ Grammar of a function type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1363}
+[‌]()
 
 function-type
 
 
 →
-[type](Types.md#type)`throws`{.literal}~opt~`->`{.literal}[type](Types.md#type)
+[type](Types.md#type)`throws`~opt~`->`[type](Types.md#type)
 
-[‌](){#TP40016643-CH38-NoLink_1364}
+[‌]()
 
 function-type
 
 
 →
-[type](Types.md#type)`rethrows`{.literal}`->`{.literal}[type](Types.md#type)
+[type](Types.md#type)`rethrows``->`[type](Types.md#type)
 
 
 
@@ -5308,13 +5308,13 @@ Grammar of an array type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1366}
+[‌]()
 
 array-type
 
 
 →
-`[`{.literal}[type](Types.md#type)`]`{.literal}
+`[`[type](Types.md#type)`]`
 
 
 
@@ -5326,13 +5326,13 @@ Grammar of a dictionary type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1368}
+[‌]()
 
 dictionary-type
 
 
 →
-`[`{.literal}[type](Types.md#type)`:`{.literal}[type](Types.md#type)`]`{.literal}
+`[`[type](Types.md#type)`:`[type](Types.md#type)`]`
 
 
 
@@ -5344,13 +5344,13 @@ Grammar of an optional type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1370}
+[‌]()
 
 optional-type
 
 
 →
-[type](Types.md#type)`?`{.literal}
+[type](Types.md#type)`?`
 
 
 
@@ -5362,13 +5362,13 @@ Grammar of an implicitly unwrapped optional type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1372}
+[‌]()
 
 implicitly-unwrapped-optional-type
 
 
 →
-[type](Types.md#type)`!`{.literal}
+[type](Types.md#type)`!`
 
 
 
@@ -5380,15 +5380,15 @@ Grammar of a protocol composition type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1374}
+[‌]()
 
 protocol-composition-type
 
 
 →
-`protocol`{.literal}`[protocol-identifier-list](Types.md#protocol-identifier-list)~opt~`>`{.literal}
+`protocol``[protocol-identifier-list](Types.md#protocol-identifier-list)~opt~`>`
 
-[‌](){#TP40016643-CH38-NoLink_1375}
+[‌]()
 
 protocol-identifier-list
 
@@ -5397,10 +5397,10 @@ protocol-identifier-list
 
 [protocol-identifier](Types.md#protocol-identifier)
 
-[protocol-identifier](Types.md#protocol-identifier)`,`{.literal}[protocol-identifier-list](Types.md#protocol-identifier-list)
+[protocol-identifier](Types.md#protocol-identifier)`,`[protocol-identifier-list](Types.md#protocol-identifier-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1376}
+[‌]()
 
 protocol-identifier
 
@@ -5418,16 +5418,16 @@ Grammar of a metatype type
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1378}
+[‌]()
 
 metatype-type
 
 
 →
 
-[type](Types.md#type)`.`{.literal}`Type`{.literal}
+[type](Types.md#type)`.``Type`
 
-[type](Types.md#type)`.`{.literal}`Protocol`{.literal}
+[type](Types.md#type)`.``Protocol`
 
 
 
@@ -5440,31 +5440,31 @@ Grammar of a type inheritance clause
 
 
 
-[‌](){#TP40016643-CH38-NoLink_1380}
+[‌]()
 
 type-inheritance-clause
 
 
 →
-`:`{.literal}[class-requirement](Types.md#class-requirement)`,`{.literal}[type-inheritance-list](Types.md#type-inheritance-list)
+`:`[class-requirement](Types.md#class-requirement)`,`[type-inheritance-list](Types.md#type-inheritance-list)
 
-[‌](){#TP40016643-CH38-NoLink_1381}
-
-type-inheritance-clause
-
-
-→
-`:`{.literal}[class-requirement](Types.md#class-requirement)
-
-[‌](){#TP40016643-CH38-NoLink_1382}
+[‌]()
 
 type-inheritance-clause
 
 
 →
-`:`{.literal}[type-inheritance-list](Types.md#type-inheritance-list)
+`:`[class-requirement](Types.md#class-requirement)
 
-[‌](){#TP40016643-CH38-NoLink_1383}
+[‌]()
+
+type-inheritance-clause
+
+
+→
+`:`[type-inheritance-list](Types.md#type-inheritance-list)
+
+[‌]()
 
 type-inheritance-list
 
@@ -5473,16 +5473,16 @@ type-inheritance-list
 
 [type-identifier](Types.md#type-identifier)
 
-[type-identifier](Types.md#type-identifier)`,`{.literal}[type-inheritance-list](Types.md#type-inheritance-list)
+[type-identifier](Types.md#type-identifier)`,`[type-inheritance-list](Types.md#type-inheritance-list)
 
 
-[‌](){#TP40016643-CH38-NoLink_1384}
+[‌]()
 
 class-requirement
 
 
 →
-`class`{.literal}
+`class`
 
 
 

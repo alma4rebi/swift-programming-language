@@ -2,8 +2,8 @@
 
 
 
-[‌](){#TP40016643-CH29}[‌](){#TP40016643-CH29-ID345}
-About the Language Reference {#about-the-language-reference .chapter-name}
+[‌]()[‌]()
+About the Language Reference 
 ----------------------------
 
 
@@ -16,8 +16,8 @@ The Swift language is relatively small, because many common types, functions, an
 
 
 
-[‌](){#TP40016643-CH29-ID346}
-### How to Read the Grammar {#how-to-read-the-grammar .section-name}
+[‌]()
+### How to Read the Grammar 
 
 The notation used to describe the formal grammar of the Swift programming language follows a few conventions:
 
@@ -25,7 +25,7 @@ The notation used to describe the formal grammar of the Swift programming langua
 
 -   Syntactic categories are indicated by *italic* text and appear on both sides of a grammar production rule.
 
--   Literal words and punctuation are indicated by boldface `constant width`{.code-voice} text and appear only on the right-hand side of a grammar production rule.
+-   Literal words and punctuation are indicated by boldface `constant width` text and appear only on the right-hand side of a grammar production rule.
 
 -   Alternative grammar productions are separated by vertical bars (|). When alternative productions are too long to read easily, they are broken into multiple grammar production rules on new lines.
 
@@ -41,16 +41,16 @@ Grammar of a getter-setter block
 
 
 
-[‌](){#TP40016643-CH29-NoLink_213}
+[‌]()
 
 getter-setter-block
 
 
 →
 
-`{`{.literal}[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`{.literal}
+`{`[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`
 
-`{`{.literal}[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`{.literal}
+`{`[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`
 
 
 
@@ -65,21 +65,21 @@ Grammar of a getter-setter block
 
 
 
-[‌](){#TP40016643-CH29-NoLink_215}
+[‌]()
 
 getter-setter-block
 
 
 →
-`{`{.literal}[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`{.literal}
+`{`[getter-clause](Declarations.md#getter-clause)[setter-clause](Declarations.md#setter-clause)~opt~`}`
 
-[‌](){#TP40016643-CH29-NoLink_216}
+[‌]()
 
 getter-setter-block
 
 
 →
-`{`{.literal}[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`{.literal}
+`{`[setter-clause](Declarations.md#setter-clause)[getter-clause](Declarations.md#getter-clause)`}`
 
 
 

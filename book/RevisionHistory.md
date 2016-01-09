@@ -2,8 +2,8 @@
 
 
 
-[‌](){#TP40016643-CH40}[‌](){#TP40016643-CH40-ID459}
-Document Revision History {#document-revision-history .chapter-name}
+[‌]()[‌]()
+Document Revision History 
 -------------------------
 
 
@@ -18,7 +18,7 @@ This table describes the changes to *The Swift Programming Language*.
 | 2015-12-03                           | -   Updated for Swift 2.2.           |
 |                                      |                                      |
 |                                      | -   Removed discussion of            |
-|                                      |     `var`{.code-voice} patterns,     |
+|                                      |     `var` patterns,     |
 |                                      |     variable function arguments, and |
 |                                      |     the special syntax for           |
 |                                      |     curried functions.               |
@@ -40,7 +40,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 643-CH11-ID546)                      |
 |                                      |     section with information about   |
 |                                      |     the                              |
-|                                      |     `@noescape`{.code-voice} attribu |
+|                                      |     `@noescape` attribu |
 |                                      | te.                                  |
 |                                      |                                      |
 |                                      | -   Updated the [Declaration         |
@@ -80,7 +80,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 40016643-CH11-ID543) section.        |
 |                                      |                                      |
 |                                      | -   Added an example that uses the   |
-|                                      |     `??`{.code-voice} operator to    |
+|                                      |     `??` operator to    |
 |                                      |     the [A Swift                     |
 |                                      |     Tour](GuidedTour.md) chapter. |
 +--------------------------------------+--------------------------------------+
@@ -108,11 +108,11 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 016643-CH42-ID509)                   |
 |                                      |     section, now that all types can  |
 |                                      |     conform to the                   |
-|                                      |     `ErrorType`{.code-voice} protoco |
+|                                      |     `ErrorType` protoco |
 |                                      | l.                                   |
 |                                      |                                      |
 |                                      | -   Added information about the new  |
-|                                      |     `try?`{.code-voice} keyword to   |
+|                                      |     `try?` keyword to   |
 |                                      |     the [Converting Errors to        |
 |                                      |     Optional                         |
 |                                      |     Values](ErrorHandling.md#TP40 |
@@ -149,7 +149,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | hapter.                              |
 |                                      |                                      |
 |                                      | -   Added information about the new  |
-|                                      |     `guard`{.code-voice} statement   |
+|                                      |     `guard` statement   |
 |                                      |     to the [Early                    |
 |                                      |     Exit](ControlFlow.md#TP400166 |
 |                                      | 43-CH9-ID525)                        |
@@ -193,16 +193,16 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | #TP40016643-CH9-ID126)               |
 |                                      |     section with information about   |
 |                                      |     the                              |
-|                                      |     `repeat`{.code-voice}-`while`{.c |
+|                                      |     `repeat`-`while`{.c |
 |                                      | ode-voice} loop.                     |
 |                                      |                                      |
 |                                      | -   Updated the [Strings and         |
 |                                      |     Characters](StringsAndCharacters |
 |                                      | .md)                              |
 |                                      |     chapter, now that                |
-|                                      |     `String`{.code-voice} no longer  |
+|                                      |     `String` no longer  |
 |                                      |     conforms to the                  |
-|                                      |     `CollectionType`{.code-voice}    |
+|                                      |     `CollectionType`    |
 |                                      |     protocol from the Swift          |
 |                                      |     standard library.                |
 |                                      |                                      |
@@ -217,7 +217,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |                                      |
 |                                      | -   Added information about the      |
 |                                      |     behavior of enumeration cases    |
-|                                      |     with `String`{.code-voice} raw   |
+|                                      |     with `String` raw   |
 |                                      |     values to the [Implicitly        |
 |                                      |     Assigned Raw                     |
 |                                      |     Values](Enumerations.md#TP400 |
@@ -234,7 +234,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | l) chapter.                          |
 |                                      |                                      |
 |                                      | -   Added information about the      |
-|                                      |     `@autoclosure`{.code-voice}      |
+|                                      |     `@autoclosure`      |
 |                                      |     attribute—including its          |
 |                                      |     `@autoclosure(escaping)`{.code-v |
 |                                      | oice}                                |
@@ -246,7 +246,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Attributes](Attributes.md#TP4 |
 |                                      | 0016643-CH35-ID348)                  |
 |                                      |     section with information about   |
-|                                      |     the `@available`{.code-voice}    |
+|                                      |     the `@available`    |
 |                                      |     and                              |
 |                                      |     `@warn_unused_result`{.code-voic |
 |                                      | e} attributes.                       |
@@ -256,12 +256,12 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 0016643-CH35-ID350)                  |
 |                                      |     section with information about   |
 |                                      |     the                              |
-|                                      |     `@convention`{.code-voice} attri |
+|                                      |     `@convention` attri |
 |                                      | bute.                                |
 |                                      |                                      |
 |                                      | -   Added an example of using        |
 |                                      |     multiple optional bindings with  |
-|                                      |     a `where`{.code-voice} clause to |
+|                                      |     a `where` clause to |
 |                                      |     the [Optional                    |
 |                                      |     Binding](TheBasics.md#TP40016 |
 |                                      | 643-CH5-ID333) section.              |
@@ -271,7 +271,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | #TP40016643-CH30-ID417)              |
 |                                      |     section about how concatenating  |
 |                                      |     string literals using the        |
-|                                      |     `+`{.code-voice} operator        |
+|                                      |     `+` operator        |
 |                                      |     happens at compile time.         |
 |                                      |                                      |
 |                                      | -   Added information to the         |
@@ -291,7 +291,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     assertions are disabled.         |
 |                                      |                                      |
 |                                      | -   Updated the discussion of the    |
-|                                      |     `@NSManaged`{.code-voice}        |
+|                                      |     `@NSManaged`        |
 |                                      |     attribute in the [Declaration    |
 |                                      |     Attributes](Attributes.md#TP4 |
 |                                      | 0016643-CH35-ID348)                  |
@@ -367,7 +367,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Attributes](Attributes.md#TP4 |
 |                                      | 0016643-CH35-ID348)                  |
 |                                      |     section to describe when you can |
-|                                      |     apply the `@objc`{.code-voice}   |
+|                                      |     apply the `@objc`   |
 |                                      |     attribute to classes.            |
 |                                      |                                      |
 |                                      | -   Added a note to the [Handling    |
@@ -375,9 +375,9 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 016643-CH42-ID512)                   |
 |                                      |     section about the performance of |
 |                                      |     executing a                      |
-|                                      |     `throw`{.code-voice} statement.  |
+|                                      |     `throw` statement.  |
 |                                      |     Added similar information about  |
-|                                      |     the `do`{.code-voice} statement  |
+|                                      |     the `do` statement  |
 |                                      |     in the [Do                       |
 |                                      |     Statement](Statements.md#TP40 |
 |                                      | 016643-CH33-ID533) section.          |
@@ -400,15 +400,15 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Observers](Properties.md#TP40 |
 |                                      | 016643-CH14-ID262)                   |
 |                                      |     section to clarify the behavior  |
-|                                      |     of `willSet`{.code-voice} and    |
-|                                      |     `didSet`{.code-voice} observers. |
+|                                      |     of `willSet` and    |
+|                                      |     `didSet` observers. |
 |                                      |                                      |
 |                                      | -   Added a note to the [Access      |
 |                                      |     Levels](AccessControl.md#TP40 |
 |                                      | 016643-CH41-ID5)                     |
 |                                      |     section with information about   |
 |                                      |     the scope of                     |
-|                                      |     `private`{.code-voice} access.   |
+|                                      |     `private` access.   |
 |                                      |                                      |
 |                                      | -   Added a note to the [Weak        |
 |                                      |     References](AutomaticReferenceCo |
@@ -427,17 +427,17 @@ This table describes the changes to *The Swift Programming Language*.
 | 2015-04-08                           | -   Updated for Swift 1.2.           |
 |                                      |                                      |
 |                                      | -   Swift now has a native           |
-|                                      |     `Set`{.code-voice}               |
+|                                      |     `Set`               |
 |                                      |     collection type. For more        |
 |                                      |     information, see                 |
 |                                      |     [Sets](CollectionTypes.md#TP4 |
 |                                      | 0016643-CH8-ID484).                  |
 |                                      |                                      |
-|                                      | -   `@autoclosure`{.code-voice} is   |
+|                                      | -   `@autoclosure` is   |
 |                                      |     now an attribute of the          |
 |                                      |     parameter declaration, not       |
 |                                      |     its type. There is also a new    |
-|                                      |     `@noescape`{.code-voice}         |
+|                                      |     `@noescape`         |
 |                                      |     parameter declaration attribute. |
 |                                      |     For more information, see        |
 |                                      |     [Declaration                     |
@@ -445,7 +445,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 0016643-CH35-ID348).                 |
 |                                      |                                      |
 |                                      | -   Type methods and properties now  |
-|                                      |     use the `static`{.code-voice}    |
+|                                      |     use the `static`    |
 |                                      |     keyword as a                     |
 |                                      |     declaration modifier. For more   |
 |                                      |     information see [Type Variable   |
@@ -453,8 +453,8 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | P40016643-CH34-ID483).               |
 |                                      |                                      |
 |                                      | -   Swift now includes the           |
-|                                      |     `as?`{.code-voice} and           |
-|                                      |     `as!`{.code-voice} failable      |
+|                                      |     `as?` and           |
+|                                      |     `as!` failable      |
 |                                      |     downcast operators. For more     |
 |                                      |     information, see [Checking for   |
 |                                      |     Protocol                         |
@@ -467,8 +467,8 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | tml#TP40016643-CH7-ID534).           |
 |                                      |                                      |
 |                                      | -   Removed the overflow division    |
-|                                      |     (`&/`{.code-voice}) and overflow |
-|                                      |     remainder (`&%`{.code-voice})    |
+|                                      |     (`&/`) and overflow |
+|                                      |     remainder (`&%`)    |
 |                                      |     operators from [Overflow         |
 |                                      |     Operators](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID37).            |
@@ -549,7 +549,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |                                      |
 |                                      | -   Multiple optional bindings can   |
 |                                      |     now appear in a single           |
-|                                      |     `if`{.code-voice} statement as a |
+|                                      |     `if` statement as a |
 |                                      |     comma-separated list of          |
 |                                      |     assignment expressions. For more |
 |                                      |     information, see [Optional       |
@@ -564,15 +564,15 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |                                      |
 |                                      | -   Protocol casts are no longer     |
 |                                      |     limited to                       |
-|                                      |     `@objc`{.code-voice} protocols.  |
+|                                      |     `@objc` protocols.  |
 |                                      |                                      |
 |                                      | -   Type casts that can fail at      |
 |                                      |     runtime now use the              |
-|                                      |     `as?`{.code-voice} or            |
-|                                      |     `as!`{.code-voice} operator, and |
+|                                      |     `as?` or            |
+|                                      |     `as!` operator, and |
 |                                      |     type casts that are guaranteed   |
 |                                      |     not to fail use the              |
-|                                      |     `as`{.code-voice} operator. For  |
+|                                      |     `as` operator. For  |
 |                                      |     more information, see            |
 |                                      |     [Type-Casting                    |
 |                                      |     Operators](Expressions.md#TP4 |
@@ -591,23 +591,23 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     for protocols.                   |
 |                                      |                                      |
 |                                      | -   Constants and variables of type  |
-|                                      |     `Any`{.code-voice} can now       |
+|                                      |     `Any` can now       |
 |                                      |     contain function instances.      |
 |                                      |     Updated the example for          |
 |                                      |     [Any](TypeCasting.md#TP400166 |
 |                                      | 43-CH22-ID344)                       |
 |                                      |     to show how to check for and     |
 |                                      |     cast to a function type within a |
-|                                      |     `switch`{.code-voice} statement. |
+|                                      |     `switch` statement. |
 |                                      |                                      |
 |                                      | -   Enumerations with raw values now |
-|                                      |     have a `rawValue`{.code-voice}   |
+|                                      |     have a `rawValue`   |
 |                                      |     property rather than a           |
-|                                      |     `toRaw()`{.code-voice} method    |
+|                                      |     `toRaw()` method    |
 |                                      |     and a failable initializer with  |
-|                                      |     a `rawValue`{.code-voice}        |
+|                                      |     a `rawValue`        |
 |                                      |     parameter rather than a          |
-|                                      |     `fromRaw()`{.code-voice} method. |
+|                                      |     `fromRaw()` method. |
 |                                      |     For more information, see [Raw   |
 |                                      |     Values](Enumerations.md#TP400 |
 |                                      | 16643-CH12-ID149)                    |
@@ -624,7 +624,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     initialization failure.          |
 |                                      |                                      |
 |                                      | -   Custom operators can now contain |
-|                                      |     the `?`{.code-voice} character.  |
+|                                      |     the `?` character.  |
 |                                      |     Updated the                      |
 |                                      |     [Operators](LexicalStructure.xht |
 |                                      | ml#TP40016643-CH30-ID418)            |
@@ -663,23 +663,23 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Characters](StringsAndCharacters |
 |                                      | .md#TP40016643-CH7-ID291)         |
 |                                      |     section to reflect the fact that |
-|                                      |     `String`{.code-voice} and        |
-|                                      |     `Character`{.code-voice} values  |
+|                                      |     `String` and        |
+|                                      |     `Character` values  |
 |                                      |     can no longer be combined with   |
 |                                      |     the addition operator            |
-|                                      |     (`+`{.code-voice}) or addition   |
+|                                      |     (`+`) or addition   |
 |                                      |     assignment operator              |
-|                                      |     (`+=`{.code-voice}). These       |
+|                                      |     (`+=`). These       |
 |                                      |     operators are now used only with |
-|                                      |     `String`{.code-voice} values.    |
-|                                      |     Use the `String`{.code-voice}    |
-|                                      |     type’s `append(_:)`{.code-voice} |
+|                                      |     `String` values.    |
+|                                      |     Use the `String`    |
+|                                      |     type’s `append(_:)` |
 |                                      |     method to append a single        |
-|                                      |     `Character`{.code-voice} value   |
+|                                      |     `Character` value   |
 |                                      |     onto the end of a string.        |
 |                                      |                                      |
 |                                      | -   Added information about the      |
-|                                      |     `availability`{.code-voice}      |
+|                                      |     `availability`      |
 |                                      |     attribute to the [Declaration    |
 |                                      |     Attributes](Attributes.md#TP4 |
 |                                      | 0016643-CH35-ID348) section.         |
@@ -687,27 +687,27 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | -   [Optionals](TheBasics.md#TP40 |
 |                                      | 016643-CH5-ID330)                    |
 |                                      |     no longer implicitly evaluate to |
-|                                      |     `true`{.code-voice} when they    |
+|                                      |     `true` when they    |
 |                                      |     have a value and                 |
-|                                      |     `false`{.code-voice} when they   |
+|                                      |     `false` when they   |
 |                                      |     do not, to avoid confusion when  |
 |                                      |     working with optional            |
-|                                      |     `Bool`{.code-voice} values.      |
+|                                      |     `Bool` values.      |
 |                                      |     Instead, make an explicit check  |
-|                                      |     against `nil`{.code-voice} with  |
-|                                      |     the `==`{.code-voice} or         |
-|                                      |     `!=`{.code-voice} operators to   |
+|                                      |     against `nil` with  |
+|                                      |     the `==` or         |
+|                                      |     `!=` operators to   |
 |                                      |     find out if an optional contains |
 |                                      |     a value.                         |
 |                                      |                                      |
 |                                      | -   Swift now has a [Nil Coalescing  |
 |                                      |     Operator](BasicOperators.md#T |
 |                                      | P40016643-CH6-ID72)                  |
-|                                      |     (`a ?? b`{.code-voice}), which   |
+|                                      |     (`a ?? b`), which   |
 |                                      |     unwraps an optional’s value if   |
 |                                      |     it exists, or returns a default  |
 |                                      |     value if the optional is         |
-|                                      |     `nil`{.code-voice}.              |
+|                                      |     `nil`.              |
 |                                      |                                      |
 |                                      | -   Updated and expanded the         |
 |                                      |     [Comparing                       |
@@ -756,22 +756,22 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     section to note that you can no  |
 |                                      |     longer append a single item to   |
 |                                      |     an array with the                |
-|                                      |     `+=`{.code-voice} operator.      |
+|                                      |     `+=` operator.      |
 |                                      |     Instead, use the                 |
-|                                      |     `append(_:)`{.code-voice}        |
+|                                      |     `append(_:)`        |
 |                                      |     method, or append a single-item  |
 |                                      |     array with the                   |
-|                                      |     `+=`{.code-voice} operator.      |
+|                                      |     `+=` operator.      |
 |                                      |                                      |
 |                                      | -   Added a note that the start      |
-|                                      |     value `a`{.code-voice} for the   |
+|                                      |     value `a` for the   |
 |                                      |     [Range                           |
 |                                      |     Operators](BasicOperators.md# |
 |                                      | TP40016643-CH6-ID73)                 |
-|                                      |     `a...b`{.code-voice} and         |
-|                                      |     `a..<b`{.code-voice} must not be |
+|                                      |     `a...b` and         |
+|                                      |     `a..<b` must not be |
 |                                      |     greater than the end value       |
-|                                      |     `b`{.code-voice}.                |
+|                                      |     `b`.                |
 |                                      |                                      |
 |                                      | -   Rewrote the                      |
 |                                      |     [Inheritance](Inheritance.md) |
@@ -789,7 +789,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      | 16643-CH17-ID200)                    |
 |                                      |     has been rewritten to show how   |
 |                                      |     to override a                    |
-|                                      |     `description`{.code-voice} prope |
+|                                      |     `description` prope |
 |                                      | rty.                                 |
 |                                      |     (The examples of modifying an    |
 |                                      |     inherited property’s default     |
@@ -805,14 +805,14 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     section to note that overrides   |
 |                                      |     of a designated initializer must |
 |                                      |     now be marked with the           |
-|                                      |     `override`{.code-voice} modifier |
+|                                      |     `override` modifier |
 |                                      | .                                    |
 |                                      |                                      |
 |                                      | -   Updated the [Required            |
 |                                      |     Initializers](Initialization.xht |
 |                                      | ml#TP40016643-CH18-ID231)            |
 |                                      |     section to note that the         |
-|                                      |     `required`{.code-voice} modifier |
+|                                      |     `required` modifier |
 |                                      |     is now written before every      |
 |                                      |     subclass implementation of a     |
 |                                      |     required initializer, and that   |
@@ -825,17 +825,17 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Functions](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID42)             |
 |                                      |     no longer require the            |
-|                                      |     `@infix`{.code-voice} attribute. |
+|                                      |     `@infix` attribute. |
 |                                      |                                      |
-|                                      | -   The `@prefix`{.code-voice} and   |
-|                                      |     `@postfix`{.code-voice}          |
+|                                      | -   The `@prefix` and   |
+|                                      |     `@postfix`          |
 |                                      |     attributes for [Prefix and       |
 |                                      |     Postfix                          |
 |                                      |     Operators](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID43)             |
 |                                      |     have been replaced by            |
-|                                      |     `prefix`{.code-voice} and        |
-|                                      |     `postfix`{.code-voice}           |
+|                                      |     `prefix` and        |
+|                                      |     `postfix`           |
 |                                      |     declaration modifiers.           |
 |                                      |                                      |
 |                                      | -   Added a note about the order in  |
@@ -851,7 +851,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Operators](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID44)             |
 |                                      |     no longer use the                |
-|                                      |     `@assignment`{.code-voice}       |
+|                                      |     `@assignment`       |
 |                                      |     attribute when defining          |
 |                                      |     the function.                    |
 |                                      |                                      |
@@ -860,13 +860,13 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Operators](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID46)             |
 |                                      |     has changed. You now write       |
-|                                      |     `prefix operator`{.code-voice}   |
+|                                      |     `prefix operator`   |
 |                                      |     rather than                      |
-|                                      |     `operator prefix`{.code-voice},  |
+|                                      |     `operator prefix`,  |
 |                                      |     for example.                     |
 |                                      |                                      |
 |                                      | -   Added information about the      |
-|                                      |     `dynamic`{.code-voice}           |
+|                                      |     `dynamic`           |
 |                                      |     declaration modifier in          |
 |                                      |     [Declaration                     |
 |                                      |     Modifiers](Declarations.md#TP |
@@ -888,7 +888,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Characters](StringsAndCharacters |
 |                                      | .md)                              |
 |                                      |     chapter to reflect the fact that |
-|                                      |     Swift’s `Character`{.code-voice} |
+|                                      |     Swift’s `Character` |
 |                                      |     type now represents a single     |
 |                                      |     Unicode extended                 |
 |                                      |     grapheme cluster. Includes a new |
@@ -909,26 +909,26 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     section to note that Unicode     |
 |                                      |     scalars inside string literals   |
 |                                      |     are now written as               |
-|                                      |     `\u{n}`{.code-voice}, where      |
-|                                      |     `n`{.code-voice} is a            |
+|                                      |     `\u{n}`, where      |
+|                                      |     `n` is a            |
 |                                      |     hexadecimal number between 0 and |
 |                                      |     10FFFF, the range of             |
 |                                      |     Unicode’s codespace.             |
 |                                      |                                      |
-|                                      | -   The `NSString`{.code-voice}      |
-|                                      |     `length`{.code-voice} property   |
+|                                      | -   The `NSString`      |
+|                                      |     `length` property   |
 |                                      |     is now mapped onto Swift’s       |
-|                                      |     native `String`{.code-voice}     |
+|                                      |     native `String`     |
 |                                      |     type as                          |
-|                                      |     `utf16Count`{.code-voice}, not   |
-|                                      |     `utf16count`{.code-voice}.       |
+|                                      |     `utf16Count`, not   |
+|                                      |     `utf16count`.       |
 |                                      |                                      |
 |                                      | -   Swift’s native                   |
-|                                      |     `String`{.code-voice} type no    |
+|                                      |     `String` type no    |
 |                                      |     longer has an                    |
-|                                      |     `uppercaseString`{.code-voice}   |
+|                                      |     `uppercaseString`   |
 |                                      |     or                               |
-|                                      |     `lowercaseString`{.code-voice} p |
+|                                      |     `lowercaseString` p |
 |                                      | roperty.                             |
 |                                      |     The corresponding section in     |
 |                                      |     [Strings and                     |
@@ -961,21 +961,21 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     on a single line with one        |
 |                                      |     type annotation.                 |
 |                                      |                                      |
-|                                      | -   The `@optional`{.code-voice},    |
-|                                      |     `@lazy`{.code-voice},            |
-|                                      |     `@final`{.code-voice}, and       |
-|                                      |     `@required`{.code-voice}         |
+|                                      | -   The `@optional`,    |
+|                                      |     `@lazy`,            |
+|                                      |     `@final`, and       |
+|                                      |     `@required`         |
 |                                      |     attributes are now the           |
-|                                      |     `optional`{.code-voice},         |
-|                                      |     `lazy`{.code-voice},             |
-|                                      |     `final`{.code-voice}, and        |
-|                                      |     `required`{.code-voice}          |
+|                                      |     `optional`,         |
+|                                      |     `lazy`,             |
+|                                      |     `final`, and        |
+|                                      |     `required`          |
 |                                      |     [Declaration                     |
 |                                      |     Modifiers](Declarations.md#TP |
 |                                      | 40016643-CH34-ID381).                |
 |                                      |                                      |
 |                                      | -   Updated the entire book to refer |
-|                                      |     to `..<`{.code-voice} as the     |
+|                                      |     to `..<` as the     |
 |                                      |     [Half-Open Range                 |
 |                                      |     Operator](BasicOperators.md#T |
 |                                      | P40016643-CH6-ID75)                  |
@@ -987,9 +987,9 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Dictionary](CollectionTypes.xhtm |
 |                                      | l#TP40016643-CH8-ID116)              |
 |                                      |     section to note that             |
-|                                      |     `Dictionary`{.code-voice} now    |
+|                                      |     `Dictionary` now    |
 |                                      |     has a Boolean                    |
-|                                      |     `isEmpty`{.code-voice} property. |
+|                                      |     `isEmpty` property. |
 |                                      |                                      |
 |                                      | -   Clarified the full list of       |
 |                                      |     characters that can be used when |
@@ -997,13 +997,13 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Operators](AdvancedOperators.xht |
 |                                      | ml#TP40016643-CH27-ID46).            |
 |                                      |                                      |
-|                                      | -   `nil`{.code-voice} and the       |
-|                                      |     Booleans `true`{.code-voice} and |
-|                                      |     `false`{.code-voice} are now     |
+|                                      | -   `nil` and the       |
+|                                      |     Booleans `true` and |
+|                                      |     `false` are now     |
 |                                      |     [Literals](LexicalStructure.xhtm |
 |                                      | l#TP40016643-CH30-ID414).            |
 |                                      |                                      |
-|                                      | -   Swift’s `Array`{.code-voice}     |
+|                                      | -   Swift’s `Array`     |
 |                                      |     type now has full                |
 |                                      |     value semantics. Updated the     |
 |                                      |     information about [Mutability of |
@@ -1023,8 +1023,8 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Syntax](CollectionTypes.md#TP |
 |                                      | 40016643-CH8-ID108)                  |
 |                                      |     is now written as                |
-|                                      |     `[SomeType]`{.code-voice} rather |
-|                                      |     than `SomeType[]`{.code-voice}.  |
+|                                      |     `[SomeType]` rather |
+|                                      |     than `SomeType[]`.  |
 |                                      |                                      |
 |                                      | -   Added a new section about        |
 |                                      |     [Dictionary Type Shorthand       |
@@ -1043,9 +1043,9 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Expressions](Closures.md#TP40 |
 |                                      | 016643-CH11-ID95)                    |
 |                                      |     now use the global               |
-|                                      |     `sorted(_:_:)`{.code-voice}      |
+|                                      |     `sorted(_:_:)`      |
 |                                      |     function rather than the global  |
-|                                      |     `sort(_:_:)`{.code-voice}        |
+|                                      |     `sort(_:_:)`        |
 |                                      |     function, to reflect the new     |
 |                                      |     array value semantics.           |
 |                                      |                                      |
@@ -1060,8 +1060,8 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     stored properties do not have    |
 |                                      |     default values.                  |
 |                                      |                                      |
-|                                      | -   Updated to `..<`{.code-voice}    |
-|                                      |     rather than `..`{.code-voice}    |
+|                                      | -   Updated to `..<`    |
+|                                      |     rather than `..`    |
 |                                      |     for the [Half-Open Range         |
 |                                      |     Operator](BasicOperators.md#T |
 |                                      | P40016643-CH6-ID75).                 |

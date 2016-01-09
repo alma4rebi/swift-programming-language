@@ -2,7 +2,7 @@
 
 
 
-Copyright and Notices {#copyright-and-notices .chapter-name}
+Copyright and Notices 
 ---------------------
 
 

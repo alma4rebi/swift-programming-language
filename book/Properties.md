@@ -2,8 +2,8 @@
 
 
 
-[‌](){#TP40016643-CH14}[‌](){#TP40016643-CH14-ID254}
-Properties {#properties .chapter-name}
+[‌]()[‌]()
+Properties 
 ----------
 
 
@@ -18,14 +18,14 @@ In addition, you can define property observers to monitor changes in a property�
 
 
 
-[‌](){#TP40016643-CH14-ID255}
-### Stored Properties {#stored-properties .section-name}
+[‌]()
+### Stored Properties 
 
-In its simplest form, a stored property is a constant or variable that is stored as part of an instance of a particular class or structure. Stored properties can be either *variable stored properties* (introduced by the `var`{.code-voice} keyword) or *constant stored properties* (introduced by the `let`{.code-voice} keyword).
+In its simplest form, a stored property is a constant or variable that is stored as part of an instance of a particular class or structure. Stored properties can be either *variable stored properties* (introduced by the `var` keyword) or *constant stored properties* (introduced by the `let` keyword).
 
 You can provide a default value for a stored property as part of its definition, as described in [Default Property Values](Initialization.md#TP40016643-CH18-ID206). You can also set and modify the initial value for a stored property during initialization. This is true even for constant stored properties, as described in [Assigning Constant Properties During Initialization](Initialization.md#TP40016643-CH18-ID212).
 
-The example below defines a structure called `FixedLengthRange`{.code-voice}, which describes a range of integers whose range length cannot be changed once it is created:
+The example below defines a structure called `FixedLengthRange`, which describes a range of integers whose range length cannot be changed once it is created:
 
 
 
@@ -33,14 +33,14 @@ The example below defines a structure called `FixedLengthRange`{.code-voice}, wh
 
 
 
-1.  `struct`{.code-voice} `FixedLengthRange`{.vc} {
-2.  `    var`{.code-voice} `firstValue`{.vc}: `Int`{.n}
-3.  `    let`{.code-voice} `length`{.vc}: `Int`{.n}
-4.  `}`{.code-voice}
-5.  `var`{.code-voice} `rangeOfThreeItems`{.vc} = `FixedLengthRange`{.vc}(`firstValue`{.vc}: `0`{.m}, `length`{.vc}: `3`{.m})
-6.  `// the range represents integer values 0, 1, and 2`{.code-voice}
-7.  `rangeOfThreeItems`{.code-voice}.`firstValue`{.vc} = `6`{.m}
-8.  `// the range now represents integer values 6, 7, and 8`{.code-voice}
+1.  `struct` `FixedLengthRange` {
+2.  `    var` `firstValue`: `Int`
+3.  `    let` `length`: `Int`
+4.  `}`
+5.  `var` `rangeOfThreeItems` = `FixedLengthRange`(`firstValue`: `0`, `length`: `3`)
+6.  `// the range represents integer values 0, 1, and 2`
+7.  `rangeOfThreeItems`.`firstValue` = `6`
+8.  `// the range now represents integer values 6, 7, and 8`
 
 
 
@@ -48,12 +48,12 @@ The example below defines a structure called `FixedLengthRange`{.code-voice}, wh
 
 
 
-Instances of `FixedLengthRange`{.code-voice} have a variable stored property called `firstValue`{.code-voice} and a constant stored property called `length`{.code-voice}. In the example above, `length`{.code-voice} is initialized when the new range is created and cannot be changed thereafter, because it is a constant property.
+Instances of `FixedLengthRange` have a variable stored property called `firstValue` and a constant stored property called `length`. In the example above, `length` is initialized when the new range is created and cannot be changed thereafter, because it is a constant property.
 
 
 
-[‌](){#TP40016643-CH14-ID256}
-### Stored Properties of Constant Structure Instances {#stored-properties-of-constant-structure-instances .section-name}
+[‌]()
+### Stored Properties of Constant Structure Instances 
 
 If you create an instance of a structure and assign that instance to a constant, you cannot modify the instance’s properties, even if they were declared as variable properties:
 
@@ -63,10 +63,10 @@ If you create an instance of a structure and assign that instance to a constant,
 
 
 
-1.  `let`{.code-voice} `rangeOfFourItems`{.vc} = `FixedLengthRange`{.vc}(`firstValue`{.vc}: `0`{.m}, `length`{.vc}: `4`{.m})
-2.  `// this range represents integer values 0, 1, 2, and 3`{.code-voice}
-3.  `rangeOfFourItems`{.code-voice}.`firstValue`{.vc} = `6`{.m}
-4.  `// this will report an error, even though firstValue is a variable property`{.code-voice}
+1.  `let` `rangeOfFourItems` = `FixedLengthRange`(`firstValue`: `0`, `length`: `4`)
+2.  `// this range represents integer values 0, 1, 2, and 3`
+3.  `rangeOfFourItems`.`firstValue` = `6`
+4.  `// this will report an error, even though firstValue is a variable property`
 
 
 
@@ -74,7 +74,7 @@ If you create an instance of a structure and assign that instance to a constant,
 
 
 
-Because `rangeOfFourItems`{.code-voice} is declared as a constant (with the `let`{.code-voice} keyword), it is not possible to change its `firstValue`{.code-voice} property, even though `firstValue`{.code-voice} is a variable property.
+Because `rangeOfFourItems` is declared as a constant (with the `let` keyword), it is not possible to change its `firstValue` property, even though `firstValue` is a variable property.
 
 This behavior is due to structures being *value types*. When an instance of a value type is marked as a constant, so are all of its properties.
 
@@ -84,22 +84,22 @@ The same is not true for classes, which are *reference types*. If you assign an 
 
 
 
-[‌](){#TP40016643-CH14-ID257}
-### Lazy Stored Properties {#lazy-stored-properties .section-name}
+[‌]()
+### Lazy Stored Properties 
 
-A *lazy stored property* is a property whose initial value is not calculated until the first time it is used. You indicate a lazy stored property by writing the `lazy`{.code-voice} modifier before its declaration.
+A *lazy stored property* is a property whose initial value is not calculated until the first time it is used. You indicate a lazy stored property by writing the `lazy` modifier before its declaration.
 
 
 
 Note
 
-You must always declare a lazy property as a variable (with the `var`{.code-voice} keyword), because its initial value might not be retrieved until after instance initialization completes. Constant properties must always have a value *before* initialization completes, and therefore cannot be declared as lazy.
+You must always declare a lazy property as a variable (with the `var` keyword), because its initial value might not be retrieved until after instance initialization completes. Constant properties must always have a value *before* initialization completes, and therefore cannot be declared as lazy.
 
 
 
 Lazy properties are useful when the initial value for a property is dependent on outside factors whose values are not known until after an instance’s initialization is complete. Lazy properties are also useful when the initial value for a property requires complex or computationally expensive setup that should not be performed unless or until it is needed.
 
-The example below uses a lazy stored property to avoid unnecessary initialization of a complex class. This example defines two classes called `DataImporter`{.code-voice} and `DataManager`{.code-voice}, neither of which is shown in full:
+The example below uses a lazy stored property to avoid unnecessary initialization of a complex class. This example defines two classes called `DataImporter` and `DataManager`, neither of which is shown in full:
 
 
 
@@ -107,25 +107,25 @@ The example below uses a lazy stored property to avoid unnecessary initializatio
 
 
 
-1.  `class`{.code-voice} `DataImporter`{.vc} {
-2.  `    /*`{.code-voice}
-3.  `    DataImporter is a class to import data from an external file.`{.code-voice}
-4.  `    The class is assumed to take a non-trivial amount of time to initialize.`{.code-voice}
-5.  `    */`{.code-voice}
-6.  `    var`{.code-voice} `fileName`{.vc} = `"data.txt"`{.s}
-7.  `    // the DataImporter class would provide data importing functionality here`{.code-voice}
-8.  `}`{.code-voice}
-9.  ` `{.code-voice}
-10. `class`{.code-voice} `DataManager`{.vc} {
-11. `    lazy`{.code-voice} `var`{.kt} `importer`{.vc} = `DataImporter`{.vc}()
-12. `    var`{.code-voice} `data`{.vc} = \[`String`{.vc}\]()
-13. `    // the DataManager class would provide data management functionality here`{.code-voice}
-14. `}`{.code-voice}
-15. ` `{.code-voice}
-16. `let`{.code-voice} `manager`{.vc} = `DataManager`{.vc}()
-17. `manager`{.code-voice}.`data`{.vc}.`append`{.vc}(`"Some data"`{.s})
-18. `manager`{.code-voice}.`data`{.vc}.`append`{.vc}(`"Some more data"`{.s})
-19. `// the DataImporter instance for the importer property has not yet been created`{.code-voice}
+1.  `class` `DataImporter` {
+2.  `    /*`
+3.  `    DataImporter is a class to import data from an external file.`
+4.  `    The class is assumed to take a non-trivial amount of time to initialize.`
+5.  `    */`
+6.  `    var` `fileName` = `"data.txt"`
+7.  `    // the DataImporter class would provide data importing functionality here`
+8.  `}`
+9.  ` `
+10. `class` `DataManager` {
+11. `    lazy` `var` `importer` = `DataImporter`()
+12. `    var` `data` = \[`String`\]()
+13. `    // the DataManager class would provide data management functionality here`
+14. `}`
+15. ` `
+16. `let` `manager` = `DataManager`()
+17. `manager`.`data`.`append`(`"Some data"`)
+18. `manager`.`data`.`append`(`"Some more data"`)
+19. `// the DataImporter instance for the importer property has not yet been created`
 
 
 
@@ -133,23 +133,23 @@ The example below uses a lazy stored property to avoid unnecessary initializatio
 
 
 
-The `DataManager`{.code-voice} class has a stored property called `data`{.code-voice}, which is initialized with a new, empty array of `String`{.code-voice} values. Although the rest of its functionality is not shown, the purpose of this `DataManager`{.code-voice} class is to manage and provide access to this array of `String`{.code-voice} data.
+The `DataManager` class has a stored property called `data`, which is initialized with a new, empty array of `String` values. Although the rest of its functionality is not shown, the purpose of this `DataManager` class is to manage and provide access to this array of `String` data.
 
-Part of the functionality of the `DataManager`{.code-voice} class is the ability to import data from a file. This functionality is provided by the `DataImporter`{.code-voice} class, which is assumed to take a non-trivial amount of time to initialize. This might be because a `DataImporter`{.code-voice} instance needs to open a file and read its contents into memory when the `DataImporter`{.code-voice} instance is initialized.
+Part of the functionality of the `DataManager` class is the ability to import data from a file. This functionality is provided by the `DataImporter` class, which is assumed to take a non-trivial amount of time to initialize. This might be because a `DataImporter` instance needs to open a file and read its contents into memory when the `DataImporter` instance is initialized.
 
-It is possible for a `DataManager`{.code-voice} instance to manage its data without ever importing data from a file, so there is no need to create a new `DataImporter`{.code-voice} instance when the `DataManager`{.code-voice} itself is created. Instead, it makes more sense to create the `DataImporter`{.code-voice} instance if and when it is first used.
+It is possible for a `DataManager` instance to manage its data without ever importing data from a file, so there is no need to create a new `DataImporter` instance when the `DataManager` itself is created. Instead, it makes more sense to create the `DataImporter` instance if and when it is first used.
 
-Because it is marked with the `lazy`{.code-voice} modifier, the `DataImporter`{.code-voice} instance for the `importer`{.code-voice} property is only created when the `importer`{.code-voice} property is first accessed, such as when its `fileName`{.code-voice} property is queried:
-
-
+Because it is marked with the `lazy` modifier, the `DataImporter` instance for the `importer` property is only created when the `importer` property is first accessed, such as when its `fileName` property is queried:
 
 
 
 
 
-1.  `print`{.code-voice}(`manager`{.vc}.`importer`{.vc}.`fileName`{.vc})
-2.  `// the DataImporter instance for the importer property has now been created`{.code-voice}
-3.  `// prints "data.txt"`{.code-voice}
+
+
+1.  `print`(`manager`.`importer`.`fileName`)
+2.  `// the DataImporter instance for the importer property has now been created`
+3.  `// prints "data.txt"`
 
 
 
@@ -161,7 +161,7 @@ Because it is marked with the `lazy`{.code-voice} modifier, the `DataImporter`{.
 
 Note
 
-If a property marked with the `lazy`{.code-voice} modifier is accessed by multiple threads simultaneously and the property has not yet been initialized, there is no guarantee that the property will be initialized only once.
+If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property has not yet been initialized, there is no guarantee that the property will be initialized only once.
 
 
 
@@ -169,8 +169,8 @@ If a property marked with the `lazy`{.code-voice} modifier is accessed by multip
 
 
 
-[‌](){#TP40016643-CH14-ID258}
-### Stored Properties and Instance Variables {#stored-properties-and-instance-variables .section-name}
+[‌]()
+### Stored Properties and Instance Variables 
 
 If you have experience with Objective-C, you may know that it provides *two* ways to store values and references as part of a class instance. In addition to properties, you can use instance variables as a backing store for the values stored in a property.
 
@@ -182,8 +182,8 @@ Swift unifies these concepts into a single property declaration. A Swift propert
 
 
 
-[‌](){#TP40016643-CH14-ID259}
-### Computed Properties {#computed-properties .section-name}
+[‌]()
+### Computed Properties 
 
 In addition to stored properties, classes, structures, and enumerations can define *computed properties*, which do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
 
@@ -193,33 +193,33 @@ In addition to stored properties, classes, structures, and enumerations can defi
 
 
 
-1.  `struct`{.code-voice} `Point`{.vc} {
-2.  `    var`{.code-voice} `x`{.vc} = `0.0`{.m}, `y`{.vc} = `0.0`{.m}
-3.  `}`{.code-voice}
-4.  `struct`{.code-voice} `Size`{.vc} {
-5.  `    var`{.code-voice} `width`{.vc} = `0.0`{.m}, `height`{.vc} = `0.0`{.m}
-6.  `}`{.code-voice}
-7.  `struct`{.code-voice} `Rect`{.vc} {
-8.  `    var`{.code-voice} `origin`{.vc} = `Point`{.vc}()
-9.  `    var`{.code-voice} `size`{.vc} = `Size`{.vc}()
-10. `    var`{.code-voice} `center`{.vc}: `Point`{.n} {
-11. `        get`{.code-voice} {
-12. `            let`{.code-voice} `centerX`{.vc} = `origin`{.vc}.`x`{.vc} + (`size`{.vc}.`width`{.vc} / `2`{.m})
-13. `            let`{.code-voice} `centerY`{.vc} = `origin`{.vc}.`y`{.vc} + (`size`{.vc}.`height`{.vc} / `2`{.m})
-14. `            return`{.code-voice} `Point`{.vc}(`x`{.vc}: `centerX`{.vc}, `y`{.vc}: `centerY`{.vc})
-15. `        }`{.code-voice}
-16. `        set`{.code-voice}(`newCenter`{.vc}) {
-17. `            origin`{.code-voice}.`x`{.vc} = `newCenter`{.vc}.`x`{.vc} - (`size`{.vc}.`width`{.vc} / `2`{.m})
-18. `            origin`{.code-voice}.`y`{.vc} = `newCenter`{.vc}.`y`{.vc} - (`size`{.vc}.`height`{.vc} / `2`{.m})
-19. `        }`{.code-voice}
-20. `    }`{.code-voice}
-21. `}`{.code-voice}
-22. `var`{.code-voice} `square`{.vc} = `Rect`{.vc}(`origin`{.vc}: `Point`{.vc}(`x`{.vc}: `0.0`{.m}, `y`{.vc}: `0.0`{.m}),
-23. `    size`{.code-voice}: `Size`{.vc}(`width`{.vc}: `10.0`{.m}, `height`{.vc}: `10.0`{.m}))
-24. `let`{.code-voice} `initialSquareCenter`{.vc} = `square`{.vc}.`center`{.vc}
-25. `square`{.code-voice}.`center`{.vc} = `Point`{.vc}(`x`{.vc}: `15.0`{.m}, `y`{.vc}: `15.0`{.m})
-26. `print`{.code-voice}(`"square.origin is now at (`{.s}\\(`square`{.vc}.`origin`{.vc}.`x`{.vc})`, `{.s}\\(`square`{.vc}.`origin`{.vc}.`y`{.vc})`)"`{.s})
-27. `// prints "square.origin is now at (10.0, 10.0)"`{.code-voice}
+1.  `struct` `Point` {
+2.  `    var` `x` = `0.0`, `y` = `0.0`
+3.  `}`
+4.  `struct` `Size` {
+5.  `    var` `width` = `0.0`, `height` = `0.0`
+6.  `}`
+7.  `struct` `Rect` {
+8.  `    var` `origin` = `Point`()
+9.  `    var` `size` = `Size`()
+10. `    var` `center`: `Point` {
+11. `        get` {
+12. `            let` `centerX` = `origin`.`x` + (`size`.`width` / `2`)
+13. `            let` `centerY` = `origin`.`y` + (`size`.`height` / `2`)
+14. `            return` `Point`(`x`: `centerX`, `y`: `centerY`)
+15. `        }`
+16. `        set`(`newCenter`) {
+17. `            origin`.`x` = `newCenter`.`x` - (`size`.`width` / `2`)
+18. `            origin`.`y` = `newCenter`.`y` - (`size`.`height` / `2`)
+19. `        }`
+20. `    }`
+21. `}`
+22. `var` `square` = `Rect`(`origin`: `Point`(`x`: `0.0`, `y`: `0.0`),
+23. `    size`: `Size`(`width`: `10.0`, `height`: `10.0`))
+24. `let` `initialSquareCenter` = `square`.`center`
+25. `square`.`center` = `Point`(`x`: `15.0`, `y`: `15.0`)
+26. `print`(`"square.origin is now at (`\\(`square`.`origin`.`x`)`, `\\(`square`.`origin`.`y`)`)"`)
+27. `// prints "square.origin is now at (10.0, 10.0)"`
 
 
 
@@ -229,19 +229,19 @@ In addition to stored properties, classes, structures, and enumerations can defi
 
 This example defines three structures for working with geometric shapes:
 
--   `Point`{.code-voice} encapsulates an `(x, y)`{.code-voice} coordinate.
+-   `Point` encapsulates an `(x, y)` coordinate.
 
--   `Size`{.code-voice} encapsulates a `width`{.code-voice} and a `height`{.code-voice}.
+-   `Size` encapsulates a `width` and a `height`.
 
--   `Rect`{.code-voice} defines a rectangle by an origin point and a size.
+-   `Rect` defines a rectangle by an origin point and a size.
 
-The `Rect`{.code-voice} structure also provides a computed property called `center`{.code-voice}. The current center position of a `Rect`{.code-voice} can always be determined from its `origin`{.code-voice} and `size`{.code-voice}, and so you don’t need to store the center point as an explicit `Point`{.code-voice} value. Instead, `Rect`{.code-voice} defines a custom getter and setter for a computed variable called `center`{.code-voice}, to enable you to work with the rectangle’s `center`{.code-voice} as if it were a real stored property.
+The `Rect` structure also provides a computed property called `center`. The current center position of a `Rect` can always be determined from its `origin` and `size`, and so you don’t need to store the center point as an explicit `Point` value. Instead, `Rect` defines a custom getter and setter for a computed variable called `center`, to enable you to work with the rectangle’s `center` as if it were a real stored property.
 
-The preceding example creates a new `Rect`{.code-voice} variable called `square`{.code-voice}. The `square`{.code-voice} variable is initialized with an origin point of `(0, 0)`{.code-voice}, and a width and height of `10`{.code-voice}. This square is represented by the blue square in the diagram below.
+The preceding example creates a new `Rect` variable called `square`. The `square` variable is initialized with an origin point of `(0, 0)`, and a width and height of `10`. This square is represented by the blue square in the diagram below.
 
-The `square`{.code-voice} variable’s `center`{.code-voice} property is then accessed through dot syntax (`square.center`{.code-voice}), which causes the getter for `center`{.code-voice} to be called, to retrieve the current property value. Rather than returning an existing value, the getter actually calculates and returns a new `Point`{.code-voice} to represent the center of the square. As can be seen above, the getter correctly returns a center point of `(5, 5)`{.code-voice}.
+The `square` variable’s `center` property is then accessed through dot syntax (`square.center`), which causes the getter for `center` to be called, to retrieve the current property value. Rather than returning an existing value, the getter actually calculates and returns a new `Point` to represent the center of the square. As can be seen above, the getter correctly returns a center point of `(5, 5)`.
 
-The `center`{.code-voice} property is then set to a new value of `(15, 15)`{.code-voice}, which moves the square up and to the right, to the new position shown by the orange square in the diagram below. Setting the `center`{.code-voice} property calls the setter for `center`{.code-voice}, which modifies the `x`{.code-voice} and `y`{.code-voice} values of the stored `origin`{.code-voice} property, and moves the square to its new position.
+The `center` property is then set to a new value of `(15, 15)`, which moves the square up and to the right, to the new position shown by the orange square in the diagram below. Setting the `center` property calls the setter for `center`, which modifies the `x` and `y` values of the stored `origin` property, and moves the square to its new position.
 
 
 
@@ -252,34 +252,32 @@ The `center`{.code-voice} property is then set to a new value of `(15, 15)`{.cod
 
 
 
-[‌](){#TP40016643-CH14-ID260}
-### Shorthand Setter Declaration {#shorthand-setter-declaration .section-name}
+[‌]()
+### Shorthand Setter Declaration 
 
-If a computed property’s setter does not define a name for the new value to be set, a default name of `newValue`{.code-voice} is used. Here’s an alternative version of the `Rect`{.code-voice} structure, which takes advantage of this shorthand notation:
-
-
+If a computed property’s setter does not define a name for the new value to be set, a default name of `newValue` is used. Here’s an alternative version of the `Rect` structure, which takes advantage of this shorthand notation:
 
 
 
 
 
-1.  `struct`{.code-voice} `AlternativeRect`{.vc} {
-2.  `    var`{.code-voice} `origin`{.vc} = `Point`{.vc}()
-3.  `    var`{.code-voice} `size`{.vc} = `Size`{.vc}()
-4.  `    var`{.code-voice} `center`{.vc}: `Point`{.n} {
-5.  `        get`{.code-voice} {
-6.  `            let`{.code-voice} `centerX`{.vc} = `origin`{.vc}.`x`{.vc} + (`size`{.vc}.`width`{.vc} / `2`{.m})
-7.  `            let`{.code-voice} `centerY`{.vc} = `origin`{.vc}.`y`{.vc} + (`size`{.vc}.`height`{.vc} / `2`{.m})
-8.  `            return`{.code-voice} `Point`{.vc}(`x`{.vc}: `centerX`{.vc}, `y`{.vc}: `centerY`{.vc})
-9.  `        }`{.code-voice}
-10. `        set`{.code-voice} {
-11. `            origin`{.code-voice}.`x`{.vc} = `newValue`{.vc}.`x`{.vc} - (`size`{.vc}.`width`{.vc} / `2`{.m})
-12. `            origin`{.code-voice}.`y`{.vc} = `newValue`{.vc}.`y`{.vc} - (`size`{.vc}.`height`{.vc} / `2`{.m})
-13. `        }`{.code-voice}
-14. `    }`{.code-voice}
-15. `}`{.code-voice}
 
 
+1.  `struct` `AlternativeRect` {
+2.  `    var` `origin` = `Point`()
+3.  `    var` `size` = `Size`()
+4.  `    var` `center`: `Point` {
+5.  `        get` {
+6.  `            let` `centerX` = `origin`.`x` + (`size`.`width` / `2`)
+7.  `            let` `centerY` = `origin`.`y` + (`size`.`height` / `2`)
+8.  `            return` `Point`(`x`: `centerX`, `y`: `centerY`)
+9.  `        }`
+10. `        set` {
+11. `            origin`.`x` = `newValue`.`x` - (`size`.`width` / `2`)
+12. `            origin`.`y` = `newValue`.`y` - (`size`.`height` / `2`)
+13. `        }`
+14. `    }`
+15. `}`
 
 
 
@@ -289,8 +287,10 @@ If a computed property’s setter does not define a name for the new value to be
 
 
 
-[‌](){#TP40016643-CH14-ID261}
-### Read-Only Computed Properties {#read-only-computed-properties .section-name}
+
+
+[‌]()
+### Read-Only Computed Properties 
 
 A computed property with a getter but no setter is known as a *read-only computed property*. A read-only computed property always returns a value, and can be accessed through dot syntax, but cannot be set to a different value.
 
@@ -298,27 +298,11 @@ A computed property with a getter but no setter is known as a *read-only compute
 
 Note
 
-You must declare computed properties—including read-only computed properties—as variable properties with the `var`{.code-voice} keyword, because their value is not fixed. The `let`{.code-voice} keyword is only used for constant properties, to indicate that their values cannot be changed once they are set as part of instance initialization.
+You must declare computed properties—including read-only computed properties—as variable properties with the `var` keyword, because their value is not fixed. The `let` keyword is only used for constant properties, to indicate that their values cannot be changed once they are set as part of instance initialization.
 
 
 
-You can simplify the declaration of a read-only computed property by removing the `get`{.code-voice} keyword and its braces:
-
-
-
-
-
-
-
-1.  `struct`{.code-voice} `Cuboid`{.vc} {
-2.  `    var`{.code-voice} `width`{.vc} = `0.0`{.m}, `height`{.vc} = `0.0`{.m}, `depth`{.vc} = `0.0`{.m}
-3.  `    var`{.code-voice} `volume`{.vc}: `Double`{.n} {
-4.  `        return`{.code-voice} `width`{.vc} \* `height`{.vc} \* `depth`{.vc}
-5.  `    }`{.code-voice}
-6.  `}`{.code-voice}
-7.  `let`{.code-voice} `fourByFiveByTwo`{.vc} = `Cuboid`{.vc}(`width`{.vc}: `4.0`{.m}, `height`{.vc}: `5.0`{.m}, `depth`{.vc}: `2.0`{.m})
-8.  `print`{.code-voice}(`"the volume of fourByFiveByTwo is `{.s}\\(`fourByFiveByTwo`{.vc}.`volume`{.vc})`"`{.s})
-9.  `// prints "the volume of fourByFiveByTwo is 40.0"`{.code-voice}
+You can simplify the declaration of a read-only computed property by removing the `get` keyword and its braces:
 
 
 
@@ -326,7 +310,15 @@ You can simplify the declaration of a read-only computed property by removing th
 
 
 
-This example defines a new structure called `Cuboid`{.code-voice}, which represents a 3D rectangular box with `width`{.code-voice}, `height`{.code-voice}, and `depth`{.code-voice} properties. This structure also has a read-only computed property called `volume`{.code-voice}, which calculates and returns the current volume of the cuboid. It doesn’t make sense for `volume`{.code-voice} to be settable, because it would be ambiguous as to which values of `width`{.code-voice}, `height`{.code-voice}, and `depth`{.code-voice} should be used for a particular `volume`{.code-voice} value. Nonetheless, it is useful for a `Cuboid`{.code-voice} to provide a read-only computed property to enable external users to discover its current calculated volume.
+1.  `struct` `Cuboid` {
+2.  `    var` `width` = `0.0`, `height` = `0.0`, `depth` = `0.0`
+3.  `    var` `volume`: `Double` {
+4.  `        return` `width` \* `height` \* `depth`
+5.  `    }`
+6.  `}`
+7.  `let` `fourByFiveByTwo` = `Cuboid`(`width`: `4.0`, `height`: `5.0`, `depth`: `2.0`)
+8.  `print`(`"the volume of fourByFiveByTwo is `\\(`fourByFiveByTwo`.`volume`)`"`)
+9.  `// prints "the volume of fourByFiveByTwo is 40.0"`
 
 
 
@@ -334,8 +326,16 @@ This example defines a new structure called `Cuboid`{.code-voice}, which represe
 
 
 
-[‌](){#TP40016643-CH14-ID262}
-### Property Observers {#property-observers .section-name}
+This example defines a new structure called `Cuboid`, which represents a 3D rectangular box with `width`, `height`, and `depth` properties. This structure also has a read-only computed property called `volume`, which calculates and returns the current volume of the cuboid. It doesn’t make sense for `volume` to be settable, because it would be ambiguous as to which values of `width`, `height`, and `depth` should be used for a particular `volume` value. Nonetheless, it is useful for a `Cuboid` to provide a read-only computed property to enable external users to discover its current calculated volume.
+
+
+
+
+
+
+
+[‌]()
+### Property Observers 
 
 *Property observers* observe and respond to changes in a property’s value. Property observers are called every time a property’s value is set, even if the new value is the same as the property’s current value.
 
@@ -351,25 +351,25 @@ You don’t need to define property observers for non-overridden computed proper
 
 You have the option to define either or both of these observers on a property:
 
--   `willSet`{.code-voice} is called just before the value is stored.
+-   `willSet` is called just before the value is stored.
 
--   `didSet`{.code-voice} is called immediately after the new value is stored.
+-   `didSet` is called immediately after the new value is stored.
 
-If you implement a `willSet`{.code-voice} observer, it is passed the new property value as a constant parameter. You can specify a name for this parameter as part of your `willSet`{.code-voice} implementation. If you don’t write the parameter name and parentheses within your implementation, the parameter is made available with a default parameter name of `newValue`{.code-voice}.
+If you implement a `willSet` observer, it is passed the new property value as a constant parameter. You can specify a name for this parameter as part of your `willSet` implementation. If you don’t write the parameter name and parentheses within your implementation, the parameter is made available with a default parameter name of `newValue`.
 
-Similarly, if you implement a `didSet`{.code-voice} observer, it will be passed a constant parameter containing the old property value. You can name the parameter or use the default parameter name of `oldValue`{.code-voice}.
+Similarly, if you implement a `didSet` observer, it will be passed a constant parameter containing the old property value. You can name the parameter or use the default parameter name of `oldValue`.
 
 
 
 Note
 
-The `willSet`{.code-voice} and `didSet`{.code-voice} observers of superclass properties are called when a property is set in a subclass initializer.
+The `willSet` and `didSet` observers of superclass properties are called when a property is set in a subclass initializer.
 
 For more information about initializer delegation, see [Initializer Delegation for Value Types](Initialization.md#TP40016643-CH18-ID215) and [Initializer Delegation for Class Types](Initialization.md#TP40016643-CH18-ID219).
 
 
 
-Here’s an example of `willSet`{.code-voice} and `didSet`{.code-voice} in action. The example below defines a new class called `StepCounter`{.code-voice}, which tracks the total number of steps that a person takes while walking. This class might be used with input data from a pedometer or other step counter to keep track of a person’s exercise during their daily routine.
+Here’s an example of `willSet` and `didSet` in action. The example below defines a new class called `StepCounter`, which tracks the total number of steps that a person takes while walking. This class might be used with input data from a pedometer or other step counter to keep track of a person’s exercise during their daily routine.
 
 
 
@@ -377,28 +377,28 @@ Here’s an example of `willSet`{.code-voice} and `didSet`{.code-voice} in actio
 
 
 
-1.  `class`{.code-voice} `StepCounter`{.vc} {
-2.  `    var`{.code-voice} `totalSteps`{.vc}: `Int`{.n} = `0`{.m} {
-3.  `        willSet`{.code-voice}(`newTotalSteps`{.vc}) {
-4.  `            print`{.code-voice}(`"About to set totalSteps to `{.s}\\(`newTotalSteps`{.vc})`"`{.s})
-5.  `        }`{.code-voice}
-6.  `        didSet`{.code-voice} {
-7.  `            if`{.code-voice} `totalSteps`{.vc} &gt; `oldValue`{.vc} {
-8.  `                print`{.code-voice}(`"Added `{.s}\\(`totalSteps`{.vc} - `oldValue`{.vc})` steps"`{.s})
-9.  `            }`{.code-voice}
-10. `        }`{.code-voice}
-11. `    }`{.code-voice}
-12. `}`{.code-voice}
-13. `let`{.code-voice} `stepCounter`{.vc} = `StepCounter`{.vc}()
-14. `stepCounter`{.code-voice}.`totalSteps`{.vc} = `200`{.m}
-15. `// About to set totalSteps to 200`{.code-voice}
-16. `// Added 200 steps`{.code-voice}
-17. `stepCounter`{.code-voice}.`totalSteps`{.vc} = `360`{.m}
-18. `// About to set totalSteps to 360`{.code-voice}
-19. `// Added 160 steps`{.code-voice}
-20. `stepCounter`{.code-voice}.`totalSteps`{.vc} = `896`{.m}
-21. `// About to set totalSteps to 896`{.code-voice}
-22. `// Added 536 steps`{.code-voice}
+1.  `class` `StepCounter` {
+2.  `    var` `totalSteps`: `Int` = `0` {
+3.  `        willSet`(`newTotalSteps`) {
+4.  `            print`(`"About to set totalSteps to `\\(`newTotalSteps`)`"`)
+5.  `        }`
+6.  `        didSet` {
+7.  `            if` `totalSteps` &gt; `oldValue` {
+8.  `                print`(`"Added `\\(`totalSteps` - `oldValue`)` steps"`)
+9.  `            }`
+10. `        }`
+11. `    }`
+12. `}`
+13. `let` `stepCounter` = `StepCounter`()
+14. `stepCounter`.`totalSteps` = `200`
+15. `// About to set totalSteps to 200`
+16. `// Added 200 steps`
+17. `stepCounter`.`totalSteps` = `360`
+18. `// About to set totalSteps to 360`
+19. `// Added 160 steps`
+20. `stepCounter`.`totalSteps` = `896`
+21. `// About to set totalSteps to 896`
+22. `// Added 536 steps`
 
 
 
@@ -406,19 +406,19 @@ Here’s an example of `willSet`{.code-voice} and `didSet`{.code-voice} in actio
 
 
 
-The `StepCounter`{.code-voice} class declares a `totalSteps`{.code-voice} property of type `Int`{.code-voice}. This is a stored property with `willSet`{.code-voice} and `didSet`{.code-voice} observers.
+The `StepCounter` class declares a `totalSteps` property of type `Int`. This is a stored property with `willSet` and `didSet` observers.
 
-The `willSet`{.code-voice} and `didSet`{.code-voice} observers for `totalSteps`{.code-voice} are called whenever the property is assigned a new value. This is true even if the new value is the same as the current value.
+The `willSet` and `didSet` observers for `totalSteps` are called whenever the property is assigned a new value. This is true even if the new value is the same as the current value.
 
-This example’s `willSet`{.code-voice} observer uses a custom parameter name of `newTotalSteps`{.code-voice} for the upcoming new value. In this example, it simply prints out the value that is about to be set.
+This example’s `willSet` observer uses a custom parameter name of `newTotalSteps` for the upcoming new value. In this example, it simply prints out the value that is about to be set.
 
-The `didSet`{.code-voice} observer is called after the value of `totalSteps`{.code-voice} is updated. It compares the new value of `totalSteps`{.code-voice} against the old value. If the total number of steps has increased, a message is printed to indicate how many new steps have been taken. The `didSet`{.code-voice} observer does not provide a custom parameter name for the old value, and the default name of `oldValue`{.code-voice} is used instead.
+The `didSet` observer is called after the value of `totalSteps` is updated. It compares the new value of `totalSteps` against the old value. If the total number of steps has increased, a message is printed to indicate how many new steps have been taken. The `didSet` observer does not provide a custom parameter name for the old value, and the default name of `oldValue` is used instead.
 
 
 
 Note
 
-If you assign a value to a property within its own `didSet`{.code-voice} observer, the new value that you assign will replace the one that was just set.
+If you assign a value to a property within its own `didSet` observer, the new value that you assign will replace the one that was just set.
 
 
 
@@ -426,8 +426,8 @@ If you assign a value to a property within its own `didSet`{.code-voice} observe
 
 
 
-[‌](){#TP40016643-CH14-ID263}
-### Global and Local Variables {#global-and-local-variables .section-name}
+[‌]()
+### Global and Local Variables 
 
 The capabilities described above for computing and observing properties are also available to *global variables* and *local variables*. Global variables are variables that are defined outside of any function, method, closure, or type context. Local variables are variables that are defined within a function, method, or closure context.
 
@@ -439,7 +439,7 @@ However, you can also define *computed variables* and define observers for store
 
 Note
 
-Global constants and variables are always computed lazily, in a similar manner to [Lazy Stored Properties](Properties.md#TP40016643-CH14-ID257). Unlike lazy stored properties, global constants and variables do not need to be marked with the `lazy`{.code-voice} modifier.
+Global constants and variables are always computed lazily, in a similar manner to [Lazy Stored Properties](Properties.md#TP40016643-CH14-ID257). Unlike lazy stored properties, global constants and variables do not need to be marked with the `lazy` modifier.
 
 Local constants and variables are never computed lazily.
 
@@ -449,8 +449,8 @@ Local constants and variables are never computed lazily.
 
 
 
-[‌](){#TP40016643-CH14-ID264}
-### Type Properties {#type-properties .section-name}
+[‌]()
+### Type Properties 
 
 Instance properties are properties that belong to an instance of a particular type. Every time you create a new instance of that type, it has its own set of property values, separate from any other instance.
 
@@ -466,18 +466,18 @@ Note
 
 Unlike stored instance properties, you must always give stored type properties a default value. This is because the type itself does not have an initializer that can assign a value to a stored type property at initialization time.
 
-Stored type properties are lazily initialized on their first access. They are guaranteed to be initialized only once, even when accessed by multiple threads simultaneously, and they do not need to be marked with the `lazy`{.code-voice} modifier.
+Stored type properties are lazily initialized on their first access. They are guaranteed to be initialized only once, even when accessed by multiple threads simultaneously, and they do not need to be marked with the `lazy` modifier.
 
 
 
 
 
-[‌](){#TP40016643-CH14-ID265}
-### Type Property Syntax {#type-property-syntax .section-name}
+[‌]()
+### Type Property Syntax 
 
 In C and Objective-C, you define static constants and variables associated with a type as *global* static variables. In Swift, however, type properties are written as part of the type’s definition, within the type’s outer curly braces, and each type property is explicitly scoped to the type it supports.
 
-You define type properties with the `static`{.code-voice} keyword. For computed type properties for class types, you can use the `class`{.code-voice} keyword instead to allow subclasses to override the superclass’s implementation. The example below shows the syntax for stored and computed type properties:
+You define type properties with the `static` keyword. For computed type properties for class types, you can use the `class` keyword instead to allow subclasses to override the superclass’s implementation. The example below shows the syntax for stored and computed type properties:
 
 
 
@@ -485,27 +485,27 @@ You define type properties with the `static`{.code-voice} keyword. For computed 
 
 
 
-1.  `struct`{.code-voice} `SomeStructure`{.vc} {
-2.  `    static`{.code-voice} `var`{.kt} `storedTypeProperty`{.vc} = `"Some value."`{.s}
-3.  `    static`{.code-voice} `var`{.kt} `computedTypeProperty`{.vc}: `Int`{.n} {
-4.  `        return`{.code-voice} `1`{.m}
-5.  `    }`{.code-voice}
-6.  `}`{.code-voice}
-7.  `enum`{.code-voice} `SomeEnumeration`{.vc} {
-8.  `    static`{.code-voice} `var`{.kt} `storedTypeProperty`{.vc} = `"Some value."`{.s}
-9.  `    static`{.code-voice} `var`{.kt} `computedTypeProperty`{.vc}: `Int`{.n} {
-10. `        return`{.code-voice} `6`{.m}
-11. `    }`{.code-voice}
-12. `}`{.code-voice}
-13. `class`{.code-voice} `SomeClass`{.vc} {
-14. `    static`{.code-voice} `var`{.kt} `storedTypeProperty`{.vc} = `"Some value."`{.s}
-15. `    static`{.code-voice} `var`{.kt} `computedTypeProperty`{.vc}: `Int`{.n} {
-16. `        return`{.code-voice} `27`{.m}
-17. `    }`{.code-voice}
-18. `    class`{.code-voice} `var`{.kt} `overrideableComputedTypeProperty`{.vc}: `Int`{.n} {
-19. `        return`{.code-voice} `107`{.m}
-20. `    }`{.code-voice}
-21. `}`{.code-voice}
+1.  `struct` `SomeStructure` {
+2.  `    static` `var` `storedTypeProperty` = `"Some value."`
+3.  `    static` `var` `computedTypeProperty`: `Int` {
+4.  `        return` `1`
+5.  `    }`
+6.  `}`
+7.  `enum` `SomeEnumeration` {
+8.  `    static` `var` `storedTypeProperty` = `"Some value."`
+9.  `    static` `var` `computedTypeProperty`: `Int` {
+10. `        return` `6`
+11. `    }`
+12. `}`
+13. `class` `SomeClass` {
+14. `    static` `var` `storedTypeProperty` = `"Some value."`
+15. `    static` `var` `computedTypeProperty`: `Int` {
+16. `        return` `27`
+17. `    }`
+18. `    class` `var` `overrideableComputedTypeProperty`: `Int` {
+19. `        return` `107`
+20. `    }`
+21. `}`
 
 
 
@@ -525,8 +525,8 @@ The computed type property examples above are for read-only computed type proper
 
 
 
-[‌](){#TP40016643-CH14-ID266}
-### Querying and Setting Type Properties {#querying-and-setting-type-properties .section-name}
+[‌]()
+### Querying and Setting Type Properties 
 
 Type properties are queried and set with dot syntax, just like instance properties. However, type properties are queried and set on the *type*, not on an instance of that type. For example:
 
@@ -536,15 +536,15 @@ Type properties are queried and set with dot syntax, just like instance properti
 
 
 
-1.  `print`{.code-voice}(`SomeStructure`{.vc}.`storedTypeProperty`{.vc})
-2.  `// prints "Some value."`{.code-voice}
-3.  `SomeStructure`{.code-voice}.`storedTypeProperty`{.vc} = `"Another value."`{.s}
-4.  `print`{.code-voice}(`SomeStructure`{.vc}.`storedTypeProperty`{.vc})
-5.  `// prints "Another value."`{.code-voice}
-6.  `print`{.code-voice}(`SomeEnumeration`{.vc}.`computedTypeProperty`{.vc})
-7.  `// prints "6"`{.code-voice}
-8.  `print`{.code-voice}(`SomeClass`{.vc}.`computedTypeProperty`{.vc})
-9.  `// prints "27"`{.code-voice}
+1.  `print`(`SomeStructure`.`storedTypeProperty`)
+2.  `// prints "Some value."`
+3.  `SomeStructure`.`storedTypeProperty` = `"Another value."`
+4.  `print`(`SomeStructure`.`storedTypeProperty`)
+5.  `// prints "Another value."`
+6.  `print`(`SomeEnumeration`.`computedTypeProperty`)
+7.  `// prints "6"`
+8.  `print`(`SomeClass`.`computedTypeProperty`)
+9.  `// prints "27"`
 
 
 
@@ -552,9 +552,9 @@ Type properties are queried and set with dot syntax, just like instance properti
 
 
 
-The examples that follow use two stored type properties as part of a structure that models an audio level meter for a number of audio channels. Each channel has an integer audio level between `0`{.code-voice} and `10`{.code-voice} inclusive.
+The examples that follow use two stored type properties as part of a structure that models an audio level meter for a number of audio channels. Each channel has an integer audio level between `0` and `10` inclusive.
 
-The figure below illustrates how two of these audio channels can be combined to model a stereo audio level meter. When a channel’s audio level is `0`{.code-voice}, none of the lights for that channel are lit. When the audio level is `10`{.code-voice}, all of the lights for that channel are lit. In this figure, the left channel has a current level of `9`{.code-voice}, and the right channel has a current level of `7`{.code-voice}:
+The figure below illustrates how two of these audio channels can be combined to model a stereo audio level meter. When a channel’s audio level is `0`, none of the lights for that channel are lit. When the audio level is `10`, all of the lights for that channel are lit. In this figure, the left channel has a current level of `9`, and the right channel has a current level of `7`:
 
 
 
@@ -563,7 +563,7 @@ The figure below illustrates how two of these audio channels can be combined to 
 
 
 
-The audio channels described above are represented by instances of the `AudioChannel`{.code-voice} structure:
+The audio channels described above are represented by instances of the `AudioChannel` structure:
 
 
 
@@ -571,22 +571,22 @@ The audio channels described above are represented by instances of the `AudioCha
 
 
 
-1.  `struct`{.code-voice} `AudioChannel`{.vc} {
-2.  `    static`{.code-voice} `let`{.kt} `thresholdLevel`{.vc} = `10`{.m}
-3.  `    static`{.code-voice} `var`{.kt} `maxInputLevelForAllChannels`{.vc} = `0`{.m}
-4.  `    var`{.code-voice} `currentLevel`{.vc}: `Int`{.n} = `0`{.m} {
-5.  `        didSet`{.code-voice} {
-6.  `            if`{.code-voice} `currentLevel`{.vc} &gt; `AudioChannel`{.vc}.`thresholdLevel`{.vc} {
-7.  `                // cap the new audio level to the threshold level`{.code-voice}
-8.  `                currentLevel`{.code-voice} = `AudioChannel`{.vc}.`thresholdLevel`{.vc}
-9.  `            }`{.code-voice}
-10. `            if`{.code-voice} `currentLevel`{.vc} &gt; `AudioChannel`{.vc}.`maxInputLevelForAllChannels`{.vc} {
-11. `                // store this as the new overall maximum input level`{.code-voice}
-12. `                AudioChannel`{.code-voice}.`maxInputLevelForAllChannels`{.vc} = `currentLevel`{.vc}
-13. `            }`{.code-voice}
-14. `        }`{.code-voice}
-15. `    }`{.code-voice}
-16. `}`{.code-voice}
+1.  `struct` `AudioChannel` {
+2.  `    static` `let` `thresholdLevel` = `10`
+3.  `    static` `var` `maxInputLevelForAllChannels` = `0`
+4.  `    var` `currentLevel`: `Int` = `0` {
+5.  `        didSet` {
+6.  `            if` `currentLevel` &gt; `AudioChannel`.`thresholdLevel` {
+7.  `                // cap the new audio level to the threshold level`
+8.  `                currentLevel` = `AudioChannel`.`thresholdLevel`
+9.  `            }`
+10. `            if` `currentLevel` &gt; `AudioChannel`.`maxInputLevelForAllChannels` {
+11. `                // store this as the new overall maximum input level`
+12. `                AudioChannel`.`maxInputLevelForAllChannels` = `currentLevel`
+13. `            }`
+14. `        }`
+15. `    }`
+16. `}`
 
 
 
@@ -594,36 +594,27 @@ The audio channels described above are represented by instances of the `AudioCha
 
 
 
-The `AudioChannel`{.code-voice} structure defines two stored type properties to support its functionality. The first, `thresholdLevel`{.code-voice}, defines the maximum threshold value an audio level can take. This is a constant value of `10`{.code-voice} for all `AudioChannel`{.code-voice} instances. If an audio signal comes in with a higher value than `10`{.code-voice}, it will be capped to this threshold value (as described below).
+The `AudioChannel` structure defines two stored type properties to support its functionality. The first, `thresholdLevel`, defines the maximum threshold value an audio level can take. This is a constant value of `10` for all `AudioChannel` instances. If an audio signal comes in with a higher value than `10`, it will be capped to this threshold value (as described below).
 
-The second type property is a variable stored property called `maxInputLevelForAllChannels`{.code-voice}. This keeps track of the maximum input value that has been received by *any* `AudioChannel`{.code-voice} instance. It starts with an initial value of `0`{.code-voice}.
+The second type property is a variable stored property called `maxInputLevelForAllChannels`. This keeps track of the maximum input value that has been received by *any* `AudioChannel` instance. It starts with an initial value of `0`.
 
-The `AudioChannel`{.code-voice} structure also defines a stored instance property called `currentLevel`{.code-voice}, which represents the channel’s current audio level on a scale of `0`{.code-voice} to `10`{.code-voice}.
+The `AudioChannel` structure also defines a stored instance property called `currentLevel`, which represents the channel’s current audio level on a scale of `0` to `10`.
 
-The `currentLevel`{.code-voice} property has a `didSet`{.code-voice} property observer to check the value of `currentLevel`{.code-voice} whenever it is set. This observer performs two checks:
+The `currentLevel` property has a `didSet` property observer to check the value of `currentLevel` whenever it is set. This observer performs two checks:
 
--   If the new value of `currentLevel`{.code-voice} is greater than the allowed `thresholdLevel`{.code-voice}, the property observer caps `currentLevel`{.code-voice} to `thresholdLevel`{.code-voice}.
+-   If the new value of `currentLevel` is greater than the allowed `thresholdLevel`, the property observer caps `currentLevel` to `thresholdLevel`.
 
--   If the new value of `currentLevel`{.code-voice} (after any capping) is higher than any value previously received by *any* `AudioChannel`{.code-voice} instance, the property observer stores the new `currentLevel`{.code-voice} value in the `maxInputLevelForAllChannels`{.code-voice} type property.
+-   If the new value of `currentLevel` (after any capping) is higher than any value previously received by *any* `AudioChannel` instance, the property observer stores the new `currentLevel` value in the `maxInputLevelForAllChannels` type property.
 
 
 
 Note
 
-In the first of these two checks, the `didSet`{.code-voice} observer sets `currentLevel`{.code-voice} to a different value. This does not, however, cause the observer to be called again.
+In the first of these two checks, the `didSet` observer sets `currentLevel` to a different value. This does not, however, cause the observer to be called again.
 
 
 
-You can use the `AudioChannel`{.code-voice} structure to create two new audio channels called `leftChannel`{.code-voice} and `rightChannel`{.code-voice}, to represent the audio levels of a stereo sound system:
-
-
-
-
-
-
-
-1.  `var`{.code-voice} `leftChannel`{.vc} = `AudioChannel`{.vc}()
-2.  `var`{.code-voice} `rightChannel`{.vc} = `AudioChannel`{.vc}()
+You can use the `AudioChannel` structure to create two new audio channels called `leftChannel` and `rightChannel`, to represent the audio levels of a stereo sound system:
 
 
 
@@ -631,7 +622,8 @@ You can use the `AudioChannel`{.code-voice} structure to create two new audio ch
 
 
 
-If you set the `currentLevel`{.code-voice} of the *left* channel to `7`{.code-voice}, you can see that the `maxInputLevelForAllChannels`{.code-voice} type property is updated to equal `7`{.code-voice}:
+1.  `var` `leftChannel` = `AudioChannel`()
+2.  `var` `rightChannel` = `AudioChannel`()
 
 
 
@@ -639,11 +631,7 @@ If you set the `currentLevel`{.code-voice} of the *left* channel to `7`{.code-vo
 
 
 
-1.  `leftChannel`{.code-voice}.`currentLevel`{.vc} = `7`{.m}
-2.  `print`{.code-voice}(`leftChannel`{.vc}.`currentLevel`{.vc})
-3.  `// prints "7"`{.code-voice}
-4.  `print`{.code-voice}(`AudioChannel`{.vc}.`maxInputLevelForAllChannels`{.vc})
-5.  `// prints "7"`{.code-voice}
+If you set the `currentLevel` of the *left* channel to `7`, you can see that the `maxInputLevelForAllChannels` type property is updated to equal `7`:
 
 
 
@@ -651,7 +639,11 @@ If you set the `currentLevel`{.code-voice} of the *left* channel to `7`{.code-vo
 
 
 
-If you try to set the `currentLevel`{.code-voice} of the *right* channel to `11`{.code-voice}, you can see that the right channel’s `currentLevel`{.code-voice} property is capped to the maximum value of `10`{.code-voice}, and the `maxInputLevelForAllChannels`{.code-voice} type property is updated to equal `10`{.code-voice}:
+1.  `leftChannel`.`currentLevel` = `7`
+2.  `print`(`leftChannel`.`currentLevel`)
+3.  `// prints "7"`
+4.  `print`(`AudioChannel`.`maxInputLevelForAllChannels`)
+5.  `// prints "7"`
 
 
 
@@ -659,11 +651,19 @@ If you try to set the `currentLevel`{.code-voice} of the *right* channel to `11`
 
 
 
-1.  `rightChannel`{.code-voice}.`currentLevel`{.vc} = `11`{.m}
-2.  `print`{.code-voice}(`rightChannel`{.vc}.`currentLevel`{.vc})
-3.  `// prints "10"`{.code-voice}
-4.  `print`{.code-voice}(`AudioChannel`{.vc}.`maxInputLevelForAllChannels`{.vc})
-5.  `// prints "10"`{.code-voice}
+If you try to set the `currentLevel` of the *right* channel to `11`, you can see that the right channel’s `currentLevel` property is capped to the maximum value of `10`, and the `maxInputLevelForAllChannels` type property is updated to equal `10`:
+
+
+
+
+
+
+
+1.  `rightChannel`.`currentLevel` = `11`
+2.  `print`(`rightChannel`.`currentLevel`)
+3.  `// prints "10"`
+4.  `print`(`AudioChannel`.`maxInputLevelForAllChannels`)
+5.  `// prints "10"`
 
 
 
