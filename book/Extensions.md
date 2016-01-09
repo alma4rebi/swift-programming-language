@@ -48,17 +48,17 @@ If you define an extension to add new functionality to an existing type, the new
 Extensions can add computed instance properties and computed type properties to existing types. This example adds five computed instance properties to Swift’s built-in `Double` type, to provide basic support for working with distance units:
 
     extension Double {
-        var km: Double { return self \* 1_000.0 }
+        var km: Double { return self * 1_000.0 }
         var m: Double { return self }
         var cm: Double { return self / 100.0 }
         var mm: Double { return self / 1_000.0 }
         var ft: Double { return self / 3.28084 }
     }
     let oneInch = 25.4.mm
-    print("One inch is \\(oneInch) meters")
+    print("One inch is \(oneInch) meters")
     // prints "One inch is 0.0254 meters"
     let threeFeet = 3.ft
-    print("Three feet is \\(threeFeet) meters")
+    print("Three feet is \(threeFeet) meters")
     // prints "Three feet is 0.914399970739201 meters"
 
 These computed properties express that a `Double` value should be considered as a certain unit of length. Although they are implemented as computed properties, the names of these properties can be appended to a floating-point literal value with dot syntax, as a way to use that literal value to perform distance conversions.
@@ -70,7 +70,7 @@ Other units require some conversion to be expressed as a value measured in meter
 These properties are read-only computed properties, and so they are expressed without the `get` keyword, for brevity. Their return value is of type `Double`, and can be used within mathematical calculations wherever a `Double` is accepted:
 
     let aMarathon = 42.km + 195.m
-    print("A marathon is \\(aMarathon) meters long")
+    print("A marathon is \(aMarathon) meters long")
     // prints "A marathon is 42195.0 meters long"
 
 Note
@@ -168,7 +168,7 @@ The example below adds a new mutating method called `square` to Swift’s `Int` 
 
     extension Int {
         mutating func square() {
-            self = self \* self
+            self = self * self
         }
     }
     var someInt = 3
@@ -189,26 +189,26 @@ Extensions can add new subscripts to an existing type. This example adds an inte
         subscript(var digitIndex: Int) -> Int {
             var decimalBase = 1
             while digitIndex > 0 {
-                decimalBase \*= 10
+                decimalBase *= 10
                 --digitIndex
             }
             return (self / decimalBase) % 10
         }
     }
-    746381295\[0\]
+    746381295[0]
     // returns 5
-    746381295\[1\]
+    746381295[1]
     // returns 9
-    746381295\[2\]
+    746381295[2]
     // returns 2
-    746381295\[8\]
+    746381295[8]
     // returns 7
 
 If the `Int` value does not have enough digits for the requested index, the subscript implementation returns `0`, as if the number had been padded with zeros to the left:
 
-    746381295\[9\]
+    746381295[9]
     // returns 0, as if you had requested:
-    0746381295\[9\]
+    0746381295[9]
 
 ### Nested Types
 
@@ -236,7 +236,7 @@ This example also adds a new computed instance property to `Int`, called `kind`,
 
 The nested enumeration can now be used with any `Int` value:
 
-    func printIntegerKinds(numbers: \[Int\]) {
+    func printIntegerKinds(numbers: [Int]) {
         for number in numbers {
             switch number.kind {
             case .Negative:
@@ -249,7 +249,7 @@ The nested enumeration can now be used with any `Int` value:
         }
         print("")
     }
-    printIntegerKinds(\[3, 19, -27, 0, -6, 0, 7\])
+    printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
     // prints "+ + - 0 - 0 +"
 
 This function, `printIntegerKinds`, takes an input array of `Int` values and iterates over those values in turn. For each integer in the array, the function considers the `kind` computed property for that integer, and prints an appropriate description.

@@ -57,7 +57,7 @@ Swift supports the four standard *arithmetic operators* for all number types:
 
     1 + 2 // equals 3
     5 - 3 // equals 2
-    2 \* 3 // equals 6
+    2 * 3 // equals 6
     10.0 / 2.5 // equals 4.0
 
 Unlike the arithmetic operators in C and Objective-C, the Swift arithmetic operators do not allow values to overflow by default. You can opt in to value overflow behavior by using Swift’s overflow operators (such as `a &+ b`). See [Overflow Operators](AdvancedOperators.md#TP40016643-CH27-ID37).
@@ -76,7 +76,7 @@ The remainder operator (`%`) is also known as a *modulo operator* in other langu
 
 Here’s how the remainder operator works. To calculate `9 % 4`, you first work out how many `4`s will fit inside `9`:
 
-![image: Art/remainderInteger\_2x.png](Art/remainderInteger_2x.png)
+![image: Art/remainderInteger_2x.png](Art/remainderInteger_2x.png)
 
 You can fit two `4`s inside `9`, and the remainder is `1` (shown in orange).
 
@@ -114,7 +114,7 @@ Unlike the remainder operator in C and Objective-C, Swift’s remainder operator
 
 In this example, `8` divided by `2.5` equals `3`, with a remainder of `0.5`, so the remainder operator returns a `Double` value of `0.5`.
 
-![image: Art/remainderFloat\_2x.png](Art/remainderFloat_2x.png)
+![image: Art/remainderFloat_2x.png](Art/remainderFloat_2x.png)
 
 ### Increment and Decrement Operators
 
@@ -217,7 +217,7 @@ Comparison operators are often used in conditional statements, such as the `if` 
     if name == "world" {
         print("hello, world")
     } else {
-        print("I'm sorry \\(name), but I don't recognize you")
+        print("I'm sorry \(name), but I don't recognize you")
     }
     // prints "hello, world", because name is indeed equal to "world"
 
@@ -299,7 +299,7 @@ The *closed range operator* (`a...b`) defines a range that runs from `a` to `b`,
 The closed range operator is useful when iterating over a range in which you want all of the values to be used, such as with a `for`-`in` loop:
 
     for index in 1...5 {
-        print("\\(index) times 5 is \\(index \* 5)")
+        print("\(index) times 5 is \(index * 5)")
     }
     // 1 times 5 is 5
     // 2 times 5 is 10
@@ -315,10 +315,10 @@ The *half-open range operator* (`a..<b`) defines a range that runs from `a` to `
 
 Half-open ranges are particularly useful when you work with zero-based lists such as arrays, where it is useful to count up to (but not including) the length of the list:
 
-    let names = \["Anna", "Alex", "Brian", "Jack"\]
+    let names = ["Anna", "Alex", "Brian", "Jack"]
     let count = names.count
     for i in 0..<count {
-        print("Person \\(i + 1) is called \\(names\[i\])")
+        print("Person \(i + 1) is called \(names[i])")
     }
     // Person 1 is called Anna
     // Person 2 is called Alex

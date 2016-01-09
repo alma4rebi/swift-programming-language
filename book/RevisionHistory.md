@@ -900,7 +900,7 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     section to note that Unicode     |
 |                                      |     scalars inside string literals   |
 |                                      |     are now written as               |
-|                                      |     `\u{n}`, where      |
+|                                      |     `u{n}`, where      |
 |                                      |     `n` is a            |
 |                                      |     hexadecimal number between 0 and |
 |                                      |     10FFFF, the range of             |

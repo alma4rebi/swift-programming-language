@@ -548,35 +548,35 @@ A string literal is a sequence of characters surrounded by double quotes, with t
     "characters"
     ```
 
-String literals cannot contain an unescaped double quote (`"`), an unescaped backslash (`\`), a carriage return, or a line feed.
+String literals cannot contain an unescaped double quote (`"`), an unescaped backslash (``), a carriage return, or a line feed.
 
 Special characters can be included in string literals using the following escape sequences:
 
--   Null Character (`\0`)
+-   Null Character (`0`)
 
--   Backslash (`\\`)
+-   Backslash (`\`)
 
--   Horizontal Tab (`\t`)
+-   Horizontal Tab (`t`)
 
--   Line Feed (`\n`)
+-   Line Feed (`n`)
 
--   Carriage Return (`\r`)
+-   Carriage Return (`r`)
 
--   Double Quote (`\"`)
+-   Double Quote (`"`)
 
--   Single Quote (`\'`)
+-   Single Quote (`'`)
 
--   Unicode scalar (`\u{`*n*`}`), where *n* is between one and eight hexadecimal digits
+-   Unicode scalar (`u{`*n*`}`), where *n* is between one and eight hexadecimal digits
 
-The value of an expression can be inserted into a string literal by placing the expression in parentheses after a backslash (`\`). The interpolated expression can contain a string literal, but can’t contain an unescaped backslash (`\`), a carriage return, or a line feed.
+The value of an expression can be inserted into a string literal by placing the expression in parentheses after a backslash (``). The interpolated expression can contain a string literal, but can’t contain an unescaped backslash (``), a carriage return, or a line feed.
 
 For example, all the following string literals have the same value:
 
     "1 2 3"
-    "1 2 \\("3")"
-    "1 2 \\(3)"
-    "1 2 \\(1 + 2)"
-    let x = 3; "1 2 \\(x)"
+    "1 2 \("3")"
+    "1 2 \(3)"
+    "1 2 \(1 + 2)"
+    let x = 3; "1 2 \(x)"
 
 The default inferred type of a string literal is `String`. For more information about the `String` type, see [Strings and Characters](StringsAndCharacters.md) and *String Structure Reference*.
 
@@ -623,7 +623,7 @@ quoted-text-item
 
 <span class="arrow">
 →
-<span class="text-description">Any Unicode scalar value except `"`, `\`, U+000A, or U+000D
+<span class="text-description">Any Unicode scalar value except `"`, ``, U+000A, or U+000D
 
 <span class="syntax-def-name">
 interpolated-string-literal
@@ -645,7 +645,7 @@ interpolated-text-item
 <span class="arrow">
 →
 <span class="alternative">
-`\(`<span class="syntactic-cat">[expression](Expressions.md#expression)`)`
+`(`<span class="syntactic-cat">[expression](Expressions.md#expression)`)`
 <span class="alternative">
 <span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)
 
@@ -655,26 +655,26 @@ escaped-character
 <span class="arrow">
 →
 <span class="alternative">
-`\0`
+`0`
 <span class="alternative">
-`\\`
+`\`
 <span class="alternative">
-`\t`
+`t`
 <span class="alternative">
-`\n`
+`n`
 <span class="alternative">
-`\r`
+`r`
 <span class="alternative">
-`\"`
+`"`
 <span class="alternative">
-`\'`
+`'`
 
 <span class="syntax-def-name">
 escaped-character
 
 <span class="arrow">
 →
-`\u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
+`u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
 
 <span class="syntax-def-name">
 unicode-scalar-digits

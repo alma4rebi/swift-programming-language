@@ -22,7 +22,7 @@ You use the `for`-`in` loop to iterate over a sequence, such as ranges of number
 This example prints the first few entries in the five-times-table:
 
     for index in 1...5 {
-        print("\\(index) times 5 is \\(index \* 5)")
+        print("\(index) times 5 is \(index * 5)")
     }
     // 1 times 5 is 5
     // 2 times 5 is 10
@@ -40,18 +40,18 @@ If you don’t need each value from a sequence, you can ignore the values by usi
     let power = 10
     var answer = 1
     for _ in 1...power {
-        answer \*= base
+        answer *= base
     }
-    print("\\(base) to the power of \\(power) is \\(answer)")
+    print("\(base) to the power of \(power) is \(answer)")
     // prints "3 to the power of 10 is 59049"
 
 This example calculates the value of one number to the power of another (in this case, `3` to the power of `10`). It multiplies a starting value of `1` (that is, `3` to the power of `0`) by `3`, ten times, using a closed range that starts with `1` and ends with `10`. This calculation doesn’t need to know the individual counter values each time through the loop—it simply needs to execute the loop the correct number of times. The underscore character (`_`) used in place of a loop variable causes the individual values to be ignored and does not provide access to the current value during each iteration of the loop.
 
 Use a `for`-`in` loop with an array to iterate over its items:
 
-    let names = \["Anna", "Alex", "Brian", "Jack"\]
+    let names = ["Anna", "Alex", "Brian", "Jack"]
     for name in names {
-        print("Hello, \\(name)!")
+        print("Hello, \(name)!")
     }
     // Hello, Anna!
     // Hello, Alex!
@@ -60,9 +60,9 @@ Use a `for`-`in` loop with an array to iterate over its items:
 
 You can also iterate over a dictionary to access its key-value pairs. Each item in the dictionary is returned as a `(key, value)` tuple when the dictionary is iterated, and you can decompose the `(key, value)` tuple’s members as explicitly named constants for use within the body of the `for`-`in` loop. Here, the dictionary’s keys are decomposed into a constant called `animalName`, and the dictionary’s values are decomposed into a constant called `legCount`:
 
-    let numberOfLegs = \["spider": 8, "ant": 6, "cat": 4\]
+    let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
     for (animalName, legCount) in numberOfLegs {
-        print("\\(animalName)s have \\(legCount) legs")
+        print("\(animalName)s have \(legCount) legs")
     }
     // ants have 6 legs
     // cats have 4 legs
@@ -75,7 +75,7 @@ Items in a `Dictionary` may not necessarily be iterated in the same order as the
 In addition to `for`-`in` loops, Swift supports traditional C-style `for` loops with a condition and an incrementer:
 
     for var index = 0; index < 3; ++index {
-        print("index is \\(index)")
+        print("index is \(index)")
     }
     // index is 0
     // index is 1
@@ -109,12 +109,12 @@ Constants and variables declared within the initialization expression (such as `
 
     var index: Int
     for index = 0; index < 3; ++index {
-        print("index is \\(index)")
+        print("index is \(index)")
     }
     // index is 0
     // index is 1
     // index is 2
-    print("The loop statements were executed \\(index) times")
+    print("The loop statements were executed \(index) times")
     // prints "The loop statements were executed 3 times"
 
 Note that the final value of `index` after this loop is completed is `3`, not `2`. The last time the increment statement `++index` is called, it sets `index` to `3`, which causes `index < 3` to equate to `false`, ending the loop.
@@ -147,7 +147,7 @@ Here’s the general form of a `while` loop:
 
 This example plays a simple game of *Snakes and Ladders* (also known as *Chutes and Ladders*):
 
-![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png)
+![image: Art/snakesAndLadders_2x.png](Art/snakesAndLadders_2x.png)
 
 The rules of the game are as follows:
 
@@ -162,12 +162,12 @@ The rules of the game are as follows:
 The game board is represented by an array of `Int` values. Its size is based on a constant called `finalSquare`, which is used to initialize the array and also to check for a win condition later in the example. The board is initialized with 26 zero `Int` values, not 25 (one each at indexes `0` through `25` inclusive):
 
     let finalSquare = 25
-    var board = \[Int\](count: finalSquare + 1, repeatedValue: 0)
+    var board = [Int](count: finalSquare + 1, repeatedValue: 0)
 
 Some squares are then set to have more specific values for the snakes and ladders. Squares with a ladder base have a positive number to move you up the board, whereas squares with a snake head have a negative number to move you back down the board:
 
-    board\[03\] = +08; board\[06\] = +11; board\[09\] = +09; board\[10\] = +02
-    board\[14\] = -10; board\[19\] = -11; board\[22\] = -02; board\[24\] = -08
+    board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+    board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
 
 Square 3 contains the bottom of a ladder that moves you up to square 11. To represent this, `board[03]` is equal to `+08`, which is equivalent to an integer value of `8` (the difference between `3` and `11`). The unary plus operator (`+i`) balances with the unary minus operator (`-i`), and numbers lower than `10` are padded with zeros so that all board definitions align. (Neither stylistic tweak is strictly necessary, but they lead to neater code.)
 
@@ -182,7 +182,7 @@ The player’s starting square is “square zero”, which is just off the botto
         square += diceRoll
         if square < board.count {
             // if we're still on the board, move up or down for a snake or a ladder
-            square += board\[square\]
+            square += board[square]
         }
     }
     print("Game over!")
@@ -222,9 +222,9 @@ Here’s the general form of a `repeat`-`while` loop:
 Here’s the *Snakes and Ladders* example again, written as a `repeat`-`while` loop rather than a `while` loop. The values of `finalSquare`, `board`, `square`, and `diceRoll` are initialized in exactly the same way as with a `while` loop:
 
     let finalSquare = 25
-    var board = \[Int\](count: finalSquare + 1, repeatedValue: 0)
-    board\[03\] = +08; board\[06\] = +11; board\[09\] = +09; board\[10\] = +02
-    board\[14\] = -10; board\[19\] = -11; board\[22\] = -02; board\[24\] = -08
+    var board = [Int](count: finalSquare + 1, repeatedValue: 0)
+    board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+    board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
     var square = 0
     var diceRoll = 0
 
@@ -234,7 +234,7 @@ At the start of the game, the player is on “square zero”. `board[0]` always 
 
     repeat {
         // move up or down for a snake or ladder
-        square += board\[square\]
+        square += board[square]
         // roll the dice
         if ++diceRoll == 7 { diceRoll = 1 }
         // move by the rolled amount
@@ -354,12 +354,12 @@ This example uses a `switch` statement to consider a single lowercase character 
     let someCharacter: Character = "e"
     switch someCharacter {
     case "a", "e", "i", "o", "u":
-        print("\\(someCharacter) is a vowel")
+        print("\(someCharacter) is a vowel")
     case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m",
     "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
-        print("\\(someCharacter) is a consonant")
+        print("\(someCharacter) is a consonant")
     default:
-        print("\\(someCharacter) is not a vowel or a consonant")
+        print("\(someCharacter) is not a vowel or a consonant")
     }
     // prints "e is a vowel"
 
@@ -436,7 +436,7 @@ Values in `switch` cases can be checked for their inclusion in an interval. This
     default:
         naturalCount = "many"
     }
-    print("There are \\(naturalCount) \\(countedThings).")
+    print("There are \(naturalCount) \(countedThings).")
     // prints "There are dozens of moons orbiting Saturn."
 
 In the above example, `approximateCount` is evaluated in a `switch` statement. Each `case` compares that value to a number or interval. Because the value of `approximateCount` falls between 12 and 100, `naturalCount` is assigned the value `"dozens of"`, and execution is transferred out of the `switch` statement.
@@ -456,17 +456,17 @@ The example below takes an (x, y) point, expressed as a simple tuple of type `(I
     case (0, 0):
         print("(0, 0) is at the origin")
     case (_, 0):
-        print("(\\(somePoint.0), 0) is on the x-axis")
+        print("(\(somePoint.0), 0) is on the x-axis")
     case (0, _):
-        print("(0, \\(somePoint.1)) is on the y-axis")
+        print("(0, \(somePoint.1)) is on the y-axis")
     case (-2...2, -2...2):
-        print("(\\(somePoint.0), \\(somePoint.1)) is inside the box")
+        print("(\(somePoint.0), \(somePoint.1)) is inside the box")
     default:
-        print("(\\(somePoint.0), \\(somePoint.1)) is outside of the box")
+        print("(\(somePoint.0), \(somePoint.1)) is outside of the box")
     }
     // prints "(1, 1) is inside the box"
 
-![image: Art/coordinateGraphSimple\_2x.png](Art/coordinateGraphSimple_2x.png)
+![image: Art/coordinateGraphSimple_2x.png](Art/coordinateGraphSimple_2x.png)
 
 The `switch` statement determines if the point is at the origin (0, 0); on the red x-axis; on the orange y-axis; inside the blue 4-by-4 box centered on the origin; or outside of the box.
 
@@ -481,15 +481,15 @@ The example below takes an (x, y) point, expressed as a tuple of type `(Int, Int
     let anotherPoint = (2, 0)
     switch anotherPoint {
     case (let x, 0):
-        print("on the x-axis with an x value of \\(x)")
+        print("on the x-axis with an x value of \(x)")
     case (0, let y):
-        print("on the y-axis with a y value of \\(y)")
+        print("on the y-axis with a y value of \(y)")
     case let (x, y):
-        print("somewhere else at (\\(x), \\(y))")
+        print("somewhere else at (\(x), \(y))")
     }
     // prints "on the x-axis with an x value of 2"
 
-![image: Art/coordinateGraphMedium\_2x.png](Art/coordinateGraphMedium_2x.png)
+![image: Art/coordinateGraphMedium_2x.png](Art/coordinateGraphMedium_2x.png)
 
 The `switch` statement determines if the point is on the red x-axis, on the orange y-axis, or elsewhere, on neither axis.
 
@@ -508,15 +508,15 @@ The example below categorizes an (x, y) point on the following graph:
     let yetAnotherPoint = (1, -1)
     switch yetAnotherPoint {
     case let (x, y) where x == y:
-        print("(\\(x), \\(y)) is on the line x == y")
+        print("(\(x), \(y)) is on the line x == y")
     case let (x, y) where x == -y:
-        print("(\\(x), \\(y)) is on the line x == -y")
+        print("(\(x), \(y)) is on the line x == -y")
     case let (x, y):
-        print("(\\(x), \\(y)) is just some arbitrary point")
+        print("(\(x), \(y)) is just some arbitrary point")
     }
     // prints "(1, -1) is on the line x == -y"
 
-![image: Art/coordinateGraphComplex\_2x.png](Art/coordinateGraphComplex_2x.png)
+![image: Art/coordinateGraphComplex_2x.png](Art/coordinateGraphComplex_2x.png)
 
 The `switch` statement determines if the point is on the green diagonal line where `x == y`, on the purple diagonal line where `x == -y`, or neither.
 
@@ -600,9 +600,9 @@ The following example switches on a `Character` value and determines whether it 
         break
     }
     if let integerValue = possibleIntegerValue {
-        print("The integer value of \\(numberSymbol) is \\(integerValue).")
+        print("The integer value of \(numberSymbol) is \(integerValue).")
     } else {
-        print("An integer value could not be found for \\(numberSymbol).")
+        print("An integer value could not be found for \(numberSymbol).")
     }
     // prints "The integer value of 三 is 3."
 
@@ -619,7 +619,7 @@ Switch statements in Swift do not fall through the bottom of each case and into 
 If you really need C-style fallthrough behavior, you can opt in to this behavior on a case-by-case basis with the `fallthrough` keyword. The example below uses `fallthrough` to create a textual description of a number:
 
     let integerToDescribe = 5
-    var description = "The number \\(integerToDescribe) is"
+    var description = "The number \(integerToDescribe) is"
     switch integerToDescribe {
     case 2, 3, 5, 7, 11, 13, 17, 19:
         description += " a prime number, and also"
@@ -668,14 +668,14 @@ If a particular dice roll would take you beyond square 25, you must roll again u
 
 The game board is the same as before:
 
-![image: Art/snakesAndLadders\_2x.png](Art/snakesAndLadders_2x.png)
+![image: Art/snakesAndLadders_2x.png](Art/snakesAndLadders_2x.png)
 
 The values of `finalSquare`, `board`, `square`, and `diceRoll` are initialized in the same way as before:
 
     let finalSquare = 25
-    var board = \[Int\](count: finalSquare + 1, repeatedValue: 0)
-    board\[03\] = +08; board\[06\] = +11; board\[09\] = +09; board\[10\] = +02
-    board\[14\] = -10; board\[19\] = -11; board\[22\] = -02; board\[24\] = -08
+    var board = [Int](count: finalSquare + 1, repeatedValue: 0)
+    board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+    board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
     var square = 0
     var diceRoll = 0
 
@@ -695,7 +695,7 @@ The `while` loop’s condition is `while square != finalSquare`, to reflect that
         default:
             // this is a valid move, so find out its effect
             square += diceRoll
-            square += board\[square\]
+            square += board[square]
         }
     }
     print("Game over!")
@@ -718,25 +718,25 @@ Note also that it is not strictly necessary to use the `gameLoop` label when cal
 
 A `guard` statement, like an `if` statement, executes statements depending on the Boolean value of an expression. You use a `guard` statement to require that a condition must be true in order for the code after the `guard` statement to be executed. Unlike an `if` statement, a `guard` statement always has an `else` clause—the code inside the `else` clause is executed if the condition is not true.
 
-    func greet(person: \[String: String\]) {
-        guard let name = person\["name"\] else {
+    func greet(person: [String: String]) {
+        guard let name = person["name"] else {
             return
         }
         
-        print("Hello \\(name)!")
+        print("Hello \(name)!")
         
-        guard let location = person\["location"\] else {
+        guard let location = person["location"] else {
             print("I hope the weather is nice near you.")
             return
         }
         
-        print("I hope the weather is nice in \\(location).")
+        print("I hope the weather is nice in \(location).")
     }
      
-    greet(\["name": "John"\])
+    greet(["name": "John"])
     // prints "Hello John!"
     // prints "I hope the weather is nice near you."
-    greet(\["name": "Jane", "location": "Cupertino"\])
+    greet(["name": "Jane", "location": "Cupertino"])
     // prints "Hello Jane!"
     // prints "I hope the weather is nice in Cupertino."
 
@@ -754,7 +754,7 @@ The compiler uses availability information in the SDK to verify that all of the 
 
 You use an *availability condition* in an `if` or `guard` statement to conditionally execute a block of code, depending on whether the APIs you want to use are available at runtime. The compiler uses the information from the availability condition when it verifies that the APIs in that block of code are available.
 
-    if #available(iOS 9, OSX 10.10, \*) {
+    if #available(iOS 9, OSX 10.10, *) {
         // Use iOS 9 APIs on iOS, and use OS X v10.10 APIs on OS X
     } else {
         // Fall back to earlier iOS and OS X APIs

@@ -31,11 +31,11 @@ Here’s an example of a read-only subscript implementation, which defines a `Ti
     struct TimesTable {
         let multiplier: Int
         subscript(index: Int) -> Int {
-            return multiplier \* index
+            return multiplier * index
         }
     }
     let threeTimesTable = TimesTable(multiplier: 3)
-    print("six times three is \\(threeTimesTable\[6\])")
+    print("six times three is \(threeTimesTable[6])")
     // prints "six times three is 18"
 
 In this example, a new instance of `TimesTable` is created to represent the three-times-table. This is indicated by passing a value of `3` to the structure’s `initializer` as the value to use for the instance’s `multiplier` parameter.
@@ -52,8 +52,8 @@ The exact meaning of “subscript” depends on the context in which it is used.
 
 For example, Swift’s `Dictionary` type implements a subscript to set and retrieve the values stored in a `Dictionary` instance. You can set a value in a dictionary by providing a key of the dictionary’s key type within subscript brackets, and assigning a value of the dictionary’s value type to the subscript:
 
-    var numberOfLegs = \["spider": 8, "ant": 6, "cat": 4\]
-    numberOfLegs\["bird"\] = 2
+    var numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
+    numberOfLegs["bird"] = 2
 
 The example above defines a variable called `numberOfLegs` and initializes it with a dictionary literal containing three key-value pairs. The type of the `numberOfLegs` dictionary is inferred to be `[String: Int]`. After creating the dictionary, this example uses subscript assignment to add a `String` key of `"bird"` and an `Int` value of `2` to the dictionary.
 
@@ -73,11 +73,11 @@ While it is most common for a subscript to take a single parameter, you can also
 
     struct Matrix {
         let rows: Int, columns: Int
-        var grid: \[Double\]
+        var grid: [Double]
         init(rows: Int, columns: Int) {
             self.rows = rows
             self.columns = columns
-            grid = Array(count: rows \* columns, repeatedValue: 0.0)
+            grid = Array(count: rows * columns, repeatedValue: 0.0)
         }
         func indexIsValidForRow(row: Int, column: Int) -> Bool {
             return row >= 0 && row < rows && column >= 0 && column < columns
@@ -85,11 +85,11 @@ While it is most common for a subscript to take a single parameter, you can also
         subscript(row: Int, column: Int) -> Double {
             get {
                 assert(indexIsValidForRow(row, column: column), "Index out of range")
-                return grid\[(row \* columns) + column\]
+                return grid[(row * columns) + column]
             }
             set {
                 assert(indexIsValidForRow(row, column: column), "Index out of range")
-                grid\[(row \* columns) + column\] = newValue
+                grid[(row * columns) + column] = newValue
             }
         }
     }
@@ -102,16 +102,16 @@ You can construct a new `Matrix` instance by passing an appropriate row and colu
 
 The preceding example creates a new `Matrix` instance with two rows and two columns. The `grid` array for this `Matrix` instance is effectively a flattened version of the matrix, as read from top left to bottom right:
 
-![image: Art/subscriptMatrix01\_2x.png](Art/subscriptMatrix01_2x.png)
+![image: Art/subscriptMatrix01_2x.png](Art/subscriptMatrix01_2x.png)
 
 Values in the matrix can be set by passing row and column values into the subscript, separated by a comma:
 
-    matrix\[0, 1\] = 1.5
-    matrix\[1, 0\] = 3.2
+    matrix[0, 1] = 1.5
+    matrix[1, 0] = 3.2
 
 These two statements call the subscript’s setter to set a value of `1.5` in the top right position of the matrix (where `row` is `0` and `column` is `1`), and `3.2` in the bottom left position (where `row` is `1` and `column` is `0`):
 
-![image: Art/subscriptMatrix02\_2x.png](Art/subscriptMatrix02_2x.png)
+![image: Art/subscriptMatrix02_2x.png](Art/subscriptMatrix02_2x.png)
 
 The `Matrix` subscript’s getter and setter both contain an assertion to check that the subscript’s `row` and `column` values are valid. To assist with these assertions, `Matrix` includes a convenience method called `indexIsValidForRow(_:column:)`, which checks whether the requested `row` and `column` are inside the bounds of the matrix:
 
@@ -121,6 +121,6 @@ The `Matrix` subscript’s getter and setter both contain an assertion to check 
 
 An assertion is triggered if you try to access a subscript that is outside of the matrix bounds:
 
-    let someValue = matrix\[2, 2\]
+    let someValue = matrix[2, 2]
     // this triggers an assert, because [2, 2] is outside of the matrix bounds
 

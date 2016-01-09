@@ -43,7 +43,7 @@ The code above succeeds when `john.residence` has a non-`nil` value and will set
 Optional chaining provides an alternative way to access the value of `numberOfRooms`. To use optional chaining, use a question mark in place of the exclamation mark:
 
     if let roomCount = john.residence?.numberOfRooms {
-        print("John's residence has \\(roomCount) room(s).")
+        print("John's residence has \(roomCount) room(s).")
     } else {
         print("Unable to retrieve the number of rooms.")
     }
@@ -62,7 +62,7 @@ You can assign a `Residence` instance to `john.residence`, so that it no longer 
 `john.residence` now contains an actual `Residence` instance, rather than `nil`. If you try to access `numberOfRooms` with the same optional chaining as before, it will now return an `Int?` that contains the default `numberOfRooms` value of `1`:
 
     if let roomCount = john.residence?.numberOfRooms {
-        print("John's residence has \\(roomCount) room(s).")
+        print("John's residence has \(roomCount) room(s).")
     } else {
         print("Unable to retrieve the number of rooms.")
     }
@@ -83,20 +83,20 @@ The `Person` class is defined in the same way as before:
 The `Residence` class is more complex than before. This time, the `Residence` class defines a variable property called `rooms`, which is initialized with an empty array of type `[Room]`:
 
     class Residence {
-        var rooms = \[Room\]()
+        var rooms = [Room]()
         var numberOfRooms: Int {
             return rooms.count
         }
         subscript(i: Int) -> Room {
             get {
-                return rooms\[i\]
+                return rooms[i]
             }
             set {
-                rooms\[i\] = newValue
+                rooms[i] = newValue
             }
         }
         func printNumberOfRooms() {
-            print("The number of rooms is \\(numberOfRooms)")
+            print("The number of rooms is \(numberOfRooms)")
         }
         var address: Address?
     }
@@ -126,7 +126,7 @@ The final class in this model is called `Address`. This class has three optional
             if buildingName != nil {
                 return buildingName
             } else if buildingNumber != nil && street != nil {
-                return "\\(buildingNumber) \\(street)"
+                return "\(buildingNumber) \(street)"
             } else {
                 return nil
             }
@@ -143,7 +143,7 @@ Use the classes defined above to create a new `Person` instance, and try to acce
 
     let john = Person()
     if let roomCount = john.residence?.numberOfRooms {
-        print("John's residence has \\(roomCount) room(s).")
+        print("John's residence has \(roomCount) room(s).")
     } else {
         print("Unable to retrieve the number of rooms.")
     }
@@ -182,7 +182,7 @@ You can use optional chaining to call a method on an optional value, and to chec
 The `printNumberOfRooms()` method on the `Residence` class prints the current value of `numberOfRooms`. Here’s how the method looks:
 
     func printNumberOfRooms() {
-        print("The number of rooms is \\(numberOfRooms)")
+        print("The number of rooms is \(numberOfRooms)")
     }
 
 This method does not specify a return type. However, functions and methods with no return type have an implicit return type of `Void`, as described in [Functions Without Return Values](Functions.md#TP40016643-CH10-ID163). This means that they return a value of `()`, or an empty tuple.
@@ -215,8 +215,8 @@ When you access a subscript on an optional value through optional chaining, you 
 
 The example below tries to retrieve the name of the first room in the `rooms` array of the `john.residence` property using the subscript defined on the `Residence` class. Because `john.residence` is currently `nil`, the subscript call fails:
 
-    if let firstRoomName = john.residence?\[0\].name {
-        print("The first room name is \\(firstRoomName).")
+    if let firstRoomName = john.residence?[0].name {
+        print("The first room name is \(firstRoomName).")
     } else {
         print("Unable to retrieve the first room name.")
     }
@@ -226,7 +226,7 @@ The optional chaining question mark in this subscript call is placed immediately
 
 Similarly, you can try to set a new value through a subscript with optional chaining:
 
-    john.residence?\[0\] = Room(name: "Bathroom")
+    john.residence?[0] = Room(name: "Bathroom")
 
 This subscript setting attempt also fails, because `residence` is currently `nil`.
 
@@ -237,8 +237,8 @@ If you create and assign an actual `Residence` instance to `john.residence`, wit
     johnsHouse.rooms.append(Room(name: "Kitchen"))
     john.residence = johnsHouse
      
-    if let firstRoomName = john.residence?\[0\].name {
-        print("The first room name is \\(firstRoomName).")
+    if let firstRoomName = john.residence?[0].name {
+        print("The first room name is \(firstRoomName).")
     } else {
         print("Unable to retrieve the first room name.")
     }
@@ -248,10 +248,10 @@ If you create and assign an actual `Residence` instance to `john.residence`, wit
 
 If a subscript returns a value of optional type—such as the key subscript of Swift’s `Dictionary` type—place a question mark *after* the subscript’s closing bracket to chain on its optional return value:
 
-    var testScores = \["Dave": \[86, 82, 84\], "Bev": \[79, 94, 81\]\]
-    testScores\["Dave"\]?\[0\] = 91
-    testScores\["Bev"\]?\[0\]++
-    testScores\["Brian"\]?\[0\] = 72
+    var testScores = ["Dave": [86, 82, 84], "Bev": [79, 94, 81]]
+    testScores["Dave"]?[0] = 91
+    testScores["Bev"]?[0]++
+    testScores["Brian"]?[0] = 72
     // the "Dave" array is now [91, 82, 84] and the "Bev" array is now [80, 94, 81]
 
 The example above defines a dictionary called `testScores`, which contains two key-value pairs that map a `String` key to an array of `Int` values. The example uses optional chaining to set the first item in the `"Dave"` array to `91`; to increment the first item in the `"Bev"` array by `1`; and to try to set the first item in an array for a key of `"Brian"`. The first two calls succeed, because the `testScores` dictionary contains keys for `"Dave"` and `"Bev"`. The third call fails, because the `testScores` dictionary does not contain a key for `"Brian"`.
@@ -275,7 +275,7 @@ Therefore:
 The example below tries to access the `street` property of the `address` property of the `residence` property of `john`. There are *two* levels of optional chaining in use here, to chain through the `residence` and `address` properties, both of which are of optional type:
 
     if let johnsStreet = john.residence?.address?.street {
-        print("John's street name is \\(johnsStreet).")
+        print("John's street name is \(johnsStreet).")
     } else {
         print("Unable to retrieve the address.")
     }
@@ -293,7 +293,7 @@ If you set an actual `Address` instance as the value for `john.residence.address
     john.residence?.address = johnsAddress
      
     if let johnsStreet = john.residence?.address?.street {
-        print("John's street name is \\(johnsStreet).")
+        print("John's street name is \(johnsStreet).")
     } else {
         print("Unable to retrieve the address.")
     }
@@ -308,7 +308,7 @@ The previous example shows how to retrieve the value of a property of optional t
 The example below calls the `Address` class’s `buildingIdentifier()` method through optional chaining. This method returns a value of type `String?`. As described above, the ultimate return type of this method call after optional chaining is also `String?`:
 
     if let buildingIdentifier = john.residence?.address?.buildingIdentifier() {
-        print("John's building identifier is \\(buildingIdentifier).")
+        print("John's building identifier is \(buildingIdentifier).")
     }
     // prints "John's building identifier is The Larches."
 
@@ -317,9 +317,9 @@ If you want to perform further optional chaining on this method’s return value
     if let beginsWithThe =
         john.residence?.address?.buildingIdentifier()?.hasPrefix("The") {
             if beginsWithThe {
-                print("John's building identifier begins with \"The\".")
+                print("John's building identifier begins with "The".")
             } else {
-                print("John's building identifier does not begin with \"The\".")
+                print("John's building identifier does not begin with "The".")
             }
     }
     // prints "John's building identifier begins with "The"."

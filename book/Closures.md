@@ -39,7 +39,7 @@ Swift’s standard library provides a method called `sort(_:)`, which sorts an a
 
 The closure expression examples below use the `sort(_:)` method to sort an array of `String` values in reverse alphabetical order. Here’s the initial array to be sorted:
 
-    let names = \["Chris", "Alex", "Ewa", "Barry", "Daniella"\]
+    let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
 
 The `sort(_:)` method accepts a closure that takes two arguments of the same type as the array’s contents, and returns a `Bool` value to say whether the first value should appear before or after the second value once the values are sorted. The sorting closure needs to return `true` if the first value should appear *before* the second value, and `false` otherwise.
 
@@ -161,11 +161,11 @@ After applying the provided closure to each array element, the `map(_:)` method 
 
 Here’s how you can use the `map(_:)` method with a trailing closure to convert an array of `Int` values into an array of `String` values. The array `[16, 58, 510]` is used to create the new array `["OneSix", "FiveEight", "FiveOneZero"]`:
 
-    let digitNames = \[
+    let digitNames = [
         0: "Zero", 1: "One", 2: "Two", 3: "Three", 4: "Four",
         5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
     ]
-    let numbers = \[16, 58, 510\]
+    let numbers = [16, 58, 510]
 
 The code above creates a dictionary of mappings between the integer digits and English-language versions of their names. It also defines an array of integers, ready to be converted into strings.
 
@@ -176,7 +176,7 @@ You can now use the `numbers` array to create an array of `String` values, by pa
         var number = number
         var output = ""
         while number > 0 {
-            output = digitNames\[number % 10\]! + output
+            output = digitNames[number % 10]! + output
             number /= 10
         }
         return output
@@ -292,7 +292,7 @@ As an example, the `sort(_:)` method takes a closure as its parameter, which is 
 
 One way that a closure can escape is by being stored in a variable that is defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later. For example:
 
-    var completionHandlers: \[() -> Void\] = \[\]
+    var completionHandlers: [() -> Void] = []
     func someFunctionWithEscapingClosure(completionHandler: () -> Void) {
         completionHandlers.append(completionHandler)
     }
@@ -326,7 +326,7 @@ It’s common to *call* functions that take autoclosures, but it’s not common 
 
 An autoclosure lets you delay evaluation, because the code inside isn’t run until you call the closure. Delaying evaluation is useful for code that has side effects or is computationally expensive, because it lets you control when that code is evaluated. The code below shows how a closure delays evaluation.
 
-    var customersInLine = \["Chris", "Alex", "Ewa", "Barry", "Daniella"\]
+    var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
     print(customersInLine.count)
     // prints "5"
      
@@ -334,7 +334,7 @@ An autoclosure lets you delay evaluation, because the code inside isn’t run un
     print(customersInLine.count)
     // prints "5"
      
-    print("Now serving \\(customerProvider())!")
+    print("Now serving \(customerProvider())!")
     // prints "Now serving Chris!"
     print(customersInLine.count)
     // prints "4"
@@ -345,7 +345,7 @@ You get the same behavior of delayed evaluation when you pass a closure as an ar
 
     // customersInLine is ["Alex", "Ewa", "Barry", "Daniella"]
     func serveCustomer(customerProvider: () -> String) {
-        print("Now serving \\(customerProvider())!")
+        print("Now serving \(customerProvider())!")
     }
     serveCustomer( { customersInLine.removeAtIndex(0) } )
     // prints "Now serving Alex!"
@@ -354,7 +354,7 @@ The `serveCustomer(_:)` function in the listing above takes an explicit closure 
 
     // customersInLine is ["Ewa", "Barry", "Daniella"]
     func serveCustomer(@autoclosure customerProvider: () -> String) {
-        print("Now serving \\(customerProvider())!")
+        print("Now serving \(customerProvider())!")
     }
     serveCustomer(customersInLine.removeAtIndex(0))
     // prints "Now serving Ewa!"
@@ -366,17 +366,17 @@ Overusing autoclosures can make your code hard to understand. The context and fu
 The `@autoclosure` attribute implies the `@noescape` attribute, which is described above in [Nonescaping Closures](Closures.md#TP40016643-CH11-ID546). If you want an autoclosure that is allowed to escape, use the `@autoclosure(escaping)` form of the attribute.
 
     // customersInLine is ["Barry", "Daniella"]
-    var customerProviders: \[() -> String\] = \[\]
+    var customerProviders: [() -> String] = []
     func collectCustomerProviders(@autoclosure(escaping) customerProvider: () -> String) {
         customerProviders.append(customerProvider)
     }
     collectCustomerProviders(customersInLine.removeAtIndex(0))
     collectCustomerProviders(customersInLine.removeAtIndex(0))
      
-    print("Collected \\(customerProviders.count) closures.")
+    print("Collected \(customerProviders.count) closures.")
     // prints "Collected 2 closures."
     for customerProvider in customerProviders {
-        print("Now serving \\(customerProvider())!")
+        print("Now serving \(customerProvider())!")
     }
     // prints "Now serving Barry!"
     // prints "Now serving Daniella!"

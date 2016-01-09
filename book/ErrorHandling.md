@@ -61,18 +61,18 @@ In the example below, the `VendingMachine` class has a `vend(itemNamed:)` method
     }
      
     class VendingMachine {
-        var inventory = \[
+        var inventory = [
             "Candy Bar": Item(price: 12, count: 7),
             "Chips": Item(price: 10, count: 4),
             "Pretzels": Item(price: 7, count: 11)
         ]
         var coinsDeposited = 0
         func dispenseSnack(snack: String) {
-            print("Dispensing \\(snack)")
+            print("Dispensing \(snack)")
         }
         
         func vend(itemNamed name: String) throws {
-            guard var item = inventory\[name\] else {
+            guard var item = inventory[name] else {
                 throw VendingMachineError.InvalidSelection
             }
             
@@ -86,7 +86,7 @@ In the example below, the `VendingMachine` class has a `vend(itemNamed:)` method
             
             coinsDeposited -= item.price
             --item.count
-            inventory\[name\] = item
+            inventory[name] = item
             dispenseSnack(name)
         }
     }
@@ -95,13 +95,13 @@ The implementation of the `vend(itemNamed:)` method uses `guard` statements to e
 
 Because the `vend(itemNamed:)` method propagates any errors it throws, places in your code that call it must either handle the errors directly—using a `do`-`catch` statement, `try?`, or `try!`—or continue to propagate them. For example, the `buyFavoriteSnack(_:vendingMachine:)` in the example below is also a throwing function, and any errors that the `vend(itemNamed:)` method throws will propagate up to the point where the `buyFavoriteSnack(_:vendingMachine:)` function is called.
 
-    let favoriteSnacks = \[
+    let favoriteSnacks = [
         "Alice": "Chips",
         "Bob": "Licorice",
         "Eve": "Pretzels",
     ]
     func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws {
-        let snackName = favoriteSnacks\[person\] ?? "Candy Bar"
+        let snackName = favoriteSnacks[person] ?? "Candy Bar"
         try vendingMachine.vend(itemNamed: snackName)
     }
 
@@ -158,7 +158,7 @@ The `catch` clauses don’t have to handle every possible error that the code in
     } catch VendingMachineError.OutOfStock {
         print("Out of Stock.")
     } catch VendingMachineError.InsufficientFunds(let coinsNeeded) {
-        print("Insufficient funds. Please insert an additional \\(coinsNeeded) coins.")
+        print("Insufficient funds. Please insert an additional \(coinsNeeded) coins.")
     }
     // prints "Insufficient funds. Please insert an additional 2 coins."
 

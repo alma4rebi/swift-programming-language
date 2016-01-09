@@ -43,43 +43,43 @@ Experiment
 
 Try removing the conversion to `String` from the last line. What error do you get?
 
-There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (`\`) before the parentheses. For example:
+There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (``) before the parentheses. For example:
 
     let apples = 3
     let oranges = 5
-    let appleSummary = "I have \\(apples) apples."
-    let fruitSummary = "I have \\(apples + oranges) pieces of fruit."
+    let appleSummary = "I have \(apples) apples."
+    let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 
 Experiment
 
-Use `\()` to include a floating-point calculation in a string and to include someone’s name in a greeting.
+Use `()` to include a floating-point calculation in a string and to include someone’s name in a greeting.
 
 Create arrays and dictionaries using brackets (`[]`), and access their elements by writing the index or key in brackets. A comma is allowed after the last element.
 
-    var shoppingList = \["catfish", "water", "tulips", "blue paint"\]
-    shoppingList\[1\] = "bottle of water"
+    var shoppingList = ["catfish", "water", "tulips", "blue paint"]
+    shoppingList[1] = "bottle of water"
      
-    var occupations = \[
+    var occupations = [
         "Malcolm": "Captain",
         "Kaylee": "Mechanic",
     ]
-    occupations\["Jayne"\] = "Public Relations"
+    occupations["Jayne"] = "Public Relations"
 
 To create an empty array or dictionary, use the initializer syntax.
 
-    let emptyArray = \[String\]()
-    let emptyDictionary = \[String: Float\]()
+    let emptyArray = [String]()
+    let emptyDictionary = [String: Float]()
 
 If type information can be inferred, you can write an empty array as `[]` and an empty dictionary as `[:]`—for example, when you set a new value for a variable or pass an argument to a function.
 
-    shoppingList = \[\]
-    occupations = \[:\]
+    shoppingList = []
+    occupations = [:]
 
 ### Control Flow
 
 Use `if` and `switch` to make conditionals, and use `for`-`in`, `for`, `while`, and `repeat`-`while` to make loops. Parentheses around the condition or loop variable are optional. Braces around the body are required.
 
-    let individualScores = \[75, 43, 103, 87, 12\]
+    let individualScores = [75, 43, 103, 87, 12]
     var teamScore = 0
     for score in individualScores {
         if score > 50 {
@@ -100,7 +100,7 @@ You can use `if` and `let` together to work with values that might be missing. T
     var optionalName: String? = "John Appleseed"
     var greeting = "Hello!"
     if let name = optionalName {
-        greeting = "Hello, \\(name)"
+        greeting = "Hello, \(name)"
     }
 
 Experiment
@@ -113,7 +113,7 @@ Another way to handle optional values is to provide a default value using the `?
 
     let nickName: String? = nil
     let fullName: String = "John Appleseed"
-    let informalGreeting = "Hi \\(nickName ?? fullName)"
+    let informalGreeting = "Hi \(nickName ?? fullName)"
 
 Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.
 
@@ -124,7 +124,7 @@ Switches support any kind of data and a wide variety of comparison operations—
     case "cucumber", "watercress":
         print("That would make a good tea sandwich.")
     case let x where x.hasSuffix("pepper"):
-        print("Is it a spicy \\(x)?")
+        print("Is it a spicy \(x)?")
     default:
         print("Everything tastes good in soup.")
     }
@@ -139,10 +139,10 @@ After executing the code inside the switch case that matched, the program exits 
 
 You use `for`-`in` to iterate over items in a dictionary by providing a pair of names to use for each key-value pair. Dictionaries are an unordered collection, so their keys and values are iterated over in an arbitrary order.
 
-    let interestingNumbers = \[
-        "Prime": \[2, 3, 5, 7, 11, 13\],
-        "Fibonacci": \[1, 1, 2, 3, 5, 8\],
-        "Square": \[1, 4, 9, 16, 25\],
+    let interestingNumbers = [
+        "Prime": [2, 3, 5, 7, 11, 13],
+        "Fibonacci": [1, 1, 2, 3, 5, 8],
+        "Square": [1, 4, 9, 16, 25],
     ]
     var largest = 0
     for (kind, numbers) in interestingNumbers {
@@ -162,13 +162,13 @@ Use `while` to repeat a block of code until a condition changes. The condition o
 
     var n = 2
     while n < 100 {
-        n = n \* 2
+        n = n * 2
     }
     print(n)
      
     var m = 2
     repeat {
-        m = m \* 2
+        m = m * 2
     } while m < 100
     print(m)
 
@@ -193,7 +193,7 @@ Use `..<` to make a range that omits its upper value, and use `...` to make a ra
 Use `func` to declare a function. Call a function by following its name with a list of arguments in parentheses. Use `->` to separate the parameter names and types from the function’s return type.
 
     func greet(name: String, day: String) -> String {
-        return "Hello \\(name), today is \\(day)."
+        return "Hello \(name), today is \(day)."
     }
     greet("Bob", day: "Tuesday")
 
@@ -203,9 +203,9 @@ Remove the `day` parameter. Add a parameter to include today’s lunch special i
 
 Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
 
-    func calculateStatistics(scores: \[Int\]) -> (min: Int, max: Int, sum: Int) {
-        var min = scores\[0\]
-        var max = scores\[0\]
+    func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+        var min = scores[0]
+        var max = scores[0]
         var sum = 0
         
         for score in scores {
@@ -219,7 +219,7 @@ Use a tuple to make a compound value—for example, to return multiple values fr
         
         return (min, max, sum)
     }
-    let statistics = calculateStatistics(\[5, 3, 100, 3, 9\])
+    let statistics = calculateStatistics([5, 3, 100, 3, 9])
     print(statistics.sum)
     print(statistics.2)
 
@@ -264,7 +264,7 @@ Functions are a first-class type. This means that a function can return another 
 
 A function can take another function as one of its arguments.
 
-    func hasAnyMatches(list: \[Int\], condition: (Int) -> Bool) -> Bool {
+    func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
         for item in list {
             if condition(item) {
                 return true
@@ -275,14 +275,14 @@ A function can take another function as one of its arguments.
     func lessThanTen(number: Int) -> Bool {
         return number < 10
     }
-    var numbers = \[20, 19, 7, 12\]
+    var numbers = [20, 19, 7, 12]
     hasAnyMatches(numbers, condition: lessThanTen)
 
 Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it is executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces (`{}`). Use `in` to separate the arguments and return type from the body.
 
     numbers.map({
         (number: Int) -> Int in
-        let result = 3 \* number
+        let result = 3 * number
         return result
     })
 
@@ -292,7 +292,7 @@ Rewrite the closure to return zero for all odd numbers.
 
 You have several options for writing closures more concisely. When a closure’s type is already known, such as the callback for a delegate, you can omit the type of its parameters, its return type, or both. Single statement closures implicitly return the value of their only statement.
 
-    let mappedNumbers = numbers.map({ number in 3 \* number })
+    let mappedNumbers = numbers.map({ number in 3 * number })
     print(mappedNumbers)
 
 You can refer to parameters by number instead of by name—this approach is especially useful in very short closures. A closure passed as the last argument to a function can appear immediately after the parentheses. When a closure is the only argument to a function, you can omit the parentheses entirely.
@@ -307,7 +307,7 @@ Use `class` followed by the class’s name to create a class. A property declara
     class Shape {
         var numberOfSides = 0
         func simpleDescription() -> String {
-            return "A shape with \\(numberOfSides) sides."
+            return "A shape with \(numberOfSides) sides."
         }
     }
 
@@ -332,7 +332,7 @@ This version of the `Shape` class is missing something important: an initializer
         }
         
         func simpleDescription() -> String {
-            return "A shape with \\(numberOfSides) sides."
+            return "A shape with \(numberOfSides) sides."
         }
     }
 
@@ -354,11 +354,11 @@ Methods on a subclass that override the superclass’s implementation are marked
         }
         
         func area() -> Double {
-            return sideLength \* sideLength
+            return sideLength * sideLength
         }
         
         override func simpleDescription() -> String {
-            return "A square with sides of length \\(sideLength)."
+            return "A square with sides of length \(sideLength)."
         }
     }
     let test = Square(sideLength: 5.2, name: "my test square")
@@ -382,7 +382,7 @@ In addition to simple properties that are stored, properties can have a getter a
         
         var perimeter: Double {
             get {
-                return 3.0 \* sideLength
+                return 3.0 * sideLength
             }
             set {
                 sideLength = newValue / 3.0
@@ -390,7 +390,7 @@ In addition to simple properties that are stored, properties can have a getter a
         }
         
         override func simpleDescription() -> String {
-            return "An equilateral triangle with sides of length \\(sideLength)."
+            return "An equilateral triangle with sides of length \(sideLength)."
         }
     }
     var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
@@ -507,7 +507,7 @@ Use `struct` to create a structure. Structures support many of the same behavior
         var rank: Rank
         var suit: Suit
         func simpleDescription() -> String {
-            return "The \\(rank.simpleDescription()) of \\(suit.simpleDescription())"
+            return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
         }
     }
     let threeOfSpades = Card(rank: .Three, suit: .Spades)
@@ -531,9 +531,9 @@ For example, consider the case of requesting the sunrise and sunset time from a 
      
     switch success {
     case let .Result(sunrise, sunset):
-        print("Sunrise is at \\(sunrise) and sunset is at \\(sunset).")
+        print("Sunrise is at \(sunrise) and sunset is at \(sunset).")
     case let .Error(error):
-        print("Failure...  \\(error)")
+        print("Failure...  \(error)")
     }
 
 Experiment
@@ -584,7 +584,7 @@ Use `extension` to add functionality to an existing type, such as new methods an
 
     extension Int: ExampleProtocol {
         var simpleDescription: String {
-            return "The number \\(self)"
+            return "The number \(self)"
         }
         mutating func adjust() {
             self += 42
@@ -608,8 +608,8 @@ Even though the variable `protocolValue` has a runtime type of `SimpleClass`, th
 
 Write a name inside angle brackets to make a generic function or type.
 
-    func repeatItem<Item>(item: Item, numberOfTimes: Int) -> \[Item\] {
-        var result = \[Item\]()
+    func repeatItem<Item>(item: Item, numberOfTimes: Int) -> [Item] {
+        var result = [Item]()
         for _ in 0..<numberOfTimes {
             result.append(item)
         }
@@ -639,7 +639,7 @@ Use `where` after the type name to specify a list of requirements—for example,
         }
         return false
     }
-    anyCommonElements(\[1, 2, 3\], \[3\])
+    anyCommonElements([1, 2, 3], [3])
 
 Experiment
 

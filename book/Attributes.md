@@ -151,7 +151,7 @@ You can apply a declaration attribute to declarations only. However, you can als
         3.  `    // protocol definition`
         4.  `}`
         5.  ` `
-        6.  `@available`(\*, `unavailable`, `renamed`=`"MyRenamedProtocol"`)
+        6.  `@available`(*, `unavailable`, `renamed`=`"MyRenamedProtocol"`)
         7.  `typealias` `MyProtocol` = `MyRenamedProtocol`
 
         </div>
@@ -182,7 +182,7 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     <div class="Swift">
 
-    1.  `@available`(`iOS` `8.0`, `OSX` `10.10`, \*)
+    1.  `@available`(`iOS` `8.0`, `OSX` `10.10`, *)
     2.  `class` `MyClass` {
     3.  `    // class definition`
     4.  `}`

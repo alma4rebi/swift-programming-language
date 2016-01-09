@@ -87,7 +87,7 @@ Alternatively, you can create a stand-alone `Character` constant or variable fro
 
 `String` values can be constructed by passing an array of `Character` values as an argument to its initializer:
 
-    let catCharacters: \[Character\] = \["C", "a", "t", "!", "🐱"\]
+    let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
     let catString = String(catCharacters)
     print(catString)
     // prints "Cat!🐱"
@@ -122,16 +122,16 @@ You can’t append a `String` or `Character` to an existing `Character` variable
 *String interpolation* is a way to construct a new `String` value from a mix of constants, variables, literals, and expressions by including their values inside a string literal. Each item that you insert into the string literal is wrapped in a pair of parentheses, prefixed by a backslash:
 
     let multiplier = 3
-    let message = "\\(multiplier) times 2.5 is \\(Double(multiplier) \* 2.5)"
+    let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
     // message is "3 times 2.5 is 7.5"
 
-In the example above, the value of `multiplier` is inserted into a string literal as `\(multiplier)`. This placeholder is replaced with the actual value of `multiplier` when the string interpolation is evaluated to create an actual string.
+In the example above, the value of `multiplier` is inserted into a string literal as `(multiplier)`. This placeholder is replaced with the actual value of `multiplier` when the string interpolation is evaluated to create an actual string.
 
-The value of `multiplier` is also part of a larger expression later in the string. This expression calculates the value of `Double(multiplier) * 2.5` and inserts the result (`7.5`) into the string. In this case, the expression is written as `\(Double(multiplier) * 2.5)` when it is included inside the string literal.
+The value of `multiplier` is also part of a larger expression later in the string. This expression calculates the value of `Double(multiplier) * 2.5` and inserts the result (`7.5`) into the string. In this case, the expression is written as `(Double(multiplier) * 2.5)` when it is included inside the string literal.
 
 Note
 
-The expressions you write inside parentheses within an interpolated string cannot contain an unescaped backslash (`\`), a carriage return, or a line feed. However, they can contain other string literals.
+The expressions you write inside parentheses within an interpolated string cannot contain an unescaped backslash (``), a carriage return, or a line feed. However, they can contain other string literals.
 
 ### Unicode
 
@@ -151,17 +151,17 @@ Note that not all 21-bit Unicode scalars are assigned to a character—some scal
 
 String literals can include the following special characters:
 
--   The escaped special characters `\0` (null character), `\\` (backslash), `\t` (horizontal tab), `\n` (line feed), `\r` (carriage return), `\"` (double quote) and `\'` (single quote)
+-   The escaped special characters `0` (null character), `\` (backslash), `t` (horizontal tab), `n` (line feed), `r` (carriage return), `"` (double quote) and `'` (single quote)
 
--   An arbitrary Unicode scalar, written as `\u{`*n*`}`, where *n* is a 1–8 digit hexadecimal number with a value equal to a valid Unicode code point
+-   An arbitrary Unicode scalar, written as `u{`*n*`}`, where *n* is a 1–8 digit hexadecimal number with a value equal to a valid Unicode code point
 
 The code below shows four examples of these special characters. The `wiseWords` constant contains two escaped double quote characters. The `dollarSign`, `blackHeart`, and `sparklingHeart` constants demonstrate the Unicode scalar format:
 
-    let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
+    let wiseWords = ""Imagination is more important than knowledge" - Einstein"
     // "Imagination is more important than knowledge" - Einstein
-    let dollarSign = "\u{24}" // $,  Unicode scalar U+0024
-    let blackHeart = "\u{2665}" // ♥,  Unicode scalar U+2665
-    let sparklingHeart = "\u{1F496}" // 💖, Unicode scalar U+1F496
+    let dollarSign = "u{24}" // $,  Unicode scalar U+0024
+    let blackHeart = "u{2665}" // ♥,  Unicode scalar U+2665
+    let sparklingHeart = "u{1F496}" // 💖, Unicode scalar U+1F496
 
 ### Extended Grapheme Clusters
 
@@ -171,24 +171,24 @@ Here’s an example. The letter `é` can be represented as the single Unicode sc
 
 In both cases, the letter `é` is represented as a single Swift `Character` value that represents an extended grapheme cluster. In the first case, the cluster contains a single scalar; in the second case, it is a cluster of two scalars:
 
-    let eAcute: Character = "\u{E9}" // é
-    let combinedEAcute: Character = "\u{65}\u{301}" // e followed by ́
+    let eAcute: Character = "u{E9}" // é
+    let combinedEAcute: Character = "u{65}u{301}" // e followed by ́
     // eAcute is é, combinedEAcute is é
 
 Extended grapheme clusters are a flexible way to represent many complex script characters as a single `Character` value. For example, Hangul syllables from the Korean alphabet can be represented as either a precomposed or decomposed sequence. Both of these representations qualify as a single `Character` value in Swift:
 
-    let precomposed: Character = "\u{D55C}" // 한
-    let decomposed: Character = "\u{1112}\u{1161}\u{11AB}" // ᄒ, ᅡ, ᆫ
+    let precomposed: Character = "u{D55C}" // 한
+    let decomposed: Character = "u{1112}u{1161}u{11AB}" // ᄒ, ᅡ, ᆫ
     // precomposed is 한, decomposed is 한
 
 Extended grapheme clusters enable scalars for enclosing marks (such as `COMBINING ENCLOSING CIRCLE`, or `U+20DD`) to enclose other Unicode scalars as part of a single `Character` value:
 
-    let enclosedEAcute: Character = "\u{E9}\u{20DD}"
+    let enclosedEAcute: Character = "u{E9}u{20DD}"
     // enclosedEAcute is é⃝
 
 Unicode scalars for regional indicator symbols can be combined in pairs to make a single `Character` value, such as this combination of `REGIONAL INDICATOR SYMBOL LETTER U` (`U+1F1FA`) and `REGIONAL INDICATOR SYMBOL LETTER S` (`U+1F1F8`):
 
-    let regionalIndicatorForUS: Character = "\u{1F1FA}\u{1F1F8}"
+    let regionalIndicatorForUS: Character = "u{1F1FA}u{1F1F8}"
     // regionalIndicatorForUS is 🇺🇸
 
 ### Counting Characters
@@ -196,7 +196,7 @@ Unicode scalars for regional indicator symbols can be combined in pairs to make 
 To retrieve a count of the `Character` values in a string, use the `count` property of the string’s `characters` property:
 
     let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
-    print("unusualMenagerie has \\(unusualMenagerie.characters.count) characters")
+    print("unusualMenagerie has \(unusualMenagerie.characters.count) characters")
     // prints "unusualMenagerie has 40 characters"
 
 Note that Swift’s use of extended grapheme clusters for `Character` values means that string concatenation and modification may not always affect a string’s character count.
@@ -204,12 +204,12 @@ Note that Swift’s use of extended grapheme clusters for `Character` values mea
 For example, if you initialize a new string with the four-character word `cafe`, and then append a `COMBINING ACUTE ACCENT` (`U+0301`) to the end of the string, the resulting string will still have a character count of `4`, with a fourth character of `é`, not `e`:
 
     var word = "cafe"
-    print("the number of characters in \\(word) is \\(word.characters.count)")
+    print("the number of characters in \(word) is \(word.characters.count)")
     // prints "the number of characters in cafe is 4"
      
-    word += "\u{301}" // COMBINING ACUTE ACCENT, U+0301
+    word += "u{301}" // COMBINING ACUTE ACCENT, U+0301
      
-    print("the number of characters in \\(word) is \\(word.characters.count)")
+    print("the number of characters in \(word) is \(word.characters.count)")
     // prints "the number of characters in café is 4"
 
 Note
@@ -235,25 +235,25 @@ A `String.Index` value can access its immediately preceding index by calling the
 You can use subscript syntax to access the `Character` at a particular `String` index.
 
     let greeting = "Guten Tag!"
-    greeting\[greeting.startIndex\]
+    greeting[greeting.startIndex]
     // G
-    greeting\[greeting.endIndex.predecessor()\]
+    greeting[greeting.endIndex.predecessor()]
     // !
-    greeting\[greeting.startIndex.successor()\]
+    greeting[greeting.startIndex.successor()]
     // u
     let index = greeting.startIndex.advancedBy(7)
-    greeting\[index\]
+    greeting[index]
     // a
 
 Attempting to access a `Character` at an index outside of a string’s range will trigger a runtime error.
 
-    greeting\[greeting.endIndex\] // error
+    greeting[greeting.endIndex] // error
     greeting.endIndex.successor() // error
 
 Use the `indices` property of the `characters` property to create a `Range` of all of the indexes used to access individual characters in a string.
 
     for index in greeting.characters.indices {
-        print("\\(greeting\[index\]) ", terminator: "")
+        print("\(greeting[index]) ", terminator: "")
     }
     // prints "G u t e n   T a g ! "
 
@@ -301,10 +301,10 @@ Two `String` values (or two `Character` values) are considered equal if their ex
 For example, `LATIN SMALL LETTER E WITH ACUTE` (`U+00E9`) is canonically equivalent to `LATIN SMALL LETTER E` (`U+0065`) followed by `COMBINING ACUTE ACCENT` (`U+0301`). Both of these extended grapheme clusters are valid ways to represent the character `é`, and so they are considered to be canonically equivalent:
 
     // "Voulez-vous un café?" using LATIN SMALL LETTER E WITH ACUTE
-    let eAcuteQuestion = "Voulez-vous un caf\u{E9}?"
+    let eAcuteQuestion = "Voulez-vous un cafu{E9}?"
      
     // "Voulez-vous un café?" using LATIN SMALL LETTER E and COMBINING ACUTE ACCENT
-    let combinedEAcuteQuestion = "Voulez-vous un caf\u{65}\u{301}?"
+    let combinedEAcuteQuestion = "Voulez-vous un cafu{65}u{301}?"
      
     if eAcuteQuestion == combinedEAcuteQuestion {
         print("These two strings are considered equal")
@@ -313,9 +313,9 @@ For example, `LATIN SMALL LETTER E WITH ACUTE` (`U+00E9`) is canonically equival
 
 Conversely, `LATIN CAPITAL LETTER A` (`U+0041`, or `"A"`), as used in English, is *not* equivalent to `CYRILLIC CAPITAL LETTER A` (`U+0410`, or `"А"`), as used in Russian. The characters are visually similar, but do not have the same linguistic meaning:
 
-    let latinCapitalLetterA: Character = "\u{41}"
+    let latinCapitalLetterA: Character = "u{41}"
      
-    let cyrillicCapitalLetterA: Character = "\u{0410}"
+    let cyrillicCapitalLetterA: Character = "u{0410}"
      
     if latinCapitalLetterA != cyrillicCapitalLetterA {
         print("These two characters are not equivalent")
@@ -332,7 +332,7 @@ To check whether a string has a particular string prefix or suffix, call the str
 
 The examples below consider an array of strings representing the scene locations from the first two acts of Shakespeare’s *Romeo and Juliet*:
 
-    let romeoAndJuliet = \[
+    let romeoAndJuliet = [
         "Act 1 Scene 1: Verona, A public place",
         "Act 1 Scene 2: Capulet's mansion",
         "Act 1 Scene 3: A room in Capulet's mansion",
@@ -354,7 +354,7 @@ You can use the `hasPrefix(_:)` method with the `romeoAndJuliet` array to count 
             ++act1SceneCount
         }
     }
-    print("There are \\(act1SceneCount) scenes in Act 1")
+    print("There are \(act1SceneCount) scenes in Act 1")
     // prints "There are 5 scenes in Act 1"
 
 Similarly, use the `hasSuffix(_:)` method to count the number of scenes that take place in or around Capulet’s mansion and Friar Lawrence’s cell:
@@ -368,7 +368,7 @@ Similarly, use the `hasSuffix(_:)` method to count the number of scenes that tak
             ++cellCount
         }
     }
-    print("\\(mansionCount) mansion scenes; \\(cellCount) cell scenes")
+    print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
     // prints "6 mansion scenes; 2 cell scenes"
 
 Note
@@ -397,10 +397,10 @@ Each example below shows a different representation of the following string, whi
 
 You can access a UTF-8 representation of a `String` by iterating over its `utf8` property. This property is of type `String.UTF8View`, which is a collection of unsigned 8-bit (`UInt8`) values, one for each byte in the string’s UTF-8 representation:
 
-![image: Art/UTF8\_2x.png](Art/UTF8_2x.png)
+![image: Art/UTF8_2x.png](Art/UTF8_2x.png)
 
     for codeUnit in dogString.utf8 {
-        print("\\(codeUnit) ", terminator: "")
+        print("\(codeUnit) ", terminator: "")
     }
     print("")
     // 68 111 103 226 128 188 240 159 144 182
@@ -411,10 +411,10 @@ In the example above, the first three decimal `codeUnit` values (`68`, `111`, `1
 
 You can access a UTF-16 representation of a `String` by iterating over its `utf16` property. This property is of type `String.UTF16View`, which is a collection of unsigned 16-bit (`UInt16`) values, one for each 16-bit code unit in the string’s UTF-16 representation:
 
-![image: Art/UTF16\_2x.png](Art/UTF16_2x.png)
+![image: Art/UTF16_2x.png](Art/UTF16_2x.png)
 
     for codeUnit in dogString.utf16 {
-        print("\\(codeUnit) ", terminator: "")
+        print("\(codeUnit) ", terminator: "")
     }
     print("")
     // 68 111 103 8252 55357 56374
@@ -431,10 +431,10 @@ You can access a Unicode scalar representation of a `String` value by iterating 
 
 Each `UnicodeScalar` has a `value` property that returns the scalar’s 21-bit value, represented within a `UInt32` value:
 
-![image: Art/UnicodeScalar\_2x.png](Art/UnicodeScalar_2x.png)
+![image: Art/UnicodeScalar_2x.png](Art/UnicodeScalar_2x.png)
 
     for scalar in dogString.unicodeScalars {
-        print("\\(scalar.value) ", terminator: "")
+        print("\(scalar.value) ", terminator: "")
     }
     print("")
     // 68 111 103 8252 128054
@@ -448,7 +448,7 @@ The `value` property of the fifth and final `UnicodeScalar`, `128054`, is a deci
 As an alternative to querying their `value` properties, each `UnicodeScalar` value can also be used to construct a new `String` value, such as with string interpolation:
 
     for scalar in dogString.unicodeScalars {
-        print("\\(scalar) ")
+        print("\(scalar) ")
     }
     // D
     // o

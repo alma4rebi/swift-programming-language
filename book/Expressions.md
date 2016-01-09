@@ -119,7 +119,7 @@ For information about the operators provided by the Swift standard library, see 
 
 Note
 
-At parse time, an expression made up of binary operators is represented as a flat list. This list is transformed into a tree by applying operator precedence. For example, the expression `2 + 3 * 5` is initially understood as a flat list of five items, `2`, `+`, `3`, `*`, and `5`. This process transforms it into the tree (2 + (3 \* 5)).
+At parse time, an expression made up of binary operators is represented as a flat list. This list is transformed into a tree by applying operator precedence. For example, the expression `2 + 3 * 5` is initially understood as a flat list of five items, `2`, `+`, `3`, `*`, and `5`. This process transforms it into the tree (2 + (3 * 5)).
 
 Grammar of a binary expression
 
@@ -382,7 +382,7 @@ An *array literal* is an ordered collection of values. It has the following form
 
 The last expression in the array can be followed by an optional comma. The value of an array literal has type `[T]`, where `T` is the type of the expressions inside it. If there are expressions of multiple types, `T` is their closest common supertype. Empty array literals are written using an empty pair of square brackets and can be used to create an empty array of a specified type.
 
-    var emptyArray: \[Double\] = \[\]
+    var emptyArray: [Double] = []
 
 A *dictionary literal* is an unordered collection of key-value pairs. It has the following form:
 
@@ -392,7 +392,7 @@ A *dictionary literal* is an unordered collection of key-value pairs. It has the
 
 The last expression in the dictionary can be followed by an optional comma. The value of a dictionary literal has type `[Key: Value]`, where `Key` is the type of its key expressions and `Value` is the type of its value expressions. If there are expressions of multiple types, `Key` and `Value` are the closest common supertype for their respective values. An empty dictionary literal is written as a colon inside a pair of brackets (`[:]`) to distinguish it from an empty array literal. You can use an empty dictionary literal to create an empty dictionary literal of specified key and value types.
 
-    var emptyDictionary: \[String: Double\] = \[:\]
+    var emptyDictionary: [String: Double] = [:]
 
 Grammar of a literal expression
 
@@ -668,7 +668,7 @@ The entries in the capture list are initialized when the closure is created. For
 
     var a = 0
     var b = 0
-    let closure = { \[a\] in
+    let closure = { [a] in
         print(a, b)
     }
      
@@ -686,7 +686,7 @@ This distinction is not visible when the captured variable’s type has referenc
     }
     var x = SimpleClass()
     var y = SimpleClass()
-    let closure = { \[x\] in
+    let closure = { [x] in
         print(x.value, y.value)
     }
      
@@ -698,13 +698,13 @@ This distinction is not visible when the captured variable’s type has referenc
 If the type of the expression’s value is a class, you can mark the expression in a capture list with `weak` or `unowned` to capture a weak or unowned reference to the expression’s value.
 
     myFunction { print(self.title) } // strong capture
-    myFunction { \[weak self\] in print(self!.title) } // weak capture
-    myFunction { \[unowned self\] in print(self.title) } // unowned capture
+    myFunction { [weak self] in print(self!.title) } // weak capture
+    myFunction { [unowned self] in print(self.title) } // unowned capture
 
 You can also bind an arbitrary expression to a named value in a capture list. The expression is evaluated when the closure is created, and the value is captured with the specified strength. For example:
 
     // Weak capture of "self.parent" as "parent"
-    myFunction { \[weak parent = self.parent\] in print(parent!.title) }
+    myFunction { [weak parent = self.parent] in print(parent!.title) }
 
 For more information and examples of closure expressions, see [Closure Expressions](Closures.md#TP40016643-CH11-ID95). For more information and examples of capture lists, see [Resolving Strong Reference Cycles for Closures](AutomaticReferenceCounting.md#TP40016643-CH20-ID57).
 
@@ -1019,7 +1019,7 @@ Like a function, an initializer can be used as a value. For example:
 
     // Type annotation is required because String has multiple initializers.
     let initializer: Int -> String = String.init
-    let oneTwoThree = \[1, 2, 3\].map(initializer).reduce("", combine: +)
+    let oneTwoThree = [1, 2, 3].map(initializer).reduce("", combine: +)
     print(oneTwoThree)
     // prints "123"
 
@@ -1066,10 +1066,10 @@ The members of a module access the top-level declarations of that module.
 
 If a period appears at the beginning of a line, it is understood as part of an explicit member expression, not as an implicit member expression. For example, the following listing shows chained method calls split over several lines:
 
-    let x = \[10, 3, 20, 15, 4\]
+    let x = [10, 3, 20, 15, 4]
         .sort()
         .filter { $0 > 5 }
-        .map { $0 \* 100 }
+        .map { $0 * 100 }
 
 Grammar of an explicit member expression
 
@@ -1184,8 +1184,8 @@ The unwrapped value of a forced-value expression can be modified, either by muta
     x!++
     // x is now 1
      
-    var someDictionary = \["a": \[1, 2, 3\], "b": \[10, 20\]\]
-    someDictionary\["a"\]!\[0\] = 100
+    var someDictionary = ["a": [1, 2, 3], "b": [10, 20]]
+    someDictionary["a"]![0] = 100
     // someDictionary is now ["b": [10, 20], "a": [100, 2, 3]]
 
 Grammar of a forced-value expression
@@ -1226,13 +1226,13 @@ The unwrapped value of an optional-chaining expression can be modified, either b
     func someFunctionWithSideEffects() -> Int {
         return 42 // No actual side effects.
     }
-    var someDictionary = \["a": \[1, 2, 3\], "b": \[10, 20\]\]
+    var someDictionary = ["a": [1, 2, 3], "b": [10, 20]]
      
-    someDictionary\["not here"\]?\[0\] = someFunctionWithSideEffects()
+    someDictionary["not here"]?[0] = someFunctionWithSideEffects()
     // someFunctionWithSideEffects is not evaluated
     // someDictionary is still ["b": [10, 20], "a": [1, 2, 3]]
      
-    someDictionary\["a"\]?\[0\] = someFunctionWithSideEffects()
+    someDictionary["a"]?[0] = someFunctionWithSideEffects()
     // someFunctionWithSideEffects is evaluated and returns 42
     // someDictionary is now ["b": [10, 20], "a": [42, 2, 3]]
 

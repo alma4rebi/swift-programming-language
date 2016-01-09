@@ -94,11 +94,11 @@ You can define Swift enumerations to store associated values of any given type, 
 
 For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC-A format, which uses the numbers `0` to `9`. Each barcode has a “number system” digit, followed by five “manufacturer code” digits and five “product code” digits. These are followed by a “check” digit to verify that the code has been scanned correctly:
 
-![image: Art/barcode\_UPC\_2x.png](Art/barcode_UPC_2x.png)
+![image: Art/barcode_UPC_2x.png](Art/barcode_UPC_2x.png)
 
 Other products are labeled with 2D barcodes in QR code format, which can use any ISO 8859-1 character and can encode a string up to 2,953 characters long:
 
-![image: Art/barcode\_QR\_2x.png](Art/barcode_QR_2x.png)
+![image: Art/barcode_QR_2x.png](Art/barcode_QR_2x.png)
 
 It would be convenient for an inventory tracking system to be able to store UPC-A barcodes as a tuple of four integers, and QR code barcodes as a string of any length.
 
@@ -131,9 +131,9 @@ The different barcode types can be checked using a switch statement, as before. 
 
     switch productBarcode {
     case .UPCA(let numberSystem, let manufacturer, let product, let check):
-        print("UPC-A: \\(numberSystem), \\(manufacturer), \\(product), \\(check).")
+        print("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
     case .QRCode(let productCode):
-        print("QR code: \\(productCode).")
+        print("QR code: \(productCode).")
     }
     // prints "QR code: ABCDEFGHIJKLMNOP."
 
@@ -141,9 +141,9 @@ If all of the associated values for an enumeration case are extracted as constan
 
     switch productBarcode {
     case let .UPCA(numberSystem, manufacturer, product, check):
-        print("UPC-A: \\(numberSystem), \\(manufacturer), \\(product), \\(check).")
+        print("UPC-A: \(numberSystem), \(manufacturer), \(product), \(check).")
     case let .QRCode(productCode):
-        print("QR code: \\(productCode).")
+        print("QR code: \(productCode).")
     }
     // prints "QR code: ABCDEFGHIJKLMNOP."
 
@@ -154,9 +154,9 @@ The barcode example in [Associated Values](Enumerations.md#TP40016643-CH12-ID148
 Here’s an example that stores raw ASCII values alongside named enumeration cases:
 
     enum ASCIIControlCharacter: Character {
-        case Tab = "\t"
-        case LineFeed = "\n"
-        case CarriageReturn = "\r"
+        case Tab = "t"
+        case LineFeed = "n"
+        case CarriageReturn = "r"
     }
 
 Here, the raw values for an enumeration called `ASCIIControlCharacter` are defined to be of type `Character`, and are set to some of the more common ASCII control characters. `Character` values are described in [Strings and Characters](StringsAndCharacters.md).
@@ -225,7 +225,7 @@ If you try to find a planet with a position of `9`, the optional `Planet` value 
             print("Not a safe place for humans")
         }
     } else {
-        print("There isn't a planet at position \\(positionToFind)")
+        print("There isn't a planet at position \(positionToFind)")
     }
     // prints "There isn't a planet at position 9"
 
@@ -266,7 +266,7 @@ A recursive function is a straightforward way to work with data that has a recur
         case .Addition(let left, let right):
             return evaluate(left) + evaluate(right)
         case .Multiplication(let left, let right):
-            return evaluate(left) \* evaluate(right)
+            return evaluate(left) * evaluate(right)
         }
     }
      

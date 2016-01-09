@@ -237,9 +237,9 @@ If the *constant name* of a constant declaration is a tuple pattern, the name of
 
 In this example, `firstNumber` is a named constant for the value `10`, and `secondNumber` is a named constant for the value `42`. Both constants can now be used independently:
 
-    print("The first number is \\(firstNumber).")
+    print("The first number is \(firstNumber).")
     // prints "The first number is 10."
-    print("The second number is \\(secondNumber).")
+    print("The second number is \(secondNumber).")
     // prints "The second number is 42."
 
 The type annotation (`:` *type*) is optional in a constant declaration when the type of the *constant name* can be inferred, as described in [Type Inference](Types.md#TP40016643-CH31-ID457).
@@ -962,7 +962,7 @@ Enumeration cases that store associated values can be used as functions that cre
     // f is a function of type (Int) -> Number
      
     // Apply f to create an array of Number instances with integer values
-    let evenInts: \[Number\] = \[0, 2, 4, 6\].map(f)
+    let evenInts: [Number] = [0, 2, 4, 6].map(f)
 
 For more information and to see examples of cases with associated value types, see [Associated Values](Enumerations.md#TP40016643-CH12-ID148).
 

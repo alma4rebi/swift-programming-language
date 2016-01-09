@@ -40,10 +40,10 @@ In Blackjack, the Ace cards have a value of either one or eleven. This feature i
         // BlackjackCard properties and methods
         let rank: Rank, suit: Suit
         var description: String {
-            var output = "suit is \\(suit.rawValue),"
-            output += " value is \\(rank.values.first)"
+            var output = "suit is \(suit.rawValue),"
+            output += " value is \(rank.values.first)"
             if let second = rank.values.second {
-                output += " or \\(second)"
+                output += " or \(second)"
             }
             return output
         }
@@ -66,7 +66,7 @@ The `BlackjackCard` structure itself has two properties—`rank` and `suit`. It 
 Because `BlackjackCard` is a structure with no custom initializers, it has an implicit memberwise initializer, as described in [Memberwise Initializers for Structure Types](Initialization.md#TP40016643-CH18-ID214). You can use this initializer to initialize a new constant called `theAceOfSpades`:
 
     let theAceOfSpades = BlackjackCard(rank: .Ace, suit: .Spades)
-    print("theAceOfSpades: \\(theAceOfSpades.description)")
+    print("theAceOfSpades: \(theAceOfSpades.description)")
     // prints "theAceOfSpades: suit is ♠, value is 1 or 11"
 
 Even though `Rank` and `Suit` are nested within `BlackjackCard`, their type can be inferred from context, and so the initialization of this instance is able to refer to the enumeration cases by their case names (`.Ace` and `.Spades`) alone. In the example above, the `description` property correctly reports that the Ace of Spades has a value of `1` or `11`.

@@ -22,7 +22,7 @@ The `Vehicle` base class also defines a method called `makeNoise`. This method d
     class Vehicle {
         var currentSpeed = 0.0
         var description: String {
-            return "traveling at \\(currentSpeed) miles per hour"
+            return "traveling at \(currentSpeed) miles per hour"
         }
         func makeNoise() {
             // do nothing - an arbitrary vehicle doesn't necessarily make a noise
@@ -35,7 +35,7 @@ You create a new instance of `Vehicle` with *initializer syntax*, which is writt
 
 Having created a new `Vehicle` instance, you can access its `description` property to print a human-readable description of the vehicle’s current speed:
 
-    print("Vehicle: \\(someVehicle.description)")
+    print("Vehicle: \(someVehicle.description)")
     // Vehicle: traveling at 0.0 miles per hour
 
 The `Vehicle` class defines common characteristics for an arbitrary vehicle, but is not much use in itself. To make it more useful, you need to refine it to describe more specific kinds of vehicle.
@@ -68,7 +68,7 @@ By default, any new `Bicycle` instance you create will not have a basket. You ca
 You can also modify the inherited `currentSpeed` property of a `Bicycle` instance, and query the instance’s inherited `description` property:
 
     bicycle.currentSpeed = 15.0
-    print("Bicycle: \\(bicycle.description)")
+    print("Bicycle: \(bicycle.description)")
     // Bicycle: traveling at 15.0 miles per hour
 
 Subclasses can themselves be subclassed. The next example creates a subclass of `Bicycle` for a two-seater bicycle known as a “tandem”:
@@ -85,7 +85,7 @@ If you create an instance of `Tandem`, you can work with any of its new and inhe
     tandem.hasBasket = true
     tandem.currentNumberOfPassengers = 2
     tandem.currentSpeed = 22.0
-    print("Tandem: \\(tandem.description)")
+    print("Tandem: \(tandem.description)")
     // Tandem: traveling at 22.0 miles per hour
 
 ### Overriding
@@ -145,7 +145,7 @@ The following example defines a new class called `Car`, which is a subclass of `
     class Car: Vehicle {
         var gear = 1
         override var description: String {
-            return super.description + " in gear \\(gear)"
+            return super.description + " in gear \(gear)"
         }
     }
 
@@ -156,7 +156,7 @@ If you create an instance of the `Car` class and set its `gear` and `currentSpee
     let car = Car()
     car.currentSpeed = 25.0
     car.gear = 3
-    print("Car: \\(car.description)")
+    print("Car: \(car.description)")
     // Car: traveling at 25.0 miles per hour in gear 3
 
 ### Overriding Property Observers
@@ -183,7 +183,7 @@ Whenever you set the `currentSpeed` property of an `AutomaticCar` instance, the 
 
     let automatic = AutomaticCar()
     automatic.currentSpeed = 35.0
-    print("AutomaticCar: \\(automatic.description)")
+    print("AutomaticCar: \(automatic.description)")
     // AutomaticCar: traveling at 35.0 miles per hour in gear 4
 
 ### Preventing Overrides

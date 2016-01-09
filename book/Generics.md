@@ -22,7 +22,7 @@ The `swapTwoInts(_:_:)` function swaps the original value of `b` into `a`, and t
     var someInt = 3
     var anotherInt = 107
     swapTwoInts(&someInt, &anotherInt)
-    print("someInt is now \\(someInt), and anotherInt is now \\(anotherInt)")
+    print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
     // prints "someInt is now 107, and anotherInt is now 3"
 
 The `swapTwoInts(_:_:)` function is useful, but it can only be used with `Int` values. If you want to swap two `String` values, or two `Double` values, you have to write more functions, such as the `swapTwoStrings(_:_:)` and `swapTwoDoubles(_:_:)` functions shown below:
@@ -112,7 +112,7 @@ The concept of a stack is used by the `UINavigationController` class to model th
 
 The illustration below shows the push / pop behavior for a stack:
 
-![image: Art/stackPushPop\_2x.png](Art/stackPushPop_2x.png)
+![image: Art/stackPushPop_2x.png](Art/stackPushPop_2x.png)
 
 1.  There are currently three values on the stack.
 
@@ -127,7 +127,7 @@ The illustration below shows the push / pop behavior for a stack:
 Here’s how to write a non-generic version of a stack, in this case for a stack of `Int` values:
 
     struct IntStack {
-        var items = \[Int\]()
+        var items = [Int]()
         mutating func push(item: Int) {
             items.append(item)
         }
@@ -143,7 +143,7 @@ The `IntStack` type shown above can only be used with `Int` values, however. It 
 Here’s a generic version of the same code:
 
     struct Stack<Element> {
-        var items = \[Element\]()
+        var items = [Element]()
         mutating func push(item: Element) {
             items.append(item)
         }
@@ -175,7 +175,7 @@ You create a new `Stack` instance by writing the type to be stored in the stack 
 
 Here’s how `stackOfStrings` looks after pushing these four values on to the stack:
 
-![image: Art/stackPushedFourStrings\_2x.png](Art/stackPushedFourStrings_2x.png)
+![image: Art/stackPushedFourStrings_2x.png](Art/stackPushedFourStrings_2x.png)
 
 Popping a value from the stack returns and removes the top value, `"cuatro"`:
 
@@ -184,7 +184,7 @@ Popping a value from the stack returns and removes the top value, `"cuatro"`:
 
 Here’s how the stack looks after popping its top value:
 
-![image: Art/stackPoppedOneString\_2x.png](Art/stackPoppedOneString_2x.png)
+![image: Art/stackPoppedOneString_2x.png](Art/stackPoppedOneString_2x.png)
 
 ### Extending a Generic Type
 
@@ -194,7 +194,7 @@ The following example extends the generic `Stack` type to add a read-only comput
 
     extension Stack {
         var topItem: Element? {
-            return items.isEmpty ? nil : items\[items.count - 1\]
+            return items.isEmpty ? nil : items[items.count - 1]
         }
     }
 
@@ -205,7 +205,7 @@ Note that this extension does not define a type parameter list. Instead, the `St
 The `topItem` computed property can now be used with any `Stack` instance to access and query its top item without removing it:
 
     if let topItem = stackOfStrings.topItem {
-        print("The top item on the stack is \\(topItem).")
+        print("The top item on the stack is \(topItem).")
     }
     // prints "The top item on the stack is tres."
 
@@ -233,7 +233,7 @@ The hypothetical function above has two type parameters. The first type paramete
 
 Here’s a non-generic function called `findStringIndex`, which is given a `String` value to find and an array of `String` values within which to find it. The `findStringIndex(_:_:)` function returns an optional `Int` value, which will be the index of the first matching string in the array if it is found, or `nil` if the string cannot be found:
 
-    func findStringIndex(array: \[String\], _ valueToFind: String) -> Int? {
+    func findStringIndex(array: [String], _ valueToFind: String) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -244,9 +244,9 @@ Here’s a non-generic function called `findStringIndex`, which is given a `Stri
 
 The `findStringIndex(_:_:)` function can be used to find a string value in an array of strings:
 
-    let strings = \["cat", "dog", "llama", "parakeet", "terrapin"\]
+    let strings = ["cat", "dog", "llama", "parakeet", "terrapin"]
     if let foundIndex = findStringIndex(strings, "llama") {
-        print("The index of llama is \\(foundIndex)")
+        print("The index of llama is \(foundIndex)")
     }
     // prints "The index of llama is 2"
 
@@ -254,7 +254,7 @@ The principle of finding the index of a value in an array isn’t useful only fo
 
 Here’s how you might expect a generic version of `findStringIndex`, called `findIndex`, to be written. Note that the return type of this function is still `Int?`, because the function returns an optional index number, not an optional value from the array. Be warned, though—this function does not compile, for reasons explained after the example:
 
-    func findIndex<T>(array: \[T\], _ valueToFind: T) -> Int? {
+    func findIndex<T>(array: [T], _ valueToFind: T) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -269,7 +269,7 @@ All is not lost, however. The Swift standard library defines a protocol called `
 
 Any type that is `Equatable` can be used safely with the `findIndex(_:_:)` function, because it is guaranteed to support the equal to operator. To express this fact, you write a type constraint of `Equatable` as part of the type parameter’s definition when you define the function:
 
-    func findIndex<T: Equatable>(array: \[T\], _ valueToFind: T) -> Int? {
+    func findIndex<T: Equatable>(array: [T], _ valueToFind: T) -> Int? {
         for (index, value) in array.enumerate() {
             if value == valueToFind {
                 return index
@@ -282,9 +282,9 @@ The single type parameter for `findIndex` is written as `T: Equatable`, which me
 
 The `findIndex(_:_:)` function now compiles successfully and can be used with any type that is `Equatable`, such as `Double` or `String`:
 
-    let doubleIndex = findIndex(\[3.14159, 0.1, 0.25\], 9.3)
+    let doubleIndex = findIndex([3.14159, 0.1, 0.25], 9.3)
     // doubleIndex is an optional Int with no value, because 9.3 is not in the array
-    let stringIndex = findIndex(\["Mike", "Malcolm", "Andrea"\], "Andrea")
+    let stringIndex = findIndex(["Mike", "Malcolm", "Andrea"], "Andrea")
     // stringIndex is an optional Int containing a value of 2
 
 ### Associated Types
@@ -322,7 +322,7 @@ Here’s a version of the non-generic `IntStack` type from earlier, adapted to c
 
     struct IntStack: Container {
         // original IntStack implementation
-        var items = \[Int\]()
+        var items = [Int]()
         mutating func push(item: Int) {
             items.append(item)
         }
@@ -338,7 +338,7 @@ Here’s a version of the non-generic `IntStack` type from earlier, adapted to c
             return items.count
         }
         subscript(i: Int) -> Int {
-            return items\[i\]
+            return items[i]
         }
     }
 
@@ -352,7 +352,7 @@ You can also make the generic `Stack` type conform to the `Container` protocol:
 
     struct Stack<Element>: Container {
         // original Stack<Element> implementation
-        var items = \[Element\]()
+        var items = [Element]()
         mutating func push(item: Element) {
             items.append(item)
         }
@@ -367,7 +367,7 @@ You can also make the generic `Stack` type conform to the `Container` protocol:
             return items.count
         }
         subscript(i: Int) -> Element {
-            return items\[i\]
+            return items[i]
         }
     }
 
@@ -405,7 +405,7 @@ The two containers to be checked do not have to be the same type of container (a
             
             // check each pair of items to see if they are equivalent
             for i in 0..<someContainer.count {
-                if someContainer\[i\] != anotherContainer\[i\] {
+                if someContainer[i] != anotherContainer[i] {
                     return false
                 }
             }
@@ -456,7 +456,7 @@ Here’s how the `allItemsMatch(_:_:)` function looks in action:
     stackOfStrings.push("dos")
     stackOfStrings.push("tres")
      
-    var arrayOfStrings = \["uno", "dos", "tres"\]
+    var arrayOfStrings = ["uno", "dos", "tres"]
      
     if allItemsMatch(stackOfStrings, arrayOfStrings) {
         print("All items match.")

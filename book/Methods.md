@@ -60,7 +60,7 @@ Consider this alternative version of the `Counter` class, which defines a more c
     class Counter {
         var count: Int = 0
         func incrementBy(amount: Int, numberOfTimes: Int) {
-            count += amount \* numberOfTimes
+            count += amount * numberOfTimes
         }
     }
 
@@ -127,7 +127,7 @@ You can opt in to this behavior by placing the `mutating` keyword before the `fu
     }
     var somePoint = Point(x: 1.0, y: 1.0)
     somePoint.moveByX(2.0, y: 3.0)
-    print("The point is now at (\\(somePoint.x), \\(somePoint.y))")
+    print("The point is now at (\(somePoint.x), \(somePoint.y))")
     // prints "The point is now at (3.0, 4.0)"
 
 The `Point` structure above defines a mutating `moveByX(_:y:)` method, which moves a `Point` instance by a certain amount. Instead of returning a new point, this method actually modifies the point on which it is called. The `mutating` keyword is added to its definition to enable it to modify its properties.
@@ -246,7 +246,7 @@ You can create an instance of the `Player` class for a new player, and see what 
 
     var player = Player(name: "Argyrios")
     player.completedLevel(1)
-    print("highest unlocked level is now \\(LevelTracker.highestUnlockedLevel)")
+    print("highest unlocked level is now \(LevelTracker.highestUnlockedLevel)")
     // prints "highest unlocked level is now 2"
 
 If you create a second player, whom you try to move to a level that is not yet unlocked by any player in the game, the attempt to set the player’s current level fails:

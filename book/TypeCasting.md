@@ -40,7 +40,7 @@ The next snippet defines two subclasses of `MediaItem`. The first subclass, `Mov
 
 The final snippet creates a constant array called `library`, which contains two `Movie` instances and three `Song` instances. The type of the `library` array is inferred by initializing it with the contents of an array literal. Swift’s type checker is able to deduce that `Movie` and `Song` have a common superclass of `MediaItem`, and so it infers a type of `[MediaItem]` for the `library` array:
 
-    let library = \[
+    let library = [
         Movie(name: "Casablanca", director: "Michael Curtiz"),
         Song(name: "Blue Suede Shoes", artist: "Elvis Presley"),
         Movie(name: "Citizen Kane", director: "Orson Welles"),
@@ -68,7 +68,7 @@ The example below defines two variables, `movieCount` and `songCount`, which cou
         }
     }
      
-    print("Media library contains \\(movieCount) movies and \\(songCount) songs")
+    print("Media library contains \(movieCount) movies and \(songCount) songs")
     // prints "Media library contains 2 movies and 3 songs"
 
 This example iterates through all items in the `library` array. On each pass, the `for`-`in` loop sets the `item` constant to the next `MediaItem` in the array.
@@ -91,9 +91,9 @@ In this example, each item in the array might be a `Movie`, or it might be a `So
 
     for item in library {
         if let movie = item as? Movie {
-            print("Movie: '\\(movie.name)', dir. \\(movie.director)")
+            print("Movie: '\(movie.name)', dir. \(movie.director)")
         } else if let song = item as? Song {
-            print("Song: '\\(song.name)', by \\(song.artist)")
+            print("Song: '\(song.name)', by \(song.artist)")
         }
     }
      
@@ -135,7 +135,7 @@ In these situations, you can use the forced version of the type cast operator (`
 
 The example below defines an array of type `[AnyObject]` and populates this array with three instances of the `Movie` class:
 
-    let someObjects: \[AnyObject\] = \[
+    let someObjects: [AnyObject] = [
         Movie(name: "2001: A Space Odyssey", director: "Stanley Kubrick"),
         Movie(name: "Moon", director: "Duncan Jones"),
         Movie(name: "Alien", director: "Ridley Scott")
@@ -145,7 +145,7 @@ Because this array is known to contain only `Movie` instances, you can downcast 
 
     for object in someObjects {
         let movie = object as! Movie
-        print("Movie: '\\(movie.name)', dir. \\(movie.director)")
+        print("Movie: '\(movie.name)', dir. \(movie.director)")
     }
     // Movie: '2001: A Space Odyssey', dir. Stanley Kubrick
     // Movie: 'Moon', dir. Duncan Jones
@@ -153,8 +153,8 @@ Because this array is known to contain only `Movie` instances, you can downcast 
 
 For an even shorter form of this loop, downcast the `someObjects` array to a type of `[Movie]` instead of downcasting each item:
 
-    for movie in someObjects as! \[Movie\] {
-        print("Movie: '\\(movie.name)', dir. \\(movie.director)")
+    for movie in someObjects as! [Movie] {
+        print("Movie: '\(movie.name)', dir. \(movie.director)")
     }
     // Movie: '2001: A Space Odyssey', dir. Stanley Kubrick
     // Movie: 'Moon', dir. Duncan Jones
@@ -164,7 +164,7 @@ For an even shorter form of this loop, downcast the `someObjects` array to a typ
 
 Here’s an example of using `Any` to work with a mix of different types, including function types and non-class types. The example creates an array called `things`, which can store values of type `Any`:
 
-    var things = \[Any\]()
+    var things = [Any]()
      
     things.append(0)
     things.append(0.0)
@@ -173,7 +173,7 @@ Here’s an example of using `Any` to work with a mix of different types, includ
     things.append("hello")
     things.append((3.0, 5.0))
     things.append(Movie(name: "Ghostbusters", director: "Ivan Reitman"))
-    things.append({ (name: String) -> String in "Hello, \\(name)" })
+    things.append({ (name: String) -> String in "Hello, \(name)" })
 
 The `things` array contains two `Int` values, two `Double` values, a `String` value, a tuple of type `(Double, Double)`, the movie “Ghostbusters”, and a closure expression that takes a `String` value and returns another `String` value.
 
@@ -186,17 +186,17 @@ You can use the `is` and `as` operators in a `switch` statement’s cases to dis
         case 0 as Double:
             print("zero as a Double")
         case let someInt as Int:
-            print("an integer value of \\(someInt)")
+            print("an integer value of \(someInt)")
         case let someDouble as Double where someDouble > 0:
-            print("a positive double value of \\(someDouble)")
+            print("a positive double value of \(someDouble)")
         case is Double:
             print("some other double value that I don't want to print")
         case let someString as String:
-            print("a string value of \"\\(someString)\"")
+            print("a string value of "\(someString)"")
         case let (x, y) as (Double, Double):
-            print("an (x, y) point at \\(x), \\(y)")
+            print("an (x, y) point at \(x), \(y)")
         case let movie as Movie:
-            print("a movie called '\\(movie.name)', dir. \\(movie.director)")
+            print("a movie called '\(movie.name)', dir. \(movie.director)")
         case let stringConverter as String -> String:
             print(stringConverter("Michael"))
         default:

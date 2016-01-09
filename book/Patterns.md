@@ -113,7 +113,7 @@ Identifiers patterns within a value-binding pattern bind new named constants to 
     switch point {
         // Bind x and y to the elements of point.
     case let (x, y):
-        print("The point is at (\\(x), \\(y)).")
+        print("The point is at (\(x), \(y)).")
     }
     // prints "The point is at (3, 2)."
 
@@ -136,7 +136,7 @@ You can constrain a tuple pattern to match certain kinds of tuple types by using
 
 When a tuple pattern is used as the pattern in a `for`-`in` statement or in a variable or constant declaration, it can contain only wildcard patterns, identifier patterns, optional patterns, or other tuple patterns that contain those. For example, the following code isn’t valid because the element `0` in the tuple pattern `(x, 0)` is an expression pattern:
 
-    let points = \[(0, 0), (1, 0), (1, 1), (2, 0), (2, 1)\]
+    let points = [(0, 0), (1, 0), (1, 1), (2, 0), (2, 1)]
     // This code isn't valid.
     for (x, 0) in points {
         /* ... */
@@ -208,10 +208,10 @@ Because optional patterns are syntactic sugar for `Optional` and `ImplicitlyUnwr
 
 The optional pattern provides a convenient way to iterate over an array of optional values in a `for`-`in` statement, executing the body of the loop only for non-`nil` elements.
 
-    let arrayOfOptionalInts: \[Int?\] = \[nil, 2, 3, nil, 5\]
+    let arrayOfOptionalInts: [Int?] = [nil, 2, 3, nil, 5]
     // Match only non-nil values
     for case let number? in arrayOfOptionalInts {
-        print("Found a \\(number)")
+        print("Found a \(number)")
     }
     // Found a 2
     // Found a 3
@@ -281,23 +281,23 @@ The expression represented by the expression pattern is compared with the value 
     case (0, 0):
         print("(0, 0) is at the origin.")
     case (-2...2, -2...2):
-        print("(\\(point.0), \\(point.1)) is near the origin.")
+        print("(\(point.0), \(point.1)) is near the origin.")
     default:
-        print("The point is at (\\(point.0), \\(point.1)).")
+        print("The point is at (\(point.0), \(point.1)).")
     }
     // prints "(1, 2) is near the origin."
 
 You can overload the `~=` operator to provide custom expression matching behavior. For example, you can rewrite the above example to compare the `point` expression with a string representations of points.
 
     // Overload the ~= operator to match a string with an integer
-    func \~=(pattern: String, value: Int) -> Bool {
-        return pattern == "\\(value)"
+    func ~=(pattern: String, value: Int) -> Bool {
+        return pattern == "\(value)"
     }
     switch point {
     case ("0", "0"):
         print("(0, 0) is at the origin.")
     default:
-        print("The point is at (\\(point.0), \\(point.1)).")
+        print("The point is at (\(point.0), \(point.1)).")
     }
     // prints "The point is at (1, 2)."
 

@@ -3353,7 +3353,7 @@ quoted-text-item
 
 <span class="arrow">
 →
-<span class="text-description">Any Unicode scalar value except `"`, `\`, U+000A, or U+000D
+<span class="text-description">Any Unicode scalar value except `"`, ``, U+000A, or U+000D
 
 <span class="syntax-def-name">
 interpolated-string-literal
@@ -3375,7 +3375,7 @@ interpolated-text-item
 <span class="arrow">
 →
 <span class="alternative">
-`\(`<span class="syntactic-cat">[expression](Expressions.md#expression)`)`
+`(`<span class="syntactic-cat">[expression](Expressions.md#expression)`)`
 <span class="alternative">
 <span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)
 
@@ -3385,26 +3385,26 @@ escaped-character
 <span class="arrow">
 →
 <span class="alternative">
-`\0`
+`0`
 <span class="alternative">
-`\\`
+`\`
 <span class="alternative">
-`\t`
+`t`
 <span class="alternative">
-`\n`
+`n`
 <span class="alternative">
-`\r`
+`r`
 <span class="alternative">
-`\"`
+`"`
 <span class="alternative">
-`\'`
+`'`
 
 <span class="syntax-def-name">
 escaped-character
 
 <span class="arrow">
 →
-`\u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
+`u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
 
 <span class="syntax-def-name">
 unicode-scalar-digits

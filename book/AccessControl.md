@@ -230,7 +230,7 @@ If you create a `TrackedString` instance and modify its string value a few times
     stringToEdit.value = "This string will be tracked."
     stringToEdit.value += " This edit will increment numberOfEdits."
     stringToEdit.value += " So will this one."
-    print("The number of edits is \\(stringToEdit.numberOfEdits)")
+    print("The number of edits is \(stringToEdit.numberOfEdits)")
     // prints "The number of edits is 3"
 
 Although you can query the current value of the `numberOfEdits` property from within another source file, you cannot *modify* the property from another source file. This restriction protects the implementation details of the `TrackedString` edit-tracking functionality, while still providing convenient access to an aspect of that functionality.

@@ -59,9 +59,9 @@ Each `Player` instance is initialized with a starting allowance of a specified n
 The `Player` class defines a `winCoins(_:)` method, which retrieves a certain number of coins from the bank and adds them to the player’s purse. The `Player` class also implements a deinitializer, which is called just before a `Player` instance is deallocated. Here, the deinitializer simply returns all of the player’s coins to the bank:
 
     var playerOne: Player? = Player(coins: 100)
-    print("A new player has joined the game with \\(playerOne!.coinsInPurse) coins")
+    print("A new player has joined the game with \(playerOne!.coinsInPurse) coins")
     // prints "A new player has joined the game with 100 coins"
-    print("There are now \\(Bank.coinsInBank) coins left in the bank")
+    print("There are now \(Bank.coinsInBank) coins left in the bank")
     // prints "There are now 9900 coins left in the bank"
 
 A new `Player` instance is created, with a request for 100 coins if they are available. This `Player` instance is stored in an optional `Player` variable called `playerOne`. An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there is currently a player in the game.
@@ -69,9 +69,9 @@ A new `Player` instance is created, with a request for 100 coins if they are ava
 Because `playerOne` is an optional, it is qualified with an exclamation mark (`!`) when its `coinsInPurse` property is accessed to print its default number of coins, and whenever its `winCoins(_:)` method is called:
 
     playerOne!.winCoins(2_000)
-    print("PlayerOne won 2000 coins & now has \\(playerOne!.coinsInPurse) coins")
+    print("PlayerOne won 2000 coins & now has \(playerOne!.coinsInPurse) coins")
     // prints "PlayerOne won 2000 coins & now has 2100 coins"
-    print("The bank now only has \\(Bank.coinsInBank) coins left")
+    print("The bank now only has \(Bank.coinsInBank) coins left")
     // prints "The bank now only has 7900 coins left"
 
 Here, the player has won 2,000 coins. The player’s purse now contains 2,100 coins, and the bank has only 7,900 coins left.
@@ -79,7 +79,7 @@ Here, the player has won 2,000 coins. The player’s purse now contains 2,100 co
     playerOne = nil
     print("PlayerOne has left the game")
     // prints "PlayerOne has left the game"
-    print("The bank now has \\(Bank.coinsInBank) coins")
+    print("The bank now has \(Bank.coinsInBank) coins")
     // prints "The bank now has 10000 coins"
 
 The player has now left the game. This is indicated by setting the optional `playerOne` variable to `nil`, meaning “no `Player` instance.” At the point that this happens, the `playerOne` variable’s reference to the `Player` instance is broken. No other properties or variables are still referring to the `Player` instance, and so it is deallocated in order to free up its memory. Just before this happens, its deinitializer is called automatically, and its coins are returned to the bank.

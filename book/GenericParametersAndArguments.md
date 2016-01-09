@@ -159,7 +159,7 @@ The specialized version of the generic `Dictionary` type, `Dictionary<String, In
 
 You can also replace a type parameter with a type argument that is itself a specialized version of a generic type (provided it satisfies the appropriate constraints and requirements). For example, you can replace the type parameter `Element` in `Array<Element>` with a specialized version of an array, `Array<Int>`, to form an array whose elements are themselves arrays of integers.
 
-    let arrayOfArrays: Array<Array<Int>> = \[\[1, 2, 3\], \[4, 5, 6\], \[7, 8, 9\]\]
+    let arrayOfArrays: Array<Array<Int>> = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 As mentioned in [Generic Parameter Clause](GenericParametersAndArguments.md#TP40016643-CH37-ID407), you don’t use a generic argument clause to specify the type arguments of a generic function or initializer.
 

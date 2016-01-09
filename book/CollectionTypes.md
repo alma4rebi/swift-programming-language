@@ -3,7 +3,7 @@ Collection Types
 
 Swift provides three primary *collection types*, known as arrays, sets, and dictionaries, for storing collections of values. Arrays are ordered collections of values. Sets are unordered collections of unique values. Dictionaries are unordered collections of key-value associations.
 
-![image: Art/CollectionTypes\_intro\_2x.png](Art/CollectionTypes_intro_2x.png)
+![image: Art/CollectionTypes_intro_2x.png](Art/CollectionTypes_intro_2x.png)
 
 Arrays, sets, and dictionaries in Swift are always clear about the types of values and keys that they can store. This means that you cannot insert a value of the wrong type into a collection by mistake. It also means you can be confident about the type of values you will retrieve from a collection.
 
@@ -37,8 +37,8 @@ The type of a Swift array is written in full as `Array<Element>`, where `Element
 
 You can create an empty array of a certain type using initializer syntax:
 
-    var someInts = \[Int\]()
-    print("someInts is of type [Int] with \\(someInts.count) items.")
+    var someInts = [Int]()
+    print("someInts is of type [Int] with \(someInts.count) items.")
     // prints "someInts is of type [Int] with 0 items."
 
 Note that the type of the `someInts` variable is inferred to be `[Int]` from the type of the initializer.
@@ -47,21 +47,21 @@ Alternatively, if the context already provides type information, such as a funct
 
     someInts.append(3)
     // someInts now contains 1 value of type Int
-    someInts = \[\]
+    someInts = []
     // someInts is now an empty array, but is still of type [Int]
 
 ### Creating an Array with a Default Value
 
 Swift’s `Array` type also provides an initializer for creating an array of a certain size with all of its values set to the same default value. You pass this initializer the number of items to be added to the new array (called `count`) and a default value of the appropriate type (called `repeatedValue`):
 
-    var threeDoubles = \[Double\](count: 3, repeatedValue: 0.0)
+    var threeDoubles = [Double](count: 3, repeatedValue: 0.0)
     // threeDoubles is of type [Double], and equals [0.0, 0.0, 0.0]
 
 ### Creating an Array by Adding Two Arrays Together
 
 You can create a new array by adding together two existing arrays with compatible types with the addition operator (`+`). The new array’s type is inferred from the type of the two arrays you add together:
 
-    var anotherThreeDoubles = \[Double\](count: 3, repeatedValue: 2.5)
+    var anotherThreeDoubles = [Double](count: 3, repeatedValue: 2.5)
     // anotherThreeDoubles is of type [Double], and equals [2.5, 2.5, 2.5]
      
     var sixDoubles = threeDoubles + anotherThreeDoubles
@@ -77,7 +77,7 @@ You can also initialize an array with an *array literal*, which is a shorthand w
 
 The example below creates an array called `shoppingList` to store `String` values:
 
-    var shoppingList: \[String\] = \["Eggs", "Milk"\]
+    var shoppingList: [String] = ["Eggs", "Milk"]
     // shoppingList has been initialized with two initial items
 
 The `shoppingList` variable is declared as “an array of string values”, written as `[String]`. Because this particular array has specified a value type of `String`, it is allowed to store `String` values only. Here, the `shoppingList` array is initialized with two `String` values (`"Eggs"` and `"Milk"`), written within an array literal.
@@ -90,7 +90,7 @@ In this case, the array literal contains two `String` values and nothing else. T
 
 Thanks to Swift’s type inference, you don’t have to write the type of the array if you’re initializing it with an array literal containing values of the same type. The initialization of `shoppingList` could have been written in a shorter form instead:
 
-    var shoppingList = \["Eggs", "Milk"\]
+    var shoppingList = ["Eggs", "Milk"]
 
 Because all values in the array literal are of the same type, Swift can infer that `[String]` is the correct type to use for the `shoppingList` variable.
 
@@ -100,7 +100,7 @@ You access and modify an array through its methods and properties, or by using s
 
 To find out the number of items in an array, check its read-only `count` property:
 
-    print("The shopping list contains \\(shoppingList.count) items.")
+    print("The shopping list contains \(shoppingList.count) items.")
     // prints "The shopping list contains 2 items."
 
 Use the Boolean `isEmpty` property as a shortcut for checking whether the `count` property is equal to `0`:
@@ -119,14 +119,14 @@ You can add a new item to the end of an array by calling the array’s `append(_
 
 Alternatively, append an array of one or more compatible items with the addition assignment operator (`+=`):
 
-    shoppingList += \["Baking Powder"\]
+    shoppingList += ["Baking Powder"]
     // shoppingList now contains 4 items
-    shoppingList += \["Chocolate Spread", "Cheese", "Butter"\]
+    shoppingList += ["Chocolate Spread", "Cheese", "Butter"]
     // shoppingList now contains 7 items
 
 Retrieve a value from the array by using *subscript syntax*, passing the index of the value you want to retrieve within square brackets immediately after the name of the array:
 
-    var firstItem = shoppingList\[0\]
+    var firstItem = shoppingList[0]
     // firstItem is equal to "Eggs"
 
 Note
@@ -135,12 +135,12 @@ The first item in the array has an index of `0`, not `1`. Arrays in Swift are al
 
 You can use subscript syntax to change an existing value at a given index:
 
-    shoppingList\[0\] = "Six eggs"
+    shoppingList[0] = "Six eggs"
     // the first item in the list is now equal to "Six eggs" rather than "Eggs"
 
 You can also use subscript syntax to change a range of values at once, even if the replacement set of values has a different length than the range you are replacing. The following example replaces `"Chocolate Spread"`, `"Cheese"`, and `"Butter"` with `"Bananas"` and `"Apples"`:
 
-    shoppingList\[4...6\] = \["Bananas", "Apples"\]
+    shoppingList[4...6] = ["Bananas", "Apples"]
     // shoppingList now contains 6 items
 
 Note
@@ -168,7 +168,7 @@ If you try to access or modify a value for an index that is outside of an array�
 
 Any gaps in an array are closed when an item is removed, and so the value at index `0` is once again equal to `"Six eggs"`:
 
-    firstItem = shoppingList\[0\]
+    firstItem = shoppingList[0]
     // firstItem is now equal to "Six eggs"
 
 If you want to remove the final item from an array, use the `removeLast()` method rather than the `removeAtIndex(_:)` method to avoid the need to query the array’s `count` property. Like the `removeAtIndex(_:)` method, `removeLast()` returns the removed item:
@@ -194,7 +194,7 @@ You can iterate over the entire set of values in an array with the `for`-`in` lo
 If you need the integer index of each item as well as its value, use the `enumerate()` method to iterate over the array instead. For each item in the array, the `enumerate()` method returns a tuple composed of the index and the value for that item. You can decompose the tuple into temporary constants as part of the iteration:
 
     for (index, value) in shoppingList.enumerate() {
-        print("Item \\(index + 1): \\(value)")
+        print("Item \(index + 1): \(value)")
     }
     // Item 1: Six eggs
     // Item 2: Milk
@@ -243,7 +243,7 @@ The type of a Swift set is written as `Set<Element>`, where `Element` is the typ
 You can create an empty set of a certain type using initializer syntax:
 
     var letters = Set<Character>()
-    print("letters is of type Set<Character> with \\(letters.count) items.")
+    print("letters is of type Set<Character> with \(letters.count) items.")
     // prints "letters is of type Set<Character> with 0 items."
 
 Note
@@ -254,7 +254,7 @@ Alternatively, if the context already provides type information, such as a funct
 
     letters.insert("a")
     // letters now contains 1 value of type Character
-    letters = \[\]
+    letters = []
     // letters is now an empty set, but is still of type Set<Character>
 
 ### Creating a Set with an Array Literal
@@ -263,7 +263,7 @@ You can also initialize a set with an array literal, as a shorthand way to write
 
 The example below creates a set called `favoriteGenres` to store `String` values:
 
-    var favoriteGenres: Set<String> = \["Rock", "Classical", "Hip hop"\]
+    var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
     // favoriteGenres has been initialized with three initial items
 
 The `favoriteGenres` variable is declared as “a set of `String` values”, written as `Set<String>`. Because this particular set has specified a value type of `String`, it is *only* allowed to store `String` values. Here, the `favoriteGenres` set is initialized with three `String` values (`"Rock"`, `"Classical"`, and `"Hip hop"`), written within an array literal.
@@ -274,7 +274,7 @@ The `favoriteGenres` set is declared as a variable (with the `var` introducer) a
 
 A set type cannot be inferred from an array literal alone, so the type `Set` must be explicitly declared. However, because of Swift’s type inference, you don’t have to write the type of the set if you’re initializing it with an array literal containing values of the same type. The initialization of `favoriteGenres` could have been written in a shorter form instead:
 
-    var favoriteGenres: Set = \["Rock", "Classical", "Hip hop"\]
+    var favoriteGenres: Set = ["Rock", "Classical", "Hip hop"]
 
 Because all values in the array literal are of the same type, Swift can infer that `Set<String>` is the correct type to use for the `favoriteGenres` variable.
 
@@ -284,7 +284,7 @@ You access and modify a set through its methods and properties.
 
 To find out the number of items in a set, check its read-only `count` property:
 
-    print("I have \\(favoriteGenres.count) favorite music genres.")
+    print("I have \(favoriteGenres.count) favorite music genres.")
     // prints "I have 3 favorite music genres."
 
 Use the Boolean `isEmpty` property as a shortcut for checking whether the `count` property is equal to `0`:
@@ -304,7 +304,7 @@ You can add a new item into a set by calling the set’s `insert(_:)` method:
 You can remove an item from a set by calling the set’s `remove(_:)` method, which removes the item if it’s a member of the set, and returns the removed value, or returns `nil` if the set did not contain it. Alternatively, all items in a set can be removed with its `removeAll()` method.
 
     if let removedGenre = favoriteGenres.remove("Rock") {
-        print("\\(removedGenre)? I'm over it.")
+        print("\(removedGenre)? I'm over it.")
     } else {
         print("I never much cared for that.")
     }
@@ -324,7 +324,7 @@ To check whether a set contains a particular item, use the `contains(_:)` method
 You can iterate over the values in a set with a `for`-`in` loop.
 
     for genre in favoriteGenres {
-        print("\\(genre)")
+        print("\(genre)")
     }
     // Classical
     // Jazz
@@ -335,7 +335,7 @@ For more about the `for`-`in` loop, see [For Loops](ControlFlow.md#TP40016643-CH
 Swift’s `Set` type does not have a defined ordering. To iterate over the values of a set in a specific order, use the `sort()` method, which returns the set’s elements as an array sorted using the `<` operator.
 
     for genre in favoriteGenres.sort() {
-        print("\\(genre)")
+        print("\(genre)")
     }
     // Classical
     // Hip hop
@@ -349,7 +349,7 @@ You can efficiently perform fundamental set operations, such as combining two se
 
 The illustration below depicts two sets–`a` and `b`– with the results of various set operations represented by the shaded regions.
 
-![image: Art/setVennDiagram\_2x.png](Art/setVennDiagram_2x.png)
+![image: Art/setVennDiagram_2x.png](Art/setVennDiagram_2x.png)
 
 -   Use the `intersect(_:)` method to create a new set with only the values common to both sets.
 
@@ -359,9 +359,9 @@ The illustration below depicts two sets–`a` and `b`– with the results of var
 
 -   Use the `subtract(_:)` method to create a new set with values not in the specified set.
 
-    let oddDigits: Set = \[1, 3, 5, 7, 9\]
-    let evenDigits: Set = \[0, 2, 4, 6, 8\]
-    let singleDigitPrimeNumbers: Set = \[2, 3, 5, 7\]
+    let oddDigits: Set = [1, 3, 5, 7, 9]
+    let evenDigits: Set = [0, 2, 4, 6, 8]
+    let singleDigitPrimeNumbers: Set = [2, 3, 5, 7]
      
     oddDigits.union(evenDigits).sort()
     // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -376,7 +376,7 @@ The illustration below depicts two sets–`a` and `b`– with the results of var
 
 The illustration below depicts three sets–`a`, `b` and `c`– with overlapping regions representing elements shared among sets. Set `a` is a *superset* of set `b`, because `a` contains all elements in `b`. Conversely, set `b` is a *subset* of set `a`, because all elements in `b` are also contained by `a`. Set `b` and set `c` are *disjoint* with one another, because they share no elements in common.
 
-![image: Art/setEulerDiagram\_2x.png](Art/setEulerDiagram_2x.png)
+![image: Art/setEulerDiagram_2x.png](Art/setEulerDiagram_2x.png)
 
 -   Use the “is equal” operator (`==`) to determine whether two sets contain all of the same values.
 
@@ -388,9 +388,9 @@ The illustration below depicts three sets–`a`, `b` and `c`– with overlapping
 
 -   Use the `isDisjointWith(_:)` method to determine whether two sets have any values in common.
 
-    let houseAnimals: Set = \["🐶", "🐱"\]
-    let farmAnimals: Set = \["🐮", "🐔", "🐑", "🐶", "🐱"\]
-    let cityAnimals: Set = \["🐦", "🐭"\]
+    let houseAnimals: Set = ["🐶", "🐱"]
+    let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+    let cityAnimals: Set = ["🐦", "🐭"]
      
     houseAnimals.isSubsetOf(farmAnimals)
     // true
@@ -423,16 +423,16 @@ You can also write the type of a dictionary in shorthand form as `[Key: Value]`.
 
 As with arrays, you can create an empty `Dictionary` of a certain type by using initializer syntax:
 
-    var namesOfIntegers = \[Int: String\]()
+    var namesOfIntegers = [Int: String]()
     // namesOfIntegers is an empty [Int: String] dictionary
 
 This example creates an empty dictionary of type `[Int: String]` to store human-readable names of integer values. Its keys are of type `Int`, and its values are of type `String`.
 
 If the context already provides type information, you can create an empty dictionary with an empty dictionary literal, which is written as `[:]` (a colon inside a pair of square brackets):
 
-    namesOfIntegers\[16\] = "sixteen"
+    namesOfIntegers[16] = "sixteen"
     // namesOfIntegers now contains 1 key-value pair
-    namesOfIntegers = \[:\]
+    namesOfIntegers = [:]
     // namesOfIntegers is once again an empty dictionary of type [Int: String]
 
 ### Creating a Dictionary with a Dictionary Literal
@@ -447,7 +447,7 @@ A *key-value pair* is a combination of a key and a value. In a dictionary litera
 
 The example below creates a dictionary to store the names of international airports. In this dictionary, the keys are three-letter International Air Transport Association codes, and the values are airport names:
 
-    var airports: \[String: String\] = \["YYZ": "Toronto Pearson", "DUB": "Dublin"\]
+    var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 
 The `airports` dictionary is declared as having a type of `[String: String]`, which means “a `Dictionary` whose keys are of type `String`, and whose values are also of type `String`”.
 
@@ -461,7 +461,7 @@ This dictionary literal contains two `String: String` pairs. This key-value type
 
 As with arrays, you don’t have to write the type of the dictionary if you’re initializing it with a dictionary literal whose keys and values have consistent types. The initialization of `airports` could have been written in a shorter form instead:
 
-    var airports = \["YYZ": "Toronto Pearson", "DUB": "Dublin"\]
+    var airports = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 
 Because all keys in the literal are of the same type as each other, and likewise all values are of the same type as each other, Swift can infer that `[String: String]` is the correct type to use for the `airports` dictionary.
 
@@ -471,7 +471,7 @@ You access and modify a dictionary through its methods and properties, or by usi
 
 As with an array, you find out the number of items in a `Dictionary` by checking its read-only `count` property:
 
-    print("The airports dictionary contains \\(airports.count) items.")
+    print("The airports dictionary contains \(airports.count) items.")
     // prints "The airports dictionary contains 2 items."
 
 Use the Boolean `isEmpty` property as a shortcut for checking whether the `count` property is equal to `0`:
@@ -485,12 +485,12 @@ Use the Boolean `isEmpty` property as a shortcut for checking whether the `count
 
 You can add a new item to a dictionary with subscript syntax. Use a new key of the appropriate type as the subscript index, and assign a new value of the appropriate type:
 
-    airports\["LHR"\] = "London"
+    airports["LHR"] = "London"
     // the airports dictionary now contains 3 items
 
 You can also use subscript syntax to change the value associated with a particular key:
 
-    airports\["LHR"\] = "London Heathrow"
+    airports["LHR"] = "London Heathrow"
     // the value for "LHR" has been changed to "London Heathrow"
 
 As an alternative to subscripting, use a dictionary’s `updateValue(_:forKey:)` method to set or update the value for a particular key. Like the subscript examples above, the `updateValue(_:forKey:)` method sets a value for a key if none exists, or updates the value if that key already exists. Unlike a subscript, however, the `updateValue(_:forKey:)` method returns the *old* value after performing an update. This enables you to check whether or not an update took place.
@@ -498,14 +498,14 @@ As an alternative to subscripting, use a dictionary’s `updateValue(_:forKey:)`
 The `updateValue(_:forKey:)` method returns an optional value of the dictionary’s value type. For a dictionary that stores `String` values, for example, the method returns a value of type `String?`, or “optional `String`”. This optional value contains the old value for that key if one existed before the update, or `nil` if no value existed:
 
     if let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB") {
-        print("The old value for DUB was \\(oldValue).")
+        print("The old value for DUB was \(oldValue).")
     }
     // prints "The old value for DUB was Dublin."
 
 You can also use subscript syntax to retrieve a value from the dictionary for a particular key. Because it is possible to request a key for which no value exists, a dictionary’s subscript returns an optional value of the dictionary’s value type. If the dictionary contains a value for the requested key, the subscript returns an optional value containing the existing value for that key. Otherwise, the subscript returns `nil`:
 
-    if let airportName = airports\["DUB"\] {
-        print("The name of the airport is \\(airportName).")
+    if let airportName = airports["DUB"] {
+        print("The name of the airport is \(airportName).")
     } else {
         print("That airport is not in the airports dictionary.")
     }
@@ -513,15 +513,15 @@ You can also use subscript syntax to retrieve a value from the dictionary for a 
 
 You can use subscript syntax to remove a key-value pair from a dictionary by assigning a value of `nil` for that key:
 
-    airports\["APL"\] = "Apple International"
+    airports["APL"] = "Apple International"
     // "Apple International" is not the real airport for APL, so delete it
-    airports\["APL"\] = nil
+    airports["APL"] = nil
     // APL has now been removed from the dictionary
 
 Alternatively, remove a key-value pair from a dictionary with the `removeValueForKey(_:)` method. This method removes the key-value pair if it exists and returns the removed value, or returns `nil` if no value existed:
 
     if let removedValue = airports.removeValueForKey("DUB") {
-        print("The removed airport's name is \\(removedValue).")
+        print("The removed airport's name is \(removedValue).")
     } else {
         print("The airports dictionary does not contain a value for DUB.")
     }
@@ -532,7 +532,7 @@ Alternatively, remove a key-value pair from a dictionary with the `removeValueFo
 You can iterate over the key-value pairs in a dictionary with a `for`-`in` loop. Each item in the dictionary is returned as a `(key, value)` tuple, and you can decompose the tuple’s members into temporary constants as part of the iteration:
 
     for (airportCode, airportName) in airports {
-        print("\\(airportCode): \\(airportName)")
+        print("\(airportCode): \(airportName)")
     }
     // YYZ: Toronto Pearson
     // LHR: London Heathrow
@@ -542,23 +542,23 @@ For more about the `for`-`in` loop, see [For Loops](ControlFlow.md#TP40016643-CH
 You can also retrieve an iterable collection of a dictionary’s keys or values by accessing its `keys` and `values` properties:
 
     for airportCode in airports.keys {
-        print("Airport code: \\(airportCode)")
+        print("Airport code: \(airportCode)")
     }
     // Airport code: YYZ
     // Airport code: LHR
      
     for airportName in airports.values {
-        print("Airport name: \\(airportName)")
+        print("Airport name: \(airportName)")
     }
     // Airport name: Toronto Pearson
     // Airport name: London Heathrow
 
 If you need to use a dictionary’s keys or values with an API that takes an `Array` instance, initialize a new array with the `keys` or `values` property:
 
-    let airportCodes = \[String\](airports.keys)
+    let airportCodes = [String](airports.keys)
     // airportCodes is ["YYZ", "LHR"]
      
-    let airportNames = \[String\](airports.values)
+    let airportNames = [String](airports.values)
     // airportNames is ["Toronto Pearson", "London Heathrow"]
 
 Swift’s `Dictionary` type does not have a defined ordering. To iterate over the keys or values of a dictionary in a specific order, use the `sort()` method on its `keys` or `values` property.

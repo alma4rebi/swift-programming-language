@@ -186,14 +186,14 @@ The Swift language provides the following syntactic sugar for the Swift standard
 
 In other words, the following two declarations are equivalent:
 
-    let someArray: Array<String> = \["Alex", "Brian", "Dave"\]
-    let someArray: \[String\] = \["Alex", "Brian", "Dave"\]
+    let someArray: Array<String> = ["Alex", "Brian", "Dave"]
+    let someArray: [String] = ["Alex", "Brian", "Dave"]
 
 In both cases, the constant `someArray` is declared as an array of strings. The elements of an array can be accessed through subscripting by specifying a valid index value in square brackets: `someArray[0]` refers to the element at index 0, `"Alex"`.
 
 You can create multidimensional arrays by nesting pairs of square brackets, where the name of the base type of the elements is contained in the innermost pair of square brackets. For example, you can create a three-dimensional array of integers using three sets of square brackets:
 
-    var array3D: \[\[\[Int\]\]\] = \[\[\[1, 2\], \[3, 4\]\], \[\[5, 6\], \[7, 8\]\]\]
+    var array3D: [[[Int]]] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 
 When accessing the elements in a multidimensional array, the left-most subscript index refers to the element at that index in the outermost array. The next subscript index to the right refers to the element at that index in the array that’s nested one level in. And so on. This means that in the example above, `array3D[0]` refers to `[[1, 2], [3, 4]]`, `array3D[0][1]` refers to `[3, 4]`, and `array3D[0][1][1]` refers to the value 4.
 
@@ -218,8 +218,8 @@ The Swift language provides the following syntactic sugar for the Swift standard
 
 In other words, the following two declarations are equivalent:
 
-    let someDictionary: \[String: Int\] = \["Alex": 31, "Paul": 39\]
-    let someDictionary: Dictionary<String, Int> = \["Alex": 31, "Paul": 39\]
+    let someDictionary: [String: Int] = ["Alex": 31, "Paul": 39]
+    let someDictionary: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
 
 In both cases, the constant `someDictionary` is declared as a dictionary with strings as keys and integers as values.
 

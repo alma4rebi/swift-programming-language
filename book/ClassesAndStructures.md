@@ -90,20 +90,20 @@ Structures and classes both use initializer syntax for new instances. The simple
 
 You can access the properties of an instance using *dot syntax*. In dot syntax, you write the property name immediately after the instance name, separated by a period (`.`), without any spaces:
 
-    print("The width of someResolution is \\(someResolution.width)")
+    print("The width of someResolution is \(someResolution.width)")
     // prints "The width of someResolution is 0"
 
 In this example, `someResolution.width` refers to the `width` property of `someResolution`, and returns its default initial value of `0`.
 
 You can drill down into sub-properties, such as the `width` property in the `resolution` property of a `VideoMode`:
 
-    print("The width of someVideoMode is \\(someVideoMode.resolution.width)")
+    print("The width of someVideoMode is \(someVideoMode.resolution.width)")
     // prints "The width of someVideoMode is 0"
 
 You can also use dot syntax to assign a new value to a variable property:
 
     someVideoMode.resolution.width = 1280
-    print("The width of someVideoMode is now \\(someVideoMode.resolution.width)")
+    print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
     // prints "The width of someVideoMode is now 1280"
 
 Note
@@ -141,12 +141,12 @@ Next, the `width` property of `cinema` is amended to be the width of the slightl
 
 Checking the `width` property of `cinema` shows that it has indeed changed to be `2048`:
 
-    print("cinema is now \\(cinema.width) pixels wide")
+    print("cinema is now \(cinema.width) pixels wide")
     // prints "cinema is now 2048 pixels wide"
 
 However, the `width` property of the original `hd` instance still has the old value of `1920`:
 
-    print("hd is still \\(hd.width) pixels wide")
+    print("hd is still \(hd.width) pixels wide")
     // prints "hd is still 1920 pixels wide"
 
 When `cinema` was given the current value of `hd`, the *values* stored in `hd` were copied into the new `cinema` instance. The end result is two completely separate instances, which just happened to contain the same numeric values. Because they are separate instances, setting the width of `cinema` to `2048` doesn’t affect the width stored in `hd`.
@@ -189,7 +189,7 @@ Because classes are reference types, `tenEighty` and `alsoTenEighty` actually bo
 
 Checking the `frameRate` property of `tenEighty` shows that it correctly reports the new frame rate of `30.0` from the underlying `VideoMode` instance:
 
-    print("The frameRate property of tenEighty is now \\(tenEighty.frameRate)")
+    print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
     // prints "The frameRate property of tenEighty is now 30.0"
 
 Note that `tenEighty` and `alsoTenEighty` are declared as *constants*, rather than variables. However, you can still change `tenEighty.frameRate` and `alsoTenEighty.frameRate` because the values of the `tenEighty` and `alsoTenEighty` constants themselves do not actually change. `tenEighty` and `alsoTenEighty` themselves do not “store” the `VideoMode` instance—instead, they both *refer* to a `VideoMode` instance behind the scenes. It is the `frameRate` property of the underlying `VideoMode` that is changed, not the values of the constant references to that `VideoMode`.

@@ -64,7 +64,7 @@ The example below uses a lazy stored property to avoid unnecessary initializatio
      
     class DataManager {
         lazy var importer = DataImporter()
-        var data = \[String\]()
+        var data = [String]()
         // the DataManager class would provide data management functionality here
     }
      
@@ -124,7 +124,7 @@ In addition to stored properties, classes, structures, and enumerations can defi
         size: Size(width: 10.0, height: 10.0))
     let initialSquareCenter = square.center
     square.center = Point(x: 15.0, y: 15.0)
-    print("square.origin is now at (\\(square.origin.x), \\(square.origin.y))")
+    print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
     // prints "square.origin is now at (10.0, 10.0)"
 
 This example defines three structures for working with geometric shapes:
@@ -143,7 +143,7 @@ The `square` variable’s `center` property is then accessed through dot syntax 
 
 The `center` property is then set to a new value of `(15, 15)`, which moves the square up and to the right, to the new position shown by the orange square in the diagram below. Setting the `center` property calls the setter for `center`, which modifies the `x` and `y` values of the stored `origin` property, and moves the square to its new position.
 
-![image: Art/computedProperties\_2x.png](Art/computedProperties_2x.png)
+![image: Art/computedProperties_2x.png](Art/computedProperties_2x.png)
 
 ### Shorthand Setter Declaration
 
@@ -178,11 +178,11 @@ You can simplify the declaration of a read-only computed property by removing th
     struct Cuboid {
         var width = 0.0, height = 0.0, depth = 0.0
         var volume: Double {
-            return width \* height \* depth
+            return width * height * depth
         }
     }
     let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
-    print("the volume of fourByFiveByTwo is \\(fourByFiveByTwo.volume)")
+    print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
     // prints "the volume of fourByFiveByTwo is 40.0"
 
 This example defines a new structure called `Cuboid`, which represents a 3D rectangular box with `width`, `height`, and `depth` properties. This structure also has a read-only computed property called `volume`, which calculates and returns the current volume of the cuboid. It doesn’t make sense for `volume` to be settable, because it would be ambiguous as to which values of `width`, `height`, and `depth` should be used for a particular `volume` value. Nonetheless, it is useful for a `Cuboid` to provide a read-only computed property to enable external users to discover its current calculated volume.
@@ -218,11 +218,11 @@ Here’s an example of `willSet` and `didSet` in action. The example below defin
     class StepCounter {
         var totalSteps: Int = 0 {
             willSet(newTotalSteps) {
-                print("About to set totalSteps to \\(newTotalSteps)")
+                print("About to set totalSteps to \(newTotalSteps)")
             }
             didSet {
                 if totalSteps > oldValue {
-                    print("Added \\(totalSteps - oldValue) steps")
+                    print("Added \(totalSteps - oldValue) steps")
                 }
             }
         }
@@ -330,7 +330,7 @@ The examples that follow use two stored type properties as part of a structure t
 
 The figure below illustrates how two of these audio channels can be combined to model a stereo audio level meter. When a channel’s audio level is `0`, none of the lights for that channel are lit. When the audio level is `10`, all of the lights for that channel are lit. In this figure, the left channel has a current level of `9`, and the right channel has a current level of `7`:
 
-![image: Art/staticPropertiesVUMeter\_2x.png](Art/staticPropertiesVUMeter_2x.png)
+![image: Art/staticPropertiesVUMeter_2x.png](Art/staticPropertiesVUMeter_2x.png)
 
 The audio channels described above are represented by instances of the `AudioChannel` structure:
 

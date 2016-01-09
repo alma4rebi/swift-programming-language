@@ -34,7 +34,7 @@ The example below defines a new structure called `Fahrenheit` to store temperatu
         }
     }
     var f = Fahrenheit()
-    print("The default temperature is \\(f.temperature)° Fahrenheit")
+    print("The default temperature is \(f.temperature)° Fahrenheit")
     // prints "The default temperature is 32.0° Fahrenheit"
 
 The structure defines a single initializer, `init`, with no parameters, which initializes the stored temperature with a value of `32.0` (the freezing point of water when expressed in the Fahrenheit scale).
@@ -349,7 +349,7 @@ A simple way to remember this is:
 
 These rules are illustrated in the figure below:
 
-![image: Art/initializerDelegation01\_2x.png](Art/initializerDelegation01_2x.png)
+![image: Art/initializerDelegation01_2x.png](Art/initializerDelegation01_2x.png)
 
 Here, the superclass has a single designated initializer and two convenience initializers. One convenience initializer calls another convenience initializer, which in turn calls the single designated initializer. This satisfies rules 2 and 3 from above. The superclass does not itself have a further superclass, and so rule 1 does not apply.
 
@@ -361,7 +361,7 @@ These rules don’t affect how users of your classes *create* instances of each 
 
 The figure below shows a more complex class hierarchy for four classes. It illustrates how the designated initializers in this hierarchy act as “funnel” points for class initialization, simplifying the interrelationships among classes in the chain:
 
-![image: Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png)
+![image: Art/initializerDelegation02_2x.png](Art/initializerDelegation02_2x.png)
 
 ### Two-Phase Initialization
 
@@ -419,7 +419,7 @@ Here’s how two-phase initialization plays out, based on the four safety checks
 
 Here’s how phase 1 looks for an initialization call for a hypothetical subclass and superclass:
 
-![image: Art/twoPhaseInitialization01\_2x.png](Art/twoPhaseInitialization01_2x.png)
+![image: Art/twoPhaseInitialization01_2x.png](Art/twoPhaseInitialization01_2x.png)
 
 In this example, initialization begins with a call to a convenience initializer on the subclass. This convenience initializer cannot yet modify any properties. It delegates across to a designated initializer from the same class.
 
@@ -431,7 +431,7 @@ As soon as all properties of the superclass have an initial value, its memory is
 
 Here’s how phase 2 looks for the same initialization call:
 
-![image: Art/twoPhaseInitialization02\_2x.png](Art/twoPhaseInitialization02_2x.png)
+![image: Art/twoPhaseInitialization02_2x.png](Art/twoPhaseInitialization02_2x.png)
 
 The superclass’s designated initializer now has an opportunity to customize the instance further (although it does not have to).
 
@@ -464,14 +464,14 @@ The example below defines a base class called `Vehicle`. This base class declare
     class Vehicle {
         var numberOfWheels = 0
         var description: String {
-            return "\\(numberOfWheels) wheel(s)"
+            return "\(numberOfWheels) wheel(s)"
         }
     }
 
 The `Vehicle` class provides a default value for its only stored property, and does not provide any custom initializers itself. As a result, it automatically receives a default initializer, as described in [Default Initializers](Initialization.md#TP40016643-CH18-ID213). The default initializer (when available) is always a designated initializer for a class, and can be used to create a new `Vehicle` instance with a `numberOfWheels` of `0`:
 
     let vehicle = Vehicle()
-    print("Vehicle: \\(vehicle.description)")
+    print("Vehicle: \(vehicle.description)")
     // Vehicle: 0 wheel(s)
 
 The next example defines a subclass of `Vehicle` called `Bicycle`:
@@ -490,7 +490,7 @@ The `init()` initializer for `Bicycle` starts by calling `super.init()`, which c
 If you create an instance of `Bicycle`, you can call its inherited `description` computed property to see how its `numberOfWheels` property has been updated:
 
     let bicycle = Bicycle()
-    print("Bicycle: \\(bicycle.description)")
+    print("Bicycle: \(bicycle.description)")
     // Bicycle: 2 wheel(s)
 
 Note
@@ -535,7 +535,7 @@ The base class in the hierarchy is called `Food`, which is a simple class to enc
 
 The figure below shows the initializer chain for the `Food` class:
 
-![image: Art/initializersExample01\_2x.png](Art/initializersExample01_2x.png)
+![image: Art/initializersExample01_2x.png](Art/initializersExample01_2x.png)
 
 Classes do not have a default memberwise initializer, and so the `Food` class provides a designated initializer that takes a single argument called `name`. This initializer can be used to create a new `Food` instance with a specific name:
 
@@ -564,7 +564,7 @@ The second class in the hierarchy is a subclass of `Food` called `RecipeIngredie
 
 The figure below shows the initializer chain for the `RecipeIngredient` class:
 
-![image: Art/initializersExample02\_2x.png](Art/initializersExample02_2x.png)
+![image: Art/initializersExample02_2x.png](Art/initializersExample02_2x.png)
 
 The `RecipeIngredient` class has a single designated initializer, `init(name: String, quantity: Int)`, which can be used to populate all of the properties of a new `RecipeIngredient` instance. This initializer starts by assigning the passed `quantity` argument to the `quantity` property, which is the only new property introduced by `RecipeIngredient`. After doing so, the initializer delegates up to the `init(name: String)` initializer of the `Food` class. This process satisfies safety check 1 from [Two-Phase Initialization](Initialization.md#TP40016643-CH18-ID220) above.
 
@@ -589,7 +589,7 @@ Every item in the shopping list starts out as “unpurchased”. To represent th
     class ShoppingListItem: RecipeIngredient {
         var purchased = false
         var description: String {
-            var output = "\\(quantity) x \\(name)"
+            var output = "\(quantity) x \(name)"
             output += purchased ? " ✔" : " ✘"
             return output
         }
@@ -603,17 +603,17 @@ Because it provides a default value for all of the properties it introduces and 
 
 The figure below shows the overall initializer chain for all three classes:
 
-![image: Art/initializersExample03\_2x.png](Art/initializersExample03_2x.png)
+![image: Art/initializersExample03_2x.png](Art/initializersExample03_2x.png)
 
 You can use all three of the inherited initializers to create a new `ShoppingListItem` instance:
 
-    var breakfastList = \[
+    var breakfastList = [
         ShoppingListItem(),
         ShoppingListItem(name: "Bacon"),
         ShoppingListItem(name: "Eggs", quantity: 6),
     ]
-    breakfastList\[0\].name = "Orange juice"
-    breakfastList\[0\].purchased = true
+    breakfastList[0].name = "Orange juice"
+    breakfastList[0].purchased = true
     for item in breakfastList {
         print(item.description)
     }
@@ -655,7 +655,7 @@ You can use this failable initializer to try to initialize a new `Animal` instan
     // someCreature is of type Animal?, not Animal
      
     if let giraffe = someCreature {
-        print("An animal was initialized with a species of \\(giraffe.species)")
+        print("An animal was initialized with a species of \(giraffe.species)")
     }
     // prints "An animal was initialized with a species of Giraffe"
 
@@ -757,7 +757,7 @@ Because the `name` property is a constant, you can be confident that it will alw
 
     if let bowTie = Product(name: "bow tie") {
         // no need to check if bowTie.name == nil
-        print("The product's name is \\(bowTie.name)")
+        print("The product's name is \(bowTie.name)")
     }
     // prints "The product's name is bow tie"
 
@@ -791,14 +791,14 @@ If the superclass initialization fails because of an empty `name` value, the ent
 If you create a `CartItem` instance with a nonempty name and a quantity of `1` or more, initialization succeeds:
 
     if let twoSocks = CartItem(name: "sock", quantity: 2) {
-        print("Item: \\(twoSocks.name), quantity: \\(twoSocks.quantity)")
+        print("Item: \(twoSocks.name), quantity: \(twoSocks.quantity)")
     }
     // prints "Item: sock, quantity: 2"
 
 If you try to create a `CartItem` instance with a `quantity` value of `0`, the `CartItem` initializer causes initialization to fail:
 
     if let zeroShirts = CartItem(name: "shirt", quantity: 0) {
-        print("Item: \\(zeroShirts.name), quantity: \\(zeroShirts.quantity)")
+        print("Item: \(zeroShirts.name), quantity: \(zeroShirts.quantity)")
     } else {
         print("Unable to initialize zero shirts")
     }
@@ -807,7 +807,7 @@ If you try to create a `CartItem` instance with a `quantity` value of `0`, the `
 Similarly, if you try to create a `CartItem` instance with an empty `name` value, the superclass `Product` initializer causes initialization to fail:
 
     if let oneUnnamed = CartItem(name: "", quantity: 1) {
-        print("Item: \\(oneUnnamed.name), quantity: \\(oneUnnamed.quantity)")
+        print("Item: \(oneUnnamed.name), quantity: \(oneUnnamed.quantity)")
     } else {
         print("Unable to initialize one unnamed product")
     }
@@ -917,15 +917,15 @@ If you use a closure to initialize a property, remember that the rest of the ins
 
 The example below defines a structure called `Checkerboard`, which models a board for the game of *Checkers* (also known as *Draughts*):
 
-![image: Art/checkersBoard\_2x.png](Art/checkersBoard_2x.png)
+![image: Art/checkersBoard_2x.png](Art/checkersBoard_2x.png)
 
 The game of *Checkers* is played on a ten-by-ten board, with alternating black and white squares. To represent this game board, the `Checkerboard` structure has a single property called `boardColors`, which is an array of 100 `Bool` values. A value of `true` in the array represents a black square and a value of `false` represents a white square. The first item in the array represents the top left square on the board and the last item in the array represents the bottom right square on the board.
 
 The `boardColors` array is initialized with a closure to set up its color values:
 
     struct Checkerboard {
-        let boardColors: \[Bool\] = {
-            var temporaryBoard = \[Bool\]()
+        let boardColors: [Bool] = {
+            var temporaryBoard = [Bool]()
             var isBlack = false
             for i in 1...10 {
                 for j in 1...10 {
@@ -937,7 +937,7 @@ The `boardColors` array is initialized with a closure to set up its color values
             return temporaryBoard
         }()
         func squareIsBlackAtRow(row: Int, column: Int) -> Bool {
-            return boardColors\[(row \* 10) + column\]
+            return boardColors[(row * 10) + column]
         }
     }
 

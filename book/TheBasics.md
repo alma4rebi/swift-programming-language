@@ -103,7 +103,7 @@ The `print(_:separator:terminator:)` function is a global function that prints o
 
 Swift uses *string interpolation* to include the name of a constant or variable as a placeholder in a longer string, and to prompt Swift to replace it with the current value of that constant or variable. Wrap the name in parentheses and escape it with a backslash before the opening parenthesis:
 
-    print("The current value of friendlyWelcome is \\(friendlyWelcome)")
+    print("The current value of friendlyWelcome is \(friendlyWelcome)")
     // prints "The current value of friendlyWelcome is Bonjour!"
 
 Note
@@ -384,22 +384,22 @@ You can create tuples from any permutation of types, and they can contain as man
 You can *decompose* a tuple’s contents into separate constants or variables, which you then access as usual:
 
     let (statusCode, statusMessage) = http404Error
-    print("The status code is \\(statusCode)")
+    print("The status code is \(statusCode)")
     // prints "The status code is 404"
-    print("The status message is \\(statusMessage)")
+    print("The status message is \(statusMessage)")
     // prints "The status message is Not Found"
 
 If you only need some of the tuple’s values, ignore parts of the tuple with an underscore (`_`) when you decompose the tuple:
 
     let (justTheStatusCode, _) = http404Error
-    print("The status code is \\(justTheStatusCode)")
+    print("The status code is \(justTheStatusCode)")
     // prints "The status code is 404"
 
 Alternatively, access the individual element values in a tuple using index numbers starting at zero:
 
-    print("The status code is \\(http404Error.0)")
+    print("The status code is \(http404Error.0)")
     // prints "The status code is 404"
-    print("The status message is \\(http404Error.1)")
+    print("The status message is \(http404Error.1)")
     // prints "The status message is Not Found"
 
 You can name the individual elements in a tuple when the tuple is defined:
@@ -408,9 +408,9 @@ You can name the individual elements in a tuple when the tuple is defined:
 
 If you name the elements in a tuple, you can use the element names to access the values of those elements:
 
-    print("The status code is \\(http200Status.statusCode)")
+    print("The status code is \(http200Status.statusCode)")
     // prints "The status code is 200"
-    print("The status message is \\(http200Status.description)")
+    print("The status message is \(http200Status.description)")
     // prints "The status message is OK"
 
 Tuples are particularly useful as the return values of functions. A function that tries to retrieve a web page might return the `(Int, String)` tuple type to describe the success or failure of the page retrieval. By returning a tuple with two distinct values, each of a different type, the function provides more useful information about its outcome than if it could only return a single value of a single type. For more information, see [Functions with Multiple Return Values](Functions.md#TP40016643-CH10-ID164).
@@ -479,7 +479,7 @@ If an optional has a value, it is considered to be “not equal to” `nil`:
 Once you’re sure that the optional *does* contain a value, you can access its underlying value by adding an exclamation mark (`!`) to the end of the optional’s name. The exclamation mark effectively says, “I know that this optional definitely has a value; please use it.” This is known as *forced unwrapping* of the optional’s value:
 
     if convertedNumber != nil {
-        print("convertedNumber has an integer value of \\(convertedNumber!).")
+        print("convertedNumber has an integer value of \(convertedNumber!).")
     }
     // prints "convertedNumber has an integer value of 123."
 
@@ -510,9 +510,9 @@ Write an optional binding for an `if` statement as follows:
 You can rewrite the `possibleNumber` example from the [Optionals](TheBasics.md#TP40016643-CH5-ID330) section to use optional binding rather than forced unwrapping:
 
     if let actualNumber = Int(possibleNumber) {
-        print("\'\\(possibleNumber)\' has an integer value of \\(actualNumber)")
+        print("'\(possibleNumber)' has an integer value of \(actualNumber)")
     } else {
-        print("\'\\(possibleNumber)\' could not be converted to an integer")
+        print("'\(possibleNumber)' could not be converted to an integer")
     }
     // prints "'123' has an integer value of 123"
 
@@ -525,7 +525,7 @@ If the conversion is successful, the `actualNumber` constant becomes available f
 You can include multiple optional bindings in a single `if` statement and use a `where` clause to check for a Boolean condition. If any of the values in the optional bindings are `nil` or the `where` clause evaluates to `false`, the whole optional binding is considered unsuccessful.
 
     if let firstNumber = Int("4"), secondNumber = Int("42") where firstNumber < secondNumber {
-        print("\\(firstNumber) < \\(secondNumber)")
+        print("\(firstNumber) < \(secondNumber)")
     }
     // prints "4 < 42"
 

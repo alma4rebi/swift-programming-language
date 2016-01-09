@@ -84,7 +84,7 @@ When calling a function with more than one parameter, any argument after the fir
 Functions are not required to define a return type. Here’s a version of the `sayHello(_:)` function, called `sayGoodbye(_:)`, which prints its own `String` value rather than returning it:
 
     func sayGoodbye(personName: String) {
-        print("Goodbye, \\(personName)!")
+        print("Goodbye, \(personName)!")
     }
     sayGoodbye("Dave")
     // prints "Goodbye, Dave!"
@@ -121,10 +121,10 @@ You can use a tuple type as the return type for a function to return multiple va
 
 The example below defines a function called `minMax(_:)`, which finds the smallest and largest numbers in an array of `Int` values:
 
-    func minMax(array: \[Int\]) -> (min: Int, max: Int) {
-        var currentMin = array\[0\]
-        var currentMax = array\[0\]
-        for value in array\[1..<array.count\] {
+    func minMax(array: [Int]) -> (min: Int, max: Int) {
+        var currentMin = array[0]
+        var currentMax = array[0]
+        for value in array[1..<array.count] {
             if value < currentMin {
                 currentMin = value
             } else if value > currentMax {
@@ -140,8 +140,8 @@ The body of the `minMax(_:)` function starts by setting two working variables ca
 
 Because the tuple’s member values are named as part of the function’s return type, they can be accessed with dot syntax to retrieve the minimum and maximum found values:
 
-    let bounds = minMax(\[8, -6, 2, 109, 3, 71\])
-    print("min is \\(bounds.min) and max is \\(bounds.max)")
+    let bounds = minMax([8, -6, 2, 109, 3, 71])
+    print("min is \(bounds.min) and max is \(bounds.max)")
     // prints "min is -6 and max is 109"
 
 Note that the tuple’s members do not need to be named at the point that the tuple is returned from the function, because their names are already specified as part of the function’s return type.
@@ -158,11 +158,11 @@ The `minMax(_:)` function above returns a tuple containing two `Int` values. How
 
 To handle this “empty array” scenario safely, write the `minMax(_:)` function with an optional tuple return type and return a value of `nil` when the array is empty:
 
-    func minMax(array: \[Int\]) -> (min: Int, max: Int)? {
+    func minMax(array: [Int]) -> (min: Int, max: Int)? {
         if array.isEmpty { return nil }
-        var currentMin = array\[0\]
-        var currentMax = array\[0\]
-        for value in array\[1..<array.count\] {
+        var currentMin = array[0]
+        var currentMax = array[0]
+        for value in array[1..<array.count] {
             if value < currentMin {
                 currentMin = value
             } else if value > currentMax {
@@ -174,8 +174,8 @@ To handle this “empty array” scenario safely, write the `minMax(_:)` functio
 
 You can use optional binding to check whether this version of the `minMax(_:)` function returns an actual tuple value or `nil`:
 
-    if let bounds = minMax(\[8, -6, 2, 109, 3, 71\]) {
-        print("min is \\(bounds.min) and max is \\(bounds.max)")
+    if let bounds = minMax([8, -6, 2, 109, 3, 71]) {
+        print("min is \(bounds.min) and max is \(bounds.max)")
     }
     // prints "min is -6 and max is 109"
 
@@ -208,7 +208,7 @@ If you provide an external parameter name for a parameter, that external name mu
 Here’s a version of the `sayHello(_:)` function that takes the names of two people and returns a greeting for both of them:
 
     func sayHello(to person: String, and anotherPerson: String) -> String {
-        return "Hello \\(person) and \\(anotherPerson)!"
+        return "Hello \(person) and \(anotherPerson)!"
     }
     print(sayHello(to: "Bill", and: "Ted"))
     // prints "Hello Bill and Ted!"
@@ -299,7 +299,7 @@ You can call the `swapTwoInts(_:_:)` function with two variables of type `Int` t
     var someInt = 3
     var anotherInt = 107
     swapTwoInts(&someInt, &anotherInt)
-    print("someInt is now \\(someInt), and anotherInt is now \\(anotherInt)")
+    print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
     // prints "someInt is now 107, and anotherInt is now 3"
 
 The example above shows that the original values of `someInt` and `anotherInt` are modified by the `swapTwoInts(_:_:)` function, even though they were originally defined outside of the function.
@@ -318,7 +318,7 @@ For example:
         return a + b
     }
     func multiplyTwoInts(a: Int, _ b: Int) -> Int {
-        return a \* b
+        return a * b
     }
 
 This example defines two simple mathematical functions called `addTwoInts` and `multiplyTwoInts`. These functions each take two `Int` values, and return an `Int` value, which is the result of performing an appropriate mathematical operation.
@@ -349,13 +349,13 @@ The `addTwoInts(_:_:)` function has the same type as the `mathFunction` variable
 
 You can now call the assigned function with the name `mathFunction`:
 
-    print("Result: \\(mathFunction(2, 3))")
+    print("Result: \(mathFunction(2, 3))")
     // prints "Result: 5"
 
 A different function with the same matching type can be assigned to the same variable, in the same way as for non-function types:
 
     mathFunction = multiplyTwoInts
-    print("Result: \\(mathFunction(2, 3))")
+    print("Result: \(mathFunction(2, 3))")
     // prints "Result: 6"
 
 As with any other type, you can leave it to Swift to infer the function type when you assign a function to a constant or variable:
@@ -370,7 +370,7 @@ You can use a function type such as `(Int, Int) -> Int` as a parameter type for 
 Here’s an example to print the results of the math functions from above:
 
     func printMathResult(mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
-        print("Result: \\(mathFunction(a, b))")
+        print("Result: \(mathFunction(a, b))")
     }
     printMathResult(addTwoInts, 3, 5)
     // prints "Result: 8"
@@ -413,7 +413,7 @@ Now that `moveNearerToZero` refers to the correct function, it can be used to co
     print("Counting to zero:")
     // Counting to zero:
     while currentValue != 0 {
-        print("\\(currentValue)... ")
+        print("\(currentValue)... ")
         currentValue = moveNearerToZero(currentValue)
     }
     print("zero!")
@@ -439,7 +439,7 @@ You can rewrite the `chooseStepFunction(_:)` example above to use and return nes
     let moveNearerToZero = chooseStepFunction(currentValue > 0)
     // moveNearerToZero now refers to the nested stepForward() function
     while currentValue != 0 {
-        print("\\(currentValue)... ")
+        print("\(currentValue)... ")
         currentValue = moveNearerToZero(currentValue)
     }
     print("zero!")

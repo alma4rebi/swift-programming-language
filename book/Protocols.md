@@ -110,14 +110,14 @@ Here’s an implementation of a class that adopts and conforms to the `RandomNum
         let a = 3877.0
         let c = 29573.0
         func random() -> Double {
-            lastRandom = ((lastRandom \* a + c) % m)
+            lastRandom = ((lastRandom * a + c) % m)
             return lastRandom / m
         }
     }
     let generator = LinearCongruentialGenerator()
-    print("Here's a random number: \\(generator.random())")
+    print("Here's a random number: \(generator.random())")
     // prints "Here's a random number: 0.37464991998171"
-    print("And another one: \\(generator.random())")
+    print("And another one: \(generator.random())")
     // prints "And another one: 0.729023776863283"
 
 ### Mutating Method Requirements
@@ -234,7 +234,7 @@ Here’s an example of a protocol used as a type:
             self.generator = generator
         }
         func roll() -> Int {
-            return Int(generator.random() \* Double(sides)) + 1
+            return Int(generator.random() * Double(sides)) + 1
         }
     }
 
@@ -250,7 +250,7 @@ Here’s how the `Dice` class can be used to create a six-sided dice with a `Lin
 
     var d6 = Dice(sides: 6, generator: LinearCongruentialGenerator())
     for _ in 1...5 {
-        print("Random dice roll is \\(d6.roll())")
+        print("Random dice roll is \(d6.roll())")
     }
     // Random dice roll is 3
     // Random dice roll is 5
@@ -282,11 +282,11 @@ Here’s a version of the *Snakes and Ladders* game originally introduced in [Co
         let finalSquare = 25
         let dice = Dice(sides: 6, generator: LinearCongruentialGenerator())
         var square = 0
-        var board: \[Int\]
+        var board: [Int]
         init() {
-            board = \[Int\](count: finalSquare + 1, repeatedValue: 0)
-            board\[03\] = +08; board\[06\] = +11; board\[09\] = +09; board\[10\] = +02
-            board\[14\] = -10; board\[19\] = -11; board\[22\] = -02; board\[24\] = -08
+            board = [Int](count: finalSquare + 1, repeatedValue: 0)
+            board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
+            board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
         }
         var delegate: DiceGameDelegate?
         func play() {
@@ -302,7 +302,7 @@ Here’s a version of the *Snakes and Ladders* game originally introduced in [Co
                     continue gameLoop
                 default:
                     square += diceRoll
-                    square += board\[square\]
+                    square += board[square]
                 }
             }
             delegate?.gameDidEnd(self)
@@ -330,14 +330,14 @@ This next example shows a class called `DiceGameTracker`, which adopts the `Dice
             if game is SnakesAndLadders {
                 print("Started a new game of Snakes and Ladders")
             }
-            print("The game is using a \\(game.dice.sides)-sided dice")
+            print("The game is using a \(game.dice.sides)-sided dice")
         }
         func game(game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
             ++numberOfTurns
-            print("Rolled a \\(diceRoll)")
+            print("Rolled a \(diceRoll)")
         }
         func gameDidEnd(game: DiceGame) {
-            print("The game lasted for \\(numberOfTurns) turns")
+            print("The game lasted for \(numberOfTurns) turns")
         }
     }
 
@@ -379,7 +379,7 @@ The `Dice` class from earlier can be extended to adopt and conform to `TextRepre
 
     extension Dice: TextRepresentable {
         var textualDescription: String {
-            return "A \\(sides)-sided dice"
+            return "A \(sides)-sided dice"
         }
     }
 
@@ -395,7 +395,7 @@ Similarly, the `SnakesAndLadders` game class can be extended to adopt and confor
 
     extension SnakesAndLadders: TextRepresentable {
         var textualDescription: String {
-            return "A game of Snakes and Ladders with \\(finalSquare) squares"
+            return "A game of Snakes and Ladders with \(finalSquare) squares"
         }
     }
     print(game.textualDescription)
@@ -408,7 +408,7 @@ If a type already conforms to all of the requirements of a protocol, but has not
     struct Hamster {
         var name: String
         var textualDescription: String {
-            return "A hamster named \\(name)"
+            return "A hamster named \(name)"
         }
     }
     extension Hamster: TextRepresentable {}
@@ -428,7 +428,7 @@ Types do not automatically adopt a protocol just by satisfying its requirements.
 
 A protocol can be used as the type to be stored in a collection such as an array or a dictionary, as mentioned in [Protocols as Types](Protocols.md#TP40016643-CH25-ID275). This example creates an array of `TextRepresentable` things:
 
-    let things: \[TextRepresentable\] = \[game, d12, simonTheHamster\]
+    let things: [TextRepresentable] = [game, d12, simonTheHamster]
 
 It is now possible to iterate over the items in the array, and print each item’s textual description:
 
@@ -461,9 +461,9 @@ The `SnakesAndLadders` class can be extended to adopt and conform to `PrettyText
 
     extension SnakesAndLadders: PrettyTextRepresentable {
         var prettyTextualDescription: String {
-            var output = textualDescription + ":\n"
+            var output = textualDescription + ":n"
             for index in 1...finalSquare {
-                switch board\[index\] {
+                switch board[index] {
                 case let ladder where ladder > 0:
                     output += "▲ "
                 case let snake where snake < 0:
@@ -521,7 +521,7 @@ Here’s an example that combines two protocols called `Named` and `Aged` into a
         var age: Int
     }
     func wishHappyBirthday(celebrator: protocol<Named, Aged>) {
-        print("Happy birthday \\(celebrator.name) - you're \\(celebrator.age)!")
+        print("Happy birthday \(celebrator.name) - you're \(celebrator.age)!")
     }
     let birthdayPerson = Person(name: "Malcolm", age: 21)
     wishHappyBirthday(birthdayPerson)
@@ -558,7 +558,7 @@ Here are two classes, `Circle` and `Country`, both of which conform to the `HasA
     class Circle: HasArea {
         let pi = 3.1415927
         var radius: Double
-        var area: Double { return pi \* radius \* radius }
+        var area: Double { return pi * radius * radius }
         init(radius: Double) { self.radius = radius }
     }
     class Country: HasArea {
@@ -577,7 +577,7 @@ Here’s a class called `Animal`, which does not conform to the `HasArea` protoc
 
 The `Circle`, `Country` and `Animal` classes do not have a shared base class. Nonetheless, they are all classes, and so instances of all three types can be used to initialize an array that stores values of type `AnyObject`:
 
-    let objects: \[AnyObject\] = \[
+    let objects: [AnyObject] = [
         Circle(radius: 2.0),
         Country(area: 243_610),
         Animal(legs: 4)
@@ -589,7 +589,7 @@ The `objects` array can now be iterated, and each object in the array can be che
 
     for object in objects {
         if let objectWithArea = object as? HasArea {
-            print("Area is \\(objectWithArea.area)")
+            print("Area is \(objectWithArea.area)")
         } else {
             print("Something that doesn't have an area")
         }
@@ -721,9 +721,9 @@ For example, the `RandomNumberGenerator` protocol can be extended to provide a `
 By creating an extension on the protocol, all conforming types automatically gain this method implementation without any additional modification.
 
     let generator = LinearCongruentialGenerator()
-    print("Here's a random number: \\(generator.random())")
+    print("Here's a random number: \(generator.random())")
     // prints "Here's a random number: 0.37464991998171"
-    print("And here's a random Boolean: \\(generator.randomBool())")
+    print("And here's a random Boolean: \(generator.randomBool())")
     // prints "And here's a random Boolean: true"
 
 ### Providing Default Implementations
@@ -762,7 +762,7 @@ Consider the `Hamster` structure from before, which conforms to the `TextReprese
     let murrayTheHamster = Hamster(name: "Murray")
     let morganTheHamster = Hamster(name: "Morgan")
     let mauriceTheHamster = Hamster(name: "Maurice")
-    let hamsters = \[murrayTheHamster, morganTheHamster, mauriceTheHamster\]
+    let hamsters = [murrayTheHamster, morganTheHamster, mauriceTheHamster]
 
 Because `Array` conforms to `CollectionType` and the array’s elements conform to the `TextRepresentable` protocol, the array can use the `textualDescription` property to get a textual representation of its contents:
 

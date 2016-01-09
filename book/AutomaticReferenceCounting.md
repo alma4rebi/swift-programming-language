@@ -29,10 +29,10 @@ Here’s an example of how Automatic Reference Counting works. This example star
         let name: String
         init(name: String) {
             self.name = name
-            print("\\(name) is being initialized")
+            print("\(name) is being initialized")
         }
         deinit {
-            print("\\(name) is being deinitialized")
+            print("\(name) is being deinitialized")
         }
     }
 
@@ -84,14 +84,14 @@ Here’s an example of how a strong reference cycle can be created by accident. 
         let name: String
         init(name: String) { self.name = name }
         var apartment: Apartment?
-        deinit { print("\\(name) is being deinitialized") }
+        deinit { print("\(name) is being deinitialized") }
     }
      
     class Apartment {
         let unit: String
         init(unit: String) { self.unit = unit }
         var tenant: Person?
-        deinit { print("Apartment \\(unit) is being deinitialized") }
+        deinit { print("Apartment \(unit) is being deinitialized") }
     }
 
 Every `Person` instance has a `name` property of type `String` and an optional `apartment` property that is initially `nil`. The `apartment` property is optional, because a person may not always have an apartment.
@@ -112,7 +112,7 @@ You can now create a specific `Person` instance and `Apartment` instance and ass
 
 Here’s how the strong references look after creating and assigning these two instances. The `john` variable now has a strong reference to the new `Person` instance, and the `unit4A` variable has a strong reference to the new `Apartment` instance:
 
-![image: Art/referenceCycle01\_2x.png](Art/referenceCycle01_2x.png)
+![image: Art/referenceCycle01_2x.png](Art/referenceCycle01_2x.png)
 
 You can now link the two instances together so that the person has an apartment, and the apartment has a tenant. Note that an exclamation mark (`!`) is used to unwrap and access the instances stored inside the `john` and `unit4A` optional variables, so that the properties of those instances can be set:
 
@@ -121,7 +121,7 @@ You can now link the two instances together so that the person has an apartment,
 
 Here’s how the strong references look after you link the two instances together:
 
-![image: Art/referenceCycle02\_2x.png](Art/referenceCycle02_2x.png)
+![image: Art/referenceCycle02_2x.png](Art/referenceCycle02_2x.png)
 
 Unfortunately, linking these two instances creates a strong reference cycle between them. The `Person` instance now has a strong reference to the `Apartment` instance, and the `Apartment` instance has a strong reference to the `Person` instance. Therefore, when you break the strong references held by the `john` and `unit4A` variables, the reference counts do not drop to zero, and the instances are not deallocated by ARC:
 
@@ -132,7 +132,7 @@ Note that neither deinitializer was called when you set these two variables to `
 
 Here’s how the strong references look after you set the `john` and `unit4A` variables to `nil`:
 
-![image: Art/referenceCycle03\_2x.png](Art/referenceCycle03_2x.png)
+![image: Art/referenceCycle03_2x.png](Art/referenceCycle03_2x.png)
 
 The strong references between the `Person` instance and the `Apartment` instance remain and cannot be broken.
 
@@ -164,14 +164,14 @@ The example below is identical to the `Person` and `Apartment` example from abov
         let name: String
         init(name: String) { self.name = name }
         var apartment: Apartment?
-        deinit { print("\\(name) is being deinitialized") }
+        deinit { print("\(name) is being deinitialized") }
     }
      
     class Apartment {
         let unit: String
         init(unit: String) { self.unit = unit }
         weak var tenant: Person?
-        deinit { print("Apartment \\(unit) is being deinitialized") }
+        deinit { print("Apartment \(unit) is being deinitialized") }
     }
 
 The strong references from the two variables (`john` and `unit4A`) and the links between the two instances are created as before:
@@ -187,11 +187,11 @@ The strong references from the two variables (`john` and `unit4A`) and the links
 
 Here’s how the references look now that you’ve linked the two instances together:
 
-![image: Art/weakReference01\_2x.png](Art/weakReference01_2x.png)
+![image: Art/weakReference01_2x.png](Art/weakReference01_2x.png)
 
 The `Person` instance still has a strong reference to the `Apartment` instance, but the `Apartment` instance now has a *weak* reference to the `Person` instance. This means that when you break the strong reference held by the `john` variables, there are no more strong references to the `Person` instance:
 
-![image: Art/weakReference02\_2x.png](Art/weakReference02_2x.png)
+![image: Art/weakReference02_2x.png](Art/weakReference02_2x.png)
 
 Because there are no more strong references to the `Person` instance, it is deallocated:
 
@@ -200,7 +200,7 @@ Because there are no more strong references to the `Person` instance, it is deal
 
 The only remaining strong reference to the `Apartment` instance is from the `unit4A` variable. If you break *that* strong reference, there are no more strong references to the `Apartment` instance:
 
-![image: Art/weakReference03\_2x.png](Art/weakReference03_2x.png)
+![image: Art/weakReference03_2x.png](Art/weakReference03_2x.png)
 
 Because there are no more strong references to the `Apartment` instance, it too is deallocated:
 
@@ -239,7 +239,7 @@ Because a credit card will always have a customer, you define its `customer` pro
         init(name: String) {
             self.name = name
         }
-        deinit { print("\\(name) is being deinitialized") }
+        deinit { print("\(name) is being deinitialized") }
     }
      
     class CreditCard {
@@ -249,7 +249,7 @@ Because a credit card will always have a customer, you define its `customer` pro
             self.number = number
             self.customer = customer
         }
-        deinit { print("Card #\\(number) is being deinitialized") }
+        deinit { print("Card #\(number) is being deinitialized") }
     }
 
 Note
@@ -267,13 +267,13 @@ You can now create a `Customer` instance, and use it to initialize and assign a 
 
 Here’s how the references look, now that you’ve linked the two instances:
 
-![image: Art/unownedReference01\_2x.png](Art/unownedReference01_2x.png)
+![image: Art/unownedReference01_2x.png](Art/unownedReference01_2x.png)
 
 The `Customer` instance now has a strong reference to the `CreditCard` instance, and the `CreditCard` instance has an unowned reference to the `Customer` instance.
 
 Because of the unowned `customer` reference, when you break the strong reference held by the `john` variable, there are no more strong references to the `Customer` instance:
 
-![image: Art/unownedReference02\_2x.png](Art/unownedReference02_2x.png)
+![image: Art/unownedReference02_2x.png](Art/unownedReference02_2x.png)
 
 Because there are no more strong references to the `Customer` instance, it is deallocated. After this happens, there are no more strong references to the `CreditCard` instance, and it too is deallocated:
 
@@ -326,7 +326,7 @@ Because `capitalCity` has a default `nil` value, a new `Country` instance is con
 All of this means that you can create the `Country` and `City` instances in a single statement, without creating a strong reference cycle, and the `capitalCity` property can be accessed directly, without needing to use an exclamation mark to unwrap its optional value:
 
     var country = Country(name: "Canada", capitalName: "Ottawa")
-    print("\\(country.name)'s capital city is called \\(country.capitalCity.name)")
+    print("\(country.name)'s capital city is called \(country.capitalCity.name)")
     // prints "Canada's capital city is called Ottawa"
 
 In the example above, the use of an implicitly unwrapped optional means that all of the two-phase class initializer requirements are satisfied. The `capitalCity` property can be used and accessed like a nonoptional value once initialization is complete, while still avoiding a strong reference cycle.
@@ -350,9 +350,9 @@ The example below shows how you can create a strong reference cycle when using a
         
         lazy var asHTML: Void -> String = {
             if let text = self.text {
-                return "<\\(self.name)>\\(text)</\\(self.name)>"
+                return "<\(self.name)>\(text)</\(self.name)>"
             } else {
-                return "<\\(self.name) />"
+                return "<\(self.name) />"
             }
         }
         
@@ -362,7 +362,7 @@ The example below shows how you can create a strong reference cycle when using a
         }
         
         deinit {
-            print("\\(name) is being deinitialized")
+            print("\(name) is being deinitialized")
         }
         
     }
@@ -380,7 +380,7 @@ For example, the `asHTML` property could be set to a closure that defaults to so
     let heading = HTMLElement(name: "h1")
     let defaultText = "some default text"
     heading.asHTML = {
-        return "<\\(heading.name)>\\(heading.text ?? defaultText)</\\(heading.name)>"
+        return "<\(heading.name)>\(heading.text ?? defaultText)</\(heading.name)>"
     }
     print(heading.asHTML())
     // prints "<h1>some default text</h1>"
@@ -403,7 +403,7 @@ The `paragraph` variable above is defined as an *optional* `HTMLElement`, so tha
 
 Unfortunately, the `HTMLElement` class, as written above, creates a strong reference cycle between an `HTMLElement` instance and the closure used for its default `asHTML` value. Here’s how the cycle looks:
 
-![image: Art/closureReferenceCycle01\_2x.png](Art/closureReferenceCycle01_2x.png)
+![image: Art/closureReferenceCycle01_2x.png](Art/closureReferenceCycle01_2x.png)
 
 The instance’s `asHTML` property holds a strong reference to its closure. However, because the closure refers to `self` within its body (as a way to reference `self.name` and `self.text`), the closure *captures* self, which means that it holds a strong reference back to the `HTMLElement` instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see [Capturing Values](Closures.md#TP40016643-CH11-ID103).)
 
@@ -432,14 +432,14 @@ Each item in a capture list is a pairing of the `weak` or `unowned` keyword with
 Place the capture list before a closure’s parameter list and return type if they are provided:
 
     lazy var someClosure: (Int, String) -> String = {
-        [unowned self, weak delegate = self.delegate!\] (index: Int, stringToProcess: String) -> String in
+        [unowned self, weak delegate = self.delegate!] (index: Int, stringToProcess: String) -> String in
         // closure body goes here
     }
 
 If a closure does not specify a parameter list or return type because they can be inferred from context, place the capture list at the very start of the closure, followed by the `in` keyword:
 
     lazy var someClosure: Void -> String = {
-        [unowned self, weak delegate = self.delegate!\] in
+        [unowned self, weak delegate = self.delegate!] in
         // closure body goes here
     }
 
@@ -461,11 +461,11 @@ An unowned reference is the appropriate capture method to use to resolve the str
         let text: String?
         
         lazy var asHTML: Void -> String = {
-            [unowned self\] in
+            [unowned self] in
             if let text = self.text {
-                return "<\\(self.name)>\\(text)</\\(self.name)>"
+                return "<\(self.name)>\(text)</\(self.name)>"
             } else {
-                return "<\\(self.name) />"
+                return "<\(self.name) />"
             }
         }
         
@@ -475,7 +475,7 @@ An unowned reference is the appropriate capture method to use to resolve the str
         }
         
         deinit {
-            print("\\(name) is being deinitialized")
+            print("\(name) is being deinitialized")
         }
         
     }
@@ -490,7 +490,7 @@ You can create and print an `HTMLElement` instance as before:
 
 Here’s how the references look with the capture list in place:
 
-![image: Art/closureReferenceCycle02\_2x.png](Art/closureReferenceCycle02_2x.png)
+![image: Art/closureReferenceCycle02_2x.png](Art/closureReferenceCycle02_2x.png)
 
 This time, the capture of `self` by the closure is an unowned reference, and does not keep a strong hold on the `HTMLElement` instance it has captured. If you set the strong reference from the `paragraph` variable to `nil`, the `HTMLElement` instance is deallocated, as can be seen from the printing of its deinitializer message in the example below:
 
