@@ -1,12 +1,5 @@
-
-
-
-
-[‌]()[‌]()
 Initialization 
 --------------
-
-
 
 *Initialization* is the process of preparing an instance of a class, structure, or enumeration for use. This process involves setting an initial value for each stored property on that instance and performing any other setup or initialization that is required before the new instance is ready for use.
 
@@ -14,162 +7,78 @@ You implement this initialization process by defining *initializers*, which are 
 
 Instances of class types can also implement a *deinitializer*, which performs any custom cleanup just before an instance of that class is deallocated. For more information about deinitializers, see [Deinitialization](Deinitialization.md).
 
-
-
-
-
-[‌]()
 ### Setting Initial Values for Stored Properties 
 
 Classes and structures *must* set all of their stored properties to an appropriate initial value by the time an instance of that class or structure is created. Stored properties cannot be left in an indeterminate state.
 
 You can set an initial value for a stored property within an initializer, or by assigning a default property value as part of the property’s definition. These actions are described in the following sections.
 
-
-
 Note
 
 When you assign a default value to a stored property, or set its initial value within an initializer, the value of that property is set directly, without calling any property observers.
 
-
-
-
-
-[‌]()
 ### Initializers 
 
 *Initializers* are called to create a new instance of a particular type. In its simplest form, an initializer is like an instance method with no parameters, written using the `init` keyword:
 
-
-
-
-
-
-
-1.  `init`() {
-2.  `    // perform some initialization here`
-3.  `}`
-
-
-
-
-
-
+    init() {
+        // perform some initialization here
+    }
 
 The example below defines a new structure called `Fahrenheit` to store temperatures expressed in the Fahrenheit scale. The `Fahrenheit` structure has one stored property, `temperature`, which is of type `Double`:
 
-
-
-
-
-
-
-1.  `struct` `Fahrenheit` {
-2.  `    var` `temperature`: `Double`
-3.  `    init`() {
-4.  `        temperature` = `32.0`
-5.  `    }`
-6.  `}`
-7.  `var` `f` = `Fahrenheit`()
-8.  `print`(`"The default temperature is `\\(`f`.`temperature`)`° Fahrenheit"`)
-9.  `// prints "The default temperature is 32.0° Fahrenheit"`
-
-
-
-
-
-
+    struct Fahrenheit {
+        var temperature: Double
+        init() {
+            temperature = 32.0
+        }
+    }
+    var f = Fahrenheit()
+    print("The default temperature is \\(f.temperature)° Fahrenheit")
+    // prints "The default temperature is 32.0° Fahrenheit"
 
 The structure defines a single initializer, `init`, with no parameters, which initializes the stored temperature with a value of `32.0` (the freezing point of water when expressed in the Fahrenheit scale).
 
-
-
-
-
-[‌]()
 ### Default Property Values 
 
 You can set the initial value of a stored property from within an initializer, as shown above. Alternatively, specify a *default property value* as part of the property’s declaration. You specify a default property value by assigning an initial value to the property when it is defined.
-
-
 
 Note
 
 If a property always takes the same initial value, provide a default value rather than setting a value within an initializer. The end result is the same, but the default value ties the property’s initialization more closely to its declaration. It makes for shorter, clearer initializers and enables you to infer the type of the property from its default value. The default value also makes it easier for you to take advantage of default initializers and initializer inheritance, as described later in this chapter.
 
-
-
 You can write the `Fahrenheit` structure from above in a simpler form by providing a default value for its `temperature` property at the point that the property is declared:
 
+    struct Fahrenheit {
+        var temperature = 32.0
+    }
 
-
-
-
-
-
-1.  `struct` `Fahrenheit` {
-2.  `    var` `temperature` = `32.0`
-3.  `}`
-
-
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Customizing Initialization 
 
 You can customize the initialization process with input parameters and optional property types, or by assigning constant properties during initialization, as described in the following sections.
 
-
-
-[‌]()
 ### Initialization Parameters 
 
 You can provide *initialization parameters* as part of an initializer’s definition, to define the types and names of values that customize the initialization process. Initialization parameters have the same capabilities and syntax as function and method parameters.
 
 The following example defines a structure called `Celsius`, which stores temperatures expressed in the Celsius scale. The `Celsius` structure implements two custom initializers called `init(fromFahrenheit:)` and `init(fromKelvin:)`, which initialize a new instance of the structure with a value from a different temperature scale:
 
-
-
-
-
-
-
-1.  `struct` `Celsius` {
-2.  `    var` `temperatureInCelsius`: `Double`
-3.  `    init`(`fromFahrenheit` `fahrenheit`: `Double`) {
-4.  `        temperatureInCelsius` = (`fahrenheit` - `32.0`) / `1.8`
-5.  `    }`
-6.  `    init`(`fromKelvin` `kelvin`: `Double`) {
-7.  `        temperatureInCelsius` = `kelvin` - `273.15`
-8.  `    }`
-9.  `}`
-10. `let` `boilingPointOfWater` = `Celsius`(`fromFahrenheit`: `212.0`)
-11. `// boilingPointOfWater.temperatureInCelsius is 100.0`
-12. `let` `freezingPointOfWater` = `Celsius`(`fromKelvin`: `273.15`)
-13. `// freezingPointOfWater.temperatureInCelsius is 0.0`
-
-
-
-
-
-
+    struct Celsius {
+        var temperatureInCelsius: Double
+        init(fromFahrenheit fahrenheit: Double) {
+            temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+        }
+        init(fromKelvin kelvin: Double) {
+            temperatureInCelsius = kelvin - 273.15
+        }
+    }
+    let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
+    // boilingPointOfWater.temperatureInCelsius is 100.0
+    let freezingPointOfWater = Celsius(fromKelvin: 273.15)
+    // freezingPointOfWater.temperatureInCelsius is 0.0
 
 The first initializer has a single initialization parameter with an external name of `fromFahrenheit` and a local name of `fahrenheit`. The second initializer has a single initialization parameter with an external name of `fromKelvin` and a local name of `kelvin`. Both initializers convert their single argument into a value in the Celsius scale and store this value in a property called `temperatureInCelsius`.
 
-
-
-
-
-[‌]()
 ### Local and External Parameter Names 
 
 As with function and method parameters, initialization parameters can have both a local name for use within the initializer’s body and an external name for use when calling the initializer.
@@ -180,229 +89,116 @@ The following example defines a structure called `Color`, with three constant pr
 
 `Color` provides an initializer with three appropriately named parameters of type `Double` for its red, green, and blue components. `Color` also provides a second initializer with a single `white` parameter, which is used to provide the same value for all three color components.
 
-
-
-
-
-
-
-1.  `struct` `Color` {
-2.  `    let` `red`, `green`, `blue`: `Double`
-3.  `    init`(`red`: `Double`, `green`: `Double`, `blue`: `Double`) {
-4.  `        self`.`red` = `red`
-5.  `        self`.`green` = `green`
-6.  `        self`.`blue` = `blue`
-7.  `    }`
-8.  `    init`(`white`: `Double`) {
-9.  `        red` = `white`
-10. `        green` = `white`
-11. `        blue` = `white`
-12. `    }`
-13. `}`
-
-
-
-
-
-
+    struct Color {
+        let red, green, blue: Double
+        init(red: Double, green: Double, blue: Double) {
+            self.red = red
+            self.green = green
+            self.blue = blue
+        }
+        init(white: Double) {
+            red = white
+            green = white
+            blue = white
+        }
+    }
 
 Both initializers can be used to create a new `Color` instance, by providing named values for each initializer parameter:
 
-
-
-
-
-
-
-1.  `let` `magenta` = `Color`(`red`: `1.0`, `green`: `0.0`, `blue`: `1.0`)
-2.  `let` `halfGray` = `Color`(`white`: `0.5`)
-
-
-
-
-
-
+    let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
+    let halfGray = Color(white: 0.5)
 
 Note that it is not possible to call these initializers without using external parameter names. External names must always be used in an initializer if they are defined, and omitting them is a compile-time error:
 
+    let veryGreen = Color(0.0, 1.0, 0.0)
+    // this reports a compile-time error - external names are required
 
-
-
-
-
-
-1.  `let` `veryGreen` = `Color`(`0.0`, `1.0`, `0.0`)
-2.  `// this reports a compile-time error - external names are required`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Initializer Parameters Without External Names 
 
 If you do not want to use an external name for an initializer parameter, write an underscore (`_`) instead of an explicit external name for that parameter to override the default behavior.
 
 Here’s an expanded version of the `Celsius` example from earlier, with an additional initializer to create a new `Celsius` instance from a `Double` value that is already in the Celsius scale:
 
-
-
-
-
-
-
-1.  `struct` `Celsius` {
-2.  `    var` `temperatureInCelsius`: `Double`
-3.  `    init`(`fromFahrenheit` `fahrenheit`: `Double`) {
-4.  `        temperatureInCelsius` = (`fahrenheit` - `32.0`) / `1.8`
-5.  `    }`
-6.  `    init`(`fromKelvin` `kelvin`: `Double`) {
-7.  `        temperatureInCelsius` = `kelvin` - `273.15`
-8.  `    }`
-9.  `    init`(`_` `celsius`: `Double`) {
-10. `        temperatureInCelsius` = `celsius`
-11. `    }`
-12. `}`
-13. `let` `bodyTemperature` = `Celsius`(`37.0`)
-14. `// bodyTemperature.temperatureInCelsius is 37.0`
-
-
-
-
-
-
+    struct Celsius {
+        var temperatureInCelsius: Double
+        init(fromFahrenheit fahrenheit: Double) {
+            temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+        }
+        init(fromKelvin kelvin: Double) {
+            temperatureInCelsius = kelvin - 273.15
+        }
+        init(_ celsius: Double) {
+            temperatureInCelsius = celsius
+        }
+    }
+    let bodyTemperature = Celsius(37.0)
+    // bodyTemperature.temperatureInCelsius is 37.0
 
 The initializer call `Celsius(37.0)` is clear in its intent without the need for an external parameter name. It is therefore appropriate to write this initializer as `init(_ celsius: Double)` so that it can be called by providing an unnamed `Double` value.
 
-
-
-
-
-[‌]()
 ### Optional Property Types 
 
 If your custom type has a stored property that is logically allowed to have “no value”—perhaps because its value cannot be set during initialization, or because it is allowed to have “no value” at some later point—declare the property with an *optional* type. Properties of optional type are automatically initialized with a value of `nil`, indicating that the property is deliberately intended to have “no value yet” during initialization.
 
 The following example defines a class called `SurveyQuestion`, with an optional `String` property called `response`:
 
-
-
-
-
-
-
-1.  `class` `SurveyQuestion` {
-2.  `    var` `text`: `String`
-3.  `    var` `response`: `String`?
-4.  `    init`(`text`: `String`) {
-5.  `        self`.`text` = `text`
-6.  `    }`
-7.  `    func` `ask`() {
-8.  `        print`(`text`)
-9.  `    }`
-10. `}`
-11. `let` `cheeseQuestion` = `SurveyQuestion`(`text`: `"Do you like cheese?"`)
-12. `cheeseQuestion`.`ask`()
-13. `// prints "Do you like cheese?"`
-14. `cheeseQuestion`.`response` = `"Yes, I do like cheese."`
-
-
-
-
-
-
+    class SurveyQuestion {
+        var text: String
+        var response: String?
+        init(text: String) {
+            self.text = text
+        }
+        func ask() {
+            print(text)
+        }
+    }
+    let cheeseQuestion = SurveyQuestion(text: "Do you like cheese?")
+    cheeseQuestion.ask()
+    // prints "Do you like cheese?"
+    cheeseQuestion.response = "Yes, I do like cheese."
 
 The response to a survey question cannot be known until it is asked, and so the `response` property is declared with a type of `String?`, or “optional `String`”. It is automatically assigned a default value of `nil`, meaning “no string yet”, when a new instance of `SurveyQuestion` is initialized.
 
-
-
-
-
-[‌]()
 ### Assigning Constant Properties During Initialization 
 
 You can assign a value to a constant property at any point during initialization, as long as it is set to a definite value by the time initialization finishes. Once a constant property is assigned a value, it can’t be further modified.
-
-
 
 Note
 
 For class instances, a constant property can only be modified during initialization by the class that introduces it. It cannot be modified by a subclass.
 
-
-
 You can revise the `SurveyQuestion` example from above to use a constant property rather than a variable property for the `text` property of the question, to indicate that the question does not change once an instance of `SurveyQuestion` is created. Even though the `text` property is now a constant, it can still be set within the class’s initializer:
 
+    class SurveyQuestion {
+        let text: String
+        var response: String?
+        init(text: String) {
+            self.text = text
+        }
+        func ask() {
+            print(text)
+        }
+    }
+    let beetsQuestion = SurveyQuestion(text: "How about beets?")
+    beetsQuestion.ask()
+    // prints "How about beets?"
+    beetsQuestion.response = "I also like beets. (But not with cheese.)"
 
-
-
-
-
-
-1.  `class` `SurveyQuestion` {
-2.  `    let` `text`: `String`
-3.  `    var` `response`: `String`?
-4.  `    init`(`text`: `String`) {
-5.  `        self`.`text` = `text`
-6.  `    }`
-7.  `    func` `ask`() {
-8.  `        print`(`text`)
-9.  `    }`
-10. `}`
-11. `let` `beetsQuestion` = `SurveyQuestion`(`text`: `"How about beets?"`)
-12. `beetsQuestion`.`ask`()
-13. `// prints "How about beets?"`
-14. `beetsQuestion`.`response` = `"I also like beets. (But not with cheese.)"`
-
-
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Default Initializers 
 
 Swift provides a *default initializer* for any structure or class that provides default values for all of its properties and does not provide at least one initializer itself. The default initializer simply creates a new instance with all of its properties set to their default values.
 
 This example defines a class called `ShoppingListItem`, which encapsulates the name, quantity, and purchase state of an item in a shopping list:
 
-
-
-
-
-
-
-1.  `class` `ShoppingListItem` {
-2.  `    var` `name`: `String`?
-3.  `    var` `quantity` = `1`
-4.  `    var` `purchased` = `false`
-5.  `}`
-6.  `var` `item` = `ShoppingListItem`()
-
-
-
-
-
-
+    class ShoppingListItem {
+        var name: String?
+        var quantity = 1
+        var purchased = false
+    }
+    var item = ShoppingListItem()
 
 Because all properties of the `ShoppingListItem` class have default values, and because it is a base class with no superclass, `ShoppingListItem` automatically gains a default initializer implementation that creates a new instance with all of its properties set to their default values. (The `name` property is an optional `String` property, and so it automatically receives a default value of `nil`, even though this value is not written in the code.) The example above uses the default initializer for the `ShoppingListItem` class to create a new instance of the class with initializer syntax, written as `ShoppingListItem()`, and assigns this new instance to a variable called `item`.
 
-
-
-[‌]()
 ### Memberwise Initializers for Structure Types 
 
 Structure types automatically receive a *memberwise initializer* if they do not define any of their own custom initializers. Unlike a default initializer, the structure receives a memberwise initializer even if it has stored properties that do not have default values.
@@ -413,30 +209,11 @@ The example below defines a structure called `Size` with two properties called `
 
 The `Size` structure automatically receives an `init(width:height:)` memberwise initializer, which you can use to initialize a new `Size` instance:
 
+    struct Size {
+        var width = 0.0, height = 0.0
+    }
+    let twoByTwo = Size(width: 2.0, height: 2.0)
 
-
-
-
-
-
-1.  `struct` `Size` {
-2.  `    var` `width` = `0.0`, `height` = `0.0`
-3.  `}`
-4.  `let` `twoByTwo` = `Size`(`width`: `2.0`, `height`: `2.0`)
-
-
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Initializer Delegation for Value Types 
 
 Initializers can call other initializers to perform part of an instance’s initialization. This process, known as *initializer delegation*, avoids duplicating code across multiple initializers.
@@ -447,141 +224,65 @@ For value types, you use `self.init` to refer to other initializers from the sam
 
 Note that if you define a custom initializer for a value type, you will no longer have access to the default initializer (or the memberwise initializer, if it is a structure) for that type. This constraint prevents a situation in which additional essential setup provided in a more complex initializer is circumvented by someone accidentally using one of the automatic initializers instead.
 
-
-
 Note
 
 If you want your custom value type to be initializable with the default initializer and memberwise initializer, and also with your own custom initializers, write your custom initializers in an extension rather than as part of the value type’s original implementation. For more information, see [Extensions](Extensions.md).
 
-
-
 The following example defines a custom `Rect` structure to represent a geometric rectangle. The example requires two supporting structures called `Size` and `Point`, both of which provide default values of `0.0` for all of their properties:
 
-
-
-
-
-
-
-1.  `struct` `Size` {
-2.  `    var` `width` = `0.0`, `height` = `0.0`
-3.  `}`
-4.  `struct` `Point` {
-5.  `    var` `x` = `0.0`, `y` = `0.0`
-6.  `}`
-
-
-
-
-
-
+    struct Size {
+        var width = 0.0, height = 0.0
+    }
+    struct Point {
+        var x = 0.0, y = 0.0
+    }
 
 You can initialize the `Rect` structure below in one of three ways—by using its default zero-initialized `origin` and `size` property values, by providing a specific origin point and size, or by providing a specific center point and size. These initialization options are represented by three custom initializers that are part of the `Rect` structure’s definition:
 
-
-
-
-
-
-
-1.  `struct` `Rect` {
-2.  `    var` `origin` = `Point`()
-3.  `    var` `size` = `Size`()
-4.  `    init`() {}
-5.  `    init`(`origin`: `Point`, `size`: `Size`) {
-6.  `        self`.`origin` = `origin`
-7.  `        self`.`size` = `size`
-8.  `    }`
-9.  `    init`(`center`: `Point`, `size`: `Size`) {
-10. `        let` `originX` = `center`.`x` - (`size`.`width` / `2`)
-11. `        let` `originY` = `center`.`y` - (`size`.`height` / `2`)
-12. `        self`.`init`(`origin`: `Point`(`x`: `originX`, `y`: `originY`), `size`: `size`)
-13. `    }`
-14. `}`
-
-
-
-
-
-
+    struct Rect {
+        var origin = Point()
+        var size = Size()
+        init() {}
+        init(origin: Point, size: Size) {
+            self.origin = origin
+            self.size = size
+        }
+        init(center: Point, size: Size) {
+            let originX = center.x - (size.width / 2)
+            let originY = center.y - (size.height / 2)
+            self.init(origin: Point(x: originX, y: originY), size: size)
+        }
+    }
 
 The first `Rect` initializer, `init()`, is functionally the same as the default initializer that the structure would have received if it did not have its own custom initializers. This initializer has an empty body, represented by an empty pair of curly braces `{}`, and does not perform any initialization. Calling this initializer returns a `Rect` instance whose `origin` and `size` properties are both initialized with the default values of `Point(x: 0.0, y: 0.0)` and `Size(width: 0.0, height: 0.0)` from their property definitions:
 
-
-
-
-
-
-
-1.  `let` `basicRect` = `Rect`()
-2.  `// basicRect's origin is (0.0, 0.0) and its size is (0.0, 0.0)`
-
-
-
-
-
-
+    let basicRect = Rect()
+    // basicRect's origin is (0.0, 0.0) and its size is (0.0, 0.0)
 
 The second `Rect` initializer, `init(origin:size:)`, is functionally the same as the memberwise initializer that the structure would have received if it did not have its own custom initializers. This initializer simply assigns the `origin` and `size` argument values to the appropriate stored properties:
 
-
-
-
-
-
-
-1.  `let` `originRect` = `Rect`(`origin`: `Point`(`x`: `2.0`, `y`: `2.0`),
-2.  `    size`: `Size`(`width`: `5.0`, `height`: `5.0`))
-3.  `// originRect's origin is (2.0, 2.0) and its size is (5.0, 5.0)`
-
-
-
-
-
-
+    let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
+        size: Size(width: 5.0, height: 5.0))
+    // originRect's origin is (2.0, 2.0) and its size is (5.0, 5.0)
 
 The third `Rect` initializer, `init(center:size:)`, is slightly more complex. It starts by calculating an appropriate origin point based on a `center` point and a `size` value. It then calls (or *delegates*) to the `init(origin:size:)` initializer, which stores the new origin and size values in the appropriate properties:
 
-
-
-
-
-
-
-1.  `let` `centerRect` = `Rect`(`center`: `Point`(`x`: `4.0`, `y`: `4.0`),
-2.  `    size`: `Size`(`width`: `3.0`, `height`: `3.0`))
-3.  `// centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)`
-
-
-
-
-
-
+    let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+        size: Size(width: 3.0, height: 3.0))
+    // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 
 The `init(center:size:)` initializer could have assigned the new values of `origin` and `size` to the appropriate properties itself. However, it is more convenient (and clearer in intent) for the `init(center:size:)` initializer to take advantage of an existing initializer that already provides exactly that functionality.
-
-
 
 Note
 
 For an alternative way to write this example without defining the `init()` and `init(origin:size:)` initializers yourself, see [Extensions](Extensions.md).
 
-
-
-
-
-
-
-[‌]()
 ### Class Inheritance and Initialization 
 
 All of a class’s stored properties—including any properties the class inherits from its superclass—*must* be assigned an initial value during initialization.
 
 Swift defines two kinds of initializers for class types to help ensure all stored properties receive an initial value. These are known as designated initializers and convenience initializers.
 
-
-
-[‌]()
 ### Designated Initializers and Convenience Initializers 
 
 *Designated initializers* are the primary initializers for a class. A designated initializer fully initializes all properties introduced by that class and calls an appropriate superclass initializer to continue the initialization process up the superclass chain.
@@ -594,16 +295,9 @@ Every class must have at least one designated initializer. In some cases, this r
 
 You do not have to provide convenience initializers if your class does not require them. Create convenience initializers whenever a shortcut to a common initialization pattern will save time or make initialization of the class clearer in intent.
 
-
-
-
-
-[‌]()
 ### Syntax for Designated and Convenience Initializers 
 
 Designated initializers for classes are written in the same way as simple initializers for value types:
-
-
 
 
 -   ``` 
@@ -618,11 +312,7 @@ Designated initializers for classes are written in the same way as simple initia
     }
     ```
 
-
-
 Convenience initializers are written in the same style, but with the `convenience` modifier placed before the `init` keyword, separated by a space:
-
-
 
 
 -   ``` 
@@ -637,13 +327,6 @@ Convenience initializers are written in the same style, but with the `convenienc
     }
     ```
 
-
-
-
-
-
-
-[‌]()
 ### Initializer Delegation for Class Types 
 
 To simplify the relationships between designated and convenience initializers, Swift applies the following three rules for delegation calls between initializers:
@@ -668,52 +351,29 @@ A simple way to remember this is:
 
 These rules are illustrated in the figure below:
 
-
-
-
-![image: ../Art/initializerDelegation01\_2x.png](Art/initializerDelegation01_2x.png){width="448" height="214"}
-
-
+![image: Art/initializerDelegation01\_2x.png](Art/initializerDelegation01_2x.png){width="448" height="214"}
 
 Here, the superclass has a single designated initializer and two convenience initializers. One convenience initializer calls another convenience initializer, which in turn calls the single designated initializer. This satisfies rules 2 and 3 from above. The superclass does not itself have a further superclass, and so rule 1 does not apply.
 
 The subclass in this figure has two designated initializers and one convenience initializer. The convenience initializer must call one of the two designated initializers, because it can only call another initializer from the same class. This satisfies rules 2 and 3 from above. Both designated initializers must call the single designated initializer from the superclass, to satisfy rule 1 from above.
 
-
-
 Note
 
 These rules don’t affect how users of your classes *create* instances of each class. Any initializer in the diagram above can be used to create a fully-initialized instance of the class they belong to. The rules only affect how you write the class’s implementation.
 
-
-
 The figure below shows a more complex class hierarchy for four classes. It illustrates how the designated initializers in this hierarchy act as “funnel” points for class initialization, simplifying the interrelationships among classes in the chain:
 
+![image: Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png){width="448" height="444"}
 
-
-
-![image: ../Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png){width="448" height="444"}
-
-
-
-
-
-
-
-[‌]()
 ### Two-Phase Initialization 
 
 Class initialization in Swift is a two-phase process. In the first phase, each stored property is assigned an initial value by the class that introduced it. Once the initial state for every stored property has been determined, the second phase begins, and each class is given the opportunity to customize its stored properties further before the new instance is considered ready for use.
 
 The use of a two-phase initialization process makes initialization safe, while still giving complete flexibility to each class in a class hierarchy. Two-phase initialization prevents property values from being accessed before they are initialized, and prevents property values from being set to a different value by another initializer unexpectedly.
 
-
-
 Note
 
 Swift’s two-phase initialization process is similar to initialization in Objective-C. The main difference is that during phase 1, Objective-C assigns zero or null values (such as `0` or `nil`) to every property. Swift’s initialization flow is more flexible in that it lets you set custom initial values, and can cope with types for which `0` or `nil` is not a valid default value.
-
-
 
 Swift’s compiler performs four helpful safety-checks to make sure that two-phase initialization is completed without error:
 
@@ -761,12 +421,7 @@ Here’s how two-phase initialization plays out, based on the four safety checks
 
 Here’s how phase 1 looks for an initialization call for a hypothetical subclass and superclass:
 
-
-
-
-![image: ../Art/twoPhaseInitialization01\_2x.png](Art/twoPhaseInitialization01_2x.png){width="448" height="214"}
-
-
+![image: Art/twoPhaseInitialization01\_2x.png](Art/twoPhaseInitialization01_2x.png){width="448" height="214"}
 
 In this example, initialization begins with a call to a convenience initializer on the subclass. This convenience initializer cannot yet modify any properties. It delegates across to a designated initializer from the same class.
 
@@ -778,12 +433,7 @@ As soon as all properties of the superclass have an initial value, its memory is
 
 Here’s how phase 2 looks for the same initialization call:
 
-
-
-
-![image: ../Art/twoPhaseInitialization02\_2x.png](Art/twoPhaseInitialization02_2x.png){width="448" height="214"}
-
-
+![image: Art/twoPhaseInitialization02\_2x.png](Art/twoPhaseInitialization02_2x.png){width="448" height="214"}
 
 The superclass’s designated initializer now has an opportunity to customize the instance further (although it does not have to).
 
@@ -791,22 +441,13 @@ Once the superclass’s designated initializer is finished, the subclass’s des
 
 Finally, once the subclass’s designated initializer is finished, the convenience initializer that was originally called can perform additional customization.
 
-
-
-
-
-[‌]()
 ### Initializer Inheritance and Overriding 
 
 Unlike subclasses in Objective-C, Swift subclasses do not inherit their superclass initializers by default. Swift’s approach prevents a situation in which a simple initializer from a superclass is inherited by a more specialized subclass and is used to create a new instance of the subclass that is not fully or correctly initialized.
 
-
-
 Note
 
 Superclass initializers *are* inherited in certain circumstances, but only when it is safe and appropriate to do so. For more information, see [Automatic Initializer Inheritance](Initialization.md#TP40016643-CH18-ID222) below.
-
-
 
 If you want a custom subclass to present one or more of the same initializers as its superclass, you can provide a custom implementation of those initializers within the subclass.
 
@@ -814,75 +455,35 @@ When you write a subclass initializer that matches a superclass *designated* ini
 
 As with an overridden property, method or subscript, the presence of the `override` modifier prompts Swift to check that the superclass has a matching designated initializer to be overridden, and validates that the parameters for your overriding initializer have been specified as intended.
 
-
-
 Note
 
 You always write the `override` modifier when overriding a superclass designated initializer, even if your subclass’s implementation of the initializer is a convenience initializer.
-
-
 
 Conversely, if you write a subclass initializer that matches a superclass *convenience* initializer, that superclass convenience initializer can never be called directly by your subclass, as per the rules described above in [Initializer Delegation for Class Types](Initialization.md#TP40016643-CH18-ID219). Therefore, your subclass is not (strictly speaking) providing an override of the superclass initializer. As a result, you do not write the `override` modifier when providing a matching implementation of a superclass convenience initializer.
 
 The example below defines a base class called `Vehicle`. This base class declares a stored property called `numberOfWheels`, with a default `Int` value of `0`. The `numberOfWheels` property is used by a computed property called `description` to create a `String` description of the vehicle’s characteristics:
 
-
-
-
-
-
-
-1.  `class` `Vehicle` {
-2.  `    var` `numberOfWheels` = `0`
-3.  `    var` `description`: `String` {
-4.  `        return` `"`\\(`numberOfWheels`)` wheel(s)"`
-5.  `    }`
-6.  `}`
-
-
-
-
-
-
+    class Vehicle {
+        var numberOfWheels = 0
+        var description: String {
+            return "\\(numberOfWheels) wheel(s)"
+        }
+    }
 
 The `Vehicle` class provides a default value for its only stored property, and does not provide any custom initializers itself. As a result, it automatically receives a default initializer, as described in [Default Initializers](Initialization.md#TP40016643-CH18-ID213). The default initializer (when available) is always a designated initializer for a class, and can be used to create a new `Vehicle` instance with a `numberOfWheels` of `0`:
 
-
-
-
-
-
-
-1.  `let` `vehicle` = `Vehicle`()
-2.  `print`(`"Vehicle: `\\(`vehicle`.`description`)`"`)
-3.  `// Vehicle: 0 wheel(s)`
-
-
-
-
-
-
+    let vehicle = Vehicle()
+    print("Vehicle: \\(vehicle.description)")
+    // Vehicle: 0 wheel(s)
 
 The next example defines a subclass of `Vehicle` called `Bicycle`:
 
-
-
-
-
-
-
-1.  `class` `Bicycle`: `Vehicle` {
-2.  `    override` `init`() {
-3.  `        super`.`init`()
-4.  `        numberOfWheels` = `2`
-5.  `    }`
-6.  `}`
-
-
-
-
-
-
+    class Bicycle: Vehicle {
+        override init() {
+            super.init()
+            numberOfWheels = 2
+        }
+    }
 
 The `Bicycle` subclass defines a custom designated initializer, `init()`. This designated initializer matches a designated initializer from the superclass of `Bicycle`, and so the `Bicycle` version of this initializer is marked with the `override` modifier.
 
@@ -890,35 +491,14 @@ The `init()` initializer for `Bicycle` starts by calling `super.init()`, which c
 
 If you create an instance of `Bicycle`, you can call its inherited `description` computed property to see how its `numberOfWheels` property has been updated:
 
-
-
-
-
-
-
-1.  `let` `bicycle` = `Bicycle`()
-2.  `print`(`"Bicycle: `\\(`bicycle`.`description`)`"`)
-3.  `// Bicycle: 2 wheel(s)`
-
-
-
-
-
-
-
-
+    let bicycle = Bicycle()
+    print("Bicycle: \\(bicycle.description)")
+    // Bicycle: 2 wheel(s)
 
 Note
 
 Subclasses can modify inherited variable properties during initialization, but can not modify inherited constant properties.
 
-
-
-
-
-
-
-[‌]()
 ### Automatic Initializer Inheritance 
 
 As mentioned above, subclasses do not inherit their superclass initializers by default. However, superclass initializers *are* automatically inherited if certain conditions are met. In practice, this means that you do not need to write initializer overrides in many common scenarios, and can inherit your superclass initializers with minimal effort whenever it is safe to do so.
@@ -935,125 +515,58 @@ Assuming that you provide default values for any new properties you introduce in
 
 These rules apply even if your subclass adds further convenience initializers.
 
-
-
 Note
 
 A subclass can implement a superclass designated initializer as a subclass convenience initializer as part of satisfying rule 2.
 
-
-
-
-
-
-
-[‌]()
 ### Designated and Convenience Initializers in Action 
 
 The following example shows designated initializers, convenience initializers, and automatic initializer inheritance in action. This example defines a hierarchy of three classes called `Food`, `RecipeIngredient`, and `ShoppingListItem`, and demonstrates how their initializers interact.
 
 The base class in the hierarchy is called `Food`, which is a simple class to encapsulate the name of a foodstuff. The `Food` class introduces a single `String` property called `name` and provides two initializers for creating `Food` instances:
 
-
-
-
-
-
-
-1.  `class` `Food` {
-2.  `    var` `name`: `String`
-3.  `    init`(`name`: `String`) {
-4.  `        self`.`name` = `name`
-5.  `    }`
-6.  `    convenience` `init`() {
-7.  `        self`.`init`(`name`: `"[Unnamed]"`)
-8.  `    }`
-9.  `}`
-
-
-
-
-
-
+    class Food {
+        var name: String
+        init(name: String) {
+            self.name = name
+        }
+        convenience init() {
+            self.init(name: "[Unnamed]")
+        }
+    }
 
 The figure below shows the initializer chain for the `Food` class:
 
-
-
-
-![image: ../Art/initializersExample01\_2x.png](Art/initializersExample01_2x.png){width="482" height="136"}
-
-
+![image: Art/initializersExample01\_2x.png](Art/initializersExample01_2x.png){width="482" height="136"}
 
 Classes do not have a default memberwise initializer, and so the `Food` class provides a designated initializer that takes a single argument called `name`. This initializer can be used to create a new `Food` instance with a specific name:
 
-
-
-
-
-
-
-1.  `let` `namedMeat` = `Food`(`name`: `"Bacon"`)
-2.  `// namedMeat's name is "Bacon"`
-
-
-
-
-
-
+    let namedMeat = Food(name: "Bacon")
+    // namedMeat's name is "Bacon"
 
 The `init(name: String)` initializer from the `Food` class is provided as a *designated* initializer, because it ensures that all stored properties of a new `Food` instance are fully initialized. The `Food` class does not have a superclass, and so the `init(name: String)` initializer does not need to call `super.init()` to complete its initialization.
 
 The `Food` class also provides a *convenience* initializer, `init()`, with no arguments. The `init()` initializer provides a default placeholder name for a new food by delegating across to the `Food` class’s `init(name: String)` with a `name` value of `[Unnamed]`:
 
-
-
-
-
-
-
-1.  `let` `mysteryMeat` = `Food`()
-2.  `// mysteryMeat's name is "[Unnamed]"`
-
-
-
-
-
-
+    let mysteryMeat = Food()
+    // mysteryMeat's name is "[Unnamed]"
 
 The second class in the hierarchy is a subclass of `Food` called `RecipeIngredient`. The `RecipeIngredient` class models an ingredient in a cooking recipe. It introduces an `Int` property called `quantity` (in addition to the `name` property it inherits from `Food`) and defines two initializers for creating `RecipeIngredient` instances:
 
-
-
-
-
-
-
-1.  `class` `RecipeIngredient`: `Food` {
-2.  `    var` `quantity`: `Int`
-3.  `    init`(`name`: `String`, `quantity`: `Int`) {
-4.  `        self`.`quantity` = `quantity`
-5.  `        super`.`init`(`name`: `name`)
-6.  `    }`
-7.  `    override` `convenience` `init`(`name`: `String`) {
-8.  `        self`.`init`(`name`: `name`, `quantity`: `1`)
-9.  `    }`
-10. `}`
-
-
-
-
-
-
+    class RecipeIngredient: Food {
+        var quantity: Int
+        init(name: String, quantity: Int) {
+            self.quantity = quantity
+            super.init(name: name)
+        }
+        override convenience init(name: String) {
+            self.init(name: name, quantity: 1)
+        }
+    }
 
 The figure below shows the initializer chain for the `RecipeIngredient` class:
 
-
-
-
-![image: ../Art/initializersExample02\_2x.png](Art/initializersExample02_2x.png){width="482" height="286"}
-
-
+![image: Art/initializersExample02\_2x.png](Art/initializersExample02_2x.png){width="482" height="286"}
 
 The `RecipeIngredient` class has a single designated initializer, `init(name: String, quantity: Int)`, which can be used to populate all of the properties of a new `RecipeIngredient` instance. This initializer starts by assigning the passed `quantity` argument to the `quantity` property, which is the only new property introduced by `RecipeIngredient`. After doing so, the initializer delegates up to the `init(name: String)` initializer of the `Food` class. This process satisfies safety check 1 from [Two-Phase Initialization](Initialization.md#TP40016643-CH18-ID220) above.
 
@@ -1067,308 +580,159 @@ In this example, the superclass for `RecipeIngredient` is `Food`, which has a si
 
 All three of these initializers can be used to create new `RecipeIngredient` instances:
 
-
-
-
-
-
-
-1.  `let` `oneMysteryItem` = `RecipeIngredient`()
-2.  `let` `oneBacon` = `RecipeIngredient`(`name`: `"Bacon"`)
-3.  `let` `sixEggs` = `RecipeIngredient`(`name`: `"Eggs"`, `quantity`: `6`)
-
-
-
-
-
-
+    let oneMysteryItem = RecipeIngredient()
+    let oneBacon = RecipeIngredient(name: "Bacon")
+    let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
 
 The third and final class in the hierarchy is a subclass of `RecipeIngredient` called `ShoppingListItem`. The `ShoppingListItem` class models a recipe ingredient as it appears in a shopping list.
 
 Every item in the shopping list starts out as “unpurchased”. To represent this fact, `ShoppingListItem` introduces a Boolean property called `purchased`, with a default value of `false`. `ShoppingListItem` also adds a computed `description` property, which provides a textual description of a `ShoppingListItem` instance:
 
-
-
-
-
-
-
-1.  `class` `ShoppingListItem`: `RecipeIngredient` {
-2.  `    var` `purchased` = `false`
-3.  `    var` `description`: `String` {
-4.  `        var` `output` = `"`\\(`quantity`)` x `\\(`name`)`"`
-5.  `        output` += `purchased` ? `" ✔"` : `" ✘"`
-6.  `        return` `output`
-7.  `    }`
-8.  `}`
-
-
-
-
-
-
-
-
+    class ShoppingListItem: RecipeIngredient {
+        var purchased = false
+        var description: String {
+            var output = "\\(quantity) x \\(name)"
+            output += purchased ? " ✔" : " ✘"
+            return output
+        }
+    }
 
 Note
 
 `ShoppingListItem` does not define an initializer to provide an initial value for `purchased`, because items in a shopping list (as modeled here) always start out unpurchased.
 
-
-
 Because it provides a default value for all of the properties it introduces and does not define any initializers itself, `ShoppingListItem` automatically inherits *all* of the designated and convenience initializers from its superclass.
 
 The figure below shows the overall initializer chain for all three classes:
 
-
-
-
-![image: ../Art/initializersExample03\_2x.png](Art/initializersExample03_2x.png){width="482" height="436"}
-
-
+![image: Art/initializersExample03\_2x.png](Art/initializersExample03_2x.png){width="482" height="436"}
 
 You can use all three of the inherited initializers to create a new `ShoppingListItem` instance:
 
-
-
-
-
-
-
-1.  `var` `breakfastList` = \[
-2.  `    ShoppingListItem`(),
-3.  `    ShoppingListItem`(`name`: `"Bacon"`),
-4.  `    ShoppingListItem`(`name`: `"Eggs"`, `quantity`: `6`),
-5.  `]`
-6.  `breakfastList`\[`0`\].`name` = `"Orange juice"`
-7.  `breakfastList`\[`0`\].`purchased` = `true`
-8.  `for` `item` `in` `breakfastList` {
-9.  `    print`(`item`.`description`)
-10. `}`
-11. `// 1 x Orange juice ✔`
-12. `// 1 x Bacon ✘`
-13. `// 6 x Eggs ✘`
-
-
-
-
-
-
+    var breakfastList = \[
+        ShoppingListItem(),
+        ShoppingListItem(name: "Bacon"),
+        ShoppingListItem(name: "Eggs", quantity: 6),
+    ]
+    breakfastList\[0\].name = "Orange juice"
+    breakfastList\[0\].purchased = true
+    for item in breakfastList {
+        print(item.description)
+    }
+    // 1 x Orange juice ✔
+    // 1 x Bacon ✘
+    // 6 x Eggs ✘
 
 Here, a new array called `breakfastList` is created from an array literal containing three new `ShoppingListItem` instances. The type of the array is inferred to be `[ShoppingListItem]`. After the array is created, the name of the `ShoppingListItem` at the start of the array is changed from `"[Unnamed]"` to `"Orange juice"` and it is marked as having been purchased. Printing the description of each item in the array shows that their default states have been set as expected.
 
-
-
-
-
-
-
-[‌]()
 ### Failable Initializers 
 
 It is sometimes useful to define a class, structure, or enumeration for which initialization can fail. This failure might be triggered by invalid initialization parameter values, the absence of a required external resource, or some other condition that prevents initialization from succeeding.
 
 To cope with initialization conditions that can fail, define one or more *failable initializers* as part of a class, structure, or enumeration definition. You write a failable initializer by placing a question mark after the `init` keyword (`init?`).
 
-
-
 Note
 
 You cannot define a failable and a nonfailable initializer with the same parameter types and names.
 
-
-
 A failable initializer creates an *optional* value of the type it initializes. You write `return nil` within a failable initializer to indicate a point at which initialization failure can be triggered.
-
-
 
 Note
 
 Strictly speaking, initializers do not return a value. Rather, their role is to ensure that `self` is fully and correctly initialized by the time that initialization ends. Although you write `return nil` to trigger an initialization failure, you do not use the `return` keyword to indicate initialization success.
 
-
-
 The example below defines a structure called `Animal`, with a constant `String` property called `species`. The `Animal` structure also defines a failable initializer with a single parameter called `species`. This initializer checks if the `species` value passed to the initializer is an empty string. If an empty string is found, an initialization failure is triggered. Otherwise, the `species` property’s value is set, and initialization succeeds:
 
-
-
-
-
-
-
-1.  `struct` `Animal` {
-2.  `    let` `species`: `String`
-3.  `    init`?(`species`: `String`) {
-4.  `        if` `species`.`isEmpty` { `return` `nil` }
-5.  `        self`.`species` = `species`
-6.  `    }`
-7.  `}`
-
-
-
-
-
-
+    struct Animal {
+        let species: String
+        init?(species: String) {
+            if species.isEmpty { return nil }
+            self.species = species
+        }
+    }
 
 You can use this failable initializer to try to initialize a new `Animal` instance and to check if initialization succeeded:
 
-
-
-
-
-
-
-1.  `let` `someCreature` = `Animal`(`species`: `"Giraffe"`)
-2.  `// someCreature is of type Animal?, not Animal`
-3.  ` `
-4.  `if` `let` `giraffe` = `someCreature` {
-5.  `    print`(`"An animal was initialized with a species of `\\(`giraffe`.`species`)`"`)
-6.  `}`
-7.  `// prints "An animal was initialized with a species of Giraffe"`
-
-
-
-
-
-
+    let someCreature = Animal(species: "Giraffe")
+    // someCreature is of type Animal?, not Animal
+     
+    if let giraffe = someCreature {
+        print("An animal was initialized with a species of \\(giraffe.species)")
+    }
+    // prints "An animal was initialized with a species of Giraffe"
 
 If you pass an empty string value to the failable initializer’s `species` parameter, the initializer triggers an initialization failure:
 
-
-
-
-
-
-
-1.  `let` `anonymousCreature` = `Animal`(`species`: `""`)
-2.  `// anonymousCreature is of type Animal?, not Animal`
-3.  ` `
-4.  `if` `anonymousCreature` == `nil` {
-5.  `    print`(`"The anonymous creature could not be initialized"`)
-6.  `}`
-7.  `// prints "The anonymous creature could not be initialized"`
-
-
-
-
-
-
-
-
+    let anonymousCreature = Animal(species: "")
+    // anonymousCreature is of type Animal?, not Animal
+     
+    if anonymousCreature == nil {
+        print("The anonymous creature could not be initialized")
+    }
+    // prints "The anonymous creature could not be initialized"
 
 Note
 
 Checking for an empty string value (such as `""` rather than `"Giraffe"`) is not the same as checking for `nil` to indicate the absence of an *optional* `String` value. In the example above, an empty string (`""`) is a valid, nonoptional `String`. However, it is not appropriate for an animal to have an empty string as the value of its `species` property. To model this restriction, the failable initializer triggers an initialization failure if an empty string is found.
 
-
-
-
-
-[‌]()
 ### Failable Initializers for Enumerations 
 
 You can use a failable initializer to select an appropriate enumeration case based on one or more parameters. The initializer can then fail if the provided parameters do not match an appropriate enumeration case.
 
 The example below defines an enumeration called `TemperatureUnit`, with three possible states (`Kelvin`, `Celsius`, and `Fahrenheit`). A failable initializer is used to find an appropriate enumeration case for a `Character` value representing a temperature symbol:
 
-
-
-
-
-
-
-1.  `enum` `TemperatureUnit` {
-2.  `    case` `Kelvin`, `Celsius`, `Fahrenheit`
-3.  `    init`?(`symbol`: `Character`) {
-4.  `        switch` `symbol` {
-5.  `        case` `"K"`:
-6.  `            self` = .`Kelvin`
-7.  `        case` `"C"`:
-8.  `            self` = .`Celsius`
-9.  `        case` `"F"`:
-10. `            self` = .`Fahrenheit`
-11. `        default`:
-12. `            return` `nil`
-13. `        }`
-14. `    }`
-15. `}`
-
-
-
-
-
-
+    enum TemperatureUnit {
+        case Kelvin, Celsius, Fahrenheit
+        init?(symbol: Character) {
+            switch symbol {
+            case "K":
+                self = .Kelvin
+            case "C":
+                self = .Celsius
+            case "F":
+                self = .Fahrenheit
+            default:
+                return nil
+            }
+        }
+    }
 
 You can use this failable initializer to choose an appropriate enumeration case for the three possible states and to cause initialization to fail if the parameter does not match one of these states:
 
+    let fahrenheitUnit = TemperatureUnit(symbol: "F")
+    if fahrenheitUnit != nil {
+        print("This is a defined temperature unit, so initialization succeeded.")
+    }
+    // prints "This is a defined temperature unit, so initialization succeeded."
+     
+    let unknownUnit = TemperatureUnit(symbol: "X")
+    if unknownUnit == nil {
+        print("This is not a defined temperature unit, so initialization failed.")
+    }
+    // prints "This is not a defined temperature unit, so initialization failed."
 
-
-
-
-
-
-1.  `let` `fahrenheitUnit` = `TemperatureUnit`(`symbol`: `"F"`)
-2.  `if` `fahrenheitUnit` != `nil` {
-3.  `    print`(`"This is a defined temperature unit, so initialization succeeded."`)
-4.  `}`
-5.  `// prints "This is a defined temperature unit, so initialization succeeded."`
-6.  ` `
-7.  `let` `unknownUnit` = `TemperatureUnit`(`symbol`: `"X"`)
-8.  `if` `unknownUnit` == `nil` {
-9.  `    print`(`"This is not a defined temperature unit, so initialization failed."`)
-10. `}`
-11. `// prints "This is not a defined temperature unit, so initialization failed."`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Failable Initializers for Enumerations with Raw Values 
 
 Enumerations with raw values automatically receive a failable initializer, `init?(rawValue:)`, that takes a parameter called `rawValue` of the appropriate raw-value type and selects a matching enumeration case if one is found, or triggers an initialization failure if no matching value exists.
 
 You can rewrite the `TemperatureUnit` example from above to use raw values of type `Character` and to take advantage of the `init?(rawValue:)` initializer:
 
+    enum TemperatureUnit: Character {
+        case Kelvin = "K", Celsius = "C", Fahrenheit = "F"
+    }
+     
+    let fahrenheitUnit = TemperatureUnit(rawValue: "F")
+    if fahrenheitUnit != nil {
+        print("This is a defined temperature unit, so initialization succeeded.")
+    }
+    // prints "This is a defined temperature unit, so initialization succeeded."
+     
+    let unknownUnit = TemperatureUnit(rawValue: "X")
+    if unknownUnit == nil {
+        print("This is not a defined temperature unit, so initialization failed.")
+    }
+    // prints "This is not a defined temperature unit, so initialization failed."
 
-
-
-
-
-
-1.  `enum` `TemperatureUnit`: `Character` {
-2.  `    case` `Kelvin` = `"K"`, `Celsius` = `"C"`, `Fahrenheit` = `"F"`
-3.  `}`
-4.  ` `
-5.  `let` `fahrenheitUnit` = `TemperatureUnit`(`rawValue`: `"F"`)
-6.  `if` `fahrenheitUnit` != `nil` {
-7.  `    print`(`"This is a defined temperature unit, so initialization succeeded."`)
-8.  `}`
-9.  `// prints "This is a defined temperature unit, so initialization succeeded."`
-10. ` `
-11. `let` `unknownUnit` = `TemperatureUnit`(`rawValue`: `"X"`)
-12. `if` `unknownUnit` == `nil` {
-13. `    print`(`"This is not a defined temperature unit, so initialization failed."`)
-14. `}`
-15. `// prints "This is not a defined temperature unit, so initialization failed."`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Failable Initializers for Classes 
 
 A failable initializer for a value type (that is, a structure or enumeration) can trigger an initialization failure at any point within its initializer implementation. In the `Animal` structure example above, the initializer triggers an initialization failure at the very start of its implementation, before the `species` property has been set.
@@ -1377,25 +741,13 @@ For classes, however, a failable initializer can trigger an initialization failu
 
 The example below shows how you can use an implicitly unwrapped optional property to satisfy this requirement within a failable class initializer:
 
-
-
-
-
-
-
-1.  `class` `Product` {
-2.  `    let` `name`: `String`!
-3.  `    init`?(`name`: `String`) {
-4.  `        self`.`name` = `name`
-5.  `        if` `name`.`isEmpty` { `return` `nil` }
-6.  `    }`
-7.  `}`
-
-
-
-
-
-
+    class Product {
+        let name: String!
+        init?(name: String) {
+            self.name = name
+            if name.isEmpty { return nil }
+        }
+    }
 
 The `Product` class defined above is very similar to the `Animal` structure seen earlier. The `Product` class has a constant `name` property that must not be allowed to take an empty string value. To enforce this requirement, the `Product` class uses a failable initializer to ensure that the property’s value is nonempty before allowing initialization to succeed.
 
@@ -1405,65 +757,32 @@ In the example above, the `name` property of the `Product` class is defined as h
 
 Because the `name` property is a constant, you can be confident that it will always contain a non-`nil` value if initialization succeeds. Even though it is defined with an implicitly unwrapped optional type, you can always access its implicitly unwrapped value with confidence, without needing to check for a value of `nil`:
 
+    if let bowTie = Product(name: "bow tie") {
+        // no need to check if bowTie.name == nil
+        print("The product's name is \\(bowTie.name)")
+    }
+    // prints "The product's name is bow tie"
 
-
-
-
-
-
-1.  `if` `let` `bowTie` = `Product`(`name`: `"bow tie"`) {
-2.  `    // no need to check if bowTie.name == nil`
-3.  `    print`(`"The product's name is `\\(`bowTie`.`name`)`"`)
-4.  `}`
-5.  `// prints "The product's name is bow tie"`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Propagation of Initialization Failure 
 
 A failable initializer of a class, structure, or enumeration can delegate across to another failable initializer from the same class, structure, or enumeration. Similarly, a subclass failable initializer can delegate up to a superclass failable initializer.
 
 In either case, if you delegate to another initializer that causes initialization to fail, the entire initialization process fails immediately, and no further initialization code is executed.
 
-
-
 Note
 
 A failable initializer can also delegate to a nonfailable initializer. Use this approach if you need to add a potential failure state to an existing initialization process that does not otherwise fail.
 
-
-
 The example below defines a subclass of `Product` called `CartItem`. The `CartItem` class models an item in an online shopping cart. `CartItem` introduces a stored constant property called `quantity` and ensures that this property always has a value of at least `1`:
 
-
-
-
-
-
-
-1.  `class` `CartItem`: `Product` {
-2.  `    let` `quantity`: `Int`!
-3.  `    init`?(`name`: `String`, `quantity`: `Int`) {
-4.  `        self`.`quantity` = `quantity`
-5.  `        super`.`init`(`name`: `name`)
-6.  `        if` `quantity` &lt; `1` { `return` `nil` }
-7.  `    }`
-8.  `}`
-
-
-
-
-
-
+    class CartItem: Product {
+        let quantity: Int!
+        init?(name: String, quantity: Int) {
+            self.quantity = quantity
+            super.init(name: name)
+            if quantity &lt; 1 { return nil }
+        }
+    }
 
 The `quantity` property has an implicitly unwrapped integer type (`Int!`). As with the `name` property of the `Product` class, this means that the `quantity` property has a default value of `nil` before it is assigned a specific value during initialization.
 
@@ -1473,235 +792,109 @@ If the superclass initialization fails because of an empty `name` value, the ent
 
 If you create a `CartItem` instance with a nonempty name and a quantity of `1` or more, initialization succeeds:
 
-
-
-
-
-
-
-1.  `if` `let` `twoSocks` = `CartItem`(`name`: `"sock"`, `quantity`: `2`) {
-2.  `    print`(`"Item: `\\(`twoSocks`.`name`)`, quantity: `\\(`twoSocks`.`quantity`)`"`)
-3.  `}`
-4.  `// prints "Item: sock, quantity: 2"`
-
-
-
-
-
-
+    if let twoSocks = CartItem(name: "sock", quantity: 2) {
+        print("Item: \\(twoSocks.name), quantity: \\(twoSocks.quantity)")
+    }
+    // prints "Item: sock, quantity: 2"
 
 If you try to create a `CartItem` instance with a `quantity` value of `0`, the `CartItem` initializer causes initialization to fail:
 
-
-
-
-
-
-
-1.  `if` `let` `zeroShirts` = `CartItem`(`name`: `"shirt"`, `quantity`: `0`) {
-2.  `    print`(`"Item: `\\(`zeroShirts`.`name`)`, quantity: `\\(`zeroShirts`.`quantity`)`"`)
-3.  `} else` {
-4.  `    print`(`"Unable to initialize zero shirts"`)
-5.  `}`
-6.  `// prints "Unable to initialize zero shirts"`
-
-
-
-
-
-
+    if let zeroShirts = CartItem(name: "shirt", quantity: 0) {
+        print("Item: \\(zeroShirts.name), quantity: \\(zeroShirts.quantity)")
+    } else {
+        print("Unable to initialize zero shirts")
+    }
+    // prints "Unable to initialize zero shirts"
 
 Similarly, if you try to create a `CartItem` instance with an empty `name` value, the superclass `Product` initializer causes initialization to fail:
 
+    if let oneUnnamed = CartItem(name: "", quantity: 1) {
+        print("Item: \\(oneUnnamed.name), quantity: \\(oneUnnamed.quantity)")
+    } else {
+        print("Unable to initialize one unnamed product")
+    }
+    // prints "Unable to initialize one unnamed product"
 
-
-
-
-
-
-1.  `if` `let` `oneUnnamed` = `CartItem`(`name`: `""`, `quantity`: `1`) {
-2.  `    print`(`"Item: `\\(`oneUnnamed`.`name`)`, quantity: `\\(`oneUnnamed`.`quantity`)`"`)
-3.  `} else` {
-4.  `    print`(`"Unable to initialize one unnamed product"`)
-5.  `}`
-6.  `// prints "Unable to initialize one unnamed product"`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Overriding a Failable Initializer 
 
 You can override a superclass failable initializer in a subclass, just like any other initializer. Alternatively, you can override a superclass failable initializer with a subclass *nonfailable* initializer. This enables you to define a subclass for which initialization cannot fail, even though initialization of the superclass is allowed to fail.
 
 Note that if you override a failable superclass initializer with a nonfailable subclass initializer, the only way to delegate up to the superclass initializer is to force-unwrap the result of the failable superclass initializer.
 
-
-
 Note
 
 You can override a failable initializer with a nonfailable initializer but not the other way around.
 
-
-
 The example below defines a class called `Document`. This class models a document that can be initialized with a `name` property that is either a nonempty string value or `nil`, but cannot be an empty string:
 
-
-
-
-
-
-
-1.  `class` `Document` {
-2.  `    var` `name`: `String`?
-3.  `    // this initializer creates a document with a nil name value`
-4.  `    init`() {}
-5.  `    // this initializer creates a document with a nonempty name value`
-6.  `    init`?(`name`: `String`) {
-7.  `        self`.`name` = `name`
-8.  `        if` `name`.`isEmpty` { `return` `nil` }
-9.  `    }`
-10. `}`
-
-
-
-
-
-
+    class Document {
+        var name: String?
+        // this initializer creates a document with a nil name value
+        init() {}
+        // this initializer creates a document with a nonempty name value
+        init?(name: String) {
+            self.name = name
+            if name.isEmpty { return nil }
+        }
+    }
 
 The next example defines a subclass of `Document` called `AutomaticallyNamedDocument`. The `AutomaticallyNamedDocument` subclass overrides both of the designated initializers introduced by `Document`. These overrides ensure that an `AutomaticallyNamedDocument` instance has an initial `name` value of `"[Untitled]"` if the instance is initialized without a name, or if an empty string is passed to the `init(name:)` initializer:
 
-
-
-
-
-
-
-1.  `class` `AutomaticallyNamedDocument`: `Document` {
-2.  `    override` `init`() {
-3.  `        super`.`init`()
-4.  `        self`.`name` = `"[Untitled]"`
-5.  `    }`
-6.  `    override` `init`(`name`: `String`) {
-7.  `        super`.`init`()
-8.  `        if` `name`.`isEmpty` {
-9.  `            self`.`name` = `"[Untitled]"`
-10. `        } else` {
-11. `            self`.`name` = `name`
-12. `        }`
-13. `    }`
-14. `}`
-
-
-
-
-
-
+    class AutomaticallyNamedDocument: Document {
+        override init() {
+            super.init()
+            self.name = "[Untitled]"
+        }
+        override init(name: String) {
+            super.init()
+            if name.isEmpty {
+                self.name = "[Untitled]"
+            } else {
+                self.name = name
+            }
+        }
+    }
 
 The `AutomaticallyNamedDocument` overrides its superclass’s failable `init?(name:)` initializer with a nonfailable `init(name:)` initializer. Because `AutomaticallyNamedDocument` copes with the empty string case in a different way than its superclass, its initializer does not need to fail, and so it provides a nonfailable version of the initializer instead.
 
 You can use forced unwrapping in an initializer to call a failable initializer from the superclass as part of the implementation of a subclass’s nonfailable initializer. For example, the `UntitledDocument` subclass below is always named `"[Untitled]"`, and it uses the failable `init(name:)` initializer from its superclass during initialization.
 
-
-
-
-
-
-
-1.  `class` `UntitledDocument`: `Document` {
-2.  `    override` `init`() {
-3.  `        super`.`init`(`name`: `"[Untitled]"`)!
-4.  `    }`
-5.  `}`
-
-
-
-
-
-
+    class UntitledDocument: Document {
+        override init() {
+            super.init(name: "[Untitled]")!
+        }
+    }
 
 In this case, if the `init(name:)` initializer of the superclass were ever called with an empty string as the name, the forced unwrapping operation would result in a runtime error. However, because it’s called with a string constant, you can see that the initializer won’t fail, so no runtime error can occur in this case.
 
-
-
-
-
-[‌]()
 ### The init! Failable Initializer 
 
 You typically define a failable initializer that creates an optional instance of the appropriate type by placing a question mark after the `init` keyword (`init?`). Alternatively, you can define a failable initializer that creates an implicitly unwrapped optional instance of the appropriate type. Do this by placing an exclamation mark after the `init` keyword (`init!`) instead of a question mark.
 
 You can delegate from `init?` to `init!` and vice versa, and you can override `init?` with `init!` and vice versa. You can also delegate from `init` to `init!`, although doing so will trigger an assertion if the `init!` initializer causes initialization to fail.
 
-
-
-
-
-
-
-[‌]()
 ### Required Initializers 
 
 Write the `required` modifier before the definition of a class initializer to indicate that every subclass of the class must implement that initializer:
 
-
-
-
-
-
-
-1.  `class` `SomeClass` {
-2.  `    required` `init`() {
-3.  `        // initializer implementation goes here`
-4.  `    }`
-5.  `}`
-
-
-
-
-
-
+    class SomeClass {
+        required init() {
+            // initializer implementation goes here
+        }
+    }
 
 You must also write the `required` modifier before every subclass implementation of a required initializer, to indicate that the initializer requirement applies to further subclasses in the chain. You do not write the `override` modifier when overriding a required designated initializer:
 
-
-
-
-
-
-
-1.  `class` `SomeSubclass`: `SomeClass` {
-2.  `    required` `init`() {
-3.  `        // subclass implementation of the required initializer goes here`
-4.  `    }`
-5.  `}`
-
-
-
-
-
-
-
-
+    class SomeSubclass: SomeClass {
+        required init() {
+            // subclass implementation of the required initializer goes here
+        }
+    }
 
 Note
 
 You do not have to provide an explicit implementation of a required initializer if you can satisfy the requirement with an inherited initializer.
 
-
-
-
-
-
-
-[‌]()
 ### Setting a Default Property Value with a Closure or Function 
 
 If a stored property’s default value requires some customization or setup, you can use a closure or global function to provide a customized default value for that property. Whenever a new instance of the type that the property belongs to is initialized, the closure or function is called, and its return value is assigned as the property’s default value.
@@ -1710,101 +903,51 @@ These kinds of closures or functions typically create a temporary value of the s
 
 Here’s a skeleton outline of how a closure can be used to provide a default property value:
 
-
-
-
-
-
-
-1.  `class` `SomeClass` {
-2.  `    let` `someProperty`: `SomeType` = {
-3.  `        // create a default value for someProperty inside this closure`
-4.  `        // someValue must be of the same type as SomeType`
-5.  `        return` `someValue`
-6.  `    }()`
-7.  `}`
-
-
-
-
-
-
+    class SomeClass {
+        let someProperty: SomeType = {
+            // create a default value for someProperty inside this closure
+            // someValue must be of the same type as SomeType
+            return someValue
+        }()
+    }
 
 Note that the closure’s end curly brace is followed by an empty pair of parentheses. This tells Swift to execute the closure immediately. If you omit these parentheses, you are trying to assign the closure itself to the property, and not the return value of the closure.
-
-
 
 Note
 
 If you use a closure to initialize a property, remember that the rest of the instance has not yet been initialized at the point that the closure is executed. This means that you cannot access any other property values from within your closure, even if those properties have default values. You also cannot use the implicit `self` property, or call any of the instance’s methods.
 
-
-
 The example below defines a structure called `Checkerboard`, which models a board for the game of *Checkers* (also known as *Draughts*):
 
-
-
-
-![image: ../Art/checkersBoard\_2x.png](Art/checkersBoard_2x.png){width="283" height="283"}
-
-
+![image: Art/checkersBoard\_2x.png](Art/checkersBoard_2x.png){width="283" height="283"}
 
 The game of *Checkers* is played on a ten-by-ten board, with alternating black and white squares. To represent this game board, the `Checkerboard` structure has a single property called `boardColors`, which is an array of 100 `Bool` values. A value of `true` in the array represents a black square and a value of `false` represents a white square. The first item in the array represents the top left square on the board and the last item in the array represents the bottom right square on the board.
 
 The `boardColors` array is initialized with a closure to set up its color values:
 
-
-
-
-
-
-
-1.  `struct` `Checkerboard` {
-2.  `    let` `boardColors`: \[`Bool`\] = {
-3.  `        var` `temporaryBoard` = \[`Bool`\]()
-4.  `        var` `isBlack` = `false`
-5.  `        for` `i` `in` `1`...`10` {
-6.  `            for` `j` `in` `1`...`10` {
-7.  `                temporaryBoard`.`append`(`isBlack`)
-8.  `                isBlack` = !`isBlack`
-9.  `            }`
-10. `            isBlack` = !`isBlack`
-11. `        }`
-12. `        return` `temporaryBoard`
-13. `    }()`
-14. `    func` `squareIsBlackAtRow`(`row`: `Int`, `column`: `Int`) -&gt; `Bool` {
-15. `        return` `boardColors`\[(`row` \* `10`) + `column`\]
-16. `    }`
-17. `}`
-
-
-
-
-
-
+    struct Checkerboard {
+        let boardColors: \[Bool\] = {
+            var temporaryBoard = \[Bool\]()
+            var isBlack = false
+            for i in 1...10 {
+                for j in 1...10 {
+                    temporaryBoard.append(isBlack)
+                    isBlack = !isBlack
+                }
+                isBlack = !isBlack
+            }
+            return temporaryBoard
+        }()
+        func squareIsBlackAtRow(row: Int, column: Int) -&gt; Bool {
+            return boardColors\[(row \* 10) + column\]
+        }
+    }
 
 Whenever a new `Checkerboard` instance is created, the closure is executed, and the default value of `boardColors` is calculated and returned. The closure in the example above calculates and sets the appropriate color for each square on the board in a temporary array called `temporaryBoard`, and returns this temporary array as the closure’s return value once its setup is complete. The returned array value is stored in `boardColors` and can be queried with the `squareIsBlackAtRow` utility function:
 
-
-
-
-
-
-
-1.  `let` `board` = `Checkerboard`()
-2.  `print`(`board`.`squareIsBlackAtRow`(`0`, `column`: `1`))
-3.  `// prints "true"`
-4.  `print`(`board`.`squareIsBlackAtRow`(`9`, `column`: `9`))
-5.  `// prints "false"`
-
-
-
-
-
-
-
-
-
-
-
+    let board = Checkerboard()
+    print(board.squareIsBlackAtRow(0, column: 1))
+    // prints "true"
+    print(board.squareIsBlackAtRow(9, column: 9))
+    // prints "false"
 

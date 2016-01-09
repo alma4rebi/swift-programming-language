@@ -1,30 +1,14 @@
-
-
-
-
-[‌]()[‌]()
 Automatic Reference Counting 
 ----------------------------
-
-
 
 Swift uses *Automatic Reference Counting* (ARC) to track and manage your app’s memory usage. In most cases, this means that memory management “just works” in Swift, and you do not need to think about memory management yourself. ARC automatically frees up the memory used by class instances when those instances are no longer needed.
 
 However, in a few cases ARC requires more information about the relationships between parts of your code in order to manage memory for you. This chapter describes those situations and shows how you enable ARC to manage all of your app’s memory.
 
-
-
 Note
 
 Reference counting only applies to instances of classes. Structures and enumerations are value types, not reference types, and are not stored and passed by reference.
 
-
-
-
-
-
-
-[‌]()
 ### How ARC Works 
 
 Every time you create a new instance of a class, ARC allocates a chunk of memory to store information about that instance. This memory holds information about the type of the instance, together with the values of any stored properties associated with that instance.
@@ -37,74 +21,33 @@ To make sure that instances don’t disappear while they are still needed, ARC t
 
 To make this possible, whenever you assign a class instance to a property, constant, or variable, that property, constant, or variable makes a *strong reference* to the instance. The reference is called a “strong“ reference because it keeps a firm hold on that instance, and does not allow it to be deallocated for as long as that strong reference remains.
 
-
-
-
-
-[‌]()
 ### ARC in Action 
 
 Here’s an example of how Automatic Reference Counting works. This example starts with a simple class called `Person`, which defines a stored constant property called `name`:
 
-
-
-
-
-
-
-1.  `class` `Person` {
-2.  `    let` `name`: `String`
-3.  `    init`(`name`: `String`) {
-4.  `        self`.`name` = `name`
-5.  `        print`(`"`\\(`name`)` is being initialized"`)
-6.  `    }`
-7.  `    deinit` {
-8.  `        print`(`"`\\(`name`)` is being deinitialized"`)
-9.  `    }`
-10. `}`
-
-
-
-
-
-
+    class Person {
+        let name: String
+        init(name: String) {
+            self.name = name
+            print("\\(name) is being initialized")
+        }
+        deinit {
+            print("\\(name) is being deinitialized")
+        }
+    }
 
 The `Person` class has an initializer that sets the instance’s `name` property and prints a message to indicate that initialization is underway. The `Person` class also has a deinitializer that prints a message when an instance of the class is deallocated.
 
 The next code snippet defines three variables of type `Person?`, which are used to set up multiple references to a new `Person` instance in subsequent code snippets. Because these variables are of an optional type (`Person?`, not `Person`), they are automatically initialized with a value of `nil`, and do not currently reference a `Person` instance.
 
-
-
-
-
-
-
-1.  `var` `reference1`: `Person`?
-2.  `var` `reference2`: `Person`?
-3.  `var` `reference3`: `Person`?
-
-
-
-
-
-
+    var reference1: Person?
+    var reference2: Person?
+    var reference3: Person?
 
 You can now create a new `Person` instance and assign it to one of these three variables:
 
-
-
-
-
-
-
-1.  `reference1` = `Person`(`name`: `"John Appleseed"`)
-2.  `// prints "John Appleseed is being initialized"`
-
-
-
-
-
-
+    reference1 = Person(name: "John Appleseed")
+    // prints "John Appleseed is being initialized"
 
 Note that the message `"John Appleseed is being initialized"` is printed at the point that you call the `Person` class’s initializer. This confirms that initialization has taken place.
 
@@ -112,62 +55,21 @@ Because the new `Person` instance has been assigned to the `reference1` variable
 
 If you assign the same `Person` instance to two more variables, two more strong references to that instance are established:
 
-
-
-
-
-
-
-1.  `reference2` = `reference1`
-2.  `reference3` = `reference1`
-
-
-
-
-
-
+    reference2 = reference1
+    reference3 = reference1
 
 There are now *three* strong references to this single `Person` instance.
 
 If you break two of these strong references (including the original reference) by assigning `nil` to two of the variables, a single strong reference remains, and the `Person` instance is not deallocated:
 
-
-
-
-
-
-
-1.  `reference1` = `nil`
-2.  `reference2` = `nil`
-
-
-
-
-
-
+    reference1 = nil
+    reference2 = nil
 
 ARC does not deallocate the `Person` instance until the third and final strong reference is broken, at which point it is clear that you are no longer using the `Person` instance:
 
+    reference3 = nil
+    // prints "John Appleseed is being deinitialized"
 
-
-
-
-
-
-1.  `reference3` = `nil`
-2.  `// prints "John Appleseed is being deinitialized"`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Strong Reference Cycles Between Class Instances 
 
 In the examples above, ARC is able to track the number of references to the new `Person` instance you create and to deallocate that `Person` instance when it is no longer needed.
@@ -178,31 +80,19 @@ You resolve strong reference cycles by defining some of the relationships betwee
 
 Here’s an example of how a strong reference cycle can be created by accident. This example defines two classes called `Person` and `Apartment`, which model a block of apartments and its residents:
 
-
-
-
-
-
-
-1.  `class` `Person` {
-2.  `    let` `name`: `String`
-3.  `    init`(`name`: `String`) { `self`.`name` = `name` }
-4.  `    var` `apartment`: `Apartment`?
-5.  `    deinit` { `print`(`"`\\(`name`)` is being deinitialized"`) }
-6.  `}`
-7.  ` `
-8.  `class` `Apartment` {
-9.  `    let` `unit`: `String`
-10. `    init`(`unit`: `String`) { `self`.`unit` = `unit` }
-11. `    var` `tenant`: `Person`?
-12. `    deinit` { `print`(`"Apartment `\\(`unit`)` is being deinitialized"`) }
-13. `}`
-
-
-
-
-
-
+    class Person {
+        let name: String
+        init(name: String) { self.name = name }
+        var apartment: Apartment?
+        deinit { print("\\(name) is being deinitialized") }
+    }
+     
+    class Apartment {
+        let unit: String
+        init(unit: String) { self.unit = unit }
+        var tenant: Person?
+        deinit { print("Apartment \\(unit) is being deinitialized") }
+    }
 
 Every `Person` instance has a `name` property of type `String` and an optional `apartment` property that is initially `nil`. The `apartment` property is optional, because a person may not always have an apartment.
 
@@ -212,108 +102,40 @@ Both of these classes also define a deinitializer, which prints the fact that an
 
 This next code snippet defines two variables of optional type called `john` and `unit4A`, which will be set to a specific `Apartment` and `Person` instance below. Both of these variables have an initial value of `nil`, by virtue of being optional:
 
-
-
-
-
-
-
-1.  `var` `john`: `Person`?
-2.  `var` `unit4A`: `Apartment`?
-
-
-
-
-
-
+    var john: Person?
+    var unit4A: Apartment?
 
 You can now create a specific `Person` instance and `Apartment` instance and assign these new instances to the `john` and `unit4A` variables:
 
-
-
-
-
-
-
-1.  `john` = `Person`(`name`: `"John Appleseed"`)
-2.  `unit4A` = `Apartment`(`unit`: `"4A"`)
-
-
-
-
-
-
+    john = Person(name: "John Appleseed")
+    unit4A = Apartment(unit: "4A")
 
 Here’s how the strong references look after creating and assigning these two instances. The `john` variable now has a strong reference to the new `Person` instance, and the `unit4A` variable has a strong reference to the new `Apartment` instance:
 
-
-
-
-![image: ../Art/referenceCycle01\_2x.png](Art/referenceCycle01_2x.png){width="626" height="188"}
-
-
+![image: Art/referenceCycle01\_2x.png](Art/referenceCycle01_2x.png){width="626" height="188"}
 
 You can now link the two instances together so that the person has an apartment, and the apartment has a tenant. Note that an exclamation mark (`!`) is used to unwrap and access the instances stored inside the `john` and `unit4A` optional variables, so that the properties of those instances can be set:
 
-
-
-
-
-
-
-1.  `john`!.`apartment` = `unit4A`
-2.  `unit4A`!.`tenant` = `john`
-
-
-
-
-
-
+    john!.apartment = unit4A
+    unit4A!.tenant = john
 
 Here’s how the strong references look after you link the two instances together:
 
-
-
-
-![image: ../Art/referenceCycle02\_2x.png](Art/referenceCycle02_2x.png){width="626" height="200"}
-
-
+![image: Art/referenceCycle02\_2x.png](Art/referenceCycle02_2x.png){width="626" height="200"}
 
 Unfortunately, linking these two instances creates a strong reference cycle between them. The `Person` instance now has a strong reference to the `Apartment` instance, and the `Apartment` instance has a strong reference to the `Person` instance. Therefore, when you break the strong references held by the `john` and `unit4A` variables, the reference counts do not drop to zero, and the instances are not deallocated by ARC:
 
-
-
-
-
-
-
-1.  `john` = `nil`
-2.  `unit4A` = `nil`
-
-
-
-
-
-
+    john = nil
+    unit4A = nil
 
 Note that neither deinitializer was called when you set these two variables to `nil`. The strong reference cycle prevents the `Person` and `Apartment` instances from ever being deallocated, causing a memory leak in your app.
 
 Here’s how the strong references look after you set the `john` and `unit4A` variables to `nil`:
 
-
-
-
-![image: ../Art/referenceCycle03\_2x.png](Art/referenceCycle03_2x.png){width="626" height="200"}
-
-
+![image: Art/referenceCycle03\_2x.png](Art/referenceCycle03_2x.png){width="626" height="200"}
 
 The strong references between the `Person` instance and the `Apartment` instance remain and cannot be broken.
 
-
-
-
-
-[‌]()
 ### Resolving Strong Reference Cycles Between Class Instances 
 
 Swift provides two ways to resolve strong reference cycles when you work with properties of class type: weak references and unowned references.
@@ -322,22 +144,15 @@ Weak and unowned references enable one instance in a reference cycle to refer to
 
 Use a weak reference whenever it is valid for that reference to become `nil` at some point during its lifetime. Conversely, use an unowned reference when you know that the reference will never be `nil` once it has been set during initialization.
 
-
-
-[‌]()
 ### Weak References 
 
 A *weak reference* is a reference that does not keep a strong hold on the instance it refers to, and so does not stop ARC from disposing of the referenced instance. This behavior prevents the reference from becoming part of a strong reference cycle. You indicate a weak reference by placing the `weak` keyword before a property or variable declaration.
 
 Use a weak reference to avoid reference cycles whenever it is possible for that reference to have “no value” at some point in its life. If the reference will *always* have a value, use an unowned reference instead, as described in [Unowned References](AutomaticReferenceCounting.md#TP40016643-CH20-ID54). In the `Apartment` example above, it is appropriate for an apartment to be able to have “no tenant” at some point in its lifetime, and so a weak reference is an appropriate way to break the reference cycle in this case.
 
-
-
 Note
 
 Weak references must be declared as variables, to indicate that their value can change at runtime. A weak reference cannot be declared as a constant.
-
-
 
 Because weak references are allowed to have “no value”, you must declare every weak reference as having an optional type. Optional types are the preferred way to represent the possibility for “no value” in Swift.
 
@@ -345,146 +160,70 @@ Because a weak reference does not keep a strong hold on the instance it refers t
 
 The example below is identical to the `Person` and `Apartment` example from above, with one important difference. This time around, the `Apartment` type’s `tenant` property is declared as a weak reference:
 
-
-
-
-
-
-
-1.  `class` `Person` {
-2.  `    let` `name`: `String`
-3.  `    init`(`name`: `String`) { `self`.`name` = `name` }
-4.  `    var` `apartment`: `Apartment`?
-5.  `    deinit` { `print`(`"`\\(`name`)` is being deinitialized"`) }
-6.  `}`
-7.  ` `
-8.  `class` `Apartment` {
-9.  `    let` `unit`: `String`
-10. `    init`(`unit`: `String`) { `self`.`unit` = `unit` }
-11. `    weak` `var` `tenant`: `Person`?
-12. `    deinit` { `print`(`"Apartment `\\(`unit`)` is being deinitialized"`) }
-13. `}`
-
-
-
-
-
-
+    class Person {
+        let name: String
+        init(name: String) { self.name = name }
+        var apartment: Apartment?
+        deinit { print("\\(name) is being deinitialized") }
+    }
+     
+    class Apartment {
+        let unit: String
+        init(unit: String) { self.unit = unit }
+        weak var tenant: Person?
+        deinit { print("Apartment \\(unit) is being deinitialized") }
+    }
 
 The strong references from the two variables (`john` and `unit4A`) and the links between the two instances are created as before:
 
-
-
-
-
-
-
-1.  `var` `john`: `Person`?
-2.  `var` `unit4A`: `Apartment`?
-3.  ` `
-4.  `john` = `Person`(`name`: `"John Appleseed"`)
-5.  `unit4A` = `Apartment`(`unit`: `"4A"`)
-6.  ` `
-7.  `john`!.`apartment` = `unit4A`
-8.  `unit4A`!.`tenant` = `john`
-
-
-
-
-
-
+    var john: Person?
+    var unit4A: Apartment?
+     
+    john = Person(name: "John Appleseed")
+    unit4A = Apartment(unit: "4A")
+     
+    john!.apartment = unit4A
+    unit4A!.tenant = john
 
 Here’s how the references look now that you’ve linked the two instances together:
 
-
-
-
-![image: ../Art/weakReference01\_2x.png](Art/weakReference01_2x.png){width="626" height="197"}
-
-
+![image: Art/weakReference01\_2x.png](Art/weakReference01_2x.png){width="626" height="197"}
 
 The `Person` instance still has a strong reference to the `Apartment` instance, but the `Apartment` instance now has a *weak* reference to the `Person` instance. This means that when you break the strong reference held by the `john` variables, there are no more strong references to the `Person` instance:
 
-
-
-
-![image: ../Art/weakReference02\_2x.png](Art/weakReference02_2x.png){width="626" height="197"}
-
-
+![image: Art/weakReference02\_2x.png](Art/weakReference02_2x.png){width="626" height="197"}
 
 Because there are no more strong references to the `Person` instance, it is deallocated:
 
-
-
-
-
-
-
-1.  `john` = `nil`
-2.  `// prints "John Appleseed is being deinitialized"`
-
-
-
-
-
-
+    john = nil
+    // prints "John Appleseed is being deinitialized"
 
 The only remaining strong reference to the `Apartment` instance is from the `unit4A` variable. If you break *that* strong reference, there are no more strong references to the `Apartment` instance:
 
-
-
-
-![image: ../Art/weakReference03\_2x.png](Art/weakReference03_2x.png){width="626" height="197"}
-
-
+![image: Art/weakReference03\_2x.png](Art/weakReference03_2x.png){width="626" height="197"}
 
 Because there are no more strong references to the `Apartment` instance, it too is deallocated:
 
-
-
-
-
-
-
-1.  `unit4A` = `nil`
-2.  `// prints "Apartment 4A is being deinitialized"`
-
-
-
-
-
-
+    unit4A = nil
+    // prints "Apartment 4A is being deinitialized"
 
 The final two code snippets above show that the deinitializers for the `Person` instance and `Apartment` instance print their “deinitialized” messages after the `john` and `unit4A` variables are set to `nil`. This proves that the reference cycle has been broken.
-
-
 
 Note
 
 In systems that use garbage collection, weak pointers are sometimes used to implement a simple caching mechanism because objects with no strong references are deallocated only when memory pressure triggers garbage collection. However, with ARC, values are deallocated as soon as their last strong reference is removed, making weak references unsuitable for such a purpose.
 
-
-
-
-
-
-
-[‌]()
 ### Unowned References 
 
 Like weak references, an *unowned reference* does not keep a strong hold on the instance it refers to. Unlike a weak reference, however, an unowned reference is assumed to *always* have a value. Because of this, an unowned reference is always defined as a nonoptional type. You indicate an unowned reference by placing the `unowned` keyword before a property or variable declaration.
 
 Because an unowned reference is nonoptional, you don’t need to unwrap the unowned reference each time it is used. An unowned reference can always be accessed directly. However, ARC cannot set the reference to `nil` when the instance it refers to is deallocated, because variables of a nonoptional type cannot be set to `nil`.
 
-
-
 Note
 
 If you try to access an unowned reference after the instance that it references is deallocated, you will trigger a runtime error. Use unowned references only when you are sure that the reference will *always* refer to an instance.
 
 Note also that Swift guarantees your app will crash if you try to access an unowned reference after the instance it references is deallocated. You will never encounter unexpected behavior in this situation. Your app will always crash reliably, although you should, of course, prevent it from doing so.
-
-
 
 The following example defines two classes, `Customer` and `CreditCard`, which model a bank customer and a possible credit card for that customer. These two classes each store an instance of the other class as a property. This relationship has the potential to create a strong reference cycle.
 
@@ -494,123 +233,56 @@ Furthermore, a new `CreditCard` instance can *only* be created by passing a `num
 
 Because a credit card will always have a customer, you define its `customer` property as an unowned reference, to avoid a strong reference cycle:
 
-
-
-
-
-
-
-1.  `class` `Customer` {
-2.  `    let` `name`: `String`
-3.  `    var` `card`: `CreditCard`?
-4.  `    init`(`name`: `String`) {
-5.  `        self`.`name` = `name`
-6.  `    }`
-7.  `    deinit` { `print`(`"`\\(`name`)` is being deinitialized"`) }
-8.  `}`
-9.  ` `
-10. `class` `CreditCard` {
-11. `    let` `number`: `UInt64`
-12. `    unowned` `let` `customer`: `Customer`
-13. `    init`(`number`: `UInt64`, `customer`: `Customer`) {
-14. `        self`.`number` = `number`
-15. `        self`.`customer` = `customer`
-16. `    }`
-17. `    deinit` { `print`(`"Card #`\\(`number`)` is being deinitialized"`) }
-18. `}`
-
-
-
-
-
-
-
-
+    class Customer {
+        let name: String
+        var card: CreditCard?
+        init(name: String) {
+            self.name = name
+        }
+        deinit { print("\\(name) is being deinitialized") }
+    }
+     
+    class CreditCard {
+        let number: UInt64
+        unowned let customer: Customer
+        init(number: UInt64, customer: Customer) {
+            self.number = number
+            self.customer = customer
+        }
+        deinit { print("Card #\\(number) is being deinitialized") }
+    }
 
 Note
 
 The `number` property of the `CreditCard` class is defined with a type of `UInt64` rather than `Int`, to ensure that the `number` property’s capacity is large enough to store a 16-digit card number on both 32-bit and 64-bit systems.
 
-
-
 This next code snippet defines an optional `Customer` variable called `john`, which will be used to store a reference to a specific customer. This variable has an initial value of nil, by virtue of being optional:
 
-
-
-
-
-
-
-1.  `var` `john`: `Customer`?
-
-
-
-
-
-
+    var john: Customer?
 
 You can now create a `Customer` instance, and use it to initialize and assign a new `CreditCard` instance as that customer’s `card` property:
 
-
-
-
-
-
-
-1.  `john` = `Customer`(`name`: `"John Appleseed"`)
-2.  `john`!.`card` = `CreditCard`(`number`: `1234_5678_9012_3456`, `customer`: `john`!)
-
-
-
-
-
-
+    john = Customer(name: "John Appleseed")
+    john!.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
 
 Here’s how the references look, now that you’ve linked the two instances:
 
-
-
-
-![image: ../Art/unownedReference01\_2x.png](Art/unownedReference01_2x.png){width="626" height="197"}
-
-
+![image: Art/unownedReference01\_2x.png](Art/unownedReference01_2x.png){width="626" height="197"}
 
 The `Customer` instance now has a strong reference to the `CreditCard` instance, and the `CreditCard` instance has an unowned reference to the `Customer` instance.
 
 Because of the unowned `customer` reference, when you break the strong reference held by the `john` variable, there are no more strong references to the `Customer` instance:
 
-
-
-
-![image: ../Art/unownedReference02\_2x.png](Art/unownedReference02_2x.png){width="626" height="197"}
-
-
+![image: Art/unownedReference02\_2x.png](Art/unownedReference02_2x.png){width="626" height="197"}
 
 Because there are no more strong references to the `Customer` instance, it is deallocated. After this happens, there are no more strong references to the `CreditCard` instance, and it too is deallocated:
 
-
-
-
-
-
-
-1.  `john` = `nil`
-2.  `// prints "John Appleseed is being deinitialized"`
-3.  `// prints "Card #1234567890123456 is being deinitialized"`
-
-
-
-
-
-
+    john = nil
+    // prints "John Appleseed is being deinitialized"
+    // prints "Card #1234567890123456 is being deinitialized"
 
 The final code snippet above shows that the deinitializers for the `Customer` instance and `CreditCard` instance both print their “deinitialized” messages after the `john` variable is set to `nil`.
 
-
-
-
-
-[‌]()
 ### Unowned References and Implicitly Unwrapped Optional Properties 
 
 The examples for weak and unowned references above cover two of the more common scenarios in which it is necessary to break a strong reference cycle.
@@ -625,35 +297,23 @@ This enables both properties to be accessed directly (without optional unwrappin
 
 The example below defines two classes, `Country` and `City`, each of which stores an instance of the other class as a property. In this data model, every country must always have a capital city, and every city must always belong to a country. To represent this, the `Country` class has a `capitalCity` property, and the `City` class has a `country` property:
 
-
-
-
-
-
-
-1.  `class` `Country` {
-2.  `    let` `name`: `String`
-3.  `    var` `capitalCity`: `City`!
-4.  `    init`(`name`: `String`, `capitalName`: `String`) {
-5.  `        self`.`name` = `name`
-6.  `        self`.`capitalCity` = `City`(`name`: `capitalName`, `country`: `self`)
-7.  `    }`
-8.  `}`
-9.  ` `
-10. `class` `City` {
-11. `    let` `name`: `String`
-12. `    unowned` `let` `country`: `Country`
-13. `    init`(`name`: `String`, `country`: `Country`) {
-14. `        self`.`name` = `name`
-15. `        self`.`country` = `country`
-16. `    }`
-17. `}`
-
-
-
-
-
-
+    class Country {
+        let name: String
+        var capitalCity: City!
+        init(name: String, capitalName: String) {
+            self.name = name
+            self.capitalCity = City(name: capitalName, country: self)
+        }
+    }
+     
+    class City {
+        let name: String
+        unowned let country: Country
+        init(name: String, country: Country) {
+            self.name = name
+            self.country = country
+        }
+    }
 
 To set up the interdependency between the two classes, the initializer for `City` takes a `Country` instance, and stores this instance in its `country` property.
 
@@ -665,31 +325,12 @@ Because `capitalCity` has a default `nil` value, a new `Country` instance is con
 
 All of this means that you can create the `Country` and `City` instances in a single statement, without creating a strong reference cycle, and the `capitalCity` property can be accessed directly, without needing to use an exclamation mark to unwrap its optional value:
 
-
-
-
-
-
-
-1.  `var` `country` = `Country`(`name`: `"Canada"`, `capitalName`: `"Ottawa"`)
-2.  `print`(`"`\\(`country`.`name`)`'s capital city is called `\\(`country`.`capitalCity`.`name`)`"`)
-3.  `// prints "Canada's capital city is called Ottawa"`
-
-
-
-
-
-
+    var country = Country(name: "Canada", capitalName: "Ottawa")
+    print("\\(country.name)'s capital city is called \\(country.capitalCity.name)")
+    // prints "Canada's capital city is called Ottawa"
 
 In the example above, the use of an implicitly unwrapped optional means that all of the two-phase class initializer requirements are satisfied. The `capitalCity` property can be used and accessed like a nonoptional value once initialization is complete, while still avoiding a strong reference cycle.
 
-
-
-
-
-
-
-[‌]()
 ### Strong Reference Cycles for Closures 
 
 You saw above how a strong reference cycle can be created when two class instance properties hold a strong reference to each other. You also saw how to use weak and unowned references to break these strong reference cycles.
@@ -702,317 +343,159 @@ Swift provides an elegant solution to this problem, known as a *closure capture 
 
 The example below shows how you can create a strong reference cycle when using a closure that references `self`. This example defines a class called `HTMLElement`, which provides a simple model for an individual element within an HTML document:
 
-
-
-
-
-
-
-1.  `class` `HTMLElement` {
-2.  `    `
-3.  `    let` `name`: `String`
-4.  `    let` `text`: `String`?
-5.  `    `
-6.  `    lazy` `var` `asHTML`: `Void` -&gt; `String` = {
-7.  `        if` `let` `text` = `self`.`text` {
-8.  `            return` `"`\\(`text`)`"`
-9.  `        } else` {
-10. `            return` `""`
-11. `        }`
-12. `    }`
-13. `    `
-14. `    init`(`name`: `String`, `text`: `String`? = `nil`) {
-15. `        self`.`name` = `name`
-16. `        self`.`text` = `text`
-17. `    }`
-18. `    `
-19. `    deinit` {
-20. `        print`(`"`\\(`name`)` is being deinitialized"`)
-21. `    }`
-22. `    `
-23. `}`
-
-
-
-
-
-
+    class HTMLElement {
+        
+        let name: String
+        let text: String?
+        
+        lazy var asHTML: Void -&gt; String = {
+            if let text = self.text {
+                return "<\\(self.name)>\\(text)</\\(self.name)>"
+            } else {
+                return "<\\(self.name) />"
+            }
+        }
+        
+        init(name: String, text: String? = nil) {
+            self.name = name
+            self.text = text
+        }
+        
+        deinit {
+            print("\\(name) is being deinitialized")
+        }
+        
+    }
 
 The `HTMLElement` class defines a `name` property, which indicates the name of the element, such as `"h1"` for a heading element, `"p"` for a paragraph element, or `"br"` for a line break element. `HTMLElement` also defines an optional `text` property, which you can set to a string that represents the text to be rendered within that HTML element.
 
 In addition to these two simple properties, the `HTMLElement` class defines a lazy property called `asHTML`. This property references a closure that combines `name` and `text` into an HTML string fragment. The `asHTML` property is of type `() -> String`, or “a function that takes no parameters, and returns a `String` value”.
 
-By default, the `asHTML` property is assigned a closure that returns a string representation of an HTML tag. This tag contains the optional `text` value if it exists, or no text content if `text` does not exist. For a paragraph element, the closure would return `"some text"` or `""`, depending on whether the `text` property equals `"some text"` or `nil`.
+By default, the `asHTML` property is assigned a closure that returns a string representation of an HTML tag. This tag contains the optional `text` value if it exists, or no text content if `text` does not exist. For a paragraph element, the closure would return `"<p>some text</p>"` or `"<p />"`, depending on whether the `text` property equals `"some text"` or `nil`.
 
 The `asHTML` property is named and used somewhat like an instance method. However, because `asHTML` is a closure property rather than an instance method, you can replace the default value of the `asHTML` property with a custom closure, if you want to change the HTML rendering for a particular HTML element.
 
 For example, the `asHTML` property could be set to a closure that defaults to some text if the `text` property is `nil`, in order to prevent the representation from returning an empty HTML tag:
 
-
-
-
-
-
-
-1.  `let` `heading` = `HTMLElement`(`name`: `"h1"`)
-2.  `let` `defaultText` = `"some default text"`
-3.  `heading`.`asHTML` = {
-4.  `    return` `"`\\(`heading`.`text` ?? `defaultText`)`"`
-5.  `}`
-6.  `print`(`heading`.`asHTML`())
-7.  `// prints "some default text"`
-
-
-
-
-
-
-
-
+    let heading = HTMLElement(name: "h1")
+    let defaultText = "some default text"
+    heading.asHTML = {
+        return "<\\(heading.name)>\\(heading.text ?? defaultText)</\\(heading.name)>"
+    }
+    print(heading.asHTML())
+    // prints "<h1>some default text</h1>"
 
 Note
 
 The `asHTML` property is declared as a lazy property, because it is only needed if and when the element actually needs to be rendered as a string value for some HTML output target. The fact that `asHTML` is a lazy property means that you can refer to `self` within the default closure, because the lazy property will not be accessed until after initialization has been completed and `self` is known to exist.
 
-
-
 The `HTMLElement` class provides a single initializer, which takes a `name` argument and (if desired) a `text` argument to initialize a new element. The class also defines a deinitializer, which prints a message to show when an `HTMLElement` instance is deallocated.
 
 Here’s how you use the `HTMLElement` class to create and print a new instance:
 
-
-
-
-
-
-
-1.  `var` `paragraph`: `HTMLElement`? = `HTMLElement`(`name`: `"p"`, `text`: `"hello, world"`)
-2.  `print`(`paragraph`!.`asHTML`())
-3.  `// prints "hello, world"`
-
-
-
-
-
-
-
-
+    var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
+    print(paragraph!.asHTML())
+    // prints "<p>hello, world</p>"
 
 Note
 
 The `paragraph` variable above is defined as an *optional* `HTMLElement`, so that it can be set to `nil` below to demonstrate the presence of a strong reference cycle.
 
-
-
 Unfortunately, the `HTMLElement` class, as written above, creates a strong reference cycle between an `HTMLElement` instance and the closure used for its default `asHTML` value. Here’s how the cycle looks:
 
-
-
-
-![image: ../Art/closureReferenceCycle01\_2x.png](Art/closureReferenceCycle01_2x.png){width="626" height="218"}
-
-
+![image: Art/closureReferenceCycle01\_2x.png](Art/closureReferenceCycle01_2x.png){width="626" height="218"}
 
 The instance’s `asHTML` property holds a strong reference to its closure. However, because the closure refers to `self` within its body (as a way to reference `self.name` and `self.text`), the closure *captures* self, which means that it holds a strong reference back to the `HTMLElement` instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see [Capturing Values](Closures.md#TP40016643-CH11-ID103).)
-
-
 
 Note
 
 Even though the closure refers to `self` multiple times, it only captures one strong reference to the `HTMLElement` instance.
 
-
-
 If you set the `paragraph` variable to `nil` and break its strong reference to the `HTMLElement` instance, neither the `HTMLElement` instance nor its closure are deallocated, because of the strong reference cycle:
 
-
-
-
-
-
-
-1.  `paragraph` = `nil`
-
-
-
-
-
-
+    paragraph = nil
 
 Note that the message in the `HTMLElement` deinitializer is not printed, which shows that the `HTMLElement` instance is not deallocated.
 
-
-
-
-
-[‌]()
 ### Resolving Strong Reference Cycles for Closures 
 
 You resolve a strong reference cycle between a closure and a class instance by defining a *capture list* as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.
-
-
 
 Note
 
 Swift requires you to write `self.someProperty` or `self.someMethod()` (rather than just `someProperty` or `someMethod()`) whenever you refer to a member of `self` within a closure. This helps you remember that it’s possible to capture `self` by accident.
 
-
-
-
-
-[‌]()
 ### Defining a Capture List 
 
 Each item in a capture list is a pairing of the `weak` or `unowned` keyword with a reference to a class instance (such as `self`) or a variable initialized with some value (such as `delegate = self.delegate!`). These pairings are written within a pair of square braces, separated by commas.
 
 Place the capture list before a closure’s parameter list and return type if they are provided:
 
-
-
-
-
-
-
-1.  `lazy` `var` `someClosure`: (`Int`, `String`) -&gt; `String` = {
-2.  `    [unowned` `self`, `weak` `delegate` = `self`.`delegate`!\] (`index`: `Int`, `stringToProcess`: `String`) -&gt; `String` `in`
-3.  `    // closure body goes here`
-4.  `}`
-
-
-
-
-
-
+    lazy var someClosure: (Int, String) -&gt; String = {
+        [unowned self, weak delegate = self.delegate!\] (index: Int, stringToProcess: String) -&gt; String in
+        // closure body goes here
+    }
 
 If a closure does not specify a parameter list or return type because they can be inferred from context, place the capture list at the very start of the closure, followed by the `in` keyword:
 
+    lazy var someClosure: Void -&gt; String = {
+        [unowned self, weak delegate = self.delegate!\] in
+        // closure body goes here
+    }
 
-
-
-
-
-
-1.  `lazy` `var` `someClosure`: `Void` -&gt; `String` = {
-2.  `    [unowned` `self`, `weak` `delegate` = `self`.`delegate`!\] `in`
-3.  `    // closure body goes here`
-4.  `}`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Weak and Unowned References 
 
 Define a capture in a closure as an unowned reference when the closure and the instance it captures will always refer to each other, and will always be deallocated at the same time.
 
 Conversely, define a capture as a weak reference when the captured reference may become `nil` at some point in the future. Weak references are always of an optional type, and automatically become `nil` when the instance they reference is deallocated. This enables you to check for their existence within the closure’s body.
 
-
-
 Note
 
 If the captured reference will never become `nil`, it should always be captured as an unowned reference, rather than a weak reference.
 
-
-
 An unowned reference is the appropriate capture method to use to resolve the strong reference cycle in the `HTMLElement` example from earlier. Here’s how you write the `HTMLElement` class to avoid the cycle:
 
-
-
-
-
-
-
-1.  `class` `HTMLElement` {
-2.  `    `
-3.  `    let` `name`: `String`
-4.  `    let` `text`: `String`?
-5.  `    `
-6.  `    lazy` `var` `asHTML`: `Void` -&gt; `String` = {
-7.  `        [unowned` `self`\] `in`
-8.  `        if` `let` `text` = `self`.`text` {
-9.  `            return` `"`\\(`text`)`"`
-10. `        } else` {
-11. `            return` `""`
-12. `        }`
-13. `    }`
-14. `    `
-15. `    init`(`name`: `String`, `text`: `String`? = `nil`) {
-16. `        self`.`name` = `name`
-17. `        self`.`text` = `text`
-18. `    }`
-19. `    `
-20. `    deinit` {
-21. `        print`(`"`\\(`name`)` is being deinitialized"`)
-22. `    }`
-23. `    `
-24. `}`
-
-
-
-
-
-
+    class HTMLElement {
+        
+        let name: String
+        let text: String?
+        
+        lazy var asHTML: Void -&gt; String = {
+            [unowned self\] in
+            if let text = self.text {
+                return "<\\(self.name)>\\(text)</\\(self.name)>"
+            } else {
+                return "<\\(self.name) />"
+            }
+        }
+        
+        init(name: String, text: String? = nil) {
+            self.name = name
+            self.text = text
+        }
+        
+        deinit {
+            print("\\(name) is being deinitialized")
+        }
+        
+    }
 
 This implementation of `HTMLElement` is identical to the previous implementation, apart from the addition of a capture list within the `asHTML` closure. In this case, the capture list is `[unowned self]`, which means “capture self as an unowned reference rather than a strong reference”.
 
 You can create and print an `HTMLElement` instance as before:
 
-
-
-
-
-
-
-1.  `var` `paragraph`: `HTMLElement`? = `HTMLElement`(`name`: `"p"`, `text`: `"hello, world"`)
-2.  `print`(`paragraph`!.`asHTML`())
-3.  `// prints "hello, world"`
-
-
-
-
-
-
+    var paragraph: HTMLElement? = HTMLElement(name: "p", text: "hello, world")
+    print(paragraph!.asHTML())
+    // prints "<p>hello, world</p>"
 
 Here’s how the references look with the capture list in place:
 
-
-
-
-![image: ../Art/closureReferenceCycle02\_2x.png](Art/closureReferenceCycle02_2x.png){width="626" height="218"}
-
-
+![image: Art/closureReferenceCycle02\_2x.png](Art/closureReferenceCycle02_2x.png){width="626" height="218"}
 
 This time, the capture of `self` by the closure is an unowned reference, and does not keep a strong hold on the `HTMLElement` instance it has captured. If you set the strong reference from the `paragraph` variable to `nil`, the `HTMLElement` instance is deallocated, as can be seen from the printing of its deinitializer message in the example below:
 
-
-
-
-
-
-
-1.  `paragraph` = `nil`
-2.  `// prints "p is being deinitialized"`
-
-
-
-
-
-
+    paragraph = nil
+    // prints "p is being deinitialized"
 
 For more information about capture lists, see [Capture Lists](Expressions.md#TP40016643-CH32-ID544).
-
-
-
-
-
-
-
 

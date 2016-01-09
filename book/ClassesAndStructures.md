@@ -1,30 +1,14 @@
-
-
-
-
-[‌]()[‌]()
 Classes and Structures 
 ----------------------
-
-
 
 *Classes* and *structures* are general-purpose, flexible constructs that become the building blocks of your program’s code. You define properties and methods to add functionality to your classes and structures by using exactly the same syntax as for constants, variables, and functions.
 
 Unlike other programming languages, Swift does not require you to create separate interface and implementation files for custom classes and structures. In Swift, you define a class or a structure in a single file, and the external interface to that class or structure is automatically made available for other code to use.
 
-
-
 Note
 
 An instance of a *class* is traditionally known as an *object*. However, Swift classes and structures are much closer in functionality than in other languages, and much of this chapter describes functionality that can apply to instances of *either* a class or a structure type. Because of this, the more general term *instance* is used.
 
-
-
-
-
-
-
-[‌]()
 ### Comparing Classes and Structures 
 
 Classes and structures in Swift have many things in common. Both can:
@@ -55,206 +39,85 @@ Classes have additional capabilities that structures do not:
 
 For more information, see [Inheritance](Inheritance.md), [Type Casting](TypeCasting.md), [Deinitialization](Deinitialization.md), and [Automatic Reference Counting](AutomaticReferenceCounting.md).
 
-
-
 Note
 
 Structures are always copied when they are passed around in your code, and do not use reference counting.
 
-
-
-
-
-[‌]()
 ### Definition Syntax 
 
 Classes and structures have a similar definition syntax. You introduce classes with the `class` keyword and structures with the `struct` keyword. Both place their entire definition within a pair of braces:
 
-
-
-
-
-
-
-1.  `class` `SomeClass` {
-2.  `    // class definition goes here`
-3.  `}`
-4.  `struct` `SomeStructure` {
-5.  `    // structure definition goes here`
-6.  `}`
-
-
-
-
-
-
-
-
+    class SomeClass {
+        // class definition goes here
+    }
+    struct SomeStructure {
+        // structure definition goes here
+    }
 
 Note
 
 Whenever you define a new class or structure, you effectively define a brand new Swift type. Give types `UpperCamelCase` names (such as `SomeClass` and `SomeStructure` here) to match the capitalization of standard Swift types (such as `String`, `Int`, and `Bool`). Conversely, always give properties and methods `lowerCamelCase` names (such as `frameRate` and `incrementCount`) to differentiate them from type names.
 
-
-
 Here’s an example of a structure definition and a class definition:
 
-
-
-
-
-
-
-1.  `struct` `Resolution` {
-2.  `    var` `width` = `0`
-3.  `    var` `height` = `0`
-4.  `}`
-5.  `class` `VideoMode` {
-6.  `    var` `resolution` = `Resolution`()
-7.  `    var` `interlaced` = `false`
-8.  `    var` `frameRate` = `0.0`
-9.  `    var` `name`: `String`?
-10. `}`
-
-
-
-
-
-
+    struct Resolution {
+        var width = 0
+        var height = 0
+    }
+    class VideoMode {
+        var resolution = Resolution()
+        var interlaced = false
+        var frameRate = 0.0
+        var name: String?
+    }
 
 The example above defines a new structure called `Resolution`, to describe a pixel-based display resolution. This structure has two stored properties called `width` and `height`. Stored properties are constants or variables that are bundled up and stored as part of the class or structure. These two properties are inferred to be of type `Int` by setting them to an initial integer value of `0`.
 
 The example above also defines a new class called `VideoMode`, to describe a specific video mode for video display. This class has four variable stored properties. The first, `resolution`, is initialized with a new `Resolution` structure instance, which infers a property type of `Resolution`. For the other three properties, new `VideoMode` instances will be initialized with an `interlaced` setting of `false` (meaning “noninterlaced video”), a playback frame rate of `0.0`, and an optional `String` value called `name`. The `name` property is automatically given a default value of `nil`, or “no `name` value”, because it is of an optional type.
 
-
-
-
-
-[‌]()
 ### Class and Structure Instances 
 
 The `Resolution` structure definition and the `VideoMode` class definition only describe what a `Resolution` or `VideoMode` will look like. They themselves do not describe a specific resolution or video mode. To do that, you need to create an instance of the structure or class.
 
 The syntax for creating instances is very similar for both structures and classes:
 
-
-
-
-
-
-
-1.  `let` `someResolution` = `Resolution`()
-2.  `let` `someVideoMode` = `VideoMode`()
-
-
-
-
-
-
+    let someResolution = Resolution()
+    let someVideoMode = VideoMode()
 
 Structures and classes both use initializer syntax for new instances. The simplest form of initializer syntax uses the type name of the class or structure followed by empty parentheses, such as `Resolution()` or `VideoMode()`. This creates a new instance of the class or structure, with any properties initialized to their default values. Class and structure initialization is described in more detail in [Initialization](Initialization.md).
 
-
-
-
-
-[‌]()
 ### Accessing Properties 
 
 You can access the properties of an instance using *dot syntax*. In dot syntax, you write the property name immediately after the instance name, separated by a period (`.`), without any spaces:
 
-
-
-
-
-
-
-1.  `print`(`"The width of someResolution is `\\(`someResolution`.`width`)`"`)
-2.  `// prints "The width of someResolution is 0"`
-
-
-
-
-
-
+    print("The width of someResolution is \\(someResolution.width)")
+    // prints "The width of someResolution is 0"
 
 In this example, `someResolution.width` refers to the `width` property of `someResolution`, and returns its default initial value of `0`.
 
 You can drill down into sub-properties, such as the `width` property in the `resolution` property of a `VideoMode`:
 
-
-
-
-
-
-
-1.  `print`(`"The width of someVideoMode is `\\(`someVideoMode`.`resolution`.`width`)`"`)
-2.  `// prints "The width of someVideoMode is 0"`
-
-
-
-
-
-
+    print("The width of someVideoMode is \\(someVideoMode.resolution.width)")
+    // prints "The width of someVideoMode is 0"
 
 You can also use dot syntax to assign a new value to a variable property:
 
-
-
-
-
-
-
-1.  `someVideoMode`.`resolution`.`width` = `1280`
-2.  `print`(`"The width of someVideoMode is now `\\(`someVideoMode`.`resolution`.`width`)`"`)
-3.  `// prints "The width of someVideoMode is now 1280"`
-
-
-
-
-
-
-
-
+    someVideoMode.resolution.width = 1280
+    print("The width of someVideoMode is now \\(someVideoMode.resolution.width)")
+    // prints "The width of someVideoMode is now 1280"
 
 Note
 
 Unlike Objective-C, Swift enables you to set sub-properties of a structure property directly. In the last example above, the `width` property of the `resolution` property of `someVideoMode` is set directly, without your needing to set the entire `resolution` property to a new value.
 
-
-
-
-
-
-
-[‌]()
 ### Memberwise Initializers for Structure Types 
 
 All structures have an automatically-generated *memberwise initializer*, which you can use to initialize the member properties of new structure instances. Initial values for the properties of the new instance can be passed to the memberwise initializer by name:
 
-
-
-
-
-
-
-1.  `let` `vga` = `Resolution`(`width`: `640`, `height`: `480`)
-
-
-
-
-
-
+    let vga = Resolution(width: 640, height: 480)
 
 Unlike structures, class instances do not receive a default memberwise initializer. Initializers are described in more detail in [Initialization](Initialization.md).
 
-
-
-
-
-
-
-[‌]()
 ### Structures and Enumerations Are Value Types 
 
 A *value type* is a type whose value is *copied* when it is assigned to a variable or constant, or when it is passed to a function.
@@ -265,20 +128,8 @@ All structures and enumerations are value types in Swift. This means that any st
 
 Consider this example, which uses the `Resolution` structure from the previous example:
 
-
-
-
-
-
-
-1.  `let` `hd` = `Resolution`(`width`: `1920`, `height`: `1080`)
-2.  `var` `cinema` = `hd`
-
-
-
-
-
-
+    let hd = Resolution(width: 1920, height: 1080)
+    var cinema = hd
 
 This example declares a constant called `hd` and sets it to a `Resolution` instance initialized with the width and height of full HD video (`1920` pixels wide by `1080` pixels high).
 
@@ -286,155 +137,63 @@ It then declares a variable called `cinema` and sets it to the current value of 
 
 Next, the `width` property of `cinema` is amended to be the width of the slightly-wider 2K standard used for digital cinema projection (`2048` pixels wide and `1080` pixels high):
 
-
-
-
-
-
-
-1.  `cinema`.`width` = `2048`
-
-
-
-
-
-
+    cinema.width = 2048
 
 Checking the `width` property of `cinema` shows that it has indeed changed to be `2048`:
 
-
-
-
-
-
-
-1.  `print`(`"cinema is now `\\(`cinema`.`width`)` pixels wide"`)
-2.  `// prints "cinema is now 2048 pixels wide"`
-
-
-
-
-
-
+    print("cinema is now \\(cinema.width) pixels wide")
+    // prints "cinema is now 2048 pixels wide"
 
 However, the `width` property of the original `hd` instance still has the old value of `1920`:
 
-
-
-
-
-
-
-1.  `print`(`"hd is still `\\(`hd`.`width`)` pixels wide"`)
-2.  `// prints "hd is still 1920 pixels wide"`
-
-
-
-
-
-
+    print("hd is still \\(hd.width) pixels wide")
+    // prints "hd is still 1920 pixels wide"
 
 When `cinema` was given the current value of `hd`, the *values* stored in `hd` were copied into the new `cinema` instance. The end result is two completely separate instances, which just happened to contain the same numeric values. Because they are separate instances, setting the width of `cinema` to `2048` doesn’t affect the width stored in `hd`.
 
 The same behavior applies to enumerations:
 
-
-
-
-
-
-
-1.  `enum` `CompassPoint` {
-2.  `    case` `North`, `South`, `East`, `West`
-3.  `}`
-4.  `var` `currentDirection` = `CompassPoint`.`West`
-5.  `let` `rememberedDirection` = `currentDirection`
-6.  `currentDirection` = .`East`
-7.  `if` `rememberedDirection` == .`West` {
-8.  `    print`(`"The remembered direction is still .West"`)
-9.  `}`
-10. `// prints "The remembered direction is still .West"`
-
-
-
-
-
-
+    enum CompassPoint {
+        case North, South, East, West
+    }
+    var currentDirection = CompassPoint.West
+    let rememberedDirection = currentDirection
+    currentDirection = .East
+    if rememberedDirection == .West {
+        print("The remembered direction is still .West")
+    }
+    // prints "The remembered direction is still .West"
 
 When `rememberedDirection` is assigned the value of `currentDirection`, it is actually set to a copy of that value. Changing the value of `currentDirection` thereafter does not affect the copy of the original value that was stored in `rememberedDirection`.
 
-
-
-
-
-[‌]()
 ### Classes Are Reference Types 
 
 Unlike value types, *reference types* are *not* copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used instead.
 
 Here’s an example, using the `VideoMode` class defined above:
 
-
-
-
-
-
-
-1.  `let` `tenEighty` = `VideoMode`()
-2.  `tenEighty`.`resolution` = `hd`
-3.  `tenEighty`.`interlaced` = `true`
-4.  `tenEighty`.`name` = `"1080i"`
-5.  `tenEighty`.`frameRate` = `25.0`
-
-
-
-
-
-
+    let tenEighty = VideoMode()
+    tenEighty.resolution = hd
+    tenEighty.interlaced = true
+    tenEighty.name = "1080i"
+    tenEighty.frameRate = 25.0
 
 This example declares a new constant called `tenEighty` and sets it to refer to a new instance of the `VideoMode` class. The video mode is assigned a copy of the HD resolution of `1920` by `1080` from before. It is set to be interlaced, and is given a name of `"1080i"`. Finally, it is set to a frame rate of `25.0` frames per second.
 
 Next, `tenEighty` is assigned to a new constant, called `alsoTenEighty`, and the frame rate of `alsoTenEighty` is modified:
 
-
-
-
-
-
-
-1.  `let` `alsoTenEighty` = `tenEighty`
-2.  `alsoTenEighty`.`frameRate` = `30.0`
-
-
-
-
-
-
+    let alsoTenEighty = tenEighty
+    alsoTenEighty.frameRate = 30.0
 
 Because classes are reference types, `tenEighty` and `alsoTenEighty` actually both refer to the *same* `VideoMode` instance. Effectively, they are just two different names for the same single instance.
 
 Checking the `frameRate` property of `tenEighty` shows that it correctly reports the new frame rate of `30.0` from the underlying `VideoMode` instance:
 
-
-
-
-
-
-
-1.  `print`(`"The frameRate property of tenEighty is now `\\(`tenEighty`.`frameRate`)`"`)
-2.  `// prints "The frameRate property of tenEighty is now 30.0"`
-
-
-
-
-
-
+    print("The frameRate property of tenEighty is now \\(tenEighty.frameRate)")
+    // prints "The frameRate property of tenEighty is now 30.0"
 
 Note that `tenEighty` and `alsoTenEighty` are declared as *constants*, rather than variables. However, you can still change `tenEighty.frameRate` and `alsoTenEighty.frameRate` because the values of the `tenEighty` and `alsoTenEighty` constants themselves do not actually change. `tenEighty` and `alsoTenEighty` themselves do not “store” the `VideoMode` instance—instead, they both *refer* to a `VideoMode` instance behind the scenes. It is the `frameRate` property of the underlying `VideoMode` that is changed, not the values of the constant references to that `VideoMode`.
 
-
-
-[‌]()
 ### Identity Operators 
 
 Because classes are reference types, it is possible for multiple constants and variables to refer to the same single instance of a class behind the scenes. (The same is not true for structures and enumerations, because they are always copied when they are assigned to a constant or variable, or passed to a function.)
@@ -447,22 +206,10 @@ It can sometimes be useful to find out if two constants or variables refer to ex
 
 Use these operators to check whether two constants or variables refer to the same single instance:
 
-
-
-
-
-
-
-1.  `if` `tenEighty` === `alsoTenEighty` {
-2.  `    print`(`"tenEighty and alsoTenEighty refer to the same VideoMode instance."`)
-3.  `}`
-4.  `// prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."`
-
-
-
-
-
-
+    if tenEighty === alsoTenEighty {
+        print("tenEighty and alsoTenEighty refer to the same VideoMode instance.")
+    }
+    // prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."
 
 Note that “identical to” (represented by three equals signs, or `===`) does not mean the same thing as “equal to” (represented by two equals signs, or `==`):
 
@@ -472,22 +219,10 @@ Note that “identical to” (represented by three equals signs, or `===`) does 
 
 When you define your own custom classes and structures, it is your responsibility to decide what qualifies as two instances being “equal”. The process of defining your own implementations of the “equal to” and “not equal to” operators is described in [Equivalence Operators](AdvancedOperators.md#TP40016643-CH27-ID45).
 
-
-
-
-
-[‌]()
 ### Pointers 
 
 If you have experience with C, C++, or Objective-C, you may know that these languages use *pointers* to refer to addresses in memory. A Swift constant or variable that refers to an instance of some reference type is similar to a pointer in C, but is not a direct pointer to an address in memory, and does not require you to write an asterisk (`*`) to indicate that you are creating a reference. Instead, these references are defined like any other constant or variable in Swift.
 
-
-
-
-
-
-
-[‌]()
 ### Choosing Between Classes and Structures 
 
 You can use both classes and structures to define custom data types to use as the building blocks of your program’s code.
@@ -514,27 +249,13 @@ Examples of good candidates for structures include:
 
 In all other cases, define a class, and create instances of that class to be managed and passed by reference. In practice, this means that most custom data constructs should be classes, not structures.
 
-
-
-
-
-[‌]()
 ### Assignment and Copy Behavior for Strings, Arrays, and Dictionaries 
 
 In Swift, many basic data types such as `String`, `Array`, and `Dictionary` are implemented as structures. This means that data such as strings, arrays, and dictionaries are copied when they are assigned to a new constant or variable, or when they are passed to a function or method.
 
 This behavior is different from Foundation: `NSString`, `NSArray`, and `NSDictionary` are implemented as classes, not structures. Strings, arrays, and dictionaries in Foundation are always assigned and passed around as a reference to an existing instance, rather than as a copy.
 
-
-
 Note
 
 The description above refers to the “copying” of strings, arrays, and dictionaries. The behavior you see in your code will always be as if a copy took place. However, Swift only performs an *actual* copy behind the scenes when it is absolutely necessary to do so. Swift manages all value copying to ensure optimal performance, and you should not avoid assignment to try to preempt this optimization.
-
-
-
-
-
-
-
 

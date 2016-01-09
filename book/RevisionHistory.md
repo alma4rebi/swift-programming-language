@@ -1,16 +1,7 @@
-
-
-
-
-[‌]()[‌]()
 Document Revision History 
 -------------------------
 
-
-
 This table describes the changes to *The Swift Programming Language*.
-
-
 
 +--------------------------------------+--------------------------------------+
 | Date                                 | Notes                                |
@@ -1071,11 +1062,4 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |     Type](Generics.md#TP40016643- |
 |                                      | CH26-ID185).                         |
 +--------------------------------------+--------------------------------------+
-
-
-
-
-
-
-
 

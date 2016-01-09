@@ -1,18 +1,9 @@
-
-
-
-
-[‌]()[‌]()
 Attributes 
 ----------
-
-
 
 *Attributes* provide more information about a declaration or type. There are two kinds of attributes in Swift, those that apply to declarations and those that apply to types.
 
 You specify an attribute by writing the `@` symbol followed by the attribute’s name and any arguments that the attribute accepts:
-
-
 
 
 -   ``` 
@@ -23,15 +14,8 @@ You specify an attribute by writing the `@` symbol followed by the attribute’s
     @attribute name(attribute arguments)
     ```
 
-
-
 Some declaration attributes accept arguments that specify more information about the attribute and how it applies to a particular declaration. These *attribute arguments* are enclosed in parentheses, and their format is defined by the attribute they belong to.
 
-
-
-
-
-[‌]()
 ### Declaration Attributes 
 
 You can apply a declaration attribute to declarations only. However, you can also apply the `noreturn` attribute to a function or method *type*.
@@ -70,98 +54,98 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `introduced` argument indicates the first version of the specified platform in which the declaration was introduced. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             introduced=version number
             ```
 
-        
+        </div>
 
         The *version number* consists of one or more positive integers, separated by periods.
 
     -   The `deprecated` argument indicates the first version of the specified platform in which the declaration was deprecated. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             deprecated=version number
             ```
 
-        
+        </div>
 
         The *version number* consists of one or more positive integers, separated by periods.
 
     -   The `obsoleted` argument indicates the first version of the specified platform in which the declaration was obsoleted. When a declaration is obsoleted, it’s removed from the specified platform and can no longer be used. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             obsoleted=version number
             ```
 
-        
+        </div>
 
         The *version number* consists of one or more positive integers, separated by periods.
 
     -   The `message` argument is used to provide a textual message that’s displayed by the compiler when emitting a warning or error about the use of a deprecated or obsoleted declaration. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             message=message
             ```
 
-        
+        </div>
 
         The *message* consists of a string literal.
 
     -   The `renamed` argument is used to provide a textual message that indicates the new name for a declaration that’s been renamed. The new name is displayed by the compiler when emitting an error about the use of a renamed declaration. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             renamed=new name
             ```
 
-        
+        </div>
 
         The *new name* consists of a string literal.
 
         You can use the `renamed` argument in conjunction with the `unavailable` argument and a type alias declaration to indicate to clients of your code that a declaration has been renamed. For example, this is useful when the name of a declaration is changed between releases of a framework or library.
 
-        
+        <div class="section code-listing">
 
-        
+        <div class="code-sample">
 
-        
+        <div class="Swift">
 
         1.  `// First release`
         2.  `protocol` `MyProtocol` {
         3.  `    // protocol definition`
         4.  `}`
 
-        
+        </div>
 
-        
+        </div>
 
-        
+        </div>
 
-        
+        <div class="section code-listing">
 
-        
+        <div class="code-sample">
 
-        
+        <div class="Swift">
 
         1.  `// Subsequent release renames MyProtocol`
         2.  `protocol` `MyRenamedProtocol` {
@@ -171,46 +155,46 @@ You can apply a declaration attribute to declarations only. However, you can als
         6.  `@available`(\*, `unavailable`, `renamed`=`"MyRenamedProtocol"`)
         7.  `typealias` `MyProtocol` = `MyRenamedProtocol`
 
-        
+        </div>
 
-        
+        </div>
 
-        
+        </div>
 
     You can apply multiple `available` attributes on a single declaration to specify the declaration’s availability on different platforms. The compiler uses an `available` attribute only when the attribute specifies a platform that matches the current target platform.
 
     If an `available` attribute only specifies an `introduced` argument in addition to a platform name argument, the following shorthand syntax can be used instead:
 
-    
+    <span class="caption"></span>
 
-    
+    <div class="code-outline">
 
     -   ``` 
         @available(platform name version number, *)
         ```
 
-    
+    </div>
 
     The shorthand syntax for `available` attributes allows for availability for multiple platforms to be expressed concisely. Although the two forms are functionally equivalent, the shorthand form is preferred whenever possible.
 
-    
+    <div class="section code-listing">
 
-    
+    <div class="code-sample">
 
-    
+    <div class="Swift">
 
     1.  `@available`(`iOS` `8.0`, `OSX` `10.10`, \*)
     2.  `class` `MyClass` {
     3.  `    // class definition`
     4.  `}`
 
-    
+    </div>
 
-    
+    </div>
 
-    
+    </div>
 
-
+<!-- -->
 
 `objc`
 
@@ -222,11 +206,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     The `objc` attribute optionally accepts a single attribute argument, which consists of an identifier. Use this attribute when you want to expose a different name to Objective-C for the entity the `objc` attribute applies to. You can use this argument to name classes, protocols, methods, getters, setters, and initializers. The example below exposes the getter for the `enabled` property of the `ExampleClass` to Objective-C code as `isEnabled` rather than just as the name of the property itself.
 
-    
+    <div class="section code-listing">
 
-    
+    <div class="code-sample">
 
-    
+    <div class="Swift">
 
     1.  `@objc`
     2.  `class` `ExampleClass`: `NSObject` {
@@ -237,13 +221,13 @@ You can apply a declaration attribute to declarations only. However, you can als
     7.  `    }`
     8.  `}`
 
-    
+    </div>
 
-    
+    </div>
 
-    
+    </div>
 
-
+<!-- -->
 
 `noescape`
 
@@ -275,7 +259,7 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     The `NSCopying` attribute behaves in a way similar to the Objective-C `copy` property attribute.
 
-
+<!-- -->
 
 `NSManaged`
 
@@ -291,7 +275,7 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     If you do not use this attribute, supply a `main.swift` file with a `main` function that calls the `UIApplicationMain(_:_:_:)` function. For example, if your app uses a custom subclass of `UIApplication` as its principal class, call the `UIApplicationMain(_:_:_:)` function instead of using this attribute.
 
-
+<!-- -->
 
 `warn_unused_result`
 
@@ -303,48 +287,38 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `message` argument is used to provide a textual warning message that’s displayed when the function or method is called, but its result isn’t used. It has the following form:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             message=message
             ```
 
-        
+        </div>
 
         The *message* consists of a string literal.
 
     -   The `mutable_variant` argument is used to provide the name of the mutating version of the method that should be used if the nonmutating method is called on a mutable value and the result isn’t used. It has the following form, where the *method name* consists of a string literal:
 
-        
+        <span class="caption"></span>
 
-        
+        <div class="code-outline">
 
         -   ``` 
             mutable_variant=method name
             ```
 
-        
+        </div>
 
         For example, the Swift standard library provides both the mutating method `sortInPlace()` and the nonmutating method `sort()` to collections whose generator element conforms to the `Comparable` protocol. If you call the `sort()` method without using its result, it’s likely that you actually intended to use the mutating variant, `sortInPlace()` instead.
 
-
-
-[‌]()
 ### Declaration Attributes Used by Interface Builder 
 
 Interface Builder attributes are declaration attributes used by Interface Builder to synchronize with Xcode. Swift provides the following Interface Builder attributes: `IBAction`, `IBDesignable`, `IBInspectable`, and `IBOutlet`. These attributes are conceptually the same as their Objective-C counterparts.
 
 You apply the `IBOutlet` and `IBInspectable` attributes to property declarations of a class. You apply the `IBAction` attribute to method declarations of a class and the `IBDesignable` attribute to class declarations.
 
-
-
-
-
-
-
-[‌]()
 ### Type Attributes 
 
 You can apply type attributes to types only. However, you can also apply the `noreturn` attribute to a function or method *declaration*.
@@ -367,102 +341,75 @@ You can apply type attributes to types only. However, you can also apply the `no
 
 :   Apply this attribute to the type of a function or method to indicate that the function or method doesn’t return to its caller. You can also mark a function or method declaration with this attribute to indicate that the corresponding type of that function or method, `T`, is `@noreturn T`.
 
-
-
 Grammar of an attribute
 
-
-
-[‌]()
-
+<span class="syntax-def-name">
 attribute
-
-
+</span>
+<span class="arrow">
 →
-`@`[attribute-name](Attributes.md#attribute-name)[attribute-argument-clause](Attributes.md#attribute-argument-clause)~opt~
+</span>`@`<span class="syntactic-cat">[attribute-name](Attributes.md#attribute-name)</span><span class="optional"><span class="syntactic-cat">[attribute-argument-clause](Attributes.md#attribute-argument-clause)</span>~opt~</span>
 
-[‌]()
-
+<span class="syntax-def-name">
 attribute-name
-
-
+</span>
+<span class="arrow">
 →
-[identifier](LexicalStructure.md#identifier)
+</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
 
-[‌]()
-
+<span class="syntax-def-name">
 attribute-argument-clause
-
-
+</span>
+<span class="arrow">
 →
-`(`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
+</span>`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`)`
 
-[‌]()
-
+<span class="syntax-def-name">
 attributes
-
-
+</span>
+<span class="arrow">
 →
-[attribute](Attributes.md#attribute)[attributes](Attributes.md#attributes)~opt~
+</span><span class="syntactic-cat">[attribute](Attributes.md#attribute)</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>
 
-
-
-
-
-[‌]()
-
+<span class="syntax-def-name">
 balanced-tokens
-
-
+</span>
+<span class="arrow">
 →
-[balanced-token](Attributes.md#balanced-token)[balanced-tokens](Attributes.md#balanced-tokens)~opt~
+</span><span class="syntactic-cat">[balanced-token](Attributes.md#balanced-token)</span><span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>
 
-[‌]()
-
+<span class="syntax-def-name">
 balanced-token
-
-
+</span>
+<span class="arrow">
 →
-`(`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
+</span>`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`)`
 
-[‌]()
-
+<span class="syntax-def-name">
 balanced-token
-
-
+</span>
+<span class="arrow">
 →
-`[`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`]`
+</span>`[`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`]`
 
-[‌]()
-
+<span class="syntax-def-name">
 balanced-token
-
-
+</span>
+<span class="arrow">
 →
-`{`[balanced-tokens](Attributes.md#balanced-tokens)~opt~`}`
+</span>`{`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`}`
 
-[‌]()
-
+<span class="syntax-def-name">
 balanced-token
-
-
+</span>
+<span class="arrow">
 →
-Any identifier, keyword, literal, or operator
+</span><span class="text-description">Any identifier, keyword, literal, or operator</span>
 
-[‌]()
-
+<span class="syntax-def-name">
 balanced-token
-
-
+</span>
+<span class="arrow">
 →
-Any punctuation except `(`, `)`, `[`, `]`, `{`, or `}`
-
-
-
-
-
-
-
-
-
+</span><span class="text-description">Any punctuation except `(`, `)`, `[`, `]`, `{`, or `}`</span>
 

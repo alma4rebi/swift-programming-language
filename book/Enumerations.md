@@ -1,12 +1,5 @@
-
-
-
-
-[‌]()[‌]()
 Enumerations 
 ------------
-
-
 
 An *enumeration* defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code.
 
@@ -18,147 +11,61 @@ Enumerations in Swift are first-class types in their own right. They adopt many 
 
 For more on these capabilities, see [Properties](Properties.md), [Methods](Methods.md), [Initialization](Initialization.md), [Extensions](Extensions.md), and [Protocols](Protocols.md).
 
-
-
-
-
-[‌]()
 ### Enumeration Syntax 
 
 You introduce enumerations with the `enum` keyword and place their entire definition within a pair of braces:
 
-
-
-
-
-
-
-1.  `enum` `SomeEnumeration` {
-2.  `    // enumeration definition goes here`
-3.  `}`
-
-
-
-
-
-
+    enum SomeEnumeration {
+        // enumeration definition goes here
+    }
 
 Here’s an example for the four main points of a compass:
 
-
-
-
-
-
-
-1.  `enum` `CompassPoint` {
-2.  `    case` `North`
-3.  `    case` `South`
-4.  `    case` `East`
-5.  `    case` `West`
-6.  `}`
-
-
-
-
-
-
+    enum CompassPoint {
+        case North
+        case South
+        case East
+        case West
+    }
 
 The values defined in an enumeration (such as `North`, `South`, `East`, and `West`) are its *enumeration cases*. You use the `case` keyword to introduce new enumeration cases.
-
-
 
 Note
 
 Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when they are created. In the `CompassPoint` example above, `North`, `South`, `East` and `West` do not implicitly equal `0`, `1`, `2` and `3`. Instead, the different enumeration cases are fully-fledged values in their own right, with an explicitly-defined type of `CompassPoint`.
 
-
-
 Multiple cases can appear on a single line, separated by commas:
 
-
-
-
-
-
-
-1.  `enum` `Planet` {
-2.  `    case` `Mercury`, `Venus`, `Earth`, `Mars`, `Jupiter`, `Saturn`, `Uranus`, `Neptune`
-3.  `}`
-
-
-
-
-
-
+    enum Planet {
+        case Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+    }
 
 Each enumeration definition defines a brand new type. Like other types in Swift, their names (such as `CompassPoint` and `Planet`) should start with a capital letter. Give enumeration types singular rather than plural names, so that they read as self-evident:
 
-
-
-
-
-
-
-1.  `var` `directionToHead` = `CompassPoint`.`West`
-
-
-
-
-
-
+    var directionToHead = CompassPoint.West
 
 The type of `directionToHead` is inferred when it is initialized with one of the possible values of `CompassPoint`. Once `directionToHead` is declared as a `CompassPoint`, you can set it to a different `CompassPoint` value using a shorter dot syntax:
 
-
-
-
-
-
-
-1.  `directionToHead` = .`East`
-
-
-
-
-
-
+    directionToHead = .East
 
 The type of `directionToHead` is already known, and so you can drop the type when setting its value. This makes for highly readable code when working with explicitly-typed enumeration values.
 
-
-
-
-
-[‌]()
 ### Matching Enumeration Values with a Switch Statement 
 
 You can match individual enumeration values with a `switch` statement:
 
-
-
-
-
-
-
-1.  `directionToHead` = .`South`
-2.  `switch` `directionToHead` {
-3.  `case` .`North`:
-4.  `    print`(`"Lots of planets have a north"`)
-5.  `case` .`South`:
-6.  `    print`(`"Watch out for penguins"`)
-7.  `case` .`East`:
-8.  `    print`(`"Where the sun rises"`)
-9.  `case` .`West`:
-10. `    print`(`"Where the skies are blue"`)
-11. `}`
-12. `// prints "Watch out for penguins"`
-
-
-
-
-
-
+    directionToHead = .South
+    switch directionToHead {
+    case .North:
+        print("Lots of planets have a north")
+    case .South:
+        print("Watch out for penguins")
+    case .East:
+        print("Where the sun rises")
+    case .West:
+        print("Where the skies are blue")
+    }
+    // prints "Watch out for penguins"
 
 You can read this code as:
 
@@ -170,32 +77,15 @@ As described in [Control Flow](ControlFlow.md), a `switch` statement must be exh
 
 When it is not appropriate to provide a `case` for every enumeration case, you can provide a `default` case to cover any cases that are not addressed explicitly:
 
+    let somePlanet = Planet.Earth
+    switch somePlanet {
+    case .Earth:
+        print("Mostly harmless")
+    default:
+        print("Not a safe place for humans")
+    }
+    // prints "Mostly harmless"
 
-
-
-
-
-
-1.  `let` `somePlanet` = `Planet`.`Earth`
-2.  `switch` `somePlanet` {
-3.  `case` .`Earth`:
-4.  `    print`(`"Mostly harmless"`)
-5.  `default`:
-6.  `    print`(`"Not a safe place for humans"`)
-7.  `}`
-8.  `// prints "Mostly harmless"`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Associated Values 
 
 The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to `Planet.Earth`, and check for this value later. However, it is sometimes useful to be able to store *associated values* of other types alongside these case values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code.
@@ -204,42 +94,20 @@ You can define Swift enumerations to store associated values of any given type, 
 
 For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC-A format, which uses the numbers `0` to `9`. Each barcode has a “number system” digit, followed by five “manufacturer code” digits and five “product code” digits. These are followed by a “check” digit to verify that the code has been scanned correctly:
 
-
-
-
-![image: ../Art/barcode\_UPC\_2x.png](Art/barcode_UPC_2x.png){width="252" height="120"}
-
-
+![image: Art/barcode\_UPC\_2x.png](Art/barcode_UPC_2x.png){width="252" height="120"}
 
 Other products are labeled with 2D barcodes in QR code format, which can use any ISO 8859-1 character and can encode a string up to 2,953 characters long:
 
-
-
-
-![image: ../Art/barcode\_QR\_2x.png](Art/barcode_QR_2x.png){width="169" height="169"}
-
-
+![image: Art/barcode\_QR\_2x.png](Art/barcode_QR_2x.png){width="169" height="169"}
 
 It would be convenient for an inventory tracking system to be able to store UPC-A barcodes as a tuple of four integers, and QR code barcodes as a string of any length.
 
 In Swift, an enumeration to define product barcodes of either type might look like this:
 
-
-
-
-
-
-
-1.  `enum` `Barcode` {
-2.  `    case` `UPCA`(`Int`, `Int`, `Int`, `Int`)
-3.  `    case` `QRCode`(`String`)
-4.  `}`
-
-
-
-
-
-
+    enum Barcode {
+        case UPCA(Int, Int, Int, Int)
+        case QRCode(String)
+    }
 
 This can be read as:
 
@@ -249,128 +117,56 @@ This definition does not provide any actual `Int` or `String` values—it just d
 
 New barcodes can then be created using either type:
 
-
-
-
-
-
-
-1.  `var` `productBarcode` = `Barcode`.`UPCA`(`8`, `85909`, `51226`, `3`)
-
-
-
-
-
-
+    var productBarcode = Barcode.UPCA(8, 85909, 51226, 3)
 
 This example creates a new variable called `productBarcode` and assigns it a value of `Barcode.UPCA` with an associated tuple value of `(8, 85909, 51226, 3)`.
 
 The same product can be assigned a different type of barcode:
 
-
-
-
-
-
-
-1.  `productBarcode` = .`QRCode`(`"ABCDEFGHIJKLMNOP"`)
-
-
-
-
-
-
+    productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
 
 At this point, the original `Barcode.UPCA` and its integer values are replaced by the new `Barcode.QRCode` and its string value. Constants and variables of type `Barcode` can store either a `.UPCA` or a `.QRCode` (together with their associated values), but they can only store one of them at any given time.
 
 The different barcode types can be checked using a switch statement, as before. This time, however, the associated values can be extracted as part of the switch statement. You extract each associated value as a constant with the `let` prefix for use within the `switch` case’s body:
 
-
-
-
-
-
-
-1.  `switch` `productBarcode` {
-2.  `case` .`UPCA`(`let` `numberSystem`, `let` `manufacturer`, `let` `product`, `let` `check`):
-3.  `    print`(`"UPC-A: `\\(`numberSystem`)`, `\\(`manufacturer`)`, `\\(`product`)`, `\\(`check`)`."`)
-4.  `case` .`QRCode`(`let` `productCode`):
-5.  `    print`(`"QR code: `\\(`productCode`)`."`)
-6.  `}`
-7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`
-
-
-
-
-
-
+    switch productBarcode {
+    case .UPCA(let numberSystem, let manufacturer, let product, let check):
+        print("UPC-A: \\(numberSystem), \\(manufacturer), \\(product), \\(check).")
+    case .QRCode(let productCode):
+        print("QR code: \\(productCode).")
+    }
+    // prints "QR code: ABCDEFGHIJKLMNOP."
 
 If all of the associated values for an enumeration case are extracted as constants, or if all are extracted as variables, you can place a single `let` annotation before the case name, for brevity:
 
+    switch productBarcode {
+    case let .UPCA(numberSystem, manufacturer, product, check):
+        print("UPC-A: \\(numberSystem), \\(manufacturer), \\(product), \\(check).")
+    case let .QRCode(productCode):
+        print("QR code: \\(productCode).")
+    }
+    // prints "QR code: ABCDEFGHIJKLMNOP."
 
-
-
-
-
-
-1.  `switch` `productBarcode` {
-2.  `case` `let` .`UPCA`(`numberSystem`, `manufacturer`, `product`, `check`):
-3.  `    print`(`"UPC-A: `\\(`numberSystem`)`, `\\(`manufacturer`)`, `\\(`product`)`, `\\(`check`)`."`)
-4.  `case` `let` .`QRCode`(`productCode`):
-5.  `    print`(`"QR code: `\\(`productCode`)`."`)
-6.  `}`
-7.  `// prints "QR code: ABCDEFGHIJKLMNOP."`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Raw Values 
 
 The barcode example in [Associated Values](Enumerations.md#TP40016643-CH12-ID148) shows how cases of an enumeration can declare that they store associated values of different types. As an alternative to associated values, enumeration cases can come prepopulated with default values (called *raw values*), which are all of the same type.
 
 Here’s an example that stores raw ASCII values alongside named enumeration cases:
 
-
-
-
-
-
-
-1.  `enum` `ASCIIControlCharacter`: `Character` {
-2.  `    case` `Tab` = `"\t"`
-3.  `    case` `LineFeed` = `"\n"`
-4.  `    case` `CarriageReturn` = `"\r"`
-5.  `}`
-
-
-
-
-
-
+    enum ASCIIControlCharacter: Character {
+        case Tab = "\t"
+        case LineFeed = "\n"
+        case CarriageReturn = "\r"
+    }
 
 Here, the raw values for an enumeration called `ASCIIControlCharacter` are defined to be of type `Character`, and are set to some of the more common ASCII control characters. `Character` values are described in [Strings and Characters](StringsAndCharacters.md).
 
 Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.
 
-
-
 Note
 
 Raw values are *not* the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.
 
-
-
-
-
-[‌]()
 ### Implicitly Assigned Raw Values 
 
 When you’re working with enumerations that store integer or string raw values, you don’t have to explicitly assign a raw value for each case. When you don’t, Swift will automatically assign the values for you.
@@ -379,21 +175,9 @@ For instance, when integers are used for raw values, the implicit value for each
 
 The enumeration below is a refinement of the earlier `Planet` enumeration, with integer raw values to represent each planet’s order from the sun:
 
-
-
-
-
-
-
-1.  `enum` `Planet`: `Int` {
-2.  `    case` `Mercury` = `1`, `Venus`, `Earth`, `Mars`, `Jupiter`, `Saturn`, `Uranus`, `Neptune`
-3.  `}`
-
-
-
-
-
-
+    enum Planet: Int {
+        case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+    }
 
 In the example above, `Planet.Mercury` has an explicit raw value of `1`, `Planet.Venus` has an implicit raw value of `2`, and so on.
 
@@ -401,116 +185,52 @@ When strings are used for raw values, the implicit value for each case is the te
 
 The enumeration below is a refinement of the earlier `CompassPoint` enumeration, with string raw values to represent each direction’s name:
 
-
-
-
-
-
-
-1.  `enum` `CompassPoint`: `String` {
-2.  `    case` `North`, `South`, `East`, `West`
-3.  `}`
-
-
-
-
-
-
+    enum CompassPoint: String {
+        case North, South, East, West
+    }
 
 In the example above, `CompassPoint.South` has an implicit raw value of `"South"`, and so on.
 
 You access the raw value of an enumeration case with its `rawValue` property:
 
+    let earthsOrder = Planet.Earth.rawValue
+    // earthsOrder is 3
+     
+    let sunsetDirection = CompassPoint.West.rawValue
+    // sunsetDirection is "West"
 
-
-
-
-
-
-1.  `let` `earthsOrder` = `Planet`.`Earth`.`rawValue`
-2.  `// earthsOrder is 3`
-3.  ` `
-4.  `let` `sunsetDirection` = `CompassPoint`.`West`.`rawValue`
-5.  `// sunsetDirection is "West"`
-
-
-
-
-
-
-
-
-
-
-
-[‌]()
 ### Initializing from a Raw Value 
 
 If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value’s type (as a parameter called `rawValue`) and returns either an enumeration case or `nil`. You can use this initializer to try to create a new instance of the enumeration.
 
 This example identifies Uranus from its raw value of `7`:
 
-
-
-
-
-
-
-1.  `let` `possiblePlanet` = `Planet`(`rawValue`: `7`)
-2.  `// possiblePlanet is of type Planet? and equals Planet.Uranus`
-
-
-
-
-
-
+    let possiblePlanet = Planet(rawValue: 7)
+    // possiblePlanet is of type Planet? and equals Planet.Uranus
 
 Not all possible `Int` values will find a matching planet, however. Because of this, the raw value initializer always returns an *optional* enumeration case. In the example above, `possiblePlanet` is of type `Planet?`, or “optional `Planet`.”
-
-
 
 Note
 
 The raw value initializer is a failable initializer, because not every raw value will return an enumeration case. For more information, see [Failable Initializers](Declarations.md#TP40016643-CH34-ID376).
 
-
-
 If you try to find a planet with a position of `9`, the optional `Planet` value returned by the raw value initializer will be `nil`:
 
-
-
-
-
-
-
-1.  `let` `positionToFind` = `9`
-2.  `if` `let` `somePlanet` = `Planet`(`rawValue`: `positionToFind`) {
-3.  `    switch` `somePlanet` {
-4.  `    case` .`Earth`:
-5.  `        print`(`"Mostly harmless"`)
-6.  `    default`:
-7.  `        print`(`"Not a safe place for humans"`)
-8.  `    }`
-9.  `} else` {
-10. `    print`(`"There isn't a planet at position `\\(`positionToFind`)`"`)
-11. `}`
-12. `// prints "There isn't a planet at position 9"`
-
-
-
-
-
-
+    let positionToFind = 9
+    if let somePlanet = Planet(rawValue: positionToFind) {
+        switch somePlanet {
+        case .Earth:
+            print("Mostly harmless")
+        default:
+            print("Not a safe place for humans")
+        }
+    } else {
+        print("There isn't a planet at position \\(positionToFind)")
+    }
+    // prints "There isn't a planet at position 9"
 
 This example uses optional binding to try to access a planet with a raw value of `9`. The statement `if let somePlanet = Planet(rawValue: 9)` creates an optional `Planet`, and sets `somePlanet` to the value of that optional `Planet` if it can be retrieved. In this case, it is not possible to retrieve a planet with a position of `9`, and so the `else` branch is executed instead.
 
-
-
-
-
-
-
-[‌]()
 ### Recursive Enumerations 
 
 Enumerations work well for modeling data when there is a fixed number of possibilities that need to be considered, such as the operations used for doing simple integer arithmetic. These operations let you combine simple arithmetic expressions that are made up of integers such as `5` into more complex ones such as `5 + 4`.
@@ -521,83 +241,42 @@ A *recursive enumeration* is an enumeration that has another instance of the enu
 
 For example, here is an enumeration that stores simple arithmetic expressions:
 
-
-
-
-
-
-
-1.  `enum` `ArithmeticExpression` {
-2.  `    case` `Number`(`Int`)
-3.  `    indirect` `case` `Addition`(`ArithmeticExpression`, `ArithmeticExpression`)
-4.  `    indirect` `case` `Multiplication`(`ArithmeticExpression`, `ArithmeticExpression`)
-5.  `}`
-
-
-
-
-
-
+    enum ArithmeticExpression {
+        case Number(Int)
+        indirect case Addition(ArithmeticExpression, ArithmeticExpression)
+        indirect case Multiplication(ArithmeticExpression, ArithmeticExpression)
+    }
 
 You can also write `indirect` before the beginning of the enumeration, to enable indirection for all of the enumeration’s cases that need it:
 
-
-
-
-
-
-
-1.  `indirect` `enum` `ArithmeticExpression` {
-2.  `    case` `Number`(`Int`)
-3.  `    case` `Addition`(`ArithmeticExpression`, `ArithmeticExpression`)
-4.  `    case` `Multiplication`(`ArithmeticExpression`, `ArithmeticExpression`)
-5.  `}`
-
-
-
-
-
-
+    indirect enum ArithmeticExpression {
+        case Number(Int)
+        case Addition(ArithmeticExpression, ArithmeticExpression)
+        case Multiplication(ArithmeticExpression, ArithmeticExpression)
+    }
 
 This enumeration can store three kinds of arithmetic expressions: a plain number, the addition of two expressions, and the multiplication of two expressions. The `Addition` and `Multiplication` cases have associated values that are also arithmetic expressions—these associated values make it possible to nest expressions.
 
 A recursive function is a straightforward way to work with data that has a recursive structure. For example, here’s a function that evaluates an arithmetic expression:
 
-
-
-
-
-
-
-1.  `func` `evaluate`(`expression`: `ArithmeticExpression`) -&gt; `Int` {
-2.  `    switch` `expression` {
-3.  `    case` .`Number`(`let` `value`):
-4.  `        return` `value`
-5.  `    case` .`Addition`(`let` `left`, `let` `right`):
-6.  `        return` `evaluate`(`left`) + `evaluate`(`right`)
-7.  `    case` .`Multiplication`(`let` `left`, `let` `right`):
-8.  `        return` `evaluate`(`left`) \* `evaluate`(`right`)
-9.  `    }`
-10. `}`
-11. ` `
-12. `// evaluate (5 + 4) * 2`
-13. `let` `five` = `ArithmeticExpression`.`Number`(`5`)
-14. `let` `four` = `ArithmeticExpression`.`Number`(`4`)
-15. `let` `sum` = `ArithmeticExpression`.`Addition`(`five`, `four`)
-16. `let` `product` = `ArithmeticExpression`.`Multiplication`(`sum`, `ArithmeticExpression`.`Number`(`2`))
-17. `print`(`evaluate`(`product`))
-18. `// prints "18"`
-
-
-
-
-
-
+    func evaluate(expression: ArithmeticExpression) -&gt; Int {
+        switch expression {
+        case .Number(let value):
+            return value
+        case .Addition(let left, let right):
+            return evaluate(left) + evaluate(right)
+        case .Multiplication(let left, let right):
+            return evaluate(left) \* evaluate(right)
+        }
+    }
+     
+    // evaluate (5 + 4) * 2
+    let five = ArithmeticExpression.Number(5)
+    let four = ArithmeticExpression.Number(4)
+    let sum = ArithmeticExpression.Addition(five, four)
+    let product = ArithmeticExpression.Multiplication(sum, ArithmeticExpression.Number(2))
+    print(evaluate(product))
+    // prints "18"
 
 This function evaluates a plain number by simply returning the associated value. It evaluates an addition or multiplication by evaluating the expression on the left hand side, evaluating the expression on the right hand side, and then adding them or multiplying them.
-
-
-
-
-
 
