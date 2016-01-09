@@ -1,4 +1,4 @@
-Extensions 
+Extensions
 ----------
 
 *Extensions* add new functionality to an existing class, structure, enumeration, or protocol type. This includes the ability to extend types for which you do not have access to the original source code (known as *retroactive modeling*). Extensions are similar to categories in Objective-C. (Unlike Objective-C categories, Swift extensions do not have names.)
@@ -23,7 +23,7 @@ Note
 
 Extensions can add new functionality to a type, but they cannot override existing functionality.
 
-### Extension Syntax 
+### Extension Syntax
 
 Declare extensions with the `extension` keyword:
 
@@ -43,7 +43,7 @@ Note
 
 If you define an extension to add new functionality to an existing type, the new functionality will be available on all existing instances of that type, even if they were created before the extension was defined.
 
-### Computed Properties 
+### Computed Properties
 
 Extensions can add computed instance properties and computed type properties to existing types. This example adds five computed instance properties to Swift’s built-in `Double` type, to provide basic support for working with distance units:
 
@@ -77,7 +77,7 @@ Note
 
 Extensions can add new computed properties, but they cannot add stored properties, or add property observers to existing properties.
 
-### Initializers 
+### Initializers
 
 Extensions can add new initializers to existing types. This enables you to extend other types to accept your own custom types as initializer parameters, or to provide additional initialization options that were not included as part of the type’s original implementation.
 
@@ -128,7 +128,7 @@ Note
 
 If you provide a new initializer with an extension, you are still responsible for making sure that each instance is fully initialized once the initializer completes.
 
-### Methods 
+### Methods
 
 Extensions can add new instance methods and type methods to existing types. The following example adds a new instance method called `repetitions` to the `Int` type:
 
@@ -160,7 +160,7 @@ Use trailing closure syntax to make the call more succinct:
     // Goodbye!
     // Goodbye!
 
-### Mutating Instance Methods 
+### Mutating Instance Methods
 
 Instance methods added with an extension can also modify (or *mutate*) the instance itself. Structure and enumeration methods that modify `self` or its properties must mark the instance method as `mutating`, just like mutating methods from an original implementation.
 
@@ -175,7 +175,7 @@ The example below adds a new mutating method called `square` to Swift’s `Int` 
     someInt.square()
     // someInt is now 9
 
-### Subscripts 
+### Subscripts
 
 Extensions can add new subscripts to an existing type. This example adds an integer subscript to Swift’s built-in `Int` type. This subscript `[n]` returns the decimal digit `n` places in from the right of the number:
 
@@ -210,7 +210,7 @@ If the `Int` value does not have enough digits for the requested index, the subs
     // returns 0, as if you had requested:
     0746381295\[9\]
 
-### Nested Types 
+### Nested Types
 
 Extensions can add new nested types to existing classes, structures and enumerations:
 

@@ -1,11 +1,11 @@
-Nested Types 
+Nested Types
 ------------
 
 Enumerations are often created to support a specific class or structure’s functionality. Similarly, it can be convenient to define utility classes and structures purely for use within the context of a more complex type. To accomplish this, Swift enables you to define *nested types*, whereby you nest supporting enumerations, classes, and structures within the definition of the type they support.
 
 To nest a type within another type, write its definition within the outer braces of the type it supports. Types can be nested to as many levels as are required.
 
-### Nested Types in Action 
+### Nested Types in Action
 
 The example below defines a structure called `BlackjackCard`, which models a playing card as used in the game of Blackjack. The `BlackJack` structure contains two nested enumeration types called `Suit` and `Rank`.
 
@@ -71,7 +71,7 @@ Because `BlackjackCard` is a structure with no custom initializers, it has an im
 
 Even though `Rank` and `Suit` are nested within `BlackjackCard`, their type can be inferred from context, and so the initialization of this instance is able to refer to the enumeration cases by their case names (`.Ace` and `.Spades`) alone. In the example above, the `description` property correctly reports that the Ace of Spades has a value of `1` or `11`.
 
-### Referring to Nested Types 
+### Referring to Nested Types
 
 To use a nested type outside of its definition context, prefix its name with the name of the type it is nested within:
 

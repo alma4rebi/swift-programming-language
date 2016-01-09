@@ -1,4 +1,4 @@
-Basic Operators 
+Basic Operators
 ---------------
 
 An *operator* is a special symbol or phrase that you use to check, change, or combine values. For example, the addition operator (`+`) adds two numbers together (as in `let i = 1 + 2`). More complex examples include the logical AND operator `&&` (as in `if enteredDoorCode && passedRetinaScan`) and the increment operator `++i`, which is a shortcut to increase the value of `i` by `1`.
@@ -9,7 +9,7 @@ Unlike C, Swift lets you perform remainder (`%`) calculations on floating-point 
 
 This chapter describes the common operators in Swift. [Advanced Operators](AdvancedOperators.md) covers Swift’s advanced operators, and describes how to define your own custom operators and implement the standard operators for your own custom types.
 
-### Terminology 
+### Terminology
 
 Operators are unary, binary, or ternary:
 
@@ -21,7 +21,7 @@ Operators are unary, binary, or ternary:
 
 The values that operators affect are *operands*. In the expression `1 + 2`, the `+` symbol is a binary operator and its two operands are the values `1` and `2`.
 
-### Assignment Operator 
+### Assignment Operator
 
 The *assignment operator* (`a = b`) initializes or updates the value of `a` with the value of `b`:
 
@@ -43,7 +43,7 @@ Unlike the assignment operator in C and Objective-C, the assignment operator in 
 
 This feature prevents the assignment operator (`=`) from being used by accident when the equal to operator (`==`) is actually intended. By making `if x = y` invalid, Swift helps you to avoid these kinds of errors in your code.
 
-### Arithmetic Operators 
+### Arithmetic Operators
 
 Swift supports the four standard *arithmetic operators* for all number types:
 
@@ -66,7 +66,7 @@ The addition operator is also supported for `String` concatenation:
 
     "hello, " + "world" // equals "hello, world"
 
-### Remainder Operator 
+### Remainder Operator
 
 The *remainder operator* (`a % b`) works out how many multiples of `b` will fit inside `a` and returns the value that is left over (known as the *remainder*).
 
@@ -106,7 +106,7 @@ giving a remainder value of `-1`.
 
 The sign of `b` is ignored for negative values of `b`. This means that `a % b` and `a % -b` always give the same answer.
 
-### Floating-Point Remainder Calculations 
+### Floating-Point Remainder Calculations
 
 Unlike the remainder operator in C and Objective-C, Swift’s remainder operator can also operate on floating-point numbers:
 
@@ -116,7 +116,7 @@ In this example, `8` divided by `2.5` equals `3`, with a remainder of `0.5`, so 
 
 ![image: Art/remainderFloat\_2x.png](Art/remainderFloat_2x.png)
 
-### Increment and Decrement Operators 
+### Increment and Decrement Operators
 
 Like C, Swift provides an *increment operator* (`++`) and a *decrement operator* (`--`) as a shortcut to increase or decrease the value of a numeric variable by `1`. You can use these operators with variables of any integer or floating-point type.
 
@@ -147,7 +147,7 @@ However, `let c = a++` increments `a` *after* returning its value. This means th
 
 Unless you need the specific behavior of `i++`, it is recommended that you use `++i` and `--i` in all cases, because they have the typical expected behavior of modifying `i` and returning the result.
 
-### Unary Minus Operator 
+### Unary Minus Operator
 
 The sign of a numeric value can be toggled using a prefixed `-`, known as the *unary minus operator*:
 
@@ -157,7 +157,7 @@ The sign of a numeric value can be toggled using a prefixed `-`, known as the *u
 
 The unary minus operator (`-`) is prepended directly before the value it operates on, without any white space.
 
-### Unary Plus Operator 
+### Unary Plus Operator
 
 The *unary plus operator* (`+`) simply returns the value it operates on, without any change:
 
@@ -166,7 +166,7 @@ The *unary plus operator* (`+`) simply returns the value it operates on, without
 
 Although the unary plus operator doesn’t actually do anything, you can use it to provide symmetry in your code for positive numbers when also using the unary minus operator for negative numbers.
 
-### Compound Assignment Operators 
+### Compound Assignment Operators
 
 Like C, Swift provides *compound assignment operators* that combine assignment (`=`) with another operation. One example is the *addition assignment operator* (`+=`):
 
@@ -182,7 +182,7 @@ The compound assignment operators do not return a value. You cannot write `let b
 
 A complete list of compound assignment operators can be found in [Expressions](Expressions.md).
 
-### Comparison Operators 
+### Comparison Operators
 
 Swift supports all standard C *comparison operators*:
 
@@ -223,7 +223,7 @@ Comparison operators are often used in conditional statements, such as the `if` 
 
 For more on the `if` statement, see [Control Flow](ControlFlow.md).
 
-### Ternary Conditional Operator 
+### Ternary Conditional Operator
 
 The *ternary conditional operator* is a special operator with three parts, which takes the form `question ? answer1 : answer2`. It is a shortcut for evaluating one of two expressions based on whether `question` is true or false. If `question` is true, it evaluates `answer1` and returns its value; otherwise, it evaluates `answer2` and returns its value.
 
@@ -258,7 +258,7 @@ The first example’s use of the ternary conditional operator means that `rowHei
 
 The ternary conditional operator provides an efficient shorthand for deciding which of two expressions to consider. Use the ternary conditional operator with care, however. Its conciseness can lead to hard-to-read code if overused. Avoid combining multiple instances of the ternary conditional operator into one compound statement.
 
-### Nil Coalescing Operator 
+### Nil Coalescing Operator
 
 The *nil coalescing operator* (`a ?? b`) unwraps an optional `a` if it contains a value, or returns a default value `b` if `a` is `nil`. The expression `a` is always of an optional type. The expression `b` must match the type that is stored inside `a`.
 
@@ -288,11 +288,11 @@ If you assign a non-`nil` value to `userDefinedColorName` and perform the nil co
     colorNameToUse = userDefinedColorName ?? defaultColorName
     // userDefinedColorName is not nil, so colorNameToUse is set to "green"
 
-### Range Operators 
+### Range Operators
 
 Swift includes two *range operators*, which are shortcuts for expressing a range of values.
 
-### Closed Range Operator 
+### Closed Range Operator
 
 The *closed range operator* (`a...b`) defines a range that runs from `a` to `b`, and includes the values `a` and `b`. The value of `a` must not be greater than `b`.
 
@@ -309,7 +309,7 @@ The closed range operator is useful when iterating over a range in which you wan
 
 For more on `for`-`in` loops, see [Control Flow](ControlFlow.md).
 
-### Half-Open Range Operator 
+### Half-Open Range Operator
 
 The *half-open range operator* (`a..<b`) defines a range that runs from `a` to `b`, but does not include `b`. It is said to be *half-open* because it contains its first value, but not its final value. As with the closed range operator, the value of `a` must not be greater than `b`. If the value of `a` is equal to `b`, then the resulting range will be empty.
 
@@ -327,7 +327,7 @@ Half-open ranges are particularly useful when you work with zero-based lists suc
 
 Note that the array contains four items, but `0..<count` only counts as far as `3` (the index of the last item in the array), because it is a half-open range. For more on arrays, see [Arrays](CollectionTypes.md#TP40016643-CH8-ID107).
 
-### Logical Operators 
+### Logical Operators
 
 *Logical operators* modify or combine the Boolean logic values `true` and `false`. Swift supports the three standard logical operators found in C-based languages:
 
@@ -337,7 +337,7 @@ Note that the array contains four items, but `0..<count` only counts as far as `
 
 -   Logical OR (`a || b`)
 
-### Logical NOT Operator 
+### Logical NOT Operator
 
 The *logical NOT operator* (`!a`) inverts a Boolean value so that `true` becomes `false`, and `false` becomes `true`.
 
@@ -353,7 +353,7 @@ The phrase `if !allowedEntry` can be read as “if not allowed entry.” The sub
 
 As in this example, careful choice of Boolean constant and variable names can help to keep code readable and concise, while avoiding double negatives or confusing logic statements.
 
-### Logical AND Operator 
+### Logical AND Operator
 
 The *logical AND operator* (`a && b`) creates logical expressions where both values must be `true` for the overall expression to also be `true`.
 
@@ -370,7 +370,7 @@ This example considers two `Bool` values and only allows access if both values a
     }
     // prints "ACCESS DENIED"
 
-### Logical OR Operator 
+### Logical OR Operator
 
 The *logical OR operator* (`a || b`) is an infix operator made from two adjacent pipe characters. You use it to create logical expressions in which only *one* of the two values has to be `true` for the overall expression to be `true`.
 
@@ -387,7 +387,7 @@ In the example below, the first `Bool` value (`hasDoorKey`) is `false`, but the 
     }
     // prints "Welcome!"
 
-### Combining Logical Operators 
+### Combining Logical Operators
 
 You can combine multiple logical operators to create longer compound expressions:
 
@@ -408,7 +408,7 @@ Note
 
 The Swift logical operators `&&` and `||` are left-associative, meaning that compound expressions with multiple logical operators evaluate the leftmost subexpression first.
 
-### Explicit Parentheses 
+### Explicit Parentheses
 
 It is sometimes useful to include parentheses when they are not strictly needed, to make the intention of a complex expression easier to read. In the door access example above, it is useful to add parentheses around the first part of the compound expression to make its intent explicit:
 

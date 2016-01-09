@@ -1,4 +1,4 @@
-Statements 
+Statements
 ----------
 
 In Swift, there are three kinds of statements: simple statements, compiler control statements, and control flow statements. Simple statements are the most common and consist of either an expression or a declaration. Compiler control statements allow the program to change aspects of the compiler’s behavior and include a build configuration and line control statement.
@@ -11,75 +11,75 @@ Grammar of a statement
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[declaration](Declarations.md#declaration)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[declaration](Declarations.md#declaration)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[loop-statement](Statements.md#loop-statement)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[loop-statement](Statements.md#loop-statement)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[branch-statement](Statements.md#branch-statement)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[branch-statement](Statements.md#branch-statement)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[labeled-statement](Statements.md#labeled-statement)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[labeled-statement](Statements.md#labeled-statement)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[control-transfer-statement](Statements.md#control-transfer-statement)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[control-transfer-statement](Statements.md#control-transfer-statement)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[defer-statement](Statements.md#defer-statement)</span><span class="optional">`;`~opt~</span>
+<span class="syntactic-cat">[defer-statement](Statements.md#defer-statement)<span class="optional">`;`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[do-statement](Statements.md#do-statement)</span><span class="optional">`:`~opt~</span>
+<span class="syntactic-cat">[do-statement](Statements.md#do-statement)<span class="optional">`:`~opt~
 
 <span class="syntax-def-name">
 statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[compiler-control-statement](Statements.md#compiler-control-statement)</span>
+<span class="syntactic-cat">[compiler-control-statement](Statements.md#compiler-control-statement)
 
 <span class="syntax-def-name">
 statements
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[statement](Statements.md#statement)</span><span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>
+<span class="syntactic-cat">[statement](Statements.md#statement)<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~
 
-### Loop Statements 
+### Loop Statements
 
 Loop statements allow a block of code to be executed repeatedly, depending on the conditions specified in the loop. Swift has four loop statements: a `for` statement, a `for`-`in` statement, a `while` statement, and a `repeat`-`while` statement.
 
@@ -89,48 +89,47 @@ Grammar of a loop statement
 
 <span class="syntax-def-name">
 loop-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[for-statement](Statements.md#for-statement)</span>
+<span class="syntactic-cat">[for-statement](Statements.md#for-statement)
 
 <span class="syntax-def-name">
 loop-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[for-in-statement](Statements.md#for-in-statement)</span>
+<span class="syntactic-cat">[for-in-statement](Statements.md#for-in-statement)
 
 <span class="syntax-def-name">
 loop-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[while-statement](Statements.md#while-statement)</span>
+<span class="syntactic-cat">[while-statement](Statements.md#while-statement)
 
 <span class="syntax-def-name">
 loop-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[repeat-while-statement](Statements.md#repeat-while-statement)</span>
+<span class="syntactic-cat">[repeat-while-statement](Statements.md#repeat-while-statement)
 
-### For Statement 
+### For Statement
 
 A `for` statement allows a block of code to be executed repeatedly while incrementing a counter, as long as a condition remains true.
 
 A `for` statement has the following form:
 
-
--   ``` 
+-   ```
     for initialization; condition; increment {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -154,45 +153,43 @@ Grammar of a for statement
 
 <span class="syntax-def-name">
 for-statement
-</span>
+
 <span class="arrow">
 →
-</span>`for`<span class="optional"><span class="syntactic-cat">[for-init](Statements.md#for-init)</span>~opt~</span>`;`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)</span>~opt~</span>`;`<span class="optional"><span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`for`<span class="optional"><span class="syntactic-cat">[for-init](Statements.md#for-init)~opt~`;`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)~opt~`;`<span class="optional"><span class="syntactic-cat">[expression-list](Expressions.md#expression-list)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 for-statement
-</span>
+
 <span class="arrow">
 →
-</span>`for``(`<span class="optional"><span class="syntactic-cat">[for-init](Statements.md#for-init)</span>~opt~</span>`;`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)</span>~opt~</span>`;`<span class="optional"><span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>~opt~</span>`)`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`for``(`<span class="optional"><span class="syntactic-cat">[for-init](Statements.md#for-init)~opt~`;`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)~opt~`;`<span class="optional"><span class="syntactic-cat">[expression-list](Expressions.md#expression-list)~opt~`)`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 for-init
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[variable-declaration](Declarations.md#variable-declaration)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[variable-declaration](Declarations.md#variable-declaration)
+<span class="alternative">
+<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)
 
-### For-In Statement 
+### For-In Statement
 
 A `for`-`in` statement allows a block of code to be executed once for each item in a collection (or any type) that conforms to the `SequenceType` protocol.
 
 A `for`-`in` statement has the following form:
 
-
--   ``` 
+-   ```
     for item in collection {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -202,27 +199,26 @@ Grammar of a for-in statement
 
 <span class="syntax-def-name">
 for-in-statement
-</span>
+
 <span class="arrow">
 →
-</span>`for`<span class="optional">`case`~opt~</span><span class="syntactic-cat">[pattern](Patterns.md#pattern)</span>`in`<span class="syntactic-cat">[expression](Expressions.md#expression)</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`for`<span class="optional">`case`~opt~<span class="syntactic-cat">[pattern](Patterns.md#pattern)`in`<span class="syntactic-cat">[expression](Expressions.md#expression)<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### While Statement 
+### While Statement
 
 A `while` statement allows a block of code to be executed repeatedly, as long as a condition remains true.
 
 A `while` statement has the following form:
 
-
--   ``` 
+-   ```
     while condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -242,122 +238,117 @@ Grammar of a while statement
 
 <span class="syntax-def-name">
 while-statement
-</span>
+
 <span class="arrow">
 →
-</span>`while`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`while`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 condition-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)
 
 <span class="syntax-def-name">
 condition-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>`,`<span class="syntactic-cat">[condition-list](Statements.md#condition-list)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)`,`<span class="syntactic-cat">[condition-list](Statements.md#condition-list)
 
 <span class="syntax-def-name">
 condition-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[condition-list](Statements.md#condition-list)</span>
+<span class="syntactic-cat">[condition-list](Statements.md#condition-list)
 
 <span class="syntax-def-name">
 condition-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[availability-condition](Statements.md#availability-condition)</span>`,`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[availability-condition](Statements.md#availability-condition)`,`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
 <span class="syntax-def-name">
 condition-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[condition](Statements.md#condition)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[condition](Statements.md#condition)</span>`,`<span class="syntactic-cat">[condition-list](Statements.md#condition-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[condition](Statements.md#condition)
+<span class="alternative">
+<span class="syntactic-cat">[condition](Statements.md#condition)`,`<span class="syntactic-cat">[condition-list](Statements.md#condition-list)
 
 <span class="syntax-def-name">
 condition
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[availability-condition](Statements.md#availability-condition)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[case-condition](Statements.md#case-condition)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[optional-binding-condition](Statements.md#optional-binding-condition)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[availability-condition](Statements.md#availability-condition)
+<span class="alternative">
+<span class="syntactic-cat">[case-condition](Statements.md#case-condition)
+<span class="alternative">
+<span class="syntactic-cat">[optional-binding-condition](Statements.md#optional-binding-condition)
 
 <span class="syntax-def-name">
 case-condition
-</span>
+
 <span class="arrow">
 →
-</span>`case`<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span>
+`case`<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="syntactic-cat">[initializer](Declarations.md#initializer)<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~
 
 <span class="syntax-def-name">
 optional-binding-condition
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[optional-binding-head](Statements.md#optional-binding-head)</span><span class="optional"><span class="syntactic-cat">[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span>
+<span class="syntactic-cat">[optional-binding-head](Statements.md#optional-binding-head)<span class="optional"><span class="syntactic-cat">[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)~opt~<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~
 
 <span class="syntax-def-name">
 optional-binding-head
-</span>
+
 <span class="arrow">
 →
-</span>`let`<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span>
+`let`<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="syntactic-cat">[initializer](Declarations.md#initializer)
 
 <span class="syntax-def-name">
 optional-binding-continuation-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[optional-binding-continuation](Statements.md#optional-binding-continuation)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[optional-binding-continuation](Statements.md#optional-binding-continuation)</span>`,`<span class="syntactic-cat">[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[optional-binding-continuation](Statements.md#optional-binding-continuation)
+<span class="alternative">
+<span class="syntactic-cat">[optional-binding-continuation](Statements.md#optional-binding-continuation)`,`<span class="syntactic-cat">[optional-binding-continuation-list](Statements.md#optional-binding-continuation-list)
 
 <span class="syntax-def-name">
 optional-binding-continuation
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[optional-binding-head](Statements.md#optional-binding-head)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="syntactic-cat">[initializer](Declarations.md#initializer)
+<span class="alternative">
+<span class="syntactic-cat">[optional-binding-head](Statements.md#optional-binding-head)
 
-### Repeat-While Statement 
+### Repeat-While Statement
 
 A `repeat`-`while` statement allows a block of code to be executed one or more times, as long as a condition remains true.
 
 A `repeat`-`while` statement has the following form:
 
-
--   ``` 
+-   ```
     repeat {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } while condition
     ```
 
@@ -377,12 +368,12 @@ Grammar of a repeat-while statement
 
 <span class="syntax-def-name">
 repeat-while-statement
-</span>
+
 <span class="arrow">
 →
-</span>`repeat`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>`while`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+`repeat`<span class="syntactic-cat">[code-block](Declarations.md#code-block)`while`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Branch Statements 
+### Branch Statements
 
 Branch statements allow the program to execute certain parts of code depending on the value of one or more conditions. The values of the conditions specified in a branch statement control how the program branches and, therefore, what block of code is executed. Swift has three branch statements: an `if` statement, a `guard` statement, and a `switch` statement.
 
@@ -392,26 +383,26 @@ Grammar of a branch statement
 
 <span class="syntax-def-name">
 branch-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[if-statement](Statements.md#if-statement)</span>
+<span class="syntactic-cat">[if-statement](Statements.md#if-statement)
 
 <span class="syntax-def-name">
 branch-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[guard-statement](Statements.md#guard-statement)</span>
+<span class="syntactic-cat">[guard-statement](Statements.md#guard-statement)
 
 <span class="syntax-def-name">
 branch-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[switch-statement](Statements.md#switch-statement)</span>
+<span class="syntactic-cat">[switch-statement](Statements.md#switch-statement)
 
-### If Statement 
+### If Statement
 
 An `if` statement is used for executing code based on the evaluation of one or more conditions.
 
@@ -419,70 +410,67 @@ There are two basic forms of an `if` statement. In each form, the opening and cl
 
 The first form allows code to be executed only when a condition is true and has the following form:
 
-
--   ``` 
+-   ```
     if condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
 The second form of an `if` statement provides an additional *else clause* (introduced by the `else` keyword) and is used for executing one part of code when the condition is true and another part of code when the same condition is false. When a single else clause is present, an `if` statement has the following form:
 
-
--   ``` 
+-   ```
     if condition {
     ```
 
--   ``` 
+-   ```
         statements to execute if condition is true
     ```
 
--   ``` 
+-   ```
     } else {
     ```
 
--   ``` 
+-   ```
         statements to execute if condition is false
     ```
 
--   ``` 
+-   ```
     }
     ```
 
 The else clause of an `if` statement can contain another `if` statement to test more than one condition. An `if` statement chained together in this way has the following form:
 
-
--   ``` 
+-   ```
     if condition 1 {
     ```
 
--   ``` 
+-   ```
         statements to execute if condition 1 is true
     ```
 
--   ``` 
+-   ```
     } else if condition 2 {
     ```
 
--   ``` 
+-   ```
         statements to execute if condition 2 is true
     ```
 
--   ``` 
+-   ```
     } else {
     ```
 
--   ``` 
+-   ```
         statements to execute if both conditions are false
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -492,38 +480,36 @@ Grammar of an if statement
 
 <span class="syntax-def-name">
 if-statement
-</span>
+
 <span class="arrow">
 →
-</span>`if`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span><span class="optional"><span class="syntactic-cat">[else-clause](Statements.md#else-clause)</span>~opt~</span>
+`if`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)<span class="syntactic-cat">[code-block](Declarations.md#code-block)<span class="optional"><span class="syntactic-cat">[else-clause](Statements.md#else-clause)~opt~
 
 <span class="syntax-def-name">
 else-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-`else`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
-</span><span class="alternative">
-`else`<span class="syntactic-cat">[if-statement](Statements.md#if-statement)</span>
-</span>
+<span class="alternative">
+`else`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
+<span class="alternative">
+`else`<span class="syntactic-cat">[if-statement](Statements.md#if-statement)
 
-### Guard Statement 
+### Guard Statement
 
 A `guard` statement is used to transfer program control out of a scope if one or more conditions aren’t met.
 
 A `guard` statement has the following form:
 
-
--   ``` 
+-   ```
     guard condition else {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -547,59 +533,58 @@ Grammar of a guard statement
 
 <span class="syntax-def-name">
 guard-statement
-</span>
+
 <span class="arrow">
 →
-</span>`guard`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)</span>`else`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`guard`<span class="syntactic-cat">[condition-clause](Statements.md#condition-clause)`else`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Switch Statement 
+### Switch Statement
 
 A `switch` statement allows certain blocks of code to be executed depending on the value of a control expression.
 
 A `switch` statement has the following form:
 
-
--   ``` 
+-   ```
     switch control expression {
     ```
 
--   ``` 
+-   ```
     case pattern 1:
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     case pattern 2 where condition:
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     case pattern 3 where condition,
     ```
 
--   ``` 
+-   ```
     pattern 4 where condition:
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     default:
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -617,11 +602,11 @@ A `switch` statement can also include a default case, introduced by the `default
 
 Although the actual execution order of pattern-matching operations, and in particular the evaluation order of patterns in cases, is unspecified, pattern matching in a `switch` statement behaves as if the evaluation is performed in source order—that is, the order in which they appear in source code. As a result, if multiple cases contain patterns that evaluate to the same value, and thus can match the value of the control expression, the program executes only the code within the first matching case in source order.
 
-### Switch Statements Must Be Exhaustive 
+### Switch Statements Must Be Exhaustive
 
 In Swift, every possible value of the control expression’s type must match the value of at least one pattern of a case. When this simply isn’t feasible (for instance, when the control expression’s type is `Int`), you can include a default case to satisfy the requirement.
 
-### Execution Does Not Fall Through Cases Implicitly 
+### Execution Does Not Fall Through Cases Implicitly
 
 After the code within a matched case has finished executing, the program exits from the `switch` statement. Program execution does not continue or “fall through” to the next case or default case. That said, if you want execution to continue from one case to the next, explicitly include a `fallthrough` statement, which simply consists of the `fallthrough` keyword, in the case from which you want execution to continue. For more information about the `fallthrough` statement, see [Fallthrough Statement](Statements.md#TP40016643-CH33-ID443) below.
 
@@ -629,69 +614,67 @@ Grammar of a switch statement
 
 <span class="syntax-def-name">
 switch-statement
-</span>
+
 <span class="arrow">
 →
-</span>`switch`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>`{`<span class="optional"><span class="syntactic-cat">[switch-cases](Statements.md#switch-cases)</span>~opt~</span>`}`
+`switch`<span class="syntactic-cat">[expression](Expressions.md#expression)`{`<span class="optional"><span class="syntactic-cat">[switch-cases](Statements.md#switch-cases)~opt~`}`
 
 <span class="syntax-def-name">
 switch-cases
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[switch-case](Statements.md#switch-case)</span><span class="optional"><span class="syntactic-cat">[switch-cases](Statements.md#switch-cases)</span>~opt~</span>
+<span class="syntactic-cat">[switch-case](Statements.md#switch-case)<span class="optional"><span class="syntactic-cat">[switch-cases](Statements.md#switch-cases)~opt~
 
 <span class="syntax-def-name">
 switch-case
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[case-label](Statements.md#case-label)</span><span class="syntactic-cat">[statements](Statements.md#statements)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[default-label](Statements.md#default-label)</span><span class="syntactic-cat">[statements](Statements.md#statements)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[case-label](Statements.md#case-label)<span class="syntactic-cat">[statements](Statements.md#statements)
+<span class="alternative">
+<span class="syntactic-cat">[default-label](Statements.md#default-label)<span class="syntactic-cat">[statements](Statements.md#statements)
 
 <span class="syntax-def-name">
 case-label
-</span>
+
 <span class="arrow">
 →
-</span>`case`<span class="syntactic-cat">[case-item-list](Statements.md#case-item-list)</span>`:`
+`case`<span class="syntactic-cat">[case-item-list](Statements.md#case-item-list)`:`
 
 <span class="syntax-def-name">
 case-item-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span>`,`<span class="syntactic-cat">[case-item-list](Statements.md#case-item-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~
+<span class="alternative">
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~`,`<span class="syntactic-cat">[case-item-list](Statements.md#case-item-list)
 
 <span class="syntax-def-name">
 default-label
-</span>
+
 <span class="arrow">
 →
-</span>`default``:`
+`default``:`
 
 <span class="syntax-def-name">
 where-clause
-</span>
+
 <span class="arrow">
 →
-</span>`where`<span class="syntactic-cat">[where-expression](Statements.md#where-expression)</span>
+`where`<span class="syntactic-cat">[where-expression](Statements.md#where-expression)
 
 <span class="syntax-def-name">
 where-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Labeled Statement 
+### Labeled Statement
 
 You can prefix a loop statement, an `if` statement, or a `switch` statement with a *statement label*, which consists of the name of the label followed immediately by a colon (:). Use statement labels with `break` and `continue` statements to be explicit about how you want to change control flow in a loop statement or a `switch` statement, as discussed in [Break Statement](Statements.md#TP40016643-CH33-ID441) and [Continue Statement](Statements.md#TP40016643-CH33-ID442) below.
 
@@ -703,32 +686,31 @@ Grammar of a labeled statement
 
 <span class="syntax-def-name">
 labeled-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[statement-label](Statements.md#statement-label)</span><span class="syntactic-cat">[loop-statement](Statements.md#loop-statement)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[statement-label](Statements.md#statement-label)</span><span class="syntactic-cat">[if-statement](Statements.md#if-statement)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[statement-label](Statements.md#statement-label)</span><span class="syntactic-cat">[switch-statement](Statements.md#switch-statement)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[statement-label](Statements.md#statement-label)<span class="syntactic-cat">[loop-statement](Statements.md#loop-statement)
+<span class="alternative">
+<span class="syntactic-cat">[statement-label](Statements.md#statement-label)<span class="syntactic-cat">[if-statement](Statements.md#if-statement)
+<span class="alternative">
+<span class="syntactic-cat">[statement-label](Statements.md#statement-label)<span class="syntactic-cat">[switch-statement](Statements.md#switch-statement)
 
 <span class="syntax-def-name">
 statement-label
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[label-name](Statements.md#label-name)</span>`:`
+<span class="syntactic-cat">[label-name](Statements.md#label-name)`:`
 
 <span class="syntax-def-name">
 label-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Control Transfer Statements 
+### Control Transfer Statements
 
 Control transfer statements can change the order in which code in your program is executed by unconditionally transferring program control from one piece of code to another. Swift has five control transfer statements: a `break` statement, a `continue` statement, a `fallthrough` statement, a `return` statement, and a `throw` statement.
 
@@ -736,49 +718,48 @@ Grammar of a control transfer statement
 
 <span class="syntax-def-name">
 control-transfer-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[break-statement](Statements.md#break-statement)</span>
+<span class="syntactic-cat">[break-statement](Statements.md#break-statement)
 
 <span class="syntax-def-name">
 control-transfer-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[continue-statement](Statements.md#continue-statement)</span>
+<span class="syntactic-cat">[continue-statement](Statements.md#continue-statement)
 
 <span class="syntax-def-name">
 control-transfer-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[fallthrough-statement](Statements.md#fallthrough-statement)</span>
+<span class="syntactic-cat">[fallthrough-statement](Statements.md#fallthrough-statement)
 
 <span class="syntax-def-name">
 control-transfer-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[return-statement](Statements.md#return-statement)</span>
+<span class="syntactic-cat">[return-statement](Statements.md#return-statement)
 
 <span class="syntax-def-name">
 control-transfer-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[throw-statement](Statements.md#throw-statement)</span>
+<span class="syntactic-cat">[throw-statement](Statements.md#throw-statement)
 
-### Break Statement 
+### Break Statement
 
 A `break` statement ends program execution of a loop, an `if` statement, or a `switch` statement. A `break` statement can consist of only the `break` keyword, or it can consist of the `break` keyword followed by the name of a statement label, as shown below.
 
-
--   ``` 
+-   ```
     break
     ```
 
--   ``` 
+-   ```
     break label name
     ```
 
@@ -794,21 +775,20 @@ Grammar of a break statement
 
 <span class="syntax-def-name">
 break-statement
-</span>
+
 <span class="arrow">
 →
-</span>`break`<span class="optional"><span class="syntactic-cat">[label-name](Statements.md#label-name)</span>~opt~</span>
+`break`<span class="optional"><span class="syntactic-cat">[label-name](Statements.md#label-name)~opt~
 
-### Continue Statement 
+### Continue Statement
 
 A `continue` statement ends program execution of the current iteration of a loop statement but does not stop execution of the loop statement. A `continue` statement can consist of only the `continue` keyword, or it can consist of the `continue` keyword followed by the name of a statement label, as shown below.
 
-
--   ``` 
+-   ```
     continue
     ```
 
--   ``` 
+-   ```
     continue label name
     ```
 
@@ -826,12 +806,12 @@ Grammar of a continue statement
 
 <span class="syntax-def-name">
 continue-statement
-</span>
+
 <span class="arrow">
 →
-</span>`continue`<span class="optional"><span class="syntactic-cat">[label-name](Statements.md#label-name)</span>~opt~</span>
+`continue`<span class="optional"><span class="syntactic-cat">[label-name](Statements.md#label-name)~opt~
 
-### Fallthrough Statement 
+### Fallthrough Statement
 
 A `fallthrough` statement consists of the `fallthrough` keyword and occurs only in a case block of a `switch` statement. A `fallthrough` statement causes program execution to continue from one case in a `switch` statement to the next case. Program execution continues to the next case even if the patterns of the case label do not match the value of the `switch` statement’s control expression.
 
@@ -843,23 +823,22 @@ Grammar of a fallthrough statement
 
 <span class="syntax-def-name">
 fallthrough-statement
-</span>
+
 <span class="arrow">
 →
-</span>`fallthrough`
+`fallthrough`
 
-### Return Statement 
+### Return Statement
 
 A `return` statement occurs in the body of a function or method definition and causes program execution to return to the calling function or method. Program execution continues at the point immediately following the function or method call.
 
 A `return` statement can consist of only the `return` keyword, or it can consist of the `return` keyword followed by an expression, as shown below.
 
-
--   ``` 
+-   ```
     return
     ```
 
--   ``` 
+-   ```
     return expression
     ```
 
@@ -875,35 +854,34 @@ Grammar of a return statement
 
 <span class="syntax-def-name">
 return-statement
-</span>
+
 <span class="arrow">
 →
-</span>`return`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)</span>~opt~</span>
+`return`<span class="optional"><span class="syntactic-cat">[expression](Expressions.md#expression)~opt~
 
-### Availability Condition 
+### Availability Condition
 
 An *availability condition* is used as a condition of an `if`, `while`, and `guard` statement to query the availability of APIs at runtime, based on specified platforms arguments.
 
 An availability condition has the following form:
 
-
--   ``` 
+-   ```
     if #available(platform name version, ..., *) {
     ```
 
--   ``` 
+-   ```
         statements to execute if the APIs are available
     ```
 
--   ``` 
+-   ```
     } else {
     ```
 
--   ``` 
+-   ```
         fallback statements to execute if the APIs are unavailable
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -917,87 +895,84 @@ Grammar of an availability condition
 
 <span class="syntax-def-name">
 availability-condition
-</span>
+
 <span class="arrow">
 →
-</span>`#available``(`<span class="syntactic-cat">[availability-arguments](Statements.md#availability-arguments)</span>`)`
+`#available``(`<span class="syntactic-cat">[availability-arguments](Statements.md#availability-arguments)`)`
 
 <span class="syntax-def-name">
 availability-arguments
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[availability-argument](Statements.md#availability-argument)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[availability-argument](Statements.md#availability-argument)</span>`,`<span class="syntactic-cat">[availability-arguments](Statements.md#availability-arguments)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[availability-argument](Statements.md#availability-argument)
+<span class="alternative">
+<span class="syntactic-cat">[availability-argument](Statements.md#availability-argument)`,`<span class="syntactic-cat">[availability-arguments](Statements.md#availability-arguments)
 
 <span class="syntax-def-name">
 availability-argument
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[platform-name](Statements.md#platform-name)</span><span class="syntactic-cat">[platform-version](Statements.md#platform-version)</span>
+<span class="syntactic-cat">[platform-name](Statements.md#platform-name)<span class="syntactic-cat">[platform-version](Statements.md#platform-version)
 
 <span class="syntax-def-name">
 availability-argument
-</span>
+
 <span class="arrow">
 →
-</span>`*`
+`*`
 
 <span class="syntax-def-name">
 platform-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `iOS`
-</span><span class="alternative">
+<span class="alternative">
 `iOSApplicationExtension`
-</span>
 
 <span class="syntax-def-name">
 platform-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `OSX`
-</span><span class="alternative">
+<span class="alternative">
 `OSXApplicationExtension`
-</span>
 
 <span class="syntax-def-name">
 platform-name
-</span>
+
 <span class="arrow">
 →
-</span>`watchOS`
+`watchOS`
 
 <span class="syntax-def-name">
 platform-version
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>
+<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)
 
 <span class="syntax-def-name">
 platform-version
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>
+<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)
 
 <span class="syntax-def-name">
 platform-version
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>
+<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)
 
-### Throw Statement 
+### Throw Statement
 
 A `throw` statement occurs in the body of a throwing function or method, or in the body of a closure expression whose type is marked with the `throws` keyword.
 
@@ -1005,8 +980,7 @@ A `throw` statement causes a program to end execution of the current scope and b
 
 A `throw` statement consists of the `throw` keyword followed by an expression, as shown below.
 
-
--   ``` 
+-   ```
     throw expression
     ```
 
@@ -1018,27 +992,26 @@ Grammar of a throw statement
 
 <span class="syntax-def-name">
 throw-statement
-</span>
+
 <span class="arrow">
 →
-</span>`throw`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+`throw`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Defer Statement 
+### Defer Statement
 
 A `defer` statement is used for executing code just before transferring program control outside of the scope that the `defer` statement appears in.
 
 A `defer` statement has the following form:
 
-
--   ``` 
+-   ```
     defer {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1062,12 +1035,12 @@ Grammar of a defer statement
 
 <span class="syntax-def-name">
 defer-statement
-</span>
+
 <span class="arrow">
 →
-</span>`defer`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`defer`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Do Statement 
+### Do Statement
 
 The `do` statement is used to introduce a new scope and can optionally contain one or more `catch` clauses, which contain patterns that match against defined error conditions. Variables and constants declared in the scope of a `do` statement can be accessed only within that scope.
 
@@ -1075,36 +1048,35 @@ A `do` statement in Swift is similar to curly braces (`{}`) in C used to delimit
 
 A `do` statement has the following form:
 
-
--   ``` 
+-   ```
     do {
     ```
 
--   ``` 
+-   ```
         try expression
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } catch pattern 1 {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } catch pattern 2 where condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1118,26 +1090,26 @@ Grammar of a do statement
 
 <span class="syntax-def-name">
 do-statement
-</span>
+
 <span class="arrow">
 →
-</span>`do`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span><span class="optional"><span class="syntactic-cat">[catch-clauses](Statements.md#catch-clauses)</span>~opt~</span>
+`do`<span class="syntactic-cat">[code-block](Declarations.md#code-block)<span class="optional"><span class="syntactic-cat">[catch-clauses](Statements.md#catch-clauses)~opt~
 
 <span class="syntax-def-name">
 catch-clauses
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[catch-clause](Statements.md#catch-clause)</span><span class="optional"><span class="syntactic-cat">[catch-clauses](Statements.md#catch-clauses)</span>~opt~</span>
+<span class="syntactic-cat">[catch-clause](Statements.md#catch-clause)<span class="optional"><span class="syntactic-cat">[catch-clauses](Statements.md#catch-clauses)~opt~
 
 <span class="syntax-def-name">
 catch-clause
-</span>
+
 <span class="arrow">
 →
-</span>`catch`<span class="optional"><span class="syntactic-cat">[pattern](Patterns.md#pattern)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+`catch`<span class="optional"><span class="syntactic-cat">[pattern](Patterns.md#pattern)~opt~<span class="optional"><span class="syntactic-cat">[where-clause](Statements.md#where-clause)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Compiler Control Statements 
+### Compiler Control Statements
 
 Compiler control statements allow the program to change aspects of the compiler’s behavior. Swift has two complier control statements: a build configuration statement and a line control statement.
 
@@ -1145,34 +1117,33 @@ Grammar of a compiler control statement
 
 <span class="syntax-def-name">
 compiler-control-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[build-configuration-statement](Statements.md#build-configuration-statement)</span>
+<span class="syntactic-cat">[build-configuration-statement](Statements.md#build-configuration-statement)
 
 <span class="syntax-def-name">
 compiler-control-statement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[line-control-statement](Statements.md#line-control-statement)</span>
+<span class="syntactic-cat">[line-control-statement](Statements.md#line-control-statement)
 
-### Build Configuration Statement 
+### Build Configuration Statement
 
 A build configuration statement allows code to be conditionally compiled depending on the value of one or more build configurations.
 
 Every build configuration statement begins with `#if` and ends with `#endif`. A simple build configuration statement has the following form:
 
-
--   ``` 
+-   ```
     #if build configuration
     ```
 
--   ``` 
+-   ```
     statements
     ```
 
--   ``` 
+-   ```
     #endif
     ```
 
@@ -1202,32 +1173,31 @@ You can combine build configurations using the logical operators `&&`, `||`, and
 
 Similar to an `if` statement, you can add multiple conditional branches to test for different build configurations. You can add any number of additional branches using `#elseif` clauses. You can also add a final additional branch using an `#else` clause. Build configuration statements that contain multiple branches have the following form:
 
-
--   ``` 
+-   ```
     #if build configuration 1
     ```
 
--   ``` 
+-   ```
     statements to compile if build configuration 1 is true
     ```
 
--   ``` 
+-   ```
     #elseif build configuration 2
     ```
 
--   ``` 
+-   ```
     statements to compile if build configuration 2 is true
     ```
 
--   ``` 
+-   ```
     #else
     ```
 
--   ``` 
+-   ```
     statements to compile if both build configurations are false
     ```
 
--   ``` 
+-   ```
     #endif
     ```
 
@@ -1239,133 +1209,130 @@ Grammar of a build configuration statement
 
 <span class="syntax-def-name">
 build-configuration-statement
-</span>
+
 <span class="arrow">
 →
-</span>`#if`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span><span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[build-configuration-else-clause](Statements.md#build-configuration-else-clause)</span>~opt~</span>`#endif`
+`#if`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~<span class="optional"><span class="syntactic-cat">[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)~opt~<span class="optional"><span class="syntactic-cat">[build-configuration-else-clause](Statements.md#build-configuration-else-clause)~opt~`#endif`
 
 <span class="syntax-def-name">
 build-configuration-elseif-clauses
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[build-configuration-elseif-clause](Statements.md#build-configuration-elseif-clause)</span><span class="optional"><span class="syntactic-cat">[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)</span>~opt~</span>
+<span class="syntactic-cat">[build-configuration-elseif-clause](Statements.md#build-configuration-elseif-clause)<span class="optional"><span class="syntactic-cat">[build-configuration-elseif-clauses](Statements.md#build-configuration-elseif-clauses)~opt~
 
 <span class="syntax-def-name">
 build-configuration-elseif-clause
-</span>
+
 <span class="arrow">
 →
-</span>`#elseif`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span><span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>
+`#elseif`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~
 
 <span class="syntax-def-name">
 build-configuration-else-clause
-</span>
+
 <span class="arrow">
 →
-</span>`#else`<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>
+`#else`<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[platform-testing-function](Statements.md#platform-testing-function)</span>
+<span class="syntactic-cat">[platform-testing-function](Statements.md#platform-testing-function)
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)</span>
+<span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>`)`
+`(`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)`)`
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span>`!`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>
+`!`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>`&&`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>
+<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)`&&`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)
 
 <span class="syntax-def-name">
 build-configuration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>`||`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)</span>
+<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)`||`<span class="syntactic-cat">[build-configuration](Statements.md#build-configuration)
 
 <span class="syntax-def-name">
 platform-testing-function
-</span>
+
 <span class="arrow">
 →
-</span>`os``(`<span class="syntactic-cat">[operating-system](Statements.md#operating-system)</span>`)`
+`os``(`<span class="syntactic-cat">[operating-system](Statements.md#operating-system)`)`
 
 <span class="syntax-def-name">
 platform-testing-function
-</span>
+
 <span class="arrow">
 →
-</span>`arch``(`<span class="syntactic-cat">[architecture](Statements.md#architecture)</span>`)`
+`arch``(`<span class="syntactic-cat">[architecture](Statements.md#architecture)`)`
 
 <span class="syntax-def-name">
 operating-system
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `OSX`
-</span><span class="alternative">
+<span class="alternative">
 `iOS`
-</span><span class="alternative">
+<span class="alternative">
 `watchOS`
-</span><span class="alternative">
+<span class="alternative">
 `tvOS`
-</span>
 
 <span class="syntax-def-name">
 architecture
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `i386`
-</span><span class="alternative">
+<span class="alternative">
 `x86_64`
-</span><span class="alternative">
+<span class="alternative">
 `arm`
-</span><span class="alternative">
+<span class="alternative">
 `arm64`
-</span>
 
-### Line Control Statement 
+### Line Control Statement
 
 A line control statement is used to specify a line number and filename that can be different from the line number and filename of the source code being compiled. Use a line control statement to change the source code location used by Swift for diagnostic and debugging purposes.
 
 A line control statement has the following form:
 
-
--   ``` 
+-   ```
     #line line number filename
     ```
 
@@ -1379,29 +1346,29 @@ Grammar of a line control statement
 
 <span class="syntax-def-name">
 line-control-statement
-</span>
+
 <span class="arrow">
 →
-</span>`#line`
+`#line`
 
 <span class="syntax-def-name">
 line-control-statement
-</span>
+
 <span class="arrow">
 →
-</span>`#line`<span class="syntactic-cat">[line-number](Statements.md#line-number)</span><span class="syntactic-cat">[file-name](Statements.md#file-name)</span>
+`#line`<span class="syntactic-cat">[line-number](Statements.md#line-number)<span class="syntactic-cat">[file-name](Statements.md#file-name)
 
 <span class="syntax-def-name">
 line-number
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">A decimal integer greater than zero</span>
+<span class="text-description">A decimal integer greater than zero
 
 <span class="syntax-def-name">
 file-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)</span>
+<span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)
 

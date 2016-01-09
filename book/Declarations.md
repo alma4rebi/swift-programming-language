@@ -1,4 +1,4 @@
-Declarations 
+Declarations
 ------------
 
 A *declaration* introduces a new name or construct into your program. For example, you use declarations to introduce functions and methods, variables and constants, and to define new, named enumeration, structure, class, and protocol types. You can also use a declaration to extend the behavior of an existing named type and to import symbols into your program that are declared elsewhere.
@@ -9,110 +9,110 @@ Grammar of a declaration
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[import-declaration](Declarations.md#import-declaration)</span>
+<span class="syntactic-cat">[import-declaration](Declarations.md#import-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[constant-declaration](Declarations.md#constant-declaration)</span>
+<span class="syntactic-cat">[constant-declaration](Declarations.md#constant-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration](Declarations.md#variable-declaration)</span>
+<span class="syntactic-cat">[variable-declaration](Declarations.md#variable-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[typealias-declaration](Declarations.md#typealias-declaration)</span>
+<span class="syntactic-cat">[typealias-declaration](Declarations.md#typealias-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[function-declaration](Declarations.md#function-declaration)</span>
+<span class="syntactic-cat">[function-declaration](Declarations.md#function-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[enum-declaration](Declarations.md#enum-declaration)</span>
+<span class="syntactic-cat">[enum-declaration](Declarations.md#enum-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[struct-declaration](Declarations.md#struct-declaration)</span>
+<span class="syntactic-cat">[struct-declaration](Declarations.md#struct-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[class-declaration](Declarations.md#class-declaration)</span>
+<span class="syntactic-cat">[class-declaration](Declarations.md#class-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-declaration](Declarations.md#protocol-declaration)</span>
+<span class="syntactic-cat">[protocol-declaration](Declarations.md#protocol-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-declaration](Declarations.md#initializer-declaration)</span>
+<span class="syntactic-cat">[initializer-declaration](Declarations.md#initializer-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[deinitializer-declaration](Declarations.md#deinitializer-declaration)</span>
+<span class="syntactic-cat">[deinitializer-declaration](Declarations.md#deinitializer-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[extension-declaration](Declarations.md#extension-declaration)</span>
+<span class="syntactic-cat">[extension-declaration](Declarations.md#extension-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-declaration](Declarations.md#subscript-declaration)</span>
+<span class="syntactic-cat">[subscript-declaration](Declarations.md#subscript-declaration)
 
 <span class="syntax-def-name">
 declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator-declaration](Declarations.md#operator-declaration)</span>
+<span class="syntactic-cat">[operator-declaration](Declarations.md#operator-declaration)
 
 <span class="syntax-def-name">
 declarations
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[declaration](Declarations.md#declaration)</span><span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>
+<span class="syntactic-cat">[declaration](Declarations.md#declaration)<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)~opt~
 
-### Top-Level Code 
+### Top-Level Code
 
 The top-level code in a Swift source file consists of zero or more statements, declarations, and expressions. By default, variables, constants, and other named declarations that are declared at the top-level of a source file are accessible to code in every source file that is part of the same module. You can override this default behavior by marking the declaration with an access level modifier, as described in [Access Control Levels](Declarations.md#TP40016643-CH34-ID382).
 
@@ -120,25 +120,24 @@ Grammar of a top-level declaration
 
 <span class="syntax-def-name">
 top-level-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>
+<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~
 
-### Code Blocks 
+### Code Blocks
 
 A *code block* is used by a variety of declarations and control structures to group statements together. It has the following form:
 
-
--   ``` 
+-   ```
     {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -148,28 +147,26 @@ Grammar of a code block
 
 <span class="syntax-def-name">
 code-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[statements](Statements.md#statements)~opt~`}`
 
-### Import Declaration 
+### Import Declaration
 
 An *import declaration* lets you access symbols that are declared outside the current file. The basic form imports the entire module; it consists of the `import` keyword followed by a module name:
 
-
--   ``` 
+-   ```
     import module
     ```
 
 Providing more detail limits which symbols are imported—you can specify a specific submodule or a specific declaration within a module or submodule. When this detailed form is used, only the imported symbol (and not the module that declares it) is made available in the current scope.
 
-
--   ``` 
+-   ```
     import import kind module.symbol name
     ```
 
--   ``` 
+-   ```
     import module.submodule
     ```
 
@@ -177,60 +174,56 @@ Grammar of an import declaration
 
 <span class="syntax-def-name">
 import-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`import`<span class="optional"><span class="syntactic-cat">[import-kind](Declarations.md#import-kind)</span>~opt~</span><span class="syntactic-cat">[import-path](Declarations.md#import-path)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`import`<span class="optional"><span class="syntactic-cat">[import-kind](Declarations.md#import-kind)~opt~<span class="syntactic-cat">[import-path](Declarations.md#import-path)
 
 <span class="syntax-def-name">
 import-kind
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `typealias`
-</span><span class="alternative">
+<span class="alternative">
 `struct`
-</span><span class="alternative">
+<span class="alternative">
 `class`
-</span><span class="alternative">
+<span class="alternative">
 `enum`
-</span><span class="alternative">
+<span class="alternative">
 `protocol`
-</span><span class="alternative">
+<span class="alternative">
 `var`
-</span><span class="alternative">
+<span class="alternative">
 `func`
-</span>
 
 <span class="syntax-def-name">
 import-path
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)</span>`.`<span class="syntactic-cat">[import-path](Declarations.md#import-path)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)
+<span class="alternative">
+<span class="syntactic-cat">[import-path-identifier](Declarations.md#import-path-identifier)`.`<span class="syntactic-cat">[import-path](Declarations.md#import-path)
 
 <span class="syntax-def-name">
 import-path-identifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
+<span class="alternative">
+<span class="syntactic-cat">[operator](LexicalStructure.md#operator)
 
-### Constant Declaration 
+### Constant Declaration
 
 A *constant declaration* introduces a constant named value into your program. Constant declarations are declared using the `let` keyword and have the following form:
 
-
--   ``` 
+-   ```
     let constant name: type = expression
     ```
 
@@ -259,37 +252,36 @@ Grammar of a constant declaration
 
 <span class="syntax-def-name">
 constant-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`let`<span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`let`<span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
 <span class="syntax-def-name">
 pattern-initializer-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)</span>`,`<span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)
+<span class="alternative">
+<span class="syntactic-cat">[pattern-initializer](Declarations.md#pattern-initializer)`,`<span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
 <span class="syntax-def-name">
 pattern-initializer
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[pattern](Patterns.md#pattern)</span><span class="optional"><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span>~opt~</span>
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)<span class="optional"><span class="syntactic-cat">[initializer](Declarations.md#initializer)~opt~
 
 <span class="syntax-def-name">
 initializer
-</span>
+
 <span class="arrow">
 →
-</span>`=`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+`=`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Variable Declaration 
+### Variable Declaration
 
 A *variable declaration* introduces a variable named value into your program and is declared using the `var` keyword.
 
@@ -301,12 +293,11 @@ You can also declare properties in the context of a protocol declaration, as des
 
 You can override a property in a subclass by marking the subclass’s property declaration with the `override` declaration modifier, as described in [Overriding](Inheritance.md#TP40016643-CH17-ID196).
 
-### Stored Variables and Stored Variable Properties 
+### Stored Variables and Stored Variable Properties
 
 The following form declares a stored variable or stored variable property:
 
-
--   ``` 
+-   ```
     var variable name: type = expression
     ```
 
@@ -318,40 +309,39 @@ As with constant declarations, if the *variable name* is a tuple pattern, the na
 
 As their names suggest, the value of a stored variable or a stored variable property is stored in memory.
 
-### Computed Variables and Computed Properties 
+### Computed Variables and Computed Properties
 
 The following form declares a computed variable or computed property:
 
-
--   ``` 
+-   ```
     var variable name: type {
     ```
 
--   ``` 
+-   ```
     get {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
--   ``` 
+-   ```
     set(setter name) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -365,40 +355,39 @@ Unlike stored named values and stored variable properties, the value of a comput
 
 For more information and to see examples of computed properties, see [Computed Properties](Properties.md#TP40016643-CH14-ID259).
 
-### Stored Variable Observers and Property Observers 
+### Stored Variable Observers and Property Observers
 
 You can also declare a stored variable or property with `willSet` and `didSet` observers. A stored variable or property declared with observers has the following form:
 
-
--   ``` 
+-   ```
     var variable name: type = expression {
     ```
 
--   ``` 
+-   ```
     willSet(setter name) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
--   ``` 
+-   ```
     didSet(setter name) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -418,7 +407,7 @@ The `didSet` clause is optional when you provide a `willSet` clause. Likewise, t
 
 For more information and to see an example of how to use property observers, see [Property Observers](Properties.md#TP40016643-CH14-ID262).
 
-### Type Variable Properties 
+### Type Variable Properties
 
 To declare a type variable property, mark the declaration with the `static` declaration modifier. Classes may mark type computed properties with the `class` declaration modifier instead to allow subclasses to override the superclass’s implementation. Type properties are discussed in [Type Properties](Properties.md#TP40016643-CH14-ID264).
 
@@ -430,164 +419,163 @@ Grammar of a variable declaration
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[pattern-initializer-list](Declarations.md#pattern-initializer-list)
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span><span class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[initializer](Declarations.md#initializer)<span class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)
 
 <span class="syntax-def-name">
 variable-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="optional"><span class="syntactic-cat">[initializer](Declarations.md#initializer)</span>~opt~</span><span class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="optional"><span class="syntactic-cat">[initializer](Declarations.md#initializer)~opt~<span class="syntactic-cat">[willSet-didSet-block](Declarations.md#willSet-didSet-block)
 
 <span class="syntax-def-name">
 variable-declaration-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`var`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`var`
 
 <span class="syntax-def-name">
 variable-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span><span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span>~opt~</span>`}`
+`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)<span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)~opt~`}`
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span><span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span>`}`
+`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)`}`
 
 <span class="syntax-def-name">
 getter-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`get`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`get`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 setter-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`set`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`set`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 setter-name
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>`)`
+`(`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)`)`
 
 <span class="syntax-def-name">
 getter-setter-keyword-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)</span><span class="optional"><span class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)</span>~opt~</span>`}`
+`{`<span class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)<span class="optional"><span class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)~opt~`}`
 
 <span class="syntax-def-name">
 getter-setter-keyword-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)</span><span class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)</span>`}`
+`{`<span class="syntactic-cat">[setter-keyword-clause](Declarations.md#setter-keyword-clause)<span class="syntactic-cat">[getter-keyword-clause](Declarations.md#getter-keyword-clause)`}`
 
 <span class="syntax-def-name">
 getter-keyword-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`get`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`get`
 
 <span class="syntax-def-name">
 setter-keyword-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`set`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`set`
 
 <span class="syntax-def-name">
 willSet-didSet-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)</span><span class="optional"><span class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)</span>~opt~</span>`}`
+`{`<span class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)<span class="optional"><span class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)~opt~`}`
 
 <span class="syntax-def-name">
 willSet-didSet-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)</span><span class="optional"><span class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)</span>~opt~</span>`}`
+`{`<span class="syntactic-cat">[didSet-clause](Declarations.md#didSet-clause)<span class="optional"><span class="syntactic-cat">[willSet-clause](Declarations.md#willSet-clause)~opt~`}`
 
 <span class="syntax-def-name">
 willSet-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`willSet`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`willSet`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 didSet-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`didSet`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)</span>~opt~</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`didSet`<span class="optional"><span class="syntactic-cat">[setter-name](Declarations.md#setter-name)~opt~<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Type Alias Declaration 
+### Type Alias Declaration
 
 A *type alias declaration* introduces a named alias of an existing type into your program. Type alias declarations are declared using the `typealias` keyword and have the following form:
 
-
--   ``` 
+-   ```
     typealias name = existing type
     ```
 
@@ -599,61 +587,59 @@ Grammar of a type alias declaration
 
 <span class="syntax-def-name">
 typealias-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)</span><span class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)</span>
+<span class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)<span class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)
 
 <span class="syntax-def-name">
 typealias-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`typealias`<span class="syntactic-cat">[typealias-name](Declarations.md#typealias-name)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~`typealias`<span class="syntactic-cat">[typealias-name](Declarations.md#typealias-name)
 
 <span class="syntax-def-name">
 typealias-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 typealias-assignment
-</span>
+
 <span class="arrow">
 →
-</span>`=`<span class="syntactic-cat">[type](Types.md#type)</span>
+`=`<span class="syntactic-cat">[type](Types.md#type)
 
-### Function Declaration 
+### Function Declaration
 
 A *function declaration* introduces a function or method into your program. A function declared in the context of class, structure, enumeration, or protocol is referred to as a *method*. Function declarations are declared using the `func` keyword and have the following form:
 
-
--   ``` 
+-   ```
     func function name(parameters) -> return type {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
 If the function has a return type of `Void`, the return type can be omitted as follows:
 
-
--   ``` 
+-   ```
     func function name(parameters) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -663,12 +649,11 @@ Functions can return multiple values using a tuple type as the return type of th
 
 A function definition can appear inside another function declaration. This kind of function is known as a *nested function*. For a discussion of nested functions, see [Nested Functions](Functions.md#TP40016643-CH10-ID178).
 
-### Parameter Names 
+### Parameter Names
 
 Function parameters are a comma separated list where each parameter has one of several forms. The order of arguments in a function call must match the order of parameters in the function’s declaration. The simplest entry in a parameter list has the following form:
 
-
--   ``` 
+-   ```
     parameter name: parameter type
     ```
 
@@ -679,12 +664,11 @@ A parameter has a local name, which is used within the function body, as well as
 
 You can override the default behavior for how parameter names are used with one of the following forms:
 
-
--   ``` 
+-   ```
     external parameter name local parameter name: parameter type
     ```
 
--   ``` 
+-   ```
     _ local parameter name: parameter type
     ```
 
@@ -695,7 +679,7 @@ An underscore (`_`) before a local parameter name gives that parameter no name t
     func f(x x: Int, withY y: Int, _ z: Int) -&gt; Int { return x + y + z }
     f(x: 1, withY: 2, 3) // x and y are labeled, z is not
 
-### In-Out Parameters 
+### In-Out Parameters
 
 In-out parameters are passed as follows:
 
@@ -739,20 +723,19 @@ The value of `x` is not changed by `inner()` incrementing `a`, because `inner()`
 
 For more discussion and examples of in-out parameters, see [In-Out Parameters](Functions.md#TP40016643-CH10-ID173).
 
-### Special Kinds of Parameters 
+### Special Kinds of Parameters
 
 Parameters can be ignored, take a variable number of values, and provide default values using the following forms:
 
-
--   ``` 
+-   ```
     _ : parameter type
     ```
 
--   ``` 
+-   ```
     parameter name: parameter type...
     ```
 
--   ``` 
+-   ```
     parameter name: parameter type = default argument value
     ```
 
@@ -767,7 +750,7 @@ A parameter with an equals sign (`=`) and an expression after its type is unders
     f(7) // Valid, value provided without its name
     f(x: 7) // Invalid, name and value provided
 
-### Special Kinds of Methods 
+### Special Kinds of Methods
 
 Methods on an enumeration or a structure that modify `self` must be marked with the `mutating` declaration modifier.
 
@@ -775,20 +758,19 @@ Methods that override a superclass method must be marked with the `override` dec
 
 Methods associated with a type rather than an instance of a type must be marked with the `static` declaration modifier for enumerations and structures or the `class` declaration modifier for classes.
 
-### Throwing Functions and Methods 
+### Throwing Functions and Methods
 
 Functions and methods that can throw an error must be marked with the `throws` keyword. These functions and methods are known as *throwing functions* and *throwing methods*. They have the following form:
 
-
--   ``` 
+-   ```
     func function name(parameters) throws -> return type {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -800,7 +782,7 @@ You can’t overload a function based only on whether the function can throw an 
 
 A throwing method can’t override a nonthrowing method, and a throwing method can’t satisfy a protocol requirement for a nonthrowing method. That said, a nonthrowing method can override a throwing method, and a nonthrowing method can satisfy a protocol requirement for a throwing.
 
-### Rethrowing Functions and Methods 
+### Rethrowing Functions and Methods
 
 A function or method can be declared with the `rethrows` keyword to indicate that it throws an error only if one of it’s function parameters throws an error. These functions and methods are known as *rethrowing functions* and *rethrowing methods*. Rethrowing functions and methods must have at least one throwing function parameter.
 
@@ -814,130 +796,125 @@ Grammar of a function declaration
 
 <span class="syntax-def-name">
 function-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[function-head](Declarations.md#function-head)</span><span class="syntactic-cat">[function-name](Declarations.md#function-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[function-signature](Declarations.md#function-signature)</span><span class="optional"><span class="syntactic-cat">[function-body](Declarations.md#function-body)</span>~opt~</span>
+<span class="syntactic-cat">[function-head](Declarations.md#function-head)<span class="syntactic-cat">[function-name](Declarations.md#function-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[function-signature](Declarations.md#function-signature)<span class="optional"><span class="syntactic-cat">[function-body](Declarations.md#function-body)~opt~
 
 <span class="syntax-def-name">
 function-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`func`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`func`
 
 <span class="syntax-def-name">
 function-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
+<span class="alternative">
+<span class="syntactic-cat">[operator](LexicalStructure.md#operator)
 
 <span class="syntax-def-name">
 function-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span class="optional">`throws`~opt~</span><span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>
+<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)<span class="optional">`throws`~opt~<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~
 
 <span class="syntax-def-name">
 function-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>
+<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)`rethrows`<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~
 
 <span class="syntax-def-name">
 function-result
-</span>
+
 <span class="arrow">
 →
-</span>`->`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="syntactic-cat">[type](Types.md#type)</span>
+`->`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 function-body
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 parameter-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `(``)`
-</span><span class="alternative">
-`(`<span class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)</span>`)`
-</span>
+<span class="alternative">
+`(`<span class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)`)`
 
 <span class="syntax-def-name">
 parameter-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[parameter](Declarations.md#parameter)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[parameter](Declarations.md#parameter)</span>`,`<span class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[parameter](Declarations.md#parameter)
+<span class="alternative">
+<span class="syntactic-cat">[parameter](Declarations.md#parameter)`,`<span class="syntactic-cat">[parameter-list](Declarations.md#parameter-list)
 
 <span class="syntax-def-name">
 parameter
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional">`let`~opt~</span><span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="optional"><span class="syntactic-cat">[default-argument-clause](Declarations.md#default-argument-clause)</span>~opt~</span>
+<span class="optional">`let`~opt~<span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)~opt~<span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="optional"><span class="syntactic-cat">[default-argument-clause](Declarations.md#default-argument-clause)~opt~
 
 <span class="syntax-def-name">
 parameter
-</span>
+
 <span class="arrow">
 →
-</span>`inout`<span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>
+`inout`<span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)~opt~<span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)
 
 <span class="syntax-def-name">
 parameter
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)</span>~opt~</span><span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>`...`
+<span class="optional"><span class="syntactic-cat">[external-parameter-name](Declarations.md#external-parameter-name)~opt~<span class="syntactic-cat">[local-parameter-name](Declarations.md#local-parameter-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)`...`
 
 <span class="syntax-def-name">
 external-parameter-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 local-parameter-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 default-argument-clause
-</span>
+
 <span class="arrow">
 →
-</span>`=`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+`=`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Enumeration Declaration 
+### Enumeration Declaration
 
 An *enumeration declaration* introduces a named enumeration type into your program.
 
@@ -951,24 +928,23 @@ Like structures but unlike classes, enumerations are value types; instances of a
 
 You can extend the behavior of an enumeration type with an extension declaration, as discussed in [Extension Declaration](Declarations.md#TP40016643-CH34-ID378).
 
-### Enumerations with Cases of Any Type 
+### Enumerations with Cases of Any Type
 
 The following form declares an enumeration type that contains enumeration cases of any type:
 
-
--   ``` 
+-   ```
     enum enumeration name: adopted protocols {
     ```
 
--   ``` 
+-   ```
         case enumeration case 1
     ```
 
--   ``` 
+-   ```
         case enumeration case 2(associated value types)
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -990,7 +966,7 @@ Enumeration cases that store associated values can be used as functions that cre
 
 For more information and to see examples of cases with associated value types, see [Associated Values](Enumerations.md#TP40016643-CH12-ID148).
 
-### Enumerations with Indirection 
+### Enumerations with Indirection
 
 Enumerations can have a recursive structure, that is, they can have cases with associated values that are instances of the enumeration type itself. However, instances of enumeration types have value semantics, which means they have a fixed layout in memory. To support recursion, the compiler must insert a layer of indirection.
 
@@ -1005,24 +981,23 @@ To enable indirection for all the cases of an enumeration, mark the entire enume
 
 An enumeration case that’s marked with the `indirect` modifier must have an associated value. An enumeration that is marked with the `indirect` modifier can contain a mixture of cases that have associated values and cases those that don’t. That said, it can’t contain any cases that are also marked with the `indirect` modifier.
 
-### Enumerations with Cases of a Raw-Value Type 
+### Enumerations with Cases of a Raw-Value Type
 
 The following form declares an enumeration type that contains enumeration cases of the same basic type:
 
-
--   ``` 
+-   ```
     enum enumeration name: raw-value type, adopted protocols {
     ```
 
--   ``` 
+-   ```
         case enumeration case 1 = raw value 1
     ```
 
--   ``` 
+-   ```
         case enumeration case 2 = raw value 2
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1046,7 +1021,7 @@ In the above example, the raw value of `WeekendDay.Saturday` is `"Saturday"`, an
 
 Enumerations that have cases of a raw-value type implicitly conform to the `RawRepresentable` protocol, defined in the Swift standard library. As a result, they have a `rawValue` property and a failable initializer with the signature `init?(rawValue: RawValue)`. You can use the `rawValue` property to access the raw value of an enumeration case, as in `ExampleEnum.B.rawValue`. You can also use a raw value to find a corresponding case, if there is one, by calling the enumeration’s failable initializer, as in `ExampleEnum(rawValue: 5)`, which returns an optional case. For more information and to see examples of cases with raw-value types, see [Raw Values](Enumerations.md#TP40016643-CH12-ID149).
 
-### Accessing Enumeration Cases 
+### Accessing Enumeration Cases
 
 To reference the case of an enumeration type, use dot (`.`) syntax, as in `EnumerationType.EnumerationCase`. When the enumeration type can be inferred from context, you can omit it (the dot is still required), as described in [Enumeration Syntax](Enumerations.md#TP40016643-CH12-ID146) and [Implicit Member Expression](Expressions.md#TP40016643-CH32-ID394).
 
@@ -1056,166 +1031,160 @@ Grammar of an enumeration declaration
 
 <span class="syntax-def-name">
 enum-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span><span class="syntactic-cat">[union-style-enum](Declarations.md#union-style-enum)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~<span class="syntactic-cat">[union-style-enum](Declarations.md#union-style-enum)
 
 <span class="syntax-def-name">
 enum-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span><span class="syntactic-cat">[raw-value-style-enum](Declarations.md#raw-value-style-enum)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~<span class="syntactic-cat">[raw-value-style-enum](Declarations.md#raw-value-style-enum)
 
 <span class="syntax-def-name">
 union-style-enum
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional">`indirect`~opt~</span>`enum`<span class="syntactic-cat">[enum-name](Declarations.md#enum-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span>`{`<span class="optional"><span class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)</span>~opt~</span>`}`
+<span class="optional">`indirect`~opt~`enum`<span class="syntactic-cat">[enum-name](Declarations.md#enum-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~`{`<span class="optional"><span class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~`}`
 
 <span class="syntax-def-name">
 union-style-enum-members
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[union-style-enum-member](Declarations.md#union-style-enum-member)</span><span class="optional"><span class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)</span>~opt~</span>
+<span class="syntactic-cat">[union-style-enum-member](Declarations.md#union-style-enum-member)<span class="optional"><span class="syntactic-cat">[union-style-enum-members](Declarations.md#union-style-enum-members)~opt~
 
 <span class="syntax-def-name">
 union-style-enum-member
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[declaration](Declarations.md#declaration)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[union-style-enum-case-clause](Declarations.md#union-style-enum-case-clause)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[declaration](Declarations.md#declaration)
+<span class="alternative">
+<span class="syntactic-cat">[union-style-enum-case-clause](Declarations.md#union-style-enum-case-clause)
 
 <span class="syntax-def-name">
 union-style-enum-case-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional">`indirect`~opt~</span>`case`<span class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional">`indirect`~opt~`case`<span class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
 
 <span class="syntax-def-name">
 union-style-enum-case-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)</span>`,`<span class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)
+<span class="alternative">
+<span class="syntactic-cat">[union-style-enum-case](Declarations.md#union-style-enum-case)`,`<span class="syntactic-cat">[union-style-enum-case-list](Declarations.md#union-style-enum-case-list)
 
 <span class="syntax-def-name">
 union-style-enum-case
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)</span><span class="optional"><span class="syntactic-cat">[tuple-type](Types.md#tuple-type)</span>~opt~</span>
+<span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)<span class="optional"><span class="syntactic-cat">[tuple-type](Types.md#tuple-type)~opt~
 
 <span class="syntax-def-name">
 enum-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 enum-case-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 raw-value-style-enum
-</span>
+
 <span class="arrow">
 →
-</span>`enum`<span class="syntactic-cat">[enum-name](Declarations.md#enum-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>`{`<span class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)</span>`}`
+`enum`<span class="syntactic-cat">[enum-name](Declarations.md#enum-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)`{`<span class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)`}`
 
 <span class="syntax-def-name">
 raw-value-style-enum-members
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[raw-value-style-enum-member](Declarations.md#raw-value-style-enum-member)</span><span class="optional"><span class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)</span>~opt~</span>
+<span class="syntactic-cat">[raw-value-style-enum-member](Declarations.md#raw-value-style-enum-member)<span class="optional"><span class="syntactic-cat">[raw-value-style-enum-members](Declarations.md#raw-value-style-enum-members)~opt~
 
 <span class="syntax-def-name">
 raw-value-style-enum-member
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[declaration](Declarations.md#declaration)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[raw-value-style-enum-case-clause](Declarations.md#raw-value-style-enum-case-clause)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[declaration](Declarations.md#declaration)
+<span class="alternative">
+<span class="syntactic-cat">[raw-value-style-enum-case-clause](Declarations.md#raw-value-style-enum-case-clause)
 
 <span class="syntax-def-name">
 raw-value-style-enum-case-clause
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`case`<span class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`case`<span class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
 
 <span class="syntax-def-name">
 raw-value-style-enum-case-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)</span>`,`<span class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)
+<span class="alternative">
+<span class="syntactic-cat">[raw-value-style-enum-case](Declarations.md#raw-value-style-enum-case)`,`<span class="syntactic-cat">[raw-value-style-enum-case-list](Declarations.md#raw-value-style-enum-case-list)
 
 <span class="syntax-def-name">
 raw-value-style-enum-case
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)</span><span class="optional"><span class="syntactic-cat">[raw-value-assignment](Declarations.md#raw-value-assignment)</span>~opt~</span>
+<span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)<span class="optional"><span class="syntactic-cat">[raw-value-assignment](Declarations.md#raw-value-assignment)~opt~
 
 <span class="syntax-def-name">
 raw-value-assignment
-</span>
+
 <span class="arrow">
 →
-</span>`=`<span class="syntactic-cat">[raw-value-literal](Declarations.md#raw-value-literal)</span>
+`=`<span class="syntactic-cat">[raw-value-literal](Declarations.md#raw-value-literal)
 
 <span class="syntax-def-name">
 raw-value-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[numeric-literal](LexicalStructure.md#numeric-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[numeric-literal](LexicalStructure.md#numeric-literal)
+<span class="alternative">
+<span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)
+<span class="alternative">
+<span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)
 
-### Structure Declaration 
+### Structure Declaration
 
 A *structure declaration* introduces a named structure type into your program. Structure declarations are declared using the `struct` keyword and have the following form:
 
-
--   ``` 
+-   ```
     struct structure name: adopted protocols {
     ```
 
--   ``` 
+-   ```
         declarations
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1243,39 +1212,38 @@ Grammar of a structure declaration
 
 <span class="syntax-def-name">
 struct-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`struct`<span class="syntactic-cat">[struct-name](Declarations.md#struct-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span class="syntactic-cat">[struct-body](Declarations.md#struct-body)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~`struct`<span class="syntactic-cat">[struct-name](Declarations.md#struct-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~<span class="syntactic-cat">[struct-body](Declarations.md#struct-body)
 
 <span class="syntax-def-name">
 struct-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 struct-body
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)~opt~`}`
 
-### Class Declaration 
+### Class Declaration
 
 A *class declaration* introduces a named class type into your program. Class declarations are declared using the `class` keyword and have the following form:
 
-
--   ``` 
+-   ```
     class class name: superclass, adopted protocols {
     ```
 
--   ``` 
+-   ```
         declarations
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1307,39 +1275,38 @@ Grammar of a class declaration
 
 <span class="syntax-def-name">
 class-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`class`<span class="syntactic-cat">[class-name](Declarations.md#class-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span class="syntactic-cat">[class-body](Declarations.md#class-body)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~`class`<span class="syntactic-cat">[class-name](Declarations.md#class-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~<span class="syntactic-cat">[class-body](Declarations.md#class-body)
 
 <span class="syntax-def-name">
 class-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 class-body
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)~opt~`}`
 
-### Protocol Declaration 
+### Protocol Declaration
 
 A *protocol declaration* introduces a named protocol type into your program. Protocol declarations are declared at global scope using the `protocol` keyword and have the following form:
 
-
--   ``` 
+-   ```
     protocol protocol name: inherited protocols {
     ```
 
--   ``` 
+-   ```
         protocol member declarations
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1375,73 +1342,72 @@ Grammar of a protocol declaration
 
 <span class="syntax-def-name">
 protocol-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`protocol`<span class="syntactic-cat">[protocol-name](Declarations.md#protocol-name)</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span class="syntactic-cat">[protocol-body](Declarations.md#protocol-body)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~`protocol`<span class="syntactic-cat">[protocol-name](Declarations.md#protocol-name)<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~<span class="syntactic-cat">[protocol-body](Declarations.md#protocol-body)
 
 <span class="syntax-def-name">
 protocol-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 protocol-body
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~`}`
 
 <span class="syntax-def-name">
 protocol-member-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-property-declaration](Declarations.md#protocol-property-declaration)</span>
+<span class="syntactic-cat">[protocol-property-declaration](Declarations.md#protocol-property-declaration)
 
 <span class="syntax-def-name">
 protocol-member-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-method-declaration](Declarations.md#protocol-method-declaration)</span>
+<span class="syntactic-cat">[protocol-method-declaration](Declarations.md#protocol-method-declaration)
 
 <span class="syntax-def-name">
 protocol-member-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-initializer-declaration](Declarations.md#protocol-initializer-declaration)</span>
+<span class="syntactic-cat">[protocol-initializer-declaration](Declarations.md#protocol-initializer-declaration)
 
 <span class="syntax-def-name">
 protocol-member-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-subscript-declaration](Declarations.md#protocol-subscript-declaration)</span>
+<span class="syntactic-cat">[protocol-subscript-declaration](Declarations.md#protocol-subscript-declaration)
 
 <span class="syntax-def-name">
 protocol-member-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-associated-type-declaration](Declarations.md#protocol-associated-type-declaration)</span>
+<span class="syntactic-cat">[protocol-associated-type-declaration](Declarations.md#protocol-associated-type-declaration)
 
 <span class="syntax-def-name">
 protocol-member-declarations
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[protocol-member-declaration](Declarations.md#protocol-member-declaration)</span><span class="optional"><span class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)</span>~opt~</span>
+<span class="syntactic-cat">[protocol-member-declaration](Declarations.md#protocol-member-declaration)<span class="optional"><span class="syntactic-cat">[protocol-member-declarations](Declarations.md#protocol-member-declarations)~opt~
 
-### Protocol Property Declaration 
+### Protocol Property Declaration
 
 Protocols declare that conforming types must implement a property by including a *protocol property declaration* in the body of the protocol declaration. Protocol property declarations have a special form of a variable declaration:
 
-
--   ``` 
+-   ```
     var property name: type { get set }
     ```
 
@@ -1455,12 +1421,12 @@ Grammar of a protocol property declaration
 
 <span class="syntax-def-name">
 protocol-property-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)</span><span class="syntactic-cat">[variable-name](Declarations.md#variable-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span><span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
+<span class="syntactic-cat">[variable-declaration-head](Declarations.md#variable-declaration-head)<span class="syntactic-cat">[variable-name](Declarations.md#variable-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)<span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
-### Protocol Method Declaration 
+### Protocol Method Declaration
 
 Protocols declare that conforming types must implement a method by including a protocol method declaration in the body of the protocol declaration. Protocol method declarations have the same form as function declarations, with two exceptions: They don’t include a function body, and you can’t provide any default parameter values as part of the function declaration. For examples of conforming types that implement the method requirements of a protocol, see [Method Requirements](Protocols.md#TP40016643-CH25-ID270).
 
@@ -1472,12 +1438,12 @@ Grammar of a protocol method declaration
 
 <span class="syntax-def-name">
 protocol-method-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[function-head](Declarations.md#function-head)</span><span class="syntactic-cat">[function-name](Declarations.md#function-name)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[function-signature](Declarations.md#function-signature)</span>
+<span class="syntactic-cat">[function-head](Declarations.md#function-head)<span class="syntactic-cat">[function-name](Declarations.md#function-name)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[function-signature](Declarations.md#function-signature)
 
-### Protocol Initializer Declaration 
+### Protocol Initializer Declaration
 
 Protocols declare that conforming types must implement an initializer by including a protocol initializer declaration in the body of the protocol declaration. Protocol initializer declarations have the same form as initializer declarations, except they don’t include the initializer’s body.
 
@@ -1491,24 +1457,23 @@ Grammar of a protocol initializer declaration
 
 <span class="syntax-def-name">
 protocol-initializer-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span class="optional">`throws`~opt~</span>
+<span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)<span class="optional">`throws`~opt~
 
 <span class="syntax-def-name">
 protocol-initializer-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`
+<span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)`rethrows`
 
-### Protocol Subscript Declaration 
+### Protocol Subscript Declaration
 
 Protocols declare that conforming types must implement a subscript by including a protocol subscript declaration in the body of the protocol declaration. Protocol subscript declarations have a special form of a subscript declaration:
 
-
--   ``` 
+-   ```
     subscript (parameters) -> return type { get set }
     ```
 
@@ -1520,12 +1485,12 @@ Grammar of a protocol subscript declaration
 
 <span class="syntax-def-name">
 protocol-subscript-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
+<span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)<span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)<span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
-### Protocol Associated Type Declaration 
+### Protocol Associated Type Declaration
 
 Protocols declare associated types using the `typealias` keyword. An associated type provides an alias for a type that is used as part of a protocol’s declaration. Associated types are similar to type parameters in generic parameter clauses, but they’re associated with `Self` in the protocol in which they’re declared. In that context, `Self` refers to the eventual type that conforms to the protocol. For more information and examples, see [Associated Types](Generics.md#TP40016643-CH26-ID189).
 
@@ -1535,12 +1500,12 @@ Grammar of a protocol associated type declaration
 
 <span class="syntax-def-name">
 protocol-associated-type-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)</span>~opt~</span>
+<span class="syntactic-cat">[typealias-head](Declarations.md#typealias-head)<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~<span class="optional"><span class="syntactic-cat">[typealias-assignment](Declarations.md#typealias-assignment)~opt~
 
-### Initializer Declaration 
+### Initializer Declaration
 
 An *initializer declaration* introduces an initializer for a class, structure, or enumeration into your program. Initializer declarations are declared using the `init` keyword and have two basic forms.
 
@@ -1548,16 +1513,15 @@ Structure, enumeration, and class types can have any number of initializers, but
 
 The following form declares initializers for structures, enumerations, and designated initializers of classes:
 
-
--   ``` 
+-   ```
     init(parameters) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1569,16 +1533,15 @@ Initializers in structures and enumerations can call other declared initializers
 
 To declare convenience initializers for a class, mark the initializer declaration with the `convenience` declaration modifier.
 
-
--   ``` 
+-   ```
     convenience init(parameters) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1598,7 +1561,7 @@ Just like functions and methods, initializers can throw or rethrow errors. And j
 
 To see examples of initializers in various type declarations, see [Initialization](Initialization.md).
 
-### Failable Initializers 
+### Failable Initializers
 
 A *failable initializer* is a type of initializer that produces an optional instance or an implicitly unwrapped optional instance of the type the initializer is declared on. As a result, a failable initializer can return `nil` to indicate that initialization failed.
 
@@ -1638,60 +1601,59 @@ Grammar of an initializer declaration
 
 <span class="syntax-def-name">
 initializer-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span class="optional">`throws`~opt~</span><span class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)</span>
+<span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)<span class="optional">`throws`~opt~<span class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)
 
 <span class="syntax-def-name">
 initializer-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)</span><span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)</span>~opt~</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>`rethrows`<span class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)</span>
+<span class="syntactic-cat">[initializer-head](Declarations.md#initializer-head)<span class="optional"><span class="syntactic-cat">[generic-parameter-clause](GenericParametersAndArguments.md#generic-parameter-clause)~opt~<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)`rethrows`<span class="syntactic-cat">[initializer-body](Declarations.md#initializer-body)
 
 <span class="syntax-def-name">
 initializer-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init`
 
 <span class="syntax-def-name">
 initializer-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init``?`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init``?`
 
 <span class="syntax-def-name">
 initializer-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`init``!`
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`init``!`
 
 <span class="syntax-def-name">
 initializer-body
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Deinitializer Declaration 
+### Deinitializer Declaration
 
 A *deinitializer declaration* declares a deinitializer for a class type. Deinitializers take no parameters and have the following form:
 
-
--   ``` 
+-   ```
     deinit {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1707,25 +1669,24 @@ Grammar of a deinitializer declaration
 
 <span class="syntax-def-name">
 deinitializer-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>`deinit`<span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~`deinit`<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
-### Extension Declaration 
+### Extension Declaration
 
 An *extension declaration* allows you to extend the behavior of existing class, structure, and enumeration types. Extension declarations are declared using the `extension` keyword and have the following form:
 
-
--   ``` 
+-   ```
     extension type name: adopted protocols {
     ```
 
--   ``` 
+-   ```
         declarations
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1741,52 +1702,51 @@ Grammar of an extension declaration
 
 <span class="syntax-def-name">
 extension-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>~opt~</span>`extension`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span><span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)</span>~opt~</span><span class="syntactic-cat">[extension-body](Declarations.md#extension-body)</span>
+<span class="optional"><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)~opt~`extension`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)<span class="optional"><span class="syntactic-cat">[type-inheritance-clause](Types.md#type-inheritance-clause)~opt~<span class="syntactic-cat">[extension-body](Declarations.md#extension-body)
 
 <span class="syntax-def-name">
 extension-body
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[declarations](Declarations.md#declarations)~opt~`}`
 
-### Subscript Declaration 
+### Subscript Declaration
 
 A *subscript* declaration allows you to add subscripting support for objects of a particular type and are typically used to provide a convenient syntax for accessing the elements in a collection, list, or sequence. Subscript declarations are declared using the `subscript` keyword and have the following form:
 
-
--   ``` 
+-   ```
     subscript (parameters) -> return type {
     ```
 
--   ``` 
+-   ```
         get {
     ```
 
--   ``` 
+-   ```
             statements
     ```
 
--   ``` 
+-   ```
         }
     ```
 
--   ``` 
+-   ```
         set(setter name) {
     ```
 
--   ``` 
+-   ```
             statements
     ```
 
--   ``` 
+-   ```
         }
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1808,40 +1768,40 @@ Grammar of a subscript declaration
 
 <span class="syntax-def-name">
 subscript-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span class="syntactic-cat">[code-block](Declarations.md#code-block)</span>
+<span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)<span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)<span class="syntactic-cat">[code-block](Declarations.md#code-block)
 
 <span class="syntax-def-name">
 subscript-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)</span>
+<span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)<span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)<span class="syntactic-cat">[getter-setter-block](Declarations.md#getter-setter-block)
 
 <span class="syntax-def-name">
 subscript-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)</span><span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)</span><span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)</span>
+<span class="syntactic-cat">[subscript-head](Declarations.md#subscript-head)<span class="syntactic-cat">[subscript-result](Declarations.md#subscript-result)<span class="syntactic-cat">[getter-setter-keyword-block](Declarations.md#getter-setter-keyword-block)
 
 <span class="syntax-def-name">
 subscript-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>`subscript`<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span>
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~`subscript`<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)
 
 <span class="syntax-def-name">
 subscript-result
-</span>
+
 <span class="arrow">
 →
-</span>`->`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="syntactic-cat">[type](Types.md#type)</span>
+`->`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="syntactic-cat">[type](Types.md#type)
 
-### Operator Declaration 
+### Operator Declaration
 
 An *operator declaration* introduces a new infix, prefix, or postfix operator into your program and is declared using the `operator` keyword.
 
@@ -1851,20 +1811,19 @@ There are three basic forms of an operator declaration, one for each fixity. The
 
 The following form declares a new infix operator:
 
-
--   ``` 
+-   ```
     infix operator operator name {
     ```
 
--   ``` 
+-   ```
         precedence precedence level
     ```
 
--   ``` 
+-   ```
         associativity associativity
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -1880,8 +1839,7 @@ Infix operators that are declared without specifying a precedence or associativi
 
 The following form declares a new prefix operator:
 
-
--   ``` 
+-   ```
     prefix operator operator name {}
     ```
 
@@ -1891,8 +1849,7 @@ Prefix operators declarations don’t specify a precedence level. Prefix operato
 
 The following form declares a new postfix operator:
 
-
--   ``` 
+-   ```
     postfix operator operator name {}
     ```
 
@@ -1906,80 +1863,78 @@ Grammar of an operator declaration
 
 <span class="syntax-def-name">
 operator-declaration
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[prefix-operator-declaration](Declarations.md#prefix-operator-declaration)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[postfix-operator-declaration](Declarations.md#postfix-operator-declaration)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[infix-operator-declaration](Declarations.md#infix-operator-declaration)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[prefix-operator-declaration](Declarations.md#prefix-operator-declaration)
+<span class="alternative">
+<span class="syntactic-cat">[postfix-operator-declaration](Declarations.md#postfix-operator-declaration)
+<span class="alternative">
+<span class="syntactic-cat">[infix-operator-declaration](Declarations.md#infix-operator-declaration)
 
 <span class="syntax-def-name">
 prefix-operator-declaration
-</span>
+
 <span class="arrow">
 →
-</span>`prefix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{``}`
+`prefix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)`{``}`
 
 <span class="syntax-def-name">
 postfix-operator-declaration
-</span>
+
 <span class="arrow">
 →
-</span>`postfix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{``}`
+`postfix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)`{``}`
 
 <span class="syntax-def-name">
 infix-operator-declaration
-</span>
+
 <span class="arrow">
 →
-</span>`infix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>`{`<span class="optional"><span class="syntactic-cat">[infix-operator-attributes](Declarations.md#infix-operator-attributes)</span>~opt~</span>`}`
+`infix``operator`<span class="syntactic-cat">[operator](LexicalStructure.md#operator)`{`<span class="optional"><span class="syntactic-cat">[infix-operator-attributes](Declarations.md#infix-operator-attributes)~opt~`}`
 
 <span class="syntax-def-name">
 infix-operator-attributes
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[precedence-clause](Declarations.md#precedence-clause)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[associativity-clause](Declarations.md#associativity-clause)</span>~opt~</span>
+<span class="optional"><span class="syntactic-cat">[precedence-clause](Declarations.md#precedence-clause)~opt~<span class="optional"><span class="syntactic-cat">[associativity-clause](Declarations.md#associativity-clause)~opt~
 
 <span class="syntax-def-name">
 precedence-clause
-</span>
+
 <span class="arrow">
 →
-</span>`precedence`<span class="syntactic-cat">[precedence-level](Declarations.md#precedence-level)</span>
+`precedence`<span class="syntactic-cat">[precedence-level](Declarations.md#precedence-level)
 
 <span class="syntax-def-name">
 precedence-level
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">A decimal integer between 0 and 255, inclusive</span>
+<span class="text-description">A decimal integer between 0 and 255, inclusive
 
 <span class="syntax-def-name">
 associativity-clause
-</span>
+
 <span class="arrow">
 →
-</span>`associativity`<span class="syntactic-cat">[associativity](Declarations.md#associativity)</span>
+`associativity`<span class="syntactic-cat">[associativity](Declarations.md#associativity)
 
 <span class="syntax-def-name">
 associativity
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `left`
-</span><span class="alternative">
+<span class="alternative">
 `right`
-</span><span class="alternative">
+<span class="alternative">
 `none`
-</span>
 
-### Declaration Modifiers 
+### Declaration Modifiers
 
 *Declaration modifiers* are keywords or context-sensitive keywords that modify the behavior or meaning of a declaration. You specify a declaration modifier by writing the appropriate keyword or context-sensitive keyword between a declaration’s attributes (if any) and the keyword that introduces the declaration.
 
@@ -2015,7 +1970,7 @@ associativity
 
 :   The `weak` modifier is applied to a variable or a stored variable property to indicate that the variable or property has a weak reference to the object stored as its value. The type of the variable or property must be an optional class type. Use the `weak` modifier to avoid strong reference cycles. For an example and more information about the `weak` modifier, see [Weak References](AutomaticReferenceCounting.md#TP40016643-CH20-ID53).
 
-### Access Control Levels 
+### Access Control Levels
 
 Swift provides three levels of access control: public, internal, and private. You can mark a declaration with one of the access-level modifiers below to specify the declaration’s access level. Access control is discussed in detail in [Access Control](AccessControl.md).
 
@@ -2037,91 +1992,87 @@ Grammar of a declaration modifier
 
 <span class="syntax-def-name">
 declaration-modifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `class`
-</span><span class="alternative">
+<span class="alternative">
 `convenience`
-</span><span class="alternative">
+<span class="alternative">
 `dynamic`
-</span><span class="alternative">
+<span class="alternative">
 `final`
-</span><span class="alternative">
+<span class="alternative">
 `infix`
-</span><span class="alternative">
+<span class="alternative">
 `lazy`
-</span><span class="alternative">
+<span class="alternative">
 `mutating`
-</span><span class="alternative">
+<span class="alternative">
 `nonmutating`
-</span><span class="alternative">
+<span class="alternative">
 `optional`
-</span><span class="alternative">
+<span class="alternative">
 `override`
-</span><span class="alternative">
+<span class="alternative">
 `postfix`
-</span><span class="alternative">
+<span class="alternative">
 `prefix`
-</span><span class="alternative">
+<span class="alternative">
 `required`
-</span><span class="alternative">
+<span class="alternative">
 `static`
-</span><span class="alternative">
+<span class="alternative">
 `unowned`
-</span><span class="alternative">
+<span class="alternative">
 `unowned``(``safe``)`
-</span><span class="alternative">
+<span class="alternative">
 `unowned``(``unsafe``)`
-</span><span class="alternative">
+<span class="alternative">
 `weak`
-</span>
 
 <span class="syntax-def-name">
 declaration-modifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)</span>
+<span class="syntactic-cat">[access-level-modifier](Declarations.md#access-level-modifier)
 
 <span class="syntax-def-name">
 declaration-modifiers
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[declaration-modifier](Declarations.md#declaration-modifier)</span><span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)</span>~opt~</span>
+<span class="syntactic-cat">[declaration-modifier](Declarations.md#declaration-modifier)<span class="optional"><span class="syntactic-cat">[declaration-modifiers](Declarations.md#declaration-modifiers)~opt~
 
 <span class="syntax-def-name">
 access-level-modifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `internal`
-</span><span class="alternative">
+<span class="alternative">
 `internal``(``set``)`
-</span>
 
 <span class="syntax-def-name">
 access-level-modifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `private`
-</span><span class="alternative">
+<span class="alternative">
 `private``(``set``)`
-</span>
 
 <span class="syntax-def-name">
 access-level-modifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `public`
-</span><span class="alternative">
+<span class="alternative">
 `public``(``set``)`
-</span>
 

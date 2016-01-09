@@ -1,4 +1,4 @@
-Patterns 
+Patterns
 --------
 
 A *pattern* represents the structure of a single value or a composite value. For example, the structure of a tuple `(1, 2)` is a comma-separated list of two elements. Because patterns represent the structure of a value rather than any one particular value, you can match them with a variety of values. For instance, the pattern `(x, y)` matches the tuple `(1, 2)` and any other two-element tuple. In addition to matching a pattern with a value, you can extract part or all of a composite value and bind each part to a constant or variable name.
@@ -13,61 +13,61 @@ Grammar of a pattern
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[wildcard-pattern](Patterns.md#wildcard-pattern)</span><span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>~opt~</span>
+<span class="syntactic-cat">[wildcard-pattern](Patterns.md#wildcard-pattern)<span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)~opt~
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-pattern](Patterns.md#identifier-pattern)</span><span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>~opt~</span>
+<span class="syntactic-cat">[identifier-pattern](Patterns.md#identifier-pattern)<span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)~opt~
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[value-binding-pattern](Patterns.md#value-binding-pattern)</span>
+<span class="syntactic-cat">[value-binding-pattern](Patterns.md#value-binding-pattern)
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[tuple-pattern](Patterns.md#tuple-pattern)</span><span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>~opt~</span>
+<span class="syntactic-cat">[tuple-pattern](Patterns.md#tuple-pattern)<span class="optional"><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)~opt~
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[enum-case-pattern](Patterns.md#enum-case-pattern)</span>
+<span class="syntactic-cat">[enum-case-pattern](Patterns.md#enum-case-pattern)
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[optional-pattern](Patterns.md#optional-pattern)</span>
+<span class="syntactic-cat">[optional-pattern](Patterns.md#optional-pattern)
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-casting-pattern](Patterns.md#type-casting-pattern)</span>
+<span class="syntactic-cat">[type-casting-pattern](Patterns.md#type-casting-pattern)
 
 <span class="syntax-def-name">
 pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression-pattern](Patterns.md#expression-pattern)</span>
+<span class="syntactic-cat">[expression-pattern](Patterns.md#expression-pattern)
 
-### Wildcard Pattern 
+### Wildcard Pattern
 
 A *wildcard pattern* matches and ignores any value and consists of an underscore (`_`). Use a wildcard pattern when you don’t care about the values being matched against. For example, the following code iterates through the closed range `1...3`, ignoring the current value of the range on each iteration of the loop:
 
@@ -79,12 +79,12 @@ Grammar of a wildcard pattern
 
 <span class="syntax-def-name">
 wildcard-pattern
-</span>
+
 <span class="arrow">
 →
-</span>`_`
+`_`
 
-### Identifier Pattern 
+### Identifier Pattern
 
 An *identifier pattern* matches any value and binds the matched value to a variable or constant name. For example, in the following constant declaration, `someValue` is an identifier pattern that matches the value `42` of type `Int`:
 
@@ -98,12 +98,12 @@ Grammar of an identifier pattern
 
 <span class="syntax-def-name">
 identifier-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Value-Binding Pattern 
+### Value-Binding Pattern
 
 A *value-binding pattern* binds matched values to constant names.
 
@@ -123,12 +123,12 @@ Grammar of a value-binding pattern
 
 <span class="syntax-def-name">
 value-binding-pattern
-</span>
+
 <span class="arrow">
 →
-</span>`let`<span class="syntactic-cat">[pattern](Patterns.md#pattern)</span>
+`let`<span class="syntactic-cat">[pattern](Patterns.md#pattern)
 
-### Tuple Pattern 
+### Tuple Pattern
 
 A *tuple pattern* is a comma-separated list of zero or more patterns, enclosed in parentheses. Tuple patterns match values of corresponding tuple types.
 
@@ -152,30 +152,29 @@ Grammar of a tuple pattern
 
 <span class="syntax-def-name">
 tuple-pattern
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="optional"><span class="syntactic-cat">[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)</span>~opt~</span>`)`
+`(`<span class="optional"><span class="syntactic-cat">[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)~opt~`)`
 
 <span class="syntax-def-name">
 tuple-pattern-element-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[tuple-pattern-element](Patterns.md#tuple-pattern-element)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[tuple-pattern-element](Patterns.md#tuple-pattern-element)</span>`,`<span class="syntactic-cat">[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[tuple-pattern-element](Patterns.md#tuple-pattern-element)
+<span class="alternative">
+<span class="syntactic-cat">[tuple-pattern-element](Patterns.md#tuple-pattern-element)`,`<span class="syntactic-cat">[tuple-pattern-element-list](Patterns.md#tuple-pattern-element-list)
 
 <span class="syntax-def-name">
 tuple-pattern-element
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[pattern](Patterns.md#pattern)</span>
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)
 
-### Enumeration Case Pattern 
+### Enumeration Case Pattern
 
 An *enumeration case pattern* matches a case of an existing enumeration type. Enumeration case patterns appear in `switch` statement case labels and in the case conditions of `if`, `while`, `guard`, and `for`-`in` statements.
 
@@ -185,12 +184,12 @@ Grammar of an enumeration case pattern
 
 <span class="syntax-def-name">
 enum-case-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>~opt~</span>`.`<span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)</span><span class="optional"><span class="syntactic-cat">[tuple-pattern](Patterns.md#tuple-pattern)</span>~opt~</span>
+<span class="optional"><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)~opt~`.`<span class="syntactic-cat">[enum-case-name](Declarations.md#enum-case-name)<span class="optional"><span class="syntactic-cat">[tuple-pattern](Patterns.md#tuple-pattern)~opt~
 
-### Optional Pattern 
+### Optional Pattern
 
 An *optional pattern* matches values wrapped in a `Some(Wrapped)` case of an `Optional<Wrapped>` or `ImplicitlyUnwrappedOptional<Wrapped>` enumeration. Optional patterns consist of an identifier pattern followed immediately by a question mark and appear in the same places as enumeration case patterns.
 
@@ -222,21 +221,20 @@ Grammar of an optional pattern
 
 <span class="syntax-def-name">
 optional-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-pattern](Patterns.md#identifier-pattern)</span>`?`
+<span class="syntactic-cat">[identifier-pattern](Patterns.md#identifier-pattern)`?`
 
-### Type-Casting Patterns 
+### Type-Casting Patterns
 
 There are two type-casting patterns, the `is` pattern and the `as` pattern. The `is` pattern appears only in `switch` statement case labels. The `is` and `as` patterns have the following form:
 
-
--   ``` 
+-   ```
     is type
     ```
 
--   ``` 
+-   ```
     pattern as type
     ```
 
@@ -250,30 +248,29 @@ Grammar of a type casting pattern
 
 <span class="syntax-def-name">
 type-casting-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[is-pattern](Patterns.md#is-pattern)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[as-pattern](Patterns.md#as-pattern)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[is-pattern](Patterns.md#is-pattern)
+<span class="alternative">
+<span class="syntactic-cat">[as-pattern](Patterns.md#as-pattern)
 
 <span class="syntax-def-name">
 is-pattern
-</span>
+
 <span class="arrow">
 →
-</span>`is`<span class="syntactic-cat">[type](Types.md#type)</span>
+`is`<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 as-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[pattern](Patterns.md#pattern)</span>`as`<span class="syntactic-cat">[type](Types.md#type)</span>
+<span class="syntactic-cat">[pattern](Patterns.md#pattern)`as`<span class="syntactic-cat">[type](Types.md#type)
 
-### Expression Pattern 
+### Expression Pattern
 
 An *expression pattern* represents the value of an expression. Expression patterns appear only in `switch` statement case labels.
 
@@ -308,8 +305,8 @@ Grammar of an expression pattern
 
 <span class="syntax-def-name">
 expression-pattern
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)
 

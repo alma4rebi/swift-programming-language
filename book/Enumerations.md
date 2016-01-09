@@ -1,4 +1,4 @@
-Enumerations 
+Enumerations
 ------------
 
 An *enumeration* defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code.
@@ -11,7 +11,7 @@ Enumerations in Swift are first-class types in their own right. They adopt many 
 
 For more on these capabilities, see [Properties](Properties.md), [Methods](Methods.md), [Initialization](Initialization.md), [Extensions](Extensions.md), and [Protocols](Protocols.md).
 
-### Enumeration Syntax 
+### Enumeration Syntax
 
 You introduce enumerations with the `enum` keyword and place their entire definition within a pair of braces:
 
@@ -50,7 +50,7 @@ The type of `directionToHead` is inferred when it is initialized with one of the
 
 The type of `directionToHead` is already known, and so you can drop the type when setting its value. This makes for highly readable code when working with explicitly-typed enumeration values.
 
-### Matching Enumeration Values with a Switch Statement 
+### Matching Enumeration Values with a Switch Statement
 
 You can match individual enumeration values with a `switch` statement:
 
@@ -86,7 +86,7 @@ When it is not appropriate to provide a `case` for every enumeration case, you c
     }
     // prints "Mostly harmless"
 
-### Associated Values 
+### Associated Values
 
 The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to `Planet.Earth`, and check for this value later. However, it is sometimes useful to be able to store *associated values* of other types alongside these case values. This enables you to store additional custom information along with the case value, and permits this information to vary each time you use that case in your code.
 
@@ -147,7 +147,7 @@ If all of the associated values for an enumeration case are extracted as constan
     }
     // prints "QR code: ABCDEFGHIJKLMNOP."
 
-### Raw Values 
+### Raw Values
 
 The barcode example in [Associated Values](Enumerations.md#TP40016643-CH12-ID148) shows how cases of an enumeration can declare that they store associated values of different types. As an alternative to associated values, enumeration cases can come prepopulated with default values (called *raw values*), which are all of the same type.
 
@@ -167,7 +167,7 @@ Note
 
 Raw values are *not* the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.
 
-### Implicitly Assigned Raw Values 
+### Implicitly Assigned Raw Values
 
 When you’re working with enumerations that store integer or string raw values, you don’t have to explicitly assign a raw value for each case. When you don’t, Swift will automatically assign the values for you.
 
@@ -199,7 +199,7 @@ You access the raw value of an enumeration case with its `rawValue` property:
     let sunsetDirection = CompassPoint.West.rawValue
     // sunsetDirection is "West"
 
-### Initializing from a Raw Value 
+### Initializing from a Raw Value
 
 If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value’s type (as a parameter called `rawValue`) and returns either an enumeration case or `nil`. You can use this initializer to try to create a new instance of the enumeration.
 
@@ -231,7 +231,7 @@ If you try to find a planet with a position of `9`, the optional `Planet` value 
 
 This example uses optional binding to try to access a planet with a raw value of `9`. The statement `if let somePlanet = Planet(rawValue: 9)` creates an optional `Planet`, and sets `somePlanet` to the value of that optional `Planet` if it can be retrieved. In this case, it is not possible to retrieve a planet with a position of `9`, and so the `else` branch is executed instead.
 
-### Recursive Enumerations 
+### Recursive Enumerations
 
 Enumerations work well for modeling data when there is a fixed number of possibilities that need to be considered, such as the operations used for doing simple integer arithmetic. These operations let you combine simple arithmetic expressions that are made up of integers such as `5` into more complex ones such as `5 + 4`.
 

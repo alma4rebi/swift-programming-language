@@ -1,4 +1,4 @@
-Type Casting 
+Type Casting
 ------------
 
 *Type casting* is a way to check the type of an instance, or to treat that instance as a different superclass or subclass from somewhere else in its own class hierarchy.
@@ -7,7 +7,7 @@ Type casting in Swift is implemented with the `is` and `as` operators. These two
 
 You can also use type casting to check whether a type conforms to a protocol, as described in [Checking for Protocol Conformance](Protocols.md#TP40016643-CH25-ID283).
 
-### Defining a Class Hierarchy for Type Casting 
+### Defining a Class Hierarchy for Type Casting
 
 You can use type casting with a hierarchy of classes and subclasses to check the type of a particular class instance and to cast that instance to another class within the same hierarchy. The three code snippets below define a hierarchy of classes and an array containing instances of those classes, for use in an example of type casting.
 
@@ -51,7 +51,7 @@ The final snippet creates a constant array called `library`, which contains two 
 
 The items stored in `library` are still `Movie` and `Song` instances behind the scenes. However, if you iterate over the contents of this array, the items you receive back are typed as `MediaItem`, and not as `Movie` or `Song`. In order to work with them as their native type, you need to *check* their type, or *downcast* them to a different type, as described below.
 
-### Checking Type 
+### Checking Type
 
 Use the *type check operator* (`is`) to check whether an instance is of a certain subclass type. The type check operator returns `true` if the instance is of that subclass type and `false` if it is not.
 
@@ -75,7 +75,7 @@ This example iterates through all items in the `library` array. On each pass, th
 
 `item is Movie` returns `true` if the current `MediaItem` is a `Movie` instance and `false` if it is not. Similarly, `item is Song` checks whether the item is a `Song` instance. At the end of the `for`-`in` loop, the values of `movieCount` and `songCount` contain a count of how many `MediaItem` instances were found of each type.
 
-### Downcasting 
+### Downcasting
 
 A constant or variable of a certain class type may actually refer to an instance of a subclass behind the scenes. Where you believe this is the case, you can try to *downcast* to the subclass type with a *type cast operator* (`as?` or `as!`).
 
@@ -115,7 +115,7 @@ Note
 
 Casting does not actually modify the instance or change its values. The underlying instance remains the same; it is simply treated and accessed as an instance of the type to which it has been cast.
 
-### Type Casting for Any and AnyObject 
+### Type Casting for Any and AnyObject
 
 Swift provides two special type aliases for working with non-specific types:
 
@@ -127,7 +127,7 @@ Note
 
 Use `Any` and `AnyObject` only when you explicitly need the behavior and capabilities they provide. It is always better to be specific about the types you expect to work with in your code.
 
-### AnyObject 
+### AnyObject
 
 When working with Cocoa APIs, it is common to receive an array with a type of `[AnyObject]`, or “an array of values of any object type”. This is because Objective-C does not have explicitly typed arrays. However, you can often be confident about the type of objects contained in such an array just from the information you know about the API that provided the array.
 
@@ -160,7 +160,7 @@ For an even shorter form of this loop, downcast the `someObjects` array to a typ
     // Movie: 'Moon', dir. Duncan Jones
     // Movie: 'Alien', dir. Ridley Scott
 
-### Any 
+### Any
 
 Here’s an example of using `Any` to work with a mix of different types, including function types and non-class types. The example creates an array called `things`, which can store values of type `Any`:
 

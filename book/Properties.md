@@ -1,4 +1,4 @@
-Properties 
+Properties
 ----------
 
 *Properties* associate values with a particular class, structure, or enumeration. Stored properties store constant and variable values as part of an instance, whereas computed properties calculate (rather than store) a value. Computed properties are provided by classes, structures, and enumerations. Stored properties are provided only by classes and structures.
@@ -7,7 +7,7 @@ Stored and computed properties are usually associated with instances of a partic
 
 In addition, you can define property observers to monitor changes in a property’s value, which you can respond to with custom actions. Property observers can be added to stored properties you define yourself, and also to properties that a subclass inherits from its superclass.
 
-### Stored Properties 
+### Stored Properties
 
 In its simplest form, a stored property is a constant or variable that is stored as part of an instance of a particular class or structure. Stored properties can be either *variable stored properties* (introduced by the `var` keyword) or *constant stored properties* (introduced by the `let` keyword).
 
@@ -26,7 +26,7 @@ The example below defines a structure called `FixedLengthRange`, which describes
 
 Instances of `FixedLengthRange` have a variable stored property called `firstValue` and a constant stored property called `length`. In the example above, `length` is initialized when the new range is created and cannot be changed thereafter, because it is a constant property.
 
-### Stored Properties of Constant Structure Instances 
+### Stored Properties of Constant Structure Instances
 
 If you create an instance of a structure and assign that instance to a constant, you cannot modify the instance’s properties, even if they were declared as variable properties:
 
@@ -41,7 +41,7 @@ This behavior is due to structures being *value types*. When an instance of a va
 
 The same is not true for classes, which are *reference types*. If you assign an instance of a reference type to a constant, you can still change that instance’s variable properties.
 
-### Lazy Stored Properties 
+### Lazy Stored Properties
 
 A *lazy stored property* is a property whose initial value is not calculated until the first time it is used. You indicate a lazy stored property by writing the `lazy` modifier before its declaration.
 
@@ -89,13 +89,13 @@ Note
 
 If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property has not yet been initialized, there is no guarantee that the property will be initialized only once.
 
-### Stored Properties and Instance Variables 
+### Stored Properties and Instance Variables
 
 If you have experience with Objective-C, you may know that it provides *two* ways to store values and references as part of a class instance. In addition to properties, you can use instance variables as a backing store for the values stored in a property.
 
 Swift unifies these concepts into a single property declaration. A Swift property does not have a corresponding instance variable, and the backing store for a property is not accessed directly. This approach avoids confusion about how the value is accessed in different contexts and simplifies the property’s declaration into a single, definitive statement. All information about the property—including its name, type, and memory management characteristics—is defined in a single location as part of the type’s definition.
 
-### Computed Properties 
+### Computed Properties
 
 In addition to stored properties, classes, structures, and enumerations can define *computed properties*, which do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
 
@@ -145,7 +145,7 @@ The `center` property is then set to a new value of `(15, 15)`, which moves the 
 
 ![image: Art/computedProperties\_2x.png](Art/computedProperties_2x.png)
 
-### Shorthand Setter Declaration 
+### Shorthand Setter Declaration
 
 If a computed property’s setter does not define a name for the new value to be set, a default name of `newValue` is used. Here’s an alternative version of the `Rect` structure, which takes advantage of this shorthand notation:
 
@@ -165,7 +165,7 @@ If a computed property’s setter does not define a name for the new value to be
         }
     }
 
-### Read-Only Computed Properties 
+### Read-Only Computed Properties
 
 A computed property with a getter but no setter is known as a *read-only computed property*. A read-only computed property always returns a value, and can be accessed through dot syntax, but cannot be set to a different value.
 
@@ -187,7 +187,7 @@ You can simplify the declaration of a read-only computed property by removing th
 
 This example defines a new structure called `Cuboid`, which represents a 3D rectangular box with `width`, `height`, and `depth` properties. This structure also has a read-only computed property called `volume`, which calculates and returns the current volume of the cuboid. It doesn’t make sense for `volume` to be settable, because it would be ambiguous as to which values of `width`, `height`, and `depth` should be used for a particular `volume` value. Nonetheless, it is useful for a `Cuboid` to provide a read-only computed property to enable external users to discover its current calculated volume.
 
-### Property Observers 
+### Property Observers
 
 *Property observers* observe and respond to changes in a property’s value. Property observers are called every time a property’s value is set, even if the new value is the same as the property’s current value.
 
@@ -250,7 +250,7 @@ Note
 
 If you assign a value to a property within its own `didSet` observer, the new value that you assign will replace the one that was just set.
 
-### Global and Local Variables 
+### Global and Local Variables
 
 The capabilities described above for computing and observing properties are also available to *global variables* and *local variables*. Global variables are variables that are defined outside of any function, method, closure, or type context. Local variables are variables that are defined within a function, method, or closure context.
 
@@ -264,7 +264,7 @@ Global constants and variables are always computed lazily, in a similar manner t
 
 Local constants and variables are never computed lazily.
 
-### Type Properties 
+### Type Properties
 
 Instance properties are properties that belong to an instance of a particular type. Every time you create a new instance of that type, it has its own set of property values, separate from any other instance.
 
@@ -280,7 +280,7 @@ Unlike stored instance properties, you must always give stored type properties a
 
 Stored type properties are lazily initialized on their first access. They are guaranteed to be initialized only once, even when accessed by multiple threads simultaneously, and they do not need to be marked with the `lazy` modifier.
 
-### Type Property Syntax 
+### Type Property Syntax
 
 In C and Objective-C, you define static constants and variables associated with a type as *global* static variables. In Swift, however, type properties are written as part of the type’s definition, within the type’s outer curly braces, and each type property is explicitly scoped to the type it supports.
 
@@ -312,7 +312,7 @@ Note
 
 The computed type property examples above are for read-only computed type properties, but you can also define read-write computed type properties with the same syntax as for computed instance properties.
 
-### Querying and Setting Type Properties 
+### Querying and Setting Type Properties
 
 Type properties are queried and set with dot syntax, just like instance properties. However, type properties are queried and set on the *type*, not on an instance of that type. For example:
 

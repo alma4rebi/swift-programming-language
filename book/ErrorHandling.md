@@ -1,4 +1,4 @@
-Error Handling 
+Error Handling
 --------------
 
 *Error handling* is the process of responding to and recovering from error conditions in your program. Swift provides first-class support for throwing, catching, propagating, and manipulating recoverable errors at runtime.
@@ -11,7 +11,7 @@ Note
 
 Error handling in Swift interoperates with error handling patterns that use the `NSError` class in Cocoa and Objective-C. For more information about this class, see Error Handling in *Using Swift with Cocoa and Objective-C (Swift 2.1)*.
 
-### Representing and Throwing Errors 
+### Representing and Throwing Errors
 
 In Swift, errors are represented by values of types that conform to the `ErrorType` protocol. This empty protocol indicates that a type can be used for error handling.
 
@@ -27,7 +27,7 @@ Throwing an error lets you indicate that something unexpected happened and the n
 
     throw VendingMachineError.InsufficientFunds(coinsNeeded: 5)
 
-### Handling Errors 
+### Handling Errors
 
 When an error is thrown, some surrounding piece of code must be responsible for handling the error—for example, by correcting the problem, trying an alternative approach, or informing the user of the failure.
 
@@ -39,7 +39,7 @@ Note
 
 Error handling in Swift resembles exception handling in other languages, with the use of the `try`, `catch` and `throw` keywords. Unlike exception handling in many languages—including Objective-C—error handling in Swift does not involve unwinding the call stack, a process that can be computationally expensive. As such, the performance characteristics of a `throw` statement are comparable to those of a `return` statement.
 
-### Propagating Errors Using Throwing Functions 
+### Propagating Errors Using Throwing Functions
 
 To indicate that a function, method, or initializer can throw an error, you write the `throws` keyword in the function’s declaration after its parameters. A function marked with `throws` is called a *throwing function*. If the function specifies a return type, you write the `throws` keyword before the return arrow (`->`).
 
@@ -107,42 +107,41 @@ Because the `vend(itemNamed:)` method propagates any errors it throws, places in
 
 In this example, the `buyFavoriteSnack(_:vendingMachine:)` function looks up a given person’s favorite snack and tries to buy it for them by calling the `vend(itemNamed:)` method. Because the `vend(itemNamed:)` method can throw an error, it’s called with the `try` keyword in front of it.
 
-### Handling Errors Using Do-Catch 
+### Handling Errors Using Do-Catch
 
 You use a `do`-`catch` statement to handle errors by running a block of code. If an error is thrown by the code in the `do` clause, it is matched against the `catch` clauses to determine which one of them can handle the error.
 
 Here is the general form of a `do`-`catch` statement:
 
-
--   ``` 
+-   ```
     do {
     ```
 
--   ``` 
+-   ```
         try expression
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } catch pattern 1 {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } catch pattern 2 where condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -165,7 +164,7 @@ The `catch` clauses don’t have to handle every possible error that the code in
 
 In the above example, the `buyFavoriteSnack(_:vendingMachine:)` function is called in a `try` expression, because it can throw an error. If an error is thrown, execution immediately transfers to the `catch` clauses, which decide whether to allow propagation to continue. If no error is thrown, the remaining statements in the `do` statement are executed.
 
-### Converting Errors to Optional Values 
+### Converting Errors to Optional Values
 
 You use `try?` to handle an error by converting it to an optional value. If an error is thrown while evaluating the `try?` expression, the value of the expression is `nil`. For example, in the following code `x` and `y` have the same value and behavior:
 
@@ -192,7 +191,7 @@ Using `try?` lets you write concise error handling code when you want to handle 
         return nil
     }
 
-### Disabling Error Propagation 
+### Disabling Error Propagation
 
 Sometimes you know a throwing function or method won’t, in fact, throw an error at runtime. On those occasions, you can write `try!` before the expression to disable error propagation and wrap the call in a runtime assertion that no error will be thrown. If an error actually is thrown, you’ll get a runtime error.
 
@@ -200,7 +199,7 @@ For example, the following code uses a `loadImage(_:)` function, which loads the
 
     let photo = try! loadImage("./Resources/John Appleseed.jpg")
 
-### Specifying Cleanup Actions 
+### Specifying Cleanup Actions
 
 You use a `defer` statement to execute a set of statements just before code execution leaves the current block of code. This statement lets you do any necessary cleanup that should be performed regardless of *how* execution leaves the current block of code—whether it leaves because an error was thrown or because of a statement such as `return` or `break`. For example, you can use a `defer` statement to ensure that file descriptors are closed and manually allocated memory is freed.
 

@@ -1,3 +1,3 @@
-Welcome to Swift 
+Welcome to Swift
 ----------------
 

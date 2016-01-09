@@ -1,11 +1,11 @@
-Methods 
+Methods
 -------
 
 *Methods* are functions that are associated with a particular type. Classes, structures, and enumerations can all define instance methods, which encapsulate specific tasks and functionality for working with an instance of a given type. Classes, structures, and enumerations can also define type methods, which are associated with the type itself. Type methods are similar to class methods in Objective-C.
 
 The fact that structures and enumerations can define methods in Swift is a major difference from C and Objective-C. In Objective-C, classes are the only types that can define methods. In Swift, you can choose whether to define a class, structure, or enumeration, and still have the flexibility to define methods on the type you create.
 
-### Instance Methods 
+### Instance Methods
 
 *Instance methods* are functions that belong to instances of a particular class, structure, or enumeration. They support the functionality of those instances, either by providing ways to access and modify instance properties, or by providing functionality related to the instance’s purpose. Instance methods have exactly the same syntax as functions, as described in [Functions](Functions.md).
 
@@ -47,7 +47,7 @@ You call instance methods with the same dot syntax as properties:
     counter.reset()
     // the counter's value is now 0
 
-### Local and External Parameter Names for Methods 
+### Local and External Parameter Names for Methods
 
 Function parameters can have both a local name (for use within the function’s body) and an external name (for use when calling the function), as described in [Specifying External Parameter Names](Functions.md#TP40016643-CH10-ID167). The same is true for method parameters, because methods are just functions that are associated with a type.
 
@@ -74,13 +74,13 @@ You don’t need to define an external parameter name for the first argument val
 
 The behavior described above means that method definitions in Swift are written with the same grammatical style as Objective-C, and are called in a natural, expressive way.
 
-### Modifying External Parameter Name Behavior for Methods 
+### Modifying External Parameter Name Behavior for Methods
 
 Sometimes it’s useful to provide an external parameter name for a method’s first parameter, even though this is not the default behavior. To do so, you can add an explicit external name yourself.
 
 Conversely, if you do not want to provide an external name for the second or subsequent parameter of a method, override the default behavior by using an underscore character (`_`) as an explicit external parameter name for that parameter.
 
-### The self Property 
+### The self Property
 
 Every instance of a type has an implicit property called `self`, which is exactly equivalent to the instance itself. You use the `self` property to refer to the current instance within its own instance methods.
 
@@ -110,7 +110,7 @@ Here, `self` disambiguates between a method parameter called `x` and an instance
 
 Without the `self` prefix, Swift would assume that both uses of `x` referred to the method parameter called `x`.
 
-### Modifying Value Types from Within Instance Methods 
+### Modifying Value Types from Within Instance Methods
 
 Structures and enumerations are *value types*. By default, the properties of a value type cannot be modified from within its instance methods.
 
@@ -138,7 +138,7 @@ Note that you cannot call a mutating method on a constant of structure type, bec
     fixedPoint.moveByX(2.0, y: 3.0)
     // this will report an error
 
-### Assigning to self Within a Mutating Method 
+### Assigning to self Within a Mutating Method
 
 Mutating methods can assign an entirely new instance to the implicit `self` property. The `Point` example shown above could have been written in the following way instead:
 
@@ -174,7 +174,7 @@ Mutating methods for enumerations can set the implicit `self` parameter to be a 
 
 This example defines an enumeration for a three-state switch. The switch cycles between three different power states (`Off`, `Low` and `High`) every time its `next()` method is called.
 
-### Type Methods 
+### Type Methods
 
 Instance methods, as described above, are methods that are called on an instance of a particular type. You can also define methods that are called on the type itself. These kinds of methods are called *type methods*. You indicate type methods by writing the `static` keyword before the method’s `func` keyword. Classes may also use the `class` keyword to allow subclasses to override the superclass’s implementation of that method.
 

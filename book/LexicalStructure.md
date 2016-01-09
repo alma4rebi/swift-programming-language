@@ -1,11 +1,11 @@
-Lexical Structure 
+Lexical Structure
 -----------------
 
 The *lexical structure* of Swift describes what sequence of characters form valid tokens of the language. These valid tokens form the lowest-level building blocks of the language and are used to describe the rest of the language in subsequent chapters. A token consists of an identifier, keyword, punctuation, literal, or operator.
 
 In most cases, tokens are generated from the characters of a Swift source file by considering the longest possible substring from the input text, within the constraints of the grammar that are specified below. This behavior is referred to as *longest match* or *maximal munch*.
 
-### Whitespace and Comments 
+### Whitespace and Comments
 
 Whitespace has two uses: to separate tokens in the source file and to help determine whether an operator is a prefix or postfix (see [Operators](LexicalStructure.md#TP40016643-CH30-ID418)), but is otherwise ignored. The following characters are considered whitespace: space (U+0020), line feed (U+000A), carriage return (U+000D), horizontal tab (U+0009), vertical tab (U+000B), form feed (U+000C) and null (U+0000).
 
@@ -13,7 +13,7 @@ Comments are treated as whitespace by the compiler. Single line comments begin w
 
 Comments can contain additional formatting and markup, as described in *Markup Formatting Reference*.
 
-### Identifiers 
+### Identifiers
 
 *Identifiers* begin with an uppercase or lowercase letter A through Z, an underscore (`_`), a noncombining alphanumeric Unicode character in the Basic Multilingual Plane, or a character outside the Basic Multilingual Plane that isn’t in a Private Use Area. After the first character, digits and combining Unicode characters are also allowed.
 
@@ -25,184 +25,183 @@ Grammar of an identifier
 
 <span class="syntax-def-name">
 identifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)</span><span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)</span>~opt~</span>
+<span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)<span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)~opt~
 
 <span class="syntax-def-name">
 identifier
-</span>
+
 <span class="arrow">
 →
-</span>`` ` ``<span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)</span><span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)</span>~opt~</span>`` ` ``
+`` ` ``<span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)<span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)~opt~`` ` ``
 
 <span class="syntax-def-name">
 identifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[implicit-parameter-name](LexicalStructure.md#implicit-parameter-name)</span>
+<span class="syntactic-cat">[implicit-parameter-name](LexicalStructure.md#implicit-parameter-name)
 
 <span class="syntax-def-name">
 identifier-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>`,`<span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)`,`<span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Upper- or lowercase letter A through Z</span>
+<span class="text-description">Upper- or lowercase letter A through Z
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span>`_`
+`_`
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, or U+00B7–U+00BA</span>
+<span class="text-description">U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, or U+00B7–U+00BA
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, or U+00F8–U+00FF</span>
+<span class="text-description">U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, or U+00F8–U+00FF
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+0100–U+02FF, U+0370–U+167F, U+1681–U+180D, or U+180F–U+1DBF</span>
+<span class="text-description">U+0100–U+02FF, U+0370–U+167F, U+1681–U+180D, or U+180F–U+1DBF
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+1E00–U+1FFF</span>
+<span class="text-description">U+1E00–U+1FFF
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+200B–U+200D, U+202A–U+202E, U+203F–U+2040, U+2054, or U+2060–U+206F</span>
+<span class="text-description">U+200B–U+200D, U+202A–U+202E, U+203F–U+2040, U+2054, or U+2060–U+206F
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2070–U+20CF, U+2100–U+218F, U+2460–U+24FF, or U+2776–U+2793</span>
+<span class="text-description">U+2070–U+20CF, U+2100–U+218F, U+2460–U+24FF, or U+2776–U+2793
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2C00–U+2DFF or U+2E80–U+2FFF</span>
+<span class="text-description">U+2C00–U+2DFF or U+2E80–U+2FFF
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+3004–U+3007, U+3021–U+302F, U+3031–U+303F, or U+3040–U+D7FF</span>
+<span class="text-description">U+3004–U+3007, U+3021–U+302F, U+3031–U+303F, or U+3040–U+D7FF
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+F900–U+FD3D, U+FD40–U+FDCF, U+FDF0–U+FE1F, or U+FE30–U+FE44</span>
+<span class="text-description">U+F900–U+FD3D, U+FD40–U+FDCF, U+FDF0–U+FE1F, or U+FE30–U+FE44
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+FE47–U+FFFD</span>
+<span class="text-description">U+FE47–U+FFFD
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+10000–U+1FFFD, U+20000–U+2FFFD, U+30000–U+3FFFD, or U+40000–U+4FFFD</span>
+<span class="text-description">U+10000–U+1FFFD, U+20000–U+2FFFD, U+30000–U+3FFFD, or U+40000–U+4FFFD
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+50000–U+5FFFD, U+60000–U+6FFFD, U+70000–U+7FFFD, or U+80000–U+8FFFD</span>
+<span class="text-description">U+50000–U+5FFFD, U+60000–U+6FFFD, U+70000–U+7FFFD, or U+80000–U+8FFFD
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+90000–U+9FFFD, U+A0000–U+AFFFD, U+B0000–U+BFFFD, or U+C0000–U+CFFFD</span>
+<span class="text-description">U+90000–U+9FFFD, U+A0000–U+AFFFD, U+B0000–U+BFFFD, or U+C0000–U+CFFFD
 
 <span class="syntax-def-name">
 identifier-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+D0000–U+DFFFD or U+E0000–U+EFFFD</span>
+<span class="text-description">U+D0000–U+DFFFD or U+E0000–U+EFFFD
 
 <span class="syntax-def-name">
 identifier-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Digit 0 through 9</span>
+<span class="text-description">Digit 0 through 9
 
 <span class="syntax-def-name">
 identifier-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+0300–U+036F, U+1DC0–U+1DFF, U+20D0–U+20FF, or U+FE20–U+FE2F</span>
+<span class="text-description">U+0300–U+036F, U+1DC0–U+1DFF, U+20D0–U+20FF, or U+FE20–U+FE2F
 
 <span class="syntax-def-name">
 identifier-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)</span>
+<span class="syntactic-cat">[identifier-head](LexicalStructure.md#identifier-head)
 
 <span class="syntax-def-name">
 identifier-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-character](LexicalStructure.md#identifier-character)</span><span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)</span>~opt~</span>
+<span class="syntactic-cat">[identifier-character](LexicalStructure.md#identifier-character)<span class="optional"><span class="syntactic-cat">[identifier-characters](LexicalStructure.md#identifier-characters)~opt~
 
 <span class="syntax-def-name">
 implicit-parameter-name
-</span>
+
 <span class="arrow">
 →
-</span>`$`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>
+`$`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)
 
-### Keywords and Punctuation 
+### Keywords and Punctuation
 
 The following keywords are reserved and can’t be used as identifiers, unless they’re escaped with backticks, as described above in [Identifiers](LexicalStructure.md#TP40016643-CH30-ID412).
 
@@ -220,7 +219,7 @@ The following keywords are reserved and can’t be used as identifiers, unless t
 
 The following tokens are reserved as punctuation and can’t be used as custom operators: `(`, `)`, `{`, `}`, `[`, `]`, `.`, `,`, `:`, `;`, `=`, `@`, `#`, `&` (as a prefix operator), `->`, `` ` ``, `?`, and `!` (as a postfix operator).
 
-### Literals 
+### Literals
 
 A *literal* is the source code representation of a value of a type, such as a number or string.
 
@@ -239,49 +238,46 @@ Grammar of a literal
 
 <span class="syntax-def-name">
 literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[numeric-literal](LexicalStructure.md#numeric-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[string-literal](LexicalStructure.md#string-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[nil-literal](LexicalStructure.md#nil-literal)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[numeric-literal](LexicalStructure.md#numeric-literal)
+<span class="alternative">
+<span class="syntactic-cat">[string-literal](LexicalStructure.md#string-literal)
+<span class="alternative">
+<span class="syntactic-cat">[boolean-literal](LexicalStructure.md#boolean-literal)
+<span class="alternative">
+<span class="syntactic-cat">[nil-literal](LexicalStructure.md#nil-literal)
 
 <span class="syntax-def-name">
 numeric-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="optional">`-`~opt~</span><span class="syntactic-cat">[integer-literal](LexicalStructure.md#integer-literal)</span>
-</span><span class="alternative">
-<span class="optional">`-`~opt~</span><span class="syntactic-cat">[floating-point-literal](LexicalStructure.md#floating-point-literal)</span>
-</span>
+<span class="alternative">
+<span class="optional">`-`~opt~<span class="syntactic-cat">[integer-literal](LexicalStructure.md#integer-literal)
+<span class="alternative">
+<span class="optional">`-`~opt~<span class="syntactic-cat">[floating-point-literal](LexicalStructure.md#floating-point-literal)
 
 <span class="syntax-def-name">
 boolean-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `true`
-</span><span class="alternative">
+<span class="alternative">
 `false`
-</span>
 
 <span class="syntax-def-name">
 nil-literal
-</span>
+
 <span class="arrow">
 →
-</span>`nil`
+`nil`
 
-### Integer Literals 
+### Integer Literals
 
 *Integer literals* represent integer values of unspecified precision. By default, integer literals are expressed in decimal; you can specify an alternate base using a prefix. Binary literals begin with `0b`, octal literals begin with `0o`, and hexadecimal literals begin with `0x`.
 
@@ -297,168 +293,164 @@ Grammar of an integer literal
 
 <span class="syntax-def-name">
 integer-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[binary-literal](LexicalStructure.md#binary-literal)</span>
+<span class="syntactic-cat">[binary-literal](LexicalStructure.md#binary-literal)
 
 <span class="syntax-def-name">
 integer-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[octal-literal](LexicalStructure.md#octal-literal)</span>
+<span class="syntactic-cat">[octal-literal](LexicalStructure.md#octal-literal)
 
 <span class="syntax-def-name">
 integer-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)</span>
+<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)
 
 <span class="syntax-def-name">
 integer-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[hexadecimal-literal](LexicalStructure.md#hexadecimal-literal)</span>
+<span class="syntactic-cat">[hexadecimal-literal](LexicalStructure.md#hexadecimal-literal)
 
 <span class="syntax-def-name">
 binary-literal
-</span>
+
 <span class="arrow">
 →
-</span>`0b`<span class="syntactic-cat">[binary-digit](LexicalStructure.md#binary-digit)</span><span class="optional"><span class="syntactic-cat">[binary-literal-characters](LexicalStructure.md#binary-literal-characters)</span>~opt~</span>
+`0b`<span class="syntactic-cat">[binary-digit](LexicalStructure.md#binary-digit)<span class="optional"><span class="syntactic-cat">[binary-literal-characters](LexicalStructure.md#binary-literal-characters)~opt~
 
 <span class="syntax-def-name">
 binary-digit
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Digit 0 or 1</span>
+<span class="text-description">Digit 0 or 1
 
 <span class="syntax-def-name">
 binary-literal-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[binary-digit](LexicalStructure.md#binary-digit)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[binary-digit](LexicalStructure.md#binary-digit)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 binary-literal-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[binary-literal-character](LexicalStructure.md#binary-literal-character)</span><span class="optional"><span class="syntactic-cat">[binary-literal-characters](LexicalStructure.md#binary-literal-characters)</span>~opt~</span>
+<span class="syntactic-cat">[binary-literal-character](LexicalStructure.md#binary-literal-character)<span class="optional"><span class="syntactic-cat">[binary-literal-characters](LexicalStructure.md#binary-literal-characters)~opt~
 
 <span class="syntax-def-name">
 octal-literal
-</span>
+
 <span class="arrow">
 →
-</span>`0o`<span class="syntactic-cat">[octal-digit](LexicalStructure.md#octal-digit)</span><span class="optional"><span class="syntactic-cat">[octal-literal-characters](LexicalStructure.md#octal-literal-characters)</span>~opt~</span>
+`0o`<span class="syntactic-cat">[octal-digit](LexicalStructure.md#octal-digit)<span class="optional"><span class="syntactic-cat">[octal-literal-characters](LexicalStructure.md#octal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 octal-digit
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Digit 0 through 7</span>
+<span class="text-description">Digit 0 through 7
 
 <span class="syntax-def-name">
 octal-literal-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[octal-digit](LexicalStructure.md#octal-digit)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[octal-digit](LexicalStructure.md#octal-digit)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 octal-literal-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[octal-literal-character](LexicalStructure.md#octal-literal-character)</span><span class="optional"><span class="syntactic-cat">[octal-literal-characters](LexicalStructure.md#octal-literal-characters)</span>~opt~</span>
+<span class="syntactic-cat">[octal-literal-character](LexicalStructure.md#octal-literal-character)<span class="optional"><span class="syntactic-cat">[octal-literal-characters](LexicalStructure.md#octal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 decimal-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)</span><span class="optional"><span class="syntactic-cat">[decimal-literal-characters](LexicalStructure.md#decimal-literal-characters)</span>~opt~</span>
+<span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)<span class="optional"><span class="syntactic-cat">[decimal-literal-characters](LexicalStructure.md#decimal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 decimal-digit
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Digit 0 through 9</span>
+<span class="text-description">Digit 0 through 9
 
 <span class="syntax-def-name">
 decimal-digits
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)</span><span class="optional"><span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>~opt~</span>
+<span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)<span class="optional"><span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)~opt~
 
 <span class="syntax-def-name">
 decimal-literal-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[decimal-digit](LexicalStructure.md#decimal-digit)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 decimal-literal-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-literal-character](LexicalStructure.md#decimal-literal-character)</span><span class="optional"><span class="syntactic-cat">[decimal-literal-characters](LexicalStructure.md#decimal-literal-characters)</span>~opt~</span>
+<span class="syntactic-cat">[decimal-literal-character](LexicalStructure.md#decimal-literal-character)<span class="optional"><span class="syntactic-cat">[decimal-literal-characters](LexicalStructure.md#decimal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 hexadecimal-literal
-</span>
+
 <span class="arrow">
 →
-</span>`0x`<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)</span><span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)</span>~opt~</span>
+`0x`<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)<span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 hexadecimal-digit
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Digit 0 through 9, a through f, or A through F</span>
+<span class="text-description">Digit 0 through 9, a through f, or A through F
 
 <span class="syntax-def-name">
 hexadecimal-literal-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)</span>
-</span><span class="alternative">
+<span class="alternative">
+<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)
+<span class="alternative">
 `_`
-</span>
 
 <span class="syntax-def-name">
 hexadecimal-literal-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[hexadecimal-literal-character](LexicalStructure.md#hexadecimal-literal-character)</span><span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)</span>~opt~</span>
+<span class="syntactic-cat">[hexadecimal-literal-character](LexicalStructure.md#hexadecimal-literal-character)<span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
 
-### Floating-Point Literals 
+### Floating-Point Literals
 
 *Floating-point literals* represent floating-point values of unspecified precision.
 
@@ -478,85 +470,81 @@ Grammar of a floating-point literal
 
 <span class="syntax-def-name">
 floating-point-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)</span><span class="optional"><span class="syntactic-cat">[decimal-fraction](LexicalStructure.md#decimal-fraction)</span>~opt~</span><span class="optional"><span class="syntactic-cat">[decimal-exponent](LexicalStructure.md#decimal-exponent)</span>~opt~</span>
+<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)<span class="optional"><span class="syntactic-cat">[decimal-fraction](LexicalStructure.md#decimal-fraction)~opt~<span class="optional"><span class="syntactic-cat">[decimal-exponent](LexicalStructure.md#decimal-exponent)~opt~
 
 <span class="syntax-def-name">
 floating-point-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[hexadecimal-literal](LexicalStructure.md#hexadecimal-literal)</span><span class="optional"><span class="syntactic-cat">[hexadecimal-fraction](LexicalStructure.md#hexadecimal-fraction)</span>~opt~</span><span class="syntactic-cat">[hexadecimal-exponent](LexicalStructure.md#hexadecimal-exponent)</span>
+<span class="syntactic-cat">[hexadecimal-literal](LexicalStructure.md#hexadecimal-literal)<span class="optional"><span class="syntactic-cat">[hexadecimal-fraction](LexicalStructure.md#hexadecimal-fraction)~opt~<span class="syntactic-cat">[hexadecimal-exponent](LexicalStructure.md#hexadecimal-exponent)
 
 <span class="syntax-def-name">
 decimal-fraction
-</span>
+
 <span class="arrow">
 →
-</span>`.`<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)</span>
+`.`<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)
 
 <span class="syntax-def-name">
 decimal-exponent
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[floating-point-e](LexicalStructure.md#floating-point-e)</span><span class="optional"><span class="syntactic-cat">[sign](LexicalStructure.md#sign)</span>~opt~</span><span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)</span>
+<span class="syntactic-cat">[floating-point-e](LexicalStructure.md#floating-point-e)<span class="optional"><span class="syntactic-cat">[sign](LexicalStructure.md#sign)~opt~<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)
 
 <span class="syntax-def-name">
 hexadecimal-fraction
-</span>
+
 <span class="arrow">
 →
-</span>`.`<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)</span><span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)</span>~opt~</span>
+`.`<span class="syntactic-cat">[hexadecimal-digit](LexicalStructure.md#hexadecimal-digit)<span class="optional"><span class="syntactic-cat">[hexadecimal-literal-characters](LexicalStructure.md#hexadecimal-literal-characters)~opt~
 
 <span class="syntax-def-name">
 hexadecimal-exponent
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[floating-point-p](LexicalStructure.md#floating-point-p)</span><span class="optional"><span class="syntactic-cat">[sign](LexicalStructure.md#sign)</span>~opt~</span><span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)</span>
+<span class="syntactic-cat">[floating-point-p](LexicalStructure.md#floating-point-p)<span class="optional"><span class="syntactic-cat">[sign](LexicalStructure.md#sign)~opt~<span class="syntactic-cat">[decimal-literal](LexicalStructure.md#decimal-literal)
 
 <span class="syntax-def-name">
 floating-point-e
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `e`
-</span><span class="alternative">
+<span class="alternative">
 `E`
-</span>
 
 <span class="syntax-def-name">
 floating-point-p
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `p`
-</span><span class="alternative">
+<span class="alternative">
 `P`
-</span>
 
 <span class="syntax-def-name">
 sign
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `+`
-</span><span class="alternative">
+<span class="alternative">
 `-`
-</span>
 
-### String Literals 
+### String Literals
 
 A string literal is a sequence of characters surrounded by double quotes, with the following form:
 
-
--   ``` 
+-   ```
     "characters"
     ```
 
@@ -601,104 +589,101 @@ Grammar of a string literal
 
 <span class="syntax-def-name">
 string-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[interpolated-string-literal](LexicalStructure.md#interpolated-string-literal)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[static-string-literal](LexicalStructure.md#static-string-literal)
+<span class="alternative">
+<span class="syntactic-cat">[interpolated-string-literal](LexicalStructure.md#interpolated-string-literal)
 
 <span class="syntax-def-name">
 static-string-literal
-</span>
+
 <span class="arrow">
 →
-</span>`"`<span class="optional"><span class="syntactic-cat">[quoted-text](LexicalStructure.md#quoted-text)</span>~opt~</span>`"`
+`"`<span class="optional"><span class="syntactic-cat">[quoted-text](LexicalStructure.md#quoted-text)~opt~`"`
 
 <span class="syntax-def-name">
 quoted-text
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)</span><span class="optional"><span class="syntactic-cat">[quoted-text](LexicalStructure.md#quoted-text)</span>~opt~</span>
+<span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)<span class="optional"><span class="syntactic-cat">[quoted-text](LexicalStructure.md#quoted-text)~opt~
 
 <span class="syntax-def-name">
 quoted-text-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[escaped-character](LexicalStructure.md#escaped-character)</span>
+<span class="syntactic-cat">[escaped-character](LexicalStructure.md#escaped-character)
 
 <span class="syntax-def-name">
 quoted-text-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Any Unicode scalar value except `"`, `\`, U+000A, or U+000D</span>
+<span class="text-description">Any Unicode scalar value except `"`, `\`, U+000A, or U+000D
 
 <span class="syntax-def-name">
 interpolated-string-literal
-</span>
+
 <span class="arrow">
 →
-</span>`"`<span class="optional"><span class="syntactic-cat">[interpolated-text](LexicalStructure.md#interpolated-text)</span>~opt~</span>`"`
+`"`<span class="optional"><span class="syntactic-cat">[interpolated-text](LexicalStructure.md#interpolated-text)~opt~`"`
 
 <span class="syntax-def-name">
 interpolated-text
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[interpolated-text-item](LexicalStructure.md#interpolated-text-item)</span><span class="optional"><span class="syntactic-cat">[interpolated-text](LexicalStructure.md#interpolated-text)</span>~opt~</span>
+<span class="syntactic-cat">[interpolated-text-item](LexicalStructure.md#interpolated-text-item)<span class="optional"><span class="syntactic-cat">[interpolated-text](LexicalStructure.md#interpolated-text)~opt~
 
 <span class="syntax-def-name">
 interpolated-text-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-`\(`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>`)`
-</span><span class="alternative">
-<span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)</span>
-</span>
+<span class="alternative">
+`\(`<span class="syntactic-cat">[expression](Expressions.md#expression)`)`
+<span class="alternative">
+<span class="syntactic-cat">[quoted-text-item](LexicalStructure.md#quoted-text-item)
 
 <span class="syntax-def-name">
 escaped-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `\0`
-</span><span class="alternative">
+<span class="alternative">
 `\\`
-</span><span class="alternative">
+<span class="alternative">
 `\t`
-</span><span class="alternative">
+<span class="alternative">
 `\n`
-</span><span class="alternative">
+<span class="alternative">
 `\r`
-</span><span class="alternative">
+<span class="alternative">
 `\"`
-</span><span class="alternative">
+<span class="alternative">
 `\'`
-</span>
 
 <span class="syntax-def-name">
 escaped-character
-</span>
+
 <span class="arrow">
 →
-</span>`\u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)</span>`}`
+`\u``{`<span class="syntactic-cat">[unicode-scalar-digits](LexicalStructure.md#unicode-scalar-digits)`}`
 
 <span class="syntax-def-name">
 unicode-scalar-digits
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Between one and eight hexadecimal digits</span>
+<span class="text-description">Between one and eight hexadecimal digits
 
-### Operators 
+### Operators
 
 The Swift standard library defines a number of operators for your use, many of which are discussed in [Basic Operators](BasicOperators.md) and [Advanced Operators](AdvancedOperators.md). The present section describes which characters can be used to define custom operators.
 
@@ -730,250 +715,248 @@ Grammar of operators
 
 <span class="syntax-def-name">
 operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator-head](LexicalStructure.md#operator-head)</span><span class="optional"><span class="syntactic-cat">[operator-characters](LexicalStructure.md#operator-characters)</span>~opt~</span>
+<span class="syntactic-cat">[operator-head](LexicalStructure.md#operator-head)<span class="optional"><span class="syntactic-cat">[operator-characters](LexicalStructure.md#operator-characters)~opt~
 
 <span class="syntax-def-name">
 operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[dot-operator-head](LexicalStructure.md#dot-operator-head)</span><span class="optional"><span class="syntactic-cat">[dot-operator-characters](LexicalStructure.md#dot-operator-characters)</span>~opt~</span>
+<span class="syntactic-cat">[dot-operator-head](LexicalStructure.md#dot-operator-head)<span class="optional"><span class="syntactic-cat">[dot-operator-characters](LexicalStructure.md#dot-operator-characters)~opt~
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `/`
-</span><span class="alternative">
+<span class="alternative">
 `=`
-</span><span class="alternative">
+<span class="alternative">
 `-`
-</span><span class="alternative">
+<span class="alternative">
 `+`
-</span><span class="alternative">
+<span class="alternative">
 `!`
-</span><span class="alternative">
+<span class="alternative">
 `*`
-</span><span class="alternative">
+<span class="alternative">
 `%`
-</span><span class="alternative">
+<span class="alternative">
 `<`
-</span><span class="alternative">
+<span class="alternative">
 `>`
-</span><span class="alternative">
+<span class="alternative">
 `&`
-</span><span class="alternative">
+<span class="alternative">
 `|`
-</span><span class="alternative">
+<span class="alternative">
 `^`
-</span><span class="alternative">
+<span class="alternative">
 `~`
-</span><span class="alternative">
+<span class="alternative">
 `?`
-</span>
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00A1–U+00A7</span>
+<span class="text-description">U+00A1–U+00A7
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00A9 or U+00AB</span>
+<span class="text-description">U+00A9 or U+00AB
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00AC or U+00AE</span>
+<span class="text-description">U+00AC or U+00AE
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+00B0–U+00B1, U+00B6, U+00BB, U+00BF, U+00D7, or U+00F7</span>
+<span class="text-description">U+00B0–U+00B1, U+00B6, U+00BB, U+00BF, U+00D7, or U+00F7
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2016–U+2017 or U+2020–U+2027</span>
+<span class="text-description">U+2016–U+2017 or U+2020–U+2027
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2030–U+203E</span>
+<span class="text-description">U+2030–U+203E
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2041–U+2053</span>
+<span class="text-description">U+2041–U+2053
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2055–U+205E</span>
+<span class="text-description">U+2055–U+205E
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2190–U+23FF</span>
+<span class="text-description">U+2190–U+23FF
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2500–U+2775</span>
+<span class="text-description">U+2500–U+2775
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2794–U+2BFF</span>
+<span class="text-description">U+2794–U+2BFF
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+2E00–U+2E7F</span>
+<span class="text-description">U+2E00–U+2E7F
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+3001–U+3003</span>
+<span class="text-description">U+3001–U+3003
 
 <span class="syntax-def-name">
 operator-head
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+3008–U+3030</span>
+<span class="text-description">U+3008–U+3030
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator-head](LexicalStructure.md#operator-head)</span>
+<span class="syntactic-cat">[operator-head](LexicalStructure.md#operator-head)
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+0300–U+036F</span>
+<span class="text-description">U+0300–U+036F
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+1DC0–U+1DFF</span>
+<span class="text-description">U+1DC0–U+1DFF
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+20D0–U+20FF</span>
+<span class="text-description">U+20D0–U+20FF
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+FE00–U+FE0F</span>
+<span class="text-description">U+FE00–U+FE0F
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+FE20–U+FE2F</span>
+<span class="text-description">U+FE20–U+FE2F
 
 <span class="syntax-def-name">
 operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">U+E0100–U+E01EF</span>
+<span class="text-description">U+E0100–U+E01EF
 
 <span class="syntax-def-name">
 operator-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator-character](LexicalStructure.md#operator-character)</span><span class="optional"><span class="syntactic-cat">[operator-characters](LexicalStructure.md#operator-characters)</span>~opt~</span>
+<span class="syntactic-cat">[operator-character](LexicalStructure.md#operator-character)<span class="optional"><span class="syntactic-cat">[operator-characters](LexicalStructure.md#operator-characters)~opt~
 
 <span class="syntax-def-name">
 dot-operator-head
-</span>
+
 <span class="arrow">
 →
-</span>`..`
+`..`
 
 <span class="syntax-def-name">
 dot-operator-character
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `.`
-</span><span class="alternative">
-<span class="syntactic-cat">[operator-character](LexicalStructure.md#operator-character)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[operator-character](LexicalStructure.md#operator-character)
 
 <span class="syntax-def-name">
 dot-operator-characters
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[dot-operator-character](LexicalStructure.md#dot-operator-character)</span><span class="optional"><span class="syntactic-cat">[dot-operator-characters](LexicalStructure.md#dot-operator-characters)</span>~opt~</span>
+<span class="syntactic-cat">[dot-operator-character](LexicalStructure.md#dot-operator-character)<span class="optional"><span class="syntactic-cat">[dot-operator-characters](LexicalStructure.md#dot-operator-characters)~opt~
 
 <span class="syntax-def-name">
 binary-operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
+<span class="syntactic-cat">[operator](LexicalStructure.md#operator)
 
 <span class="syntax-def-name">
 prefix-operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
+<span class="syntactic-cat">[operator](LexicalStructure.md#operator)
 
 <span class="syntax-def-name">
 postfix-operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[operator](LexicalStructure.md#operator)</span>
+<span class="syntactic-cat">[operator](LexicalStructure.md#operator)
 

@@ -1,4 +1,4 @@
-Control Flow 
+Control Flow
 ------------
 
 Swift provides all the familiar control flow statements from C-like languages. These include `for` and `while` loops to perform a task multiple times; `if`, `guard`, and `switch` statements to execute different branches of code based on certain conditions; and statements such as `break` and `continue` to transfer the flow of execution to another point in your code.
@@ -7,7 +7,7 @@ In addition to the traditional `for` loop found in C, Swift adds a `for`-`in` lo
 
 Swift’s `switch` statement is also considerably more powerful than its counterpart in C. The cases of a `switch` statement do not “fall through” to the next case in Swift, avoiding common C errors caused by missing `break` statements. Cases can match many different patterns, including interval matches, tuples, and casts to a specific type. Matched values in a `switch` case can be bound to temporary constants for use within the case’s body, and complex matching conditions can be expressed with a `where` clause for each case.
 
-### For Loops 
+### For Loops
 
 Swift provides two kinds of loop that perform a set of statements a certain number of times:
 
@@ -15,7 +15,7 @@ Swift provides two kinds of loop that perform a set of statements a certain numb
 
 -   The `for` loop performs a set of statements until a specific condition is met, typically by incrementing a counter each time the loop ends.
 
-### For-In 
+### For-In
 
 You use the `for`-`in` loop to iterate over a sequence, such as ranges of numbers, items in an array, or characters in a string.
 
@@ -70,7 +70,7 @@ You can also iterate over a dictionary to access its key-value pairs. Each item 
 
 Items in a `Dictionary` may not necessarily be iterated in the same order as they were inserted. The contents of a `Dictionary` are inherently unordered, and iterating over them does not guarantee the order in which they will be retrieved. For more on arrays and dictionaries, see [Collection Types](CollectionTypes.md).
 
-### For 
+### For
 
 In addition to `for`-`in` loops, Swift supports traditional C-style `for` loops with a condition and an incrementer:
 
@@ -83,16 +83,15 @@ In addition to `for`-`in` loops, Swift supports traditional C-style `for` loops 
 
 Here’s the general form of this loop format:
 
-
--   ``` 
+-   ```
     for initialization; condition; increment {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -120,7 +119,7 @@ Constants and variables declared within the initialization expression (such as `
 
 Note that the final value of `index` after this loop is completed is `3`, not `2`. The last time the increment statement `++index` is called, it sets `index` to `3`, which causes `index < 3` to equate to `false`, ending the loop.
 
-### While Loops 
+### While Loops
 
 A `while` loop performs a set of statements until a condition becomes `false`. These kinds of loops are best used when the number of iterations is not known before the first iteration begins. Swift provides two kinds of `while` loop:
 
@@ -128,22 +127,21 @@ A `while` loop performs a set of statements until a condition becomes `false`. T
 
 -   `repeat`-`while` evaluates its condition at the end of each pass through the loop.
 
-### While 
+### While
 
 A `while` loop starts by evaluating a single condition. If the condition is `true`, a set of statements is repeated until the condition becomes `false`.
 
 Here’s the general form of a `while` loop:
 
-
--   ``` 
+-   ```
     while condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -199,7 +197,7 @@ The current `while` loop execution then ends, and the loop’s condition is chec
 
 A `while` loop is appropriate in this case because the length of the game is not clear at the start of the `while` loop. Instead, the loop is executed until a particular condition is satisfied.
 
-### Repeat-While 
+### Repeat-While
 
 The other variation of the `while` loop, known as the `repeat`-`while` loop, performs a single pass through the loop block first, *before* considering the loop’s condition. It then continues to repeat the loop until the condition is `false`.
 
@@ -209,16 +207,15 @@ The `repeat`-`while` loop in Swift is analogous to a `do`-`while` loop in other 
 
 Here’s the general form of a `repeat`-`while` loop:
 
-
--   ``` 
+-   ```
     repeat {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     } while condition
     ```
 
@@ -249,13 +246,13 @@ After the code checks for snakes and ladders, the dice is rolled, and the player
 
 The loop’s condition (`while square < finalSquare`) is the same as before, but this time it is not evaluated until the *end* of the first run through the loop. The structure of the `repeat`-`while` loop is better suited to this game than the `while` loop in the previous example. In the `repeat`-`while` loop above, `square += board[square]` is always executed *immediately after* the loop’s `while` condition confirms that `square` is still on the board. This behavior removes the need for the array bounds check seen in the earlier version of the game.
 
-### Conditional Statements 
+### Conditional Statements
 
 It is often useful to execute different pieces of code based on certain conditions. You might want to run an extra piece of code when an error occurs, or to display a message when a value becomes too high or too low. To do this, you make parts of your code *conditional*.
 
 Swift provides two ways to add conditional branches to your code, known as the `if` statement and the `switch` statement. Typically, you use the `if` statement to evaluate simple conditions with only a few possible outcomes. The `switch` statement is better suited to more complex conditions with multiple possible permutations, and is useful in situations where pattern-matching can help select an appropriate code branch to execute.
 
-### If 
+### If
 
 In its simplest form, the `if` statement has a single `if` condition. It executes a set of statements only if that condition is `true`:
 
@@ -304,46 +301,45 @@ The final `else` clause is optional, however, and can be excluded if the set of 
 
 In this example, the temperature is neither too cold nor too warm to trigger the `if` or `else if` conditions, and so no message is printed.
 
-### Switch 
+### Switch
 
 A `switch` statement considers a value and compares it against several possible matching patterns. It then executes an appropriate block of code, based on the first pattern that matches successfully. A `switch` statement provides an alternative to the `if` statement for responding to multiple potential states.
 
 In its simplest form, a `switch` statement compares a value against one or more values of the same type:
 
-
--   ``` 
+-   ```
     switch some value to consider {
     ```
 
--   ``` 
+-   ```
     case value 1:
     ```
 
--   ``` 
+-   ```
         respond to value 1
     ```
 
--   ``` 
+-   ```
     case value 2,
     ```
 
--   ``` 
+-   ```
     value 3:
     ```
 
--   ``` 
+-   ```
         respond to value 2 or 3
     ```
 
--   ``` 
+-   ```
     default:
     ```
 
--   ``` 
+-   ```
         otherwise, do something else
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -371,7 +367,7 @@ The `switch` statement’s first case matches all five lowercase vowels in the E
 
 It is not practical to write all other possible characters as part of a `switch` case, and so this `switch` statement provides a `default` case to match all other characters that are not vowels or consonants. This provision ensures that the `switch` statement is exhaustive.
 
-### No Implicit Fallthrough 
+### No Implicit Fallthrough
 
 In contrast with `switch` statements in C and Objective-C, `switch` statements in Swift do not fall through the bottom of each case and into the next one by default. Instead, the entire `switch` statement finishes its execution as soon as the first matching `switch` case is completed, without requiring an explicit `break` statement. This makes the `switch` statement safer and easier to use than in C, and avoids executing more than one `switch` case by mistake.
 
@@ -395,24 +391,23 @@ Unlike a `switch` statement in C, this `switch` statement does not match both `"
 
 Multiple matches for a single `switch` case can be separated by commas, and can be written over multiple lines if the list is long:
 
-
--   ``` 
+-   ```
     switch some value to consider {
     ```
 
--   ``` 
+-   ```
     case value 1,
     ```
 
--   ``` 
+-   ```
     value 2:
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -420,7 +415,7 @@ Note
 
 To opt in to fallthrough behavior for a particular `switch` case, use the `fallthrough` keyword, as described in [Fallthrough](ControlFlow.md#TP40016643-CH9-ID140).
 
-### Interval Matching 
+### Interval Matching
 
 Values in `switch` cases can be checked for their inclusion in an interval. This example uses number intervals to provide a natural-language count for numbers of any size:
 
@@ -450,7 +445,7 @@ Note
 
 Both the closed range operator (`...`) and half-open range operator (`..<`) functions are overloaded to return either an `IntervalType` or `Range`. An interval can determine whether it contains a particular element, such as when matching a `switch` statement `case`. A range is a collection of consecutive values, which can be iterated on in a `for-in` statement.
 
-### Tuples 
+### Tuples
 
 You can use tuples to test multiple values in the same `switch` statement. Each element of the tuple can be tested against a different value or interval of values. Alternatively, use the underscore character (`_`), also known as the wildcard pattern, to match any possible value.
 
@@ -477,7 +472,7 @@ The `switch` statement determines if the point is at the origin (0, 0); on the r
 
 Unlike C, Swift allows multiple `switch` cases to consider the same value or values. In fact, the point (0, 0) could match all *four* of the cases in this example. However, if multiple matches are possible, the first matching case is always used. The point (0, 0) would match `case (0, 0)` first, and so all other matching cases would be ignored.
 
-### Value Bindings 
+### Value Bindings
 
 A `switch` case can bind the value or values it matches to temporary constants, for use in the body of the case. This is known as *value binding*, because the values are “bound” to temporary constants within the case’s body.
 
@@ -504,7 +499,7 @@ Once the temporary constants are declared, they can be used within the case’s 
 
 Note that this `switch` statement does not have a `default` case. The final case, `case let (x, y)`, declares a tuple of two placeholder constants that can match any value. As a result, it matches all possible remaining values, and a `default` case is not needed to make the `switch` statement exhaustive.
 
-### Where 
+### Where
 
 A `switch` case can use a `where` clause to check for additional conditions.
 
@@ -529,7 +524,7 @@ The three `switch` cases declare placeholder constants `x` and `y`, which tempor
 
 As in the previous example, the final case matches all possible remaining values, and so a `default` case is not needed to make the `switch` statement exhaustive.
 
-### Control Transfer Statements 
+### Control Transfer Statements
 
 *Control transfer statements* change the order in which your code is executed, by transferring control from one piece of code to another. Swift has five control transfer statements:
 
@@ -545,7 +540,7 @@ As in the previous example, the final case matches all possible remaining values
 
 The `continue`, `break`, and `fallthrough` statements are described below. The `return` statement is described in [Functions](Functions.md), and the `throw` statement is described in [Propagating Errors Using Throwing Functions](ErrorHandling.md#TP40016643-CH42-ID510).
 
-### Continue 
+### Continue
 
 The `continue` statement tells a loop to stop what it is doing and start again at the beginning of the next iteration through the loop. It says “I am done with the current loop iteration” without leaving the loop altogether.
 
@@ -570,15 +565,15 @@ The following example removes all vowels and spaces from a lowercase string to c
 
 The code above calls the `continue` keyword whenever it matches a vowel or a space, causing the current iteration of the loop to end immediately and to jump straight to the start of the next iteration. This behavior enables the switch block to match (and ignore) only the vowel and space characters, rather than requiring the block to match every character that should get printed.
 
-### Break 
+### Break
 
 The `break` statement ends execution of an entire control flow statement immediately. The `break` statement can be used inside a `switch` statement or loop statement when you want to terminate the execution of the `switch` or loop statement earlier than would otherwise be the case.
 
-### Break in a Loop Statement 
+### Break in a Loop Statement
 
 When used inside a loop statement, `break` ends the loop’s execution immediately, and transfers control to the first line of code after the loop’s closing brace (`}`). No further code from the current iteration of the loop is executed, and no further iterations of the loop are started.
 
-### Break in a Switch Statement 
+### Break in a Switch Statement
 
 When used inside a `switch` statement, `break` causes the `switch` statement to end its execution immediately, and to transfer control to the first line of code after the `switch` statement’s closing brace (`}`).
 
@@ -617,7 +612,7 @@ After the switch statement completes its execution, the example uses optional bi
 
 It is not practical to list every possible `Character` value in the example above, so a `default` case provides a catchall for any characters that are not matched. This `default` case does not need to perform any action, and so it is written with a single `break` statement as its body. As soon as the `default` case is matched, the `break` statement ends the `switch` statement’s execution, and code execution continues from the `if let` statement.
 
-### Fallthrough 
+### Fallthrough
 
 Switch statements in Swift do not fall through the bottom of each case and into the next one. Instead, the entire switch statement completes its execution as soon as the first matching case is completed. By contrast, C requires you to insert an explicit `break` statement at the end of every `switch` case to prevent fallthrough. Avoiding default fallthrough means that Swift `switch` statements are much more concise and predictable than their counterparts in C, and thus they avoid executing multiple `switch` cases by mistake.
 
@@ -645,7 +640,7 @@ Note
 
 The `fallthrough` keyword does not check the case conditions for the `switch` case that it causes execution to fall into. The `fallthrough` keyword simply causes code execution to move directly to the statements inside the next case (or `default` case) block, as in C’s standard `switch` statement behavior.
 
-### Labeled Statements 
+### Labeled Statements
 
 You can nest loops and conditional statements inside other loops and conditional statements in Swift to create complex control flow structures. However, loops and conditional statements can both use the `break` statement to end their execution prematurely. Therefore, it is sometimes useful to be explicit about which loop or conditional statement you want a `break` statement to terminate. Similarly, if you have multiple nested loops, it can be useful to be explicit about which loop the `continue` statement should affect.
 
@@ -653,16 +648,15 @@ To achieve these aims, you can mark a loop statement or conditional statement wi
 
 A labeled statement is indicated by placing a label on the same line as the statement’s introducer keyword, followed by a colon. Here’s an example of this syntax for a `while` loop, although the principle is the same for all loops and `switch` statements:
 
-
--   ``` 
+-   ```
     label name: while condition {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -720,7 +714,7 @@ If the `break` statement above did not use the `gameLoop` label, it would break 
 
 Note also that it is not strictly necessary to use the `gameLoop` label when calling `continue gameLoop` to jump to the next iteration of the loop. There is only one loop in the game, and so there is no ambiguity as to which loop the `continue` statement will affect. However, there is no harm in using the `gameLoop` label with the `continue` statement. Doing so is consistent with the label’s use alongside the `break` statement, and helps make the game’s logic clearer to read and understand.
 
-### Early Exit 
+### Early Exit
 
 A `guard` statement, like an `if` statement, executes statements depending on the Boolean value of an expression. You use a `guard` statement to require that a condition must be true in order for the code after the `guard` statement to be executed. Unlike an `if` statement, a `guard` statement always has an `else` clause—the code inside the `else` clause is executed if the condition is not true.
 
@@ -752,7 +746,7 @@ If that condition is not met, the code inside the `else` branch is executed. Tha
 
 Using a `guard` statement for requirements improves the readability of your code, compared to doing the same check with an `if` statement. It lets you write the code that’s typically executed without wrapping it in an `else` block, and it lets you keep the code that handles a violated requirement next to the requirement.
 
-### Checking API Availability 
+### Checking API Availability
 
 Swift has built-in support for checking API availability, which ensures that you don’t accidentally use APIs that are unavailable on a given deployment target.
 
@@ -770,24 +764,23 @@ The availability condition above specifies that on iOS, the body of the `if` exe
 
 In its general form, the availability condition takes a list of platform names and versions. You use `iOS`, `OSX`, and `watchOS` for the platform names. In addition to specifying major version numbers like iOS 8, you can specify minor versions numbers like iOS 8.3 and OS X v10.10.3.
 
-
--   ``` 
+-   ```
     if #available(platform name version, ..., *) {
     ```
 
--   ``` 
+-   ```
         statements to execute if the APIs are available
     ```
 
--   ``` 
+-   ```
     } else {
     ```
 
--   ``` 
+-   ```
         fallback statements to execute if the APIs are unavailable
     ```
 
--   ``` 
+-   ```
     }
     ```
 

@@ -1,4 +1,4 @@
-Optional Chaining 
+Optional Chaining
 -----------------
 
 *Optional chaining* is a process for querying and calling properties, methods, and subscripts on an optional that might currently be `nil`. If the optional contains a value, the property, method, or subscript call succeeds; if the optional is `nil`, the property, method, or subscript call returns `nil`. Multiple queries can be chained together, and the entire chain fails gracefully if any link in the chain is `nil`.
@@ -7,7 +7,7 @@ Note
 
 Optional chaining in Swift is similar to messaging `nil` in Objective-C, but in a way that works for any type, and that can be checked for success or failure.
 
-### Optional Chaining as an Alternative to Forced Unwrapping 
+### Optional Chaining as an Alternative to Forced Unwrapping
 
 You specify optional chaining by placing a question mark (`?`) after the optional value on which you wish to call a property, method or subscript if the optional is non-`nil`. This is very similar to placing an exclamation mark (`!`) after an optional value to force the unwrapping of its value. The main difference is that optional chaining fails gracefully when the optional is `nil`, whereas forced unwrapping triggers a runtime error when the optional is `nil`.
 
@@ -68,7 +68,7 @@ You can assign a `Residence` instance to `john.residence`, so that it no longer 
     }
     // prints "John's residence has 1 room(s)."
 
-### Defining Model Classes for Optional Chaining 
+### Defining Model Classes for Optional Chaining
 
 You can use optional chaining with calls to properties, methods, and subscripts that are more than one level deep. This enables you to drill down into subproperties within complex models of interrelated types, and to check whether it is possible to access properties, methods, and subscripts on those subproperties.
 
@@ -135,7 +135,7 @@ The final class in this model is called `Address`. This class has three optional
 
 The `Address` class also provides a method called `buildingIdentifier()`, which has a return type of `String?`. This method checks the properties of the address and returns `buildingName` if it has a value, or `buildingNumber` concatenated with `street` if both have values, or `nil` otherwise.
 
-### Accessing Properties Through Optional Chaining 
+### Accessing Properties Through Optional Chaining
 
 As demonstrated in [Optional Chaining as an Alternative to Forced Unwrapping](OptionalChaining.md#TP40016643-CH21-ID246), you can use optional chaining to access a property on an optional value, and to check if that property access is successful.
 
@@ -175,7 +175,7 @@ The assignment is part of the optional chaining, which means none of the code on
 
 You can tell that the `createAddress()` function isn’t called, because nothing is printed.
 
-### Calling Methods Through Optional Chaining 
+### Calling Methods Through Optional Chaining
 
 You can use optional chaining to call a method on an optional value, and to check whether that method call is successful. You can do this even if that method does not define a return value.
 
@@ -205,7 +205,7 @@ The same is true if you attempt to set a property through optional chaining. The
     }
     // prints "It was not possible to set the address."
 
-### Accessing Subscripts Through Optional Chaining 
+### Accessing Subscripts Through Optional Chaining
 
 You can use optional chaining to try to retrieve and set a value from a subscript on an optional value, and to check whether that subscript call is successful.
 
@@ -244,7 +244,7 @@ If you create and assign an actual `Residence` instance to `john.residence`, wit
     }
     // prints "The first room name is Living Room."
 
-### Accessing Subscripts of Optional Type 
+### Accessing Subscripts of Optional Type
 
 If a subscript returns a value of optional type—such as the key subscript of Swift’s `Dictionary` type—place a question mark *after* the subscript’s closing bracket to chain on its optional return value:
 
@@ -256,7 +256,7 @@ If a subscript returns a value of optional type—such as the key subscript of S
 
 The example above defines a dictionary called `testScores`, which contains two key-value pairs that map a `String` key to an array of `Int` values. The example uses optional chaining to set the first item in the `"Dave"` array to `91`; to increment the first item in the `"Bev"` array by `1`; and to try to set the first item in an array for a key of `"Brian"`. The first two calls succeed, because the `testScores` dictionary contains keys for `"Dave"` and `"Bev"`. The third call fails, because the `testScores` dictionary does not contain a key for `"Brian"`.
 
-### Linking Multiple Levels of Chaining 
+### Linking Multiple Levels of Chaining
 
 You can link together multiple levels of optional chaining to drill down to properties, methods, and subscripts deeper within a model. However, multiple levels of optional chaining do not add more levels of optionality to the returned value.
 
@@ -301,7 +301,7 @@ If you set an actual `Address` instance as the value for `john.residence.address
 
 In this example, the attempt to set the `address` property of `john.residence` will succeed, because the value of `john.residence` currently contains a valid `Residence` instance.
 
-### Chaining on Methods with Optional Return Values 
+### Chaining on Methods with Optional Return Values
 
 The previous example shows how to retrieve the value of a property of optional type through optional chaining. You can also use optional chaining to call a method that returns a value of optional type, and to chain on that method’s return value if needed.
 

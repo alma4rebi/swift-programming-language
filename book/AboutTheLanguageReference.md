@@ -1,11 +1,11 @@
-About the Language Reference 
+About the Language Reference
 ----------------------------
 
 This part of the book describes the formal grammar of the Swift programming language. The grammar described here is intended to help you understand the language in more detail, rather than to allow you to directly implement a parser or compiler.
 
 The Swift language is relatively small, because many common types, functions, and operators that appear virtually everywhere in Swift code are actually defined in the Swift standard library. Although these types, functions, and operators are not part of the Swift language itself, they are used extensively in the discussions and code examples in this part of the book.
 
-### How to Read the Grammar 
+### How to Read the Grammar
 
 The notation used to describe the formal grammar of the Swift programming language follows a few conventions:
 
@@ -27,14 +27,13 @@ Grammar of a getter-setter block
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span><span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span>~opt~</span>`}`
-</span><span class="alternative">
-`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span><span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span>`}`
-</span>
+<span class="alternative">
+`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)<span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)~opt~`}`
+<span class="alternative">
+`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)`}`
 
 This definition indicates that a getter-setter block can consist of a getter clause followed by an optional setter clause, enclosed in braces, *or* a setter clause followed by a getter clause, enclosed in braces. The grammar production above is equivalent to the following two productions, where the alternatives are spelled out explicitly:
 
@@ -42,15 +41,15 @@ Grammar of a getter-setter block
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span><span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span>~opt~</span>`}`
+`{`<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)<span class="optional"><span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)~opt~`}`
 
 <span class="syntax-def-name">
 getter-setter-block
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)</span><span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)</span>`}`
+`{`<span class="syntactic-cat">[setter-clause](Declarations.md#setter-clause)<span class="syntactic-cat">[getter-clause](Declarations.md#getter-clause)`}`
 

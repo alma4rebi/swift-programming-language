@@ -1,4 +1,4 @@
-The Basics 
+The Basics
 ----------
 
 Swift is a new programming language for iOS, OS X, watchOS, and tvOS app development. Nonetheless, many parts of Swift will be familiar from your experience of developing in C and Objective-C.
@@ -13,11 +13,11 @@ Swift also introduces optional types, which handle the absence of a value. Optio
 
 Swift is a *type-safe* language, which means the language helps you to be clear about the types of values your code can work with. If part of your code expects a `String`, type safety prevents you from passing it an `Int` by mistake. Likewise, type safety prevents you from accidentally passing an optional `String` to a piece of code that expects a nonoptional `String`. Type safety helps you catch and fix errors as early as possible in the development process.
 
-### Constants and Variables 
+### Constants and Variables
 
 Constants and variables associate a name (such as `maximumNumberOfLoginAttempts` or `welcomeMessage`) with a value of a particular type (such as the number `10` or the string `"Hello"`). The value of a *constant* cannot be changed once it is set, whereas a *variable* can be set to a different value in the future.
 
-### Declaring Constants and Variables 
+### Declaring Constants and Variables
 
 Constants and variables must be declared before they are used. You declare constants with the `let` keyword and variables with the `var` keyword. Here’s an example of how constants and variables can be used to track the number of login attempts a user has made:
 
@@ -38,7 +38,7 @@ Note
 
 If a stored value in your code is not going to change, always declare it as a constant with the `let` keyword. Use variables only for storing values that need to be able to change.
 
-### Type Annotations 
+### Type Annotations
 
 You can provide a *type annotation* when you declare a constant or variable, to be clear about the kind of values the constant or variable can store. Write a type annotation by placing a colon after the constant or variable name, followed by a space, followed by the name of the type to use.
 
@@ -64,7 +64,7 @@ Note
 
 It is rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable at the point that it is defined, Swift can almost always infer the type to be used for that constant or variable, as described in [Type Safety and Type Inference](TheBasics.md#TP40016643-CH5-ID322). In the `welcomeMessage` example above, no initial value is provided, and so the type of the `welcomeMessage` variable is specified with a type annotation rather than being inferred from an initial value.
 
-### Naming Constants and Variables 
+### Naming Constants and Variables
 
 Constant and variable names can contain almost any character, including Unicode characters:
 
@@ -92,7 +92,7 @@ Unlike a variable, the value of a constant cannot be changed once it is set. Att
     languageName = "Swift++"
     // this is a compile-time error - languageName cannot be changed
 
-### Printing Constants and Variables 
+### Printing Constants and Variables
 
 You can print the current value of a constant or variable with the `print(_:separator:terminator:)` function:
 
@@ -110,7 +110,7 @@ Note
 
 All options you can use with string interpolation are described in [String Interpolation](StringsAndCharacters.md#TP40016643-CH7-ID292).
 
-### Comments 
+### Comments
 
 Use comments to include nonexecutable text in your code, as a note or reminder to yourself. Comments are ignored by the Swift compiler when your code is compiled.
 
@@ -131,20 +131,20 @@ Unlike multiline comments in C, multiline comments in Swift can be nested inside
 
 Nested multiline comments enable you to comment out large blocks of code quickly and easily, even if the code already contains multiline comments.
 
-### Semicolons 
+### Semicolons
 
 Unlike many other languages, Swift does not require you to write a semicolon (`;`) after each statement in your code, although you can do so if you wish. However, semicolons *are* required if you want to write multiple separate statements on a single line:
 
     let cat = "🐱"; print(cat)
     // prints "🐱"
 
-### Integers 
+### Integers
 
 *Integers* are whole numbers with no fractional component, such as `42` and `-23`. Integers are either *signed* (positive, zero, or negative) or *unsigned* (positive or zero).
 
 Swift provides signed and unsigned integers in 8, 16, 32, and 64 bit forms. These integers follow a naming convention similar to C, in that an 8-bit unsigned integer is of type `UInt8`, and a 32-bit signed integer is of type `Int32`. Like all types in Swift, these integer types have capitalized names.
 
-### Integer Bounds 
+### Integer Bounds
 
 You can access the minimum and maximum values of each integer type with its `min` and `max` properties:
 
@@ -153,7 +153,7 @@ You can access the minimum and maximum values of each integer type with its `min
 
 The values of these properties are of the appropriate-sized number type (such as `UInt8` in the example above) and can therefore be used in expressions alongside other values of the same type.
 
-### Int 
+### Int
 
 In most cases, you don’t need to pick a specific size of integer to use in your code. Swift provides an additional integer type, `Int`, which has the same size as the current platform’s native word size:
 
@@ -163,7 +163,7 @@ In most cases, you don’t need to pick a specific size of integer to use in you
 
 Unless you need to work with a specific size of integer, always use `Int` for integer values in your code. This aids code consistency and interoperability. Even on 32-bit platforms, `Int` can store any value between `-2,147,483,648` and `2,147,483,647`, and is large enough for many integer ranges.
 
-### UInt 
+### UInt
 
 Swift also provides an unsigned integer type, `UInt`, which has the same size as the current platform’s native word size:
 
@@ -175,7 +175,7 @@ Note
 
 Use `UInt` only when you specifically need an unsigned integer type with the same size as the platform’s native word size. If this is not the case, `Int` is preferred, even when the values to be stored are known to be non-negative. A consistent use of `Int` for integer values aids code interoperability, avoids the need to convert between different number types, and matches integer type inference, as described in [Type Safety and Type Inference](TheBasics.md#TP40016643-CH5-ID322).
 
-### Floating-Point Numbers 
+### Floating-Point Numbers
 
 *Floating-point numbers* are numbers with a fractional component, such as `3.14159`, `0.1`, and `-273.15`.
 
@@ -189,7 +189,7 @@ Note
 
 `Double` has a precision of at least 15 decimal digits, whereas the precision of `Float` can be as little as 6 decimal digits. The appropriate floating-point type to use depends on the nature and range of values you need to work with in your code. In situations where either type would be appropriate, `Double` is preferred.
 
-### Type Safety and Type Inference 
+### Type Safety and Type Inference
 
 Swift is a *type-safe* language. A type safe language encourages you to be clear about the types of values your code can work with. If part of your code expects a `String`, you can’t pass it an `Int` by mistake.
 
@@ -220,7 +220,7 @@ If you combine integer and floating-point literals in an expression, a type of `
 
 The literal value of `3` has no explicit type in and of itself, and so an appropriate output type of `Double` is inferred from the presence of a floating-point literal as part of the addition.
 
-### Numeric Literals 
+### Numeric Literals
 
 Integer literals can be written as:
 
@@ -265,13 +265,13 @@ Numeric literals can contain extra formatting to make them easier to read. Both 
     let oneMillion = 1_000_000
     let justOverOneMillion = 1_000_000.000_000_1
 
-### Numeric Type Conversion 
+### Numeric Type Conversion
 
 Use the `Int` type for all general-purpose integer constants and variables in your code, even if they are known to be non-negative. Using the default integer type in everyday situations means that integer constants and variables are immediately interoperable in your code and will match the inferred type for integer literal values.
 
 Use other integer types only when they are specifically needed for the task at hand, because of explicitly-sized data from an external source, or for performance, memory usage, or other necessary optimization. Using explicitly-sized types in these situations helps to catch any accidental value overflows and implicitly documents the nature of the data being used.
 
-### Integer Conversion 
+### Integer Conversion
 
 The range of numbers that can be stored in an integer constant or variable is different for each numeric type. An `Int8` constant or variable can store numbers between `-128` and `127`, whereas a `UInt8` constant or variable can store numbers between `0` and `255`. A number that will not fit into a constant or variable of a sized integer type is reported as an error when your code is compiled:
 
@@ -293,7 +293,7 @@ Because both sides of the addition are now of type `UInt16`, the addition is all
 
 `SomeType(ofInitialValue)` is the default way to call the initializer of a Swift type and pass in an initial value. Behind the scenes, `UInt16` has an initializer that accepts a `UInt8` value, and so this initializer is used to make a new `UInt16` from an existing `UInt8`. You can’t pass in *any* type here, however—it has to be a type for which `UInt16` provides an initializer. Extending existing types to provide initializers that accept new types (including your own type definitions) is covered in [Extensions](Extensions.md).
 
-### Integer and Floating-Point Conversion 
+### Integer and Floating-Point Conversion
 
 Conversions between integer and floating-point numeric types must be made explicit:
 
@@ -315,7 +315,7 @@ Note
 
 The rules for combining numeric constants and variables are different from the rules for numeric literals. The literal value `3` can be added directly to the literal value `0.14159`, because number literals do not have an explicit type in and of themselves. Their type is inferred only at the point that they are evaluated by the compiler.
 
-### Type Aliases 
+### Type Aliases
 
 *Type aliases* define an alternative name for an existing type. You define type aliases with the `typealias` keyword.
 
@@ -330,7 +330,7 @@ Once you define a type alias, you can use the alias anywhere you might use the o
 
 Here, `AudioSample` is defined as an alias for `UInt16`. Because it is an alias, the call to `AudioSample.min` actually calls `UInt16.min`, which provides an initial value of `0` for the `maxAmplitudeFound` variable.
 
-### Booleans 
+### Booleans
 
 Swift has a basic *Boolean* type, called `Bool`. Boolean values are referred to as *logical*, because they can only ever be true or false. Swift provides two Boolean constant values, `true` and `false`:
 
@@ -368,7 +368,7 @@ The result of the `i == 1` comparison is of type `Bool`, and so this second exam
 
 As with other examples of type safety in Swift, this approach avoids accidental errors and ensures that the intention of a particular section of code is always clear.
 
-### Tuples 
+### Tuples
 
 *Tuples* group multiple values into a single compound value. The values within a tuple can be of any type and do not have to be of the same type as each other.
 
@@ -419,7 +419,7 @@ Note
 
 Tuples are useful for temporary groups of related values. They are not suited to the creation of complex data structures. If your data structure is likely to persist beyond a temporary scope, model it as a class or structure, rather than as a tuple. For more information, see [Classes and Structures](ClassesAndStructures.md).
 
-### Optionals 
+### Optionals
 
 You use *optionals* in situations where a value may be absent. An optional says:
 
@@ -443,7 +443,7 @@ The example below uses the initializer to try to convert a `String` into an `Int
 
 Because the initializer might fail, it returns an *optional* `Int`, rather than an `Int`. An optional `Int` is written as `Int?`, not `Int`. The question mark indicates that the value it contains is optional, meaning that it might contain *some* `Int` value, or it might contain *no value at all*. (It can’t contain anything else, such as a `Bool` value or a `String` value. It’s either an `Int`, or it’s nothing at all.)
 
-### nil 
+### nil
 
 You set an optional variable to a valueless state by assigning it the special value `nil`:
 
@@ -465,7 +465,7 @@ Note
 
 Swift’s `nil` is not the same as `nil` in Objective-C. In Objective-C, `nil` is a pointer to a nonexistent object. In Swift, `nil` is not a pointer—it is the absence of a value of a certain type. Optionals of *any* type can be set to `nil`, not just object types.
 
-### If Statements and Forced Unwrapping 
+### If Statements and Forced Unwrapping
 
 You can use an `if` statement to find out whether an optional contains a value by comparing the optional against `nil`. You perform this comparison with the “equal to” operator (`==`) or the “not equal to” operator (`!=`).
 
@@ -489,22 +489,21 @@ Note
 
 Trying to use `!` to access a nonexistent optional value triggers a runtime error. Always make sure that an optional contains a non-`nil` value before using `!` to force-unwrap its value.
 
-### Optional Binding 
+### Optional Binding
 
 You use *optional binding* to find out whether an optional contains a value, and if so, to make that value available as a temporary constant. Optional binding can be used with `if` and `while` statements to check for a value inside an optional, and to extract that value into a constant, as part of a single action. `if` and `while` statements are described in more detail in [Control Flow](ControlFlow.md).
 
 Write an optional binding for an `if` statement as follows:
 
-
--   ``` 
+-   ```
     if let constantName = someOptional {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -534,7 +533,7 @@ Note
 
 Constants created with optional binding in an `if` statement. are available only within the body of the `if` statement. In contrast, the constants created with a `guard` statement are available in the lines of code that follow the `guard` statement, as described in [Early Exit](ControlFlow.md#TP40016643-CH9-ID525),
 
-### Implicitly Unwrapped Optionals 
+### Implicitly Unwrapped Optionals
 
 As described above, optionals indicate that a constant or variable is allowed to have “no value”. Optionals can be checked with an `if` statement to see if a value exists, and can be conditionally unwrapped with optional binding to access the optional’s value if it does exist.
 
@@ -576,7 +575,7 @@ Note
 
 Do not use an implicitly unwrapped optional when there is a possibility of a variable becoming `nil` at a later point. Always use a normal optional type if you need to check for a `nil` value during the lifetime of a variable.
 
-### Error Handling 
+### Error Handling
 
 You use *error handling* to respond to error conditions your program may encounter during execution.
 
@@ -622,11 +621,11 @@ If no error is thrown, the `eatASandwich()` function is called. If an error is t
 
 Throwing, catching, and propagating errors is covered in greater detail in [Error Handling](ErrorHandling.md).
 
-### Assertions 
+### Assertions
 
 In some cases, it is simply not possible for your code to continue execution if a particular condition is not satisfied. In these situations, you can trigger an *assertion* in your code to end code execution and to provide an opportunity to debug the cause of the absent or invalid value.
 
-### Debugging with Assertions 
+### Debugging with Assertions
 
 An assertion is a runtime check that a Boolean condition definitely evaluates to `true`. Literally put, an assertion “asserts” that a condition is true. You use an assertion to make sure that an essential condition is satisfied before executing any further code. If the condition evaluates to `true`, code execution continues as usual; if the condition evaluates to `false`, code execution ends, and your app is terminated.
 
@@ -648,7 +647,7 @@ Note
 
 Assertions are disabled when your code is compiled with optimizations, such as when building with an app target’s default Release configuration in Xcode.
 
-### When to Use Assertions 
+### When to Use Assertions
 
 Use an assertion whenever a condition has the potential to be false, but must *definitely* be true in order for your code to continue execution. Suitable scenarios for an assertion check include:
 

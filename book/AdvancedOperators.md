@@ -1,4 +1,4 @@
-Advanced Operators 
+Advanced Operators
 ------------------
 
 In addition to the operators described in [Basic Operators](BasicOperators.md), Swift provides several advanced operators that perform more complex value manipulation. These include all of the bitwise and bit shifting operators you will be familiar with from C and Objective-C.
@@ -9,13 +9,13 @@ When you define your own structures, classes, and enumerations, it can be useful
 
 You’re not limited to the predefined operators. Swift gives you the freedom to define your own custom infix, prefix, postfix, and assignment operators, with custom precedence and associativity values. These operators can be used and adopted in your code like any of the predefined operators, and you can even extend existing types to support the custom operators you define.
 
-### Bitwise Operators 
+### Bitwise Operators
 
 *Bitwise operators* enable you to manipulate the individual raw data bits within a data structure. They are often used in low-level programming, such as graphics programming and device driver creation. Bitwise operators can also be useful when you work with raw data from external sources, such as encoding and decoding data for communication over a custom protocol.
 
 Swift supports all of the bitwise operators found in C, as described below.
 
-### Bitwise NOT Operator 
+### Bitwise NOT Operator
 
 The *bitwise NOT operator* (`~`) inverts all bits in a number:
 
@@ -30,7 +30,7 @@ The bitwise NOT operator is a prefix operator, and appears immediately before th
 
 The bitwise NOT operator is then used to create a new constant called `invertedBits`, which is equal to `initialBits`, but with all of the bits inverted. Zeros become ones, and ones become zeros. The value of `invertedBits` is `11110000`, which is equal to an unsigned decimal value of `240`.
 
-### Bitwise AND Operator 
+### Bitwise AND Operator
 
 The *bitwise AND operator* (`&`) combines the bits of two numbers. It returns a new number whose bits are set to `1` only if the bits were equal to `1` in *both* input numbers:
 
@@ -42,7 +42,7 @@ In the example below, the values of `firstSixBits` and `lastSixBits` both have f
     let lastSixBits: UInt8 = 0b00111111
     let middleFourBits = firstSixBits & lastSixBits // equals 00111100
 
-### Bitwise OR Operator 
+### Bitwise OR Operator
 
 The *bitwise OR operator* (`|`) compares the bits of two numbers. The operator returns a new number whose bits are set to `1` if the bits are equal to `1` in *either* input number:
 
@@ -54,7 +54,7 @@ In the example below, the values of `someBits` and `moreBits` have different bit
     let moreBits: UInt8 = 0b01011110
     let combinedbits = someBits | moreBits // equals 11111110
 
-### Bitwise XOR Operator 
+### Bitwise XOR Operator
 
 The *bitwise XOR operator*, or “exclusive OR operator” (`^`), compares the bits of two numbers. The operator returns a new number whose bits are set to `1` where the input bits are different and are set to `0` where the input bits are the same:
 
@@ -66,13 +66,13 @@ In the example below, the values of `firstBits` and `otherBits` each have a bit 
     let otherBits: UInt8 = 0b00000101
     let outputBits = firstBits \^ otherBits // equals 00010001
 
-### Bitwise Left and Right Shift Operators 
+### Bitwise Left and Right Shift Operators
 
 The *bitwise left shift operator* (`<<`) and *bitwise right shift operator* (`>>`) move all bits in a number to the left or the right by a certain number of places, according to the rules defined below.
 
 Bitwise left and right shifts have the effect of multiplying or dividing an integer number by a factor of two. Shifting an integer’s bits to the left by one position doubles its value, whereas shifting it to the right by one position halves its value.
 
-### Shifting Behavior for Unsigned Integers 
+### Shifting Behavior for Unsigned Integers
 
 The bit-shifting behavior for unsigned integers is as follows:
 
@@ -114,7 +114,7 @@ Similarly, the green component is obtained by performing a bitwise AND between t
 
 Finally, the blue component is obtained by performing a bitwise AND between the numbers `0xCC6699` and `0x0000FF`, which gives an output value of `0x000099`. There’s no need to shift this to the right, as `0x000099` already equals `0x99`, which has a decimal value of `153`.
 
-### Shifting Behavior for Signed Integers 
+### Shifting Behavior for Signed Integers
 
 The shifting behavior is more complex for signed integers than for unsigned integers, because of the way signed integers are represented in binary. (The examples below are based on 8-bit signed integers for simplicity, but the same principles apply for signed integers of any size.)
 
@@ -152,7 +152,7 @@ This action ensures that signed integers have the same sign after they are shift
 
 Because of the special way that positive and negative numbers are stored, shifting either of them to the right moves them closer to zero. Keeping the sign bit the same during this shift means that negative integers remain negative as their value moves closer to zero.
 
-### Overflow Operators 
+### Overflow Operators
 
 If you try to insert a number into an integer constant or variable that cannot hold that value, by default Swift reports an error rather than allowing an invalid value to be created. This behavior gives extra safety when you work with numbers that are too large or too small.
 
@@ -173,7 +173,7 @@ However, when you specifically want an overflow condition to truncate the number
 
 -   Overflow multiplication (`&*`)
 
-### Value Overflow 
+### Value Overflow
 
 Numbers can overflow in both the positive and negative direction.
 
@@ -212,7 +212,7 @@ The minimum value that an `Int8` can hold is `-128`, or `10000000` in binary. Su
 
 For both signed and unsigned integers, overflow in the positive direction wraps around from the maximum valid integer value back to the minimum, and overflow in the negative direction wraps around from the minimum value to the maximum.
 
-### Precedence and Associativity 
+### Precedence and Associativity
 
 Operator *precedence* gives some operators higher priority than others; these operators are applied first.
 
@@ -253,7 +253,7 @@ Note
 
 Swift’s operator precedences and associativity rules are simpler and more predictable than those found in C and Objective-C. However, this means that they are not exactly the same as in C-based languages. Be careful to ensure that operator interactions still behave in the way you intend when porting existing code to Swift.
 
-### Operator Functions 
+### Operator Functions
 
 Classes and structures can provide their own implementations of existing operators. This is known as *overloading* the existing operators.
 
@@ -283,7 +283,7 @@ This example adds together the vectors `(3.0, 1.0)` and `(2.0, 4.0)` to make the
 
 ![image: Art/vectorAddition\_2x.png](Art/vectorAddition_2x.png)
 
-### Prefix and Postfix Operators 
+### Prefix and Postfix Operators
 
 The example shown above demonstrates a custom implementation of a binary infix operator. Classes and structures can also provide implementations of the standard *unary operators*. Unary operators operate on a single target. They are *prefix* if they precede their target (such as `-a`) and *postfix* operators if they follow their target (such as `i++`).
 
@@ -303,7 +303,7 @@ For simple numeric values, the unary minus operator converts positive numbers in
     let alsoPositive = -negative
     // alsoPositive is a Vector2D instance with values of (3.0, 4.0)
 
-### Compound Assignment Operators 
+### Compound Assignment Operators
 
 *Compound assignment operators* combine assignment (`=`) with another operation. For example, the addition assignment operator (`+=`) combines addition and assignment into a single operation. You mark a compound assignment operator’s left input parameter as `inout`, because the parameter’s value will be modified directly from within the operator function.
 
@@ -338,7 +338,7 @@ Note
 
 It is not possible to overload the default assignment operator (`=`). Only the compound assignment operators can be overloaded. Similarly, the ternary conditional operator (`a ? b : c`) cannot be overloaded.
 
-### Equivalence Operators 
+### Equivalence Operators
 
 Custom classes and structures do not receive a default implementation of the *equivalence operators*, known as the “equal to” operator (`==`) and “not equal to” operator (`!=`). It is not possible for Swift to guess what would qualify as “equal” for your own custom types, because the meaning of “equal” depends on the roles that those types play in your code.
 
@@ -362,7 +362,7 @@ You can now use these operators to check whether two `Vector2D` instances are eq
     }
     // prints "These two vectors are equivalent."
 
-### Custom Operators 
+### Custom Operators
 
 You can declare and implement your own *custom operators* in addition to the standard operators provided by Swift. For a list of characters that can be used to define custom operators, see [Operators](LexicalStructure.md#TP40016643-CH30-ID418).
 
@@ -384,7 +384,7 @@ This implementation of `+++` is very similar to the implementation of `++` for `
     // toBeDoubled now has values of (2.0, 8.0)
     // afterDoubling also has values of (2.0, 8.0)
 
-### Precedence and Associativity for Custom Infix Operators 
+### Precedence and Associativity for Custom Infix Operators
 
 Custom `infix` operators can also specify a precedence and an associativity. See [Precedence and Associativity](AdvancedOperators.md#TP40016643-CH27-ID41) for an explanation of how these two characteristics affect an infix operator’s interaction with other infix operators.
 

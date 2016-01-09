@@ -1,4 +1,4 @@
-Initialization 
+Initialization
 --------------
 
 *Initialization* is the process of preparing an instance of a class, structure, or enumeration for use. This process involves setting an initial value for each stored property on that instance and performing any other setup or initialization that is required before the new instance is ready for use.
@@ -7,7 +7,7 @@ You implement this initialization process by defining *initializers*, which are 
 
 Instances of class types can also implement a *deinitializer*, which performs any custom cleanup just before an instance of that class is deallocated. For more information about deinitializers, see [Deinitialization](Deinitialization.md).
 
-### Setting Initial Values for Stored Properties 
+### Setting Initial Values for Stored Properties
 
 Classes and structures *must* set all of their stored properties to an appropriate initial value by the time an instance of that class or structure is created. Stored properties cannot be left in an indeterminate state.
 
@@ -17,7 +17,7 @@ Note
 
 When you assign a default value to a stored property, or set its initial value within an initializer, the value of that property is set directly, without calling any property observers.
 
-### Initializers 
+### Initializers
 
 *Initializers* are called to create a new instance of a particular type. In its simplest form, an initializer is like an instance method with no parameters, written using the `init` keyword:
 
@@ -39,7 +39,7 @@ The example below defines a new structure called `Fahrenheit` to store temperatu
 
 The structure defines a single initializer, `init`, with no parameters, which initializes the stored temperature with a value of `32.0` (the freezing point of water when expressed in the Fahrenheit scale).
 
-### Default Property Values 
+### Default Property Values
 
 You can set the initial value of a stored property from within an initializer, as shown above. Alternatively, specify a *default property value* as part of the property’s declaration. You specify a default property value by assigning an initial value to the property when it is defined.
 
@@ -53,11 +53,11 @@ You can write the `Fahrenheit` structure from above in a simpler form by providi
         var temperature = 32.0
     }
 
-### Customizing Initialization 
+### Customizing Initialization
 
 You can customize the initialization process with input parameters and optional property types, or by assigning constant properties during initialization, as described in the following sections.
 
-### Initialization Parameters 
+### Initialization Parameters
 
 You can provide *initialization parameters* as part of an initializer’s definition, to define the types and names of values that customize the initialization process. Initialization parameters have the same capabilities and syntax as function and method parameters.
 
@@ -79,7 +79,7 @@ The following example defines a structure called `Celsius`, which stores tempera
 
 The first initializer has a single initialization parameter with an external name of `fromFahrenheit` and a local name of `fahrenheit`. The second initializer has a single initialization parameter with an external name of `fromKelvin` and a local name of `kelvin`. Both initializers convert their single argument into a value in the Celsius scale and store this value in a property called `temperatureInCelsius`.
 
-### Local and External Parameter Names 
+### Local and External Parameter Names
 
 As with function and method parameters, initialization parameters can have both a local name for use within the initializer’s body and an external name for use when calling the initializer.
 
@@ -113,7 +113,7 @@ Note that it is not possible to call these initializers without using external p
     let veryGreen = Color(0.0, 1.0, 0.0)
     // this reports a compile-time error - external names are required
 
-### Initializer Parameters Without External Names 
+### Initializer Parameters Without External Names
 
 If you do not want to use an external name for an initializer parameter, write an underscore (`_`) instead of an explicit external name for that parameter to override the default behavior.
 
@@ -136,7 +136,7 @@ Here’s an expanded version of the `Celsius` example from earlier, with an addi
 
 The initializer call `Celsius(37.0)` is clear in its intent without the need for an external parameter name. It is therefore appropriate to write this initializer as `init(_ celsius: Double)` so that it can be called by providing an unnamed `Double` value.
 
-### Optional Property Types 
+### Optional Property Types
 
 If your custom type has a stored property that is logically allowed to have “no value”—perhaps because its value cannot be set during initialization, or because it is allowed to have “no value” at some later point—declare the property with an *optional* type. Properties of optional type are automatically initialized with a value of `nil`, indicating that the property is deliberately intended to have “no value yet” during initialization.
 
@@ -159,7 +159,7 @@ The following example defines a class called `SurveyQuestion`, with an optional 
 
 The response to a survey question cannot be known until it is asked, and so the `response` property is declared with a type of `String?`, or “optional `String`”. It is automatically assigned a default value of `nil`, meaning “no string yet”, when a new instance of `SurveyQuestion` is initialized.
 
-### Assigning Constant Properties During Initialization 
+### Assigning Constant Properties During Initialization
 
 You can assign a value to a constant property at any point during initialization, as long as it is set to a definite value by the time initialization finishes. Once a constant property is assigned a value, it can’t be further modified.
 
@@ -184,7 +184,7 @@ You can revise the `SurveyQuestion` example from above to use a constant propert
     // prints "How about beets?"
     beetsQuestion.response = "I also like beets. (But not with cheese.)"
 
-### Default Initializers 
+### Default Initializers
 
 Swift provides a *default initializer* for any structure or class that provides default values for all of its properties and does not provide at least one initializer itself. The default initializer simply creates a new instance with all of its properties set to their default values.
 
@@ -199,7 +199,7 @@ This example defines a class called `ShoppingListItem`, which encapsulates the n
 
 Because all properties of the `ShoppingListItem` class have default values, and because it is a base class with no superclass, `ShoppingListItem` automatically gains a default initializer implementation that creates a new instance with all of its properties set to their default values. (The `name` property is an optional `String` property, and so it automatically receives a default value of `nil`, even though this value is not written in the code.) The example above uses the default initializer for the `ShoppingListItem` class to create a new instance of the class with initializer syntax, written as `ShoppingListItem()`, and assigns this new instance to a variable called `item`.
 
-### Memberwise Initializers for Structure Types 
+### Memberwise Initializers for Structure Types
 
 Structure types automatically receive a *memberwise initializer* if they do not define any of their own custom initializers. Unlike a default initializer, the structure receives a memberwise initializer even if it has stored properties that do not have default values.
 
@@ -214,7 +214,7 @@ The `Size` structure automatically receives an `init(width:height:)` memberwise 
     }
     let twoByTwo = Size(width: 2.0, height: 2.0)
 
-### Initializer Delegation for Value Types 
+### Initializer Delegation for Value Types
 
 Initializers can call other initializers to perform part of an instance’s initialization. This process, known as *initializer delegation*, avoids duplicating code across multiple initializers.
 
@@ -277,13 +277,13 @@ Note
 
 For an alternative way to write this example without defining the `init()` and `init(origin:size:)` initializers yourself, see [Extensions](Extensions.md).
 
-### Class Inheritance and Initialization 
+### Class Inheritance and Initialization
 
 All of a class’s stored properties—including any properties the class inherits from its superclass—*must* be assigned an initial value during initialization.
 
 Swift defines two kinds of initializers for class types to help ensure all stored properties receive an initial value. These are known as designated initializers and convenience initializers.
 
-### Designated Initializers and Convenience Initializers 
+### Designated Initializers and Convenience Initializers
 
 *Designated initializers* are the primary initializers for a class. A designated initializer fully initializes all properties introduced by that class and calls an appropriate superclass initializer to continue the initialization process up the superclass chain.
 
@@ -295,39 +295,37 @@ Every class must have at least one designated initializer. In some cases, this r
 
 You do not have to provide convenience initializers if your class does not require them. Create convenience initializers whenever a shortcut to a common initialization pattern will save time or make initialization of the class clearer in intent.
 
-### Syntax for Designated and Convenience Initializers 
+### Syntax for Designated and Convenience Initializers
 
 Designated initializers for classes are written in the same way as simple initializers for value types:
 
-
--   ``` 
+-   ```
     init(parameters) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
 Convenience initializers are written in the same style, but with the `convenience` modifier placed before the `init` keyword, separated by a space:
 
-
--   ``` 
+-   ```
     convenience init(parameters) {
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
-### Initializer Delegation for Class Types 
+### Initializer Delegation for Class Types
 
 To simplify the relationships between designated and convenience initializers, Swift applies the following three rules for delegation calls between initializers:
 
@@ -365,7 +363,7 @@ The figure below shows a more complex class hierarchy for four classes. It illus
 
 ![image: Art/initializerDelegation02\_2x.png](Art/initializerDelegation02_2x.png)
 
-### Two-Phase Initialization 
+### Two-Phase Initialization
 
 Class initialization in Swift is a two-phase process. In the first phase, each stored property is assigned an initial value by the class that introduced it. Once the initial state for every stored property has been determined, the second phase begins, and each class is given the opportunity to customize its stored properties further before the new instance is considered ready for use.
 
@@ -441,7 +439,7 @@ Once the superclass’s designated initializer is finished, the subclass’s des
 
 Finally, once the subclass’s designated initializer is finished, the convenience initializer that was originally called can perform additional customization.
 
-### Initializer Inheritance and Overriding 
+### Initializer Inheritance and Overriding
 
 Unlike subclasses in Objective-C, Swift subclasses do not inherit their superclass initializers by default. Swift’s approach prevents a situation in which a simple initializer from a superclass is inherited by a more specialized subclass and is used to create a new instance of the subclass that is not fully or correctly initialized.
 
@@ -499,7 +497,7 @@ Note
 
 Subclasses can modify inherited variable properties during initialization, but can not modify inherited constant properties.
 
-### Automatic Initializer Inheritance 
+### Automatic Initializer Inheritance
 
 As mentioned above, subclasses do not inherit their superclass initializers by default. However, superclass initializers *are* automatically inherited if certain conditions are met. In practice, this means that you do not need to write initializer overrides in many common scenarios, and can inherit your superclass initializers with minimal effort whenever it is safe to do so.
 
@@ -519,7 +517,7 @@ Note
 
 A subclass can implement a superclass designated initializer as a subclass convenience initializer as part of satisfying rule 2.
 
-### Designated and Convenience Initializers in Action 
+### Designated and Convenience Initializers in Action
 
 The following example shows designated initializers, convenience initializers, and automatic initializer inheritance in action. This example defines a hierarchy of three classes called `Food`, `RecipeIngredient`, and `ShoppingListItem`, and demonstrates how their initializers interact.
 
@@ -625,7 +623,7 @@ You can use all three of the inherited initializers to create a new `ShoppingLis
 
 Here, a new array called `breakfastList` is created from an array literal containing three new `ShoppingListItem` instances. The type of the array is inferred to be `[ShoppingListItem]`. After the array is created, the name of the `ShoppingListItem` at the start of the array is changed from `"[Unnamed]"` to `"Orange juice"` and it is marked as having been purchased. Printing the description of each item in the array shows that their default states have been set as expected.
 
-### Failable Initializers 
+### Failable Initializers
 
 It is sometimes useful to define a class, structure, or enumeration for which initialization can fail. This failure might be triggered by invalid initialization parameter values, the absence of a required external resource, or some other condition that prevents initialization from succeeding.
 
@@ -675,7 +673,7 @@ Note
 
 Checking for an empty string value (such as `""` rather than `"Giraffe"`) is not the same as checking for `nil` to indicate the absence of an *optional* `String` value. In the example above, an empty string (`""`) is a valid, nonoptional `String`. However, it is not appropriate for an animal to have an empty string as the value of its `species` property. To model this restriction, the failable initializer triggers an initialization failure if an empty string is found.
 
-### Failable Initializers for Enumerations 
+### Failable Initializers for Enumerations
 
 You can use a failable initializer to select an appropriate enumeration case based on one or more parameters. The initializer can then fail if the provided parameters do not match an appropriate enumeration case.
 
@@ -711,7 +709,7 @@ You can use this failable initializer to choose an appropriate enumeration case 
     }
     // prints "This is not a defined temperature unit, so initialization failed."
 
-### Failable Initializers for Enumerations with Raw Values 
+### Failable Initializers for Enumerations with Raw Values
 
 Enumerations with raw values automatically receive a failable initializer, `init?(rawValue:)`, that takes a parameter called `rawValue` of the appropriate raw-value type and selects a matching enumeration case if one is found, or triggers an initialization failure if no matching value exists.
 
@@ -733,7 +731,7 @@ You can rewrite the `TemperatureUnit` example from above to use raw values of ty
     }
     // prints "This is not a defined temperature unit, so initialization failed."
 
-### Failable Initializers for Classes 
+### Failable Initializers for Classes
 
 A failable initializer for a value type (that is, a structure or enumeration) can trigger an initialization failure at any point within its initializer implementation. In the `Animal` structure example above, the initializer triggers an initialization failure at the very start of its implementation, before the `species` property has been set.
 
@@ -763,7 +761,7 @@ Because the `name` property is a constant, you can be confident that it will alw
     }
     // prints "The product's name is bow tie"
 
-### Propagation of Initialization Failure 
+### Propagation of Initialization Failure
 
 A failable initializer of a class, structure, or enumeration can delegate across to another failable initializer from the same class, structure, or enumeration. Similarly, a subclass failable initializer can delegate up to a superclass failable initializer.
 
@@ -815,7 +813,7 @@ Similarly, if you try to create a `CartItem` instance with an empty `name` value
     }
     // prints "Unable to initialize one unnamed product"
 
-### Overriding a Failable Initializer 
+### Overriding a Failable Initializer
 
 You can override a superclass failable initializer in a subclass, just like any other initializer. Alternatively, you can override a superclass failable initializer with a subclass *nonfailable* initializer. This enables you to define a subclass for which initialization cannot fail, even though initialization of the superclass is allowed to fail.
 
@@ -867,13 +865,13 @@ You can use forced unwrapping in an initializer to call a failable initializer f
 
 In this case, if the `init(name:)` initializer of the superclass were ever called with an empty string as the name, the forced unwrapping operation would result in a runtime error. However, because it’s called with a string constant, you can see that the initializer won’t fail, so no runtime error can occur in this case.
 
-### The init! Failable Initializer 
+### The init! Failable Initializer
 
 You typically define a failable initializer that creates an optional instance of the appropriate type by placing a question mark after the `init` keyword (`init?`). Alternatively, you can define a failable initializer that creates an implicitly unwrapped optional instance of the appropriate type. Do this by placing an exclamation mark after the `init` keyword (`init!`) instead of a question mark.
 
 You can delegate from `init?` to `init!` and vice versa, and you can override `init?` with `init!` and vice versa. You can also delegate from `init` to `init!`, although doing so will trigger an assertion if the `init!` initializer causes initialization to fail.
 
-### Required Initializers 
+### Required Initializers
 
 Write the `required` modifier before the definition of a class initializer to indicate that every subclass of the class must implement that initializer:
 
@@ -895,7 +893,7 @@ Note
 
 You do not have to provide an explicit implementation of a required initializer if you can satisfy the requirement with an inherited initializer.
 
-### Setting a Default Property Value with a Closure or Function 
+### Setting a Default Property Value with a Closure or Function
 
 If a stored property’s default value requires some customization or setup, you can use a closure or global function to provide a customized default value for that property. Whenever a new instance of the type that the property belongs to is initialized, the closure or function is called, and its return value is assigned as the property’s default value.
 

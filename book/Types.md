@@ -1,4 +1,4 @@
-Types 
+Types
 -----
 
 In Swift, there are two kinds of types: named types and compound types. A *named type* is a type that can be given a particular name when it is defined. Named types include classes, structures, enumerations, and protocols. For example, instances of a user-defined class named `MyClass` have the type `MyClass`. In addition to user-defined named types, the Swift standard library defines many commonly used named types, including those that represent arrays, dictionaries, and optional values.
@@ -13,30 +13,29 @@ Grammar of a type
 
 <span class="syntax-def-name">
 type
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[array-type](Types.md#array-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[dictionary-type](Types.md#dictionary-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[function-type](Types.md#function-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[tuple-type](Types.md#tuple-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[optional-type](Types.md#optional-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[implicitly-unwrapped-optional-type](Types.md#implicitly-unwrapped-optional-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[metatype-type](Types.md#metatype-type)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[array-type](Types.md#array-type)
+<span class="alternative">
+<span class="syntactic-cat">[dictionary-type](Types.md#dictionary-type)
+<span class="alternative">
+<span class="syntactic-cat">[function-type](Types.md#function-type)
+<span class="alternative">
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
+<span class="alternative">
+<span class="syntactic-cat">[tuple-type](Types.md#tuple-type)
+<span class="alternative">
+<span class="syntactic-cat">[optional-type](Types.md#optional-type)
+<span class="alternative">
+<span class="syntactic-cat">[implicitly-unwrapped-optional-type](Types.md#implicitly-unwrapped-optional-type)
+<span class="alternative">
+<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)
+<span class="alternative">
+<span class="syntactic-cat">[metatype-type](Types.md#metatype-type)
 
-### Type Annotation 
+### Type Annotation
 
 A *type annotation* explicitly specifies the type of a variable or expression. Type annotations begin with a colon (`:`) and end with a type, as the following examples show:
 
@@ -51,12 +50,12 @@ Grammar of a type annotation
 
 <span class="syntax-def-name">
 type-annotation
-</span>
+
 <span class="arrow">
 →
-</span>`:`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="syntactic-cat">[type](Types.md#type)</span>
+`:`<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="syntactic-cat">[type](Types.md#type)
 
-### Type Identifier 
+### Type Identifier
 
 A type identifier refers to either a named type or a type alias of a named or compound type.
 
@@ -75,23 +74,22 @@ Grammar of a type identifier
 
 <span class="syntax-def-name">
 type-identifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[type-name](Types.md#type-name)</span><span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)</span>~opt~</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[type-name](Types.md#type-name)</span><span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)</span>~opt~</span>`.`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[type-name](Types.md#type-name)<span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
+<span class="alternative">
+<span class="syntactic-cat">[type-name](Types.md#type-name)<span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~`.`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
 
 <span class="syntax-def-name">
 type-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Tuple Type 
+### Tuple Type
 
 A tuple type is a comma-separated list of zero or more types, enclosed in parentheses.
 
@@ -103,53 +101,50 @@ Grammar of a tuple type
 
 <span class="syntax-def-name">
 tuple-type
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="optional"><span class="syntactic-cat">[tuple-type-body](Types.md#tuple-type-body)</span>~opt~</span>`)`
+`(`<span class="optional"><span class="syntactic-cat">[tuple-type-body](Types.md#tuple-type-body)~opt~`)`
 
 <span class="syntax-def-name">
 tuple-type-body
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[tuple-type-element-list](Types.md#tuple-type-element-list)</span><span class="optional">`...`~opt~</span>
+<span class="syntactic-cat">[tuple-type-element-list](Types.md#tuple-type-element-list)<span class="optional">`...`~opt~
 
 <span class="syntax-def-name">
 tuple-type-element-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[tuple-type-element](Types.md#tuple-type-element)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[tuple-type-element](Types.md#tuple-type-element)</span>`,`<span class="syntactic-cat">[tuple-type-element-list](Types.md#tuple-type-element-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[tuple-type-element](Types.md#tuple-type-element)
+<span class="alternative">
+<span class="syntactic-cat">[tuple-type-element](Types.md#tuple-type-element)`,`<span class="syntactic-cat">[tuple-type-element-list](Types.md#tuple-type-element-list)
 
 <span class="syntax-def-name">
 tuple-type-element
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span><span class="optional">`inout`~opt~</span><span class="syntactic-cat">[type](Types.md#type)</span>
-</span><span class="alternative">
-<span class="optional">`inout`~opt~</span><span class="syntactic-cat">[element-name](Types.md#element-name)</span><span class="syntactic-cat">[type-annotation](Types.md#type-annotation)</span>
-</span>
+<span class="alternative">
+<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~<span class="optional">`inout`~opt~<span class="syntactic-cat">[type](Types.md#type)
+<span class="alternative">
+<span class="optional">`inout`~opt~<span class="syntactic-cat">[element-name](Types.md#element-name)<span class="syntactic-cat">[type-annotation](Types.md#type-annotation)
 
 <span class="syntax-def-name">
 element-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Function Type 
+### Function Type
 
 A function type represents the type of a function, method, or closure and consists of a parameter and return type separated by an arrow (`->`):
 
-
--   ``` 
+-   ```
     parameter type -> return type
     ```
 
@@ -169,24 +164,23 @@ Grammar of a function type
 
 <span class="syntax-def-name">
 function-type
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type](Types.md#type)</span><span class="optional">`throws`~opt~</span>`->`<span class="syntactic-cat">[type](Types.md#type)</span>
+<span class="syntactic-cat">[type](Types.md#type)<span class="optional">`throws`~opt~`->`<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 function-type
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type](Types.md#type)</span>`rethrows``->`<span class="syntactic-cat">[type](Types.md#type)</span>
+<span class="syntactic-cat">[type](Types.md#type)`rethrows``->`<span class="syntactic-cat">[type](Types.md#type)
 
-### Array Type 
+### Array Type
 
 The Swift language provides the following syntactic sugar for the Swift standard library `Array<Element>` type:
 
-
--   ``` 
+-   ```
     [type]
     ```
 
@@ -209,17 +203,16 @@ Grammar of an array type
 
 <span class="syntax-def-name">
 array-type
-</span>
+
 <span class="arrow">
 →
-</span>`[`<span class="syntactic-cat">[type](Types.md#type)</span>`]`
+`[`<span class="syntactic-cat">[type](Types.md#type)`]`
 
-### Dictionary Type 
+### Dictionary Type
 
 The Swift language provides the following syntactic sugar for the Swift standard library `Dictionary<Key, Value>` type:
 
-
--   ``` 
+-   ```
     [key type: value type]
     ```
 
@@ -240,12 +233,12 @@ Grammar of a dictionary type
 
 <span class="syntax-def-name">
 dictionary-type
-</span>
+
 <span class="arrow">
 →
-</span>`[`<span class="syntactic-cat">[type](Types.md#type)</span>`:`<span class="syntactic-cat">[type](Types.md#type)</span>`]`
+`[`<span class="syntactic-cat">[type](Types.md#type)`:`<span class="syntactic-cat">[type](Types.md#type)`]`
 
-### Optional Type 
+### Optional Type
 
 The Swift language defines the postfix `?` as syntactic sugar for the named type `Optional<Wrapped>`, which is defined in the Swift standard library. In other words, the following two declarations are equivalent:
 
@@ -271,12 +264,12 @@ Grammar of an optional type
 
 <span class="syntax-def-name">
 optional-type
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type](Types.md#type)</span>`?`
+<span class="syntactic-cat">[type](Types.md#type)`?`
 
-### Implicitly Unwrapped Optional Type 
+### Implicitly Unwrapped Optional Type
 
 The Swift language defines the postfix `!` as syntactic sugar for the named type `ImplicitlyUnwrappedOptional<Wrapped>`, which is defined in the Swift standard library. In other words, the following two declarations are equivalent:
 
@@ -299,19 +292,18 @@ Grammar of an implicitly unwrapped optional type
 
 <span class="syntax-def-name">
 implicitly-unwrapped-optional-type
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type](Types.md#type)</span>`!`
+<span class="syntactic-cat">[type](Types.md#type)`!`
 
-### Protocol Composition Type 
+### Protocol Composition Type
 
 A protocol composition type describes a type that conforms to each protocol in a list of specified protocols. Protocol composition types may be used in type annotations and in generic parameters.
 
 Protocol composition types have the following form:
 
-
--   ``` 
+-   ```
     protocol<Protocol 1, Protocol 2>
     ```
 
@@ -323,30 +315,29 @@ Grammar of a protocol composition type
 
 <span class="syntax-def-name">
 protocol-composition-type
-</span>
+
 <span class="arrow">
 →
-</span>`protocol``<`<span class="optional"><span class="syntactic-cat">[protocol-identifier-list](Types.md#protocol-identifier-list)</span>~opt~</span>`>`
+`protocol``<`<span class="optional"><span class="syntactic-cat">[protocol-identifier-list](Types.md#protocol-identifier-list)~opt~`>`
 
 <span class="syntax-def-name">
 protocol-identifier-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[protocol-identifier](Types.md#protocol-identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[protocol-identifier](Types.md#protocol-identifier)</span>`,`<span class="syntactic-cat">[protocol-identifier-list](Types.md#protocol-identifier-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[protocol-identifier](Types.md#protocol-identifier)
+<span class="alternative">
+<span class="syntactic-cat">[protocol-identifier](Types.md#protocol-identifier)`,`<span class="syntactic-cat">[protocol-identifier-list](Types.md#protocol-identifier-list)
 
 <span class="syntax-def-name">
 protocol-identifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
 
-### Metatype Type 
+### Metatype Type
 
 A metatype type refers to the type of any type, including class types, structure types, enumeration types, and protocol types.
 
@@ -397,16 +388,15 @@ Grammar of a metatype type
 
 <span class="syntax-def-name">
 metatype-type
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[type](Types.md#type)</span>`.``Type`
-</span><span class="alternative">
-<span class="syntactic-cat">[type](Types.md#type)</span>`.``Protocol`
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[type](Types.md#type)`.``Type`
+<span class="alternative">
+<span class="syntactic-cat">[type](Types.md#type)`.``Protocol`
 
-### Type Inheritance Clause 
+### Type Inheritance Clause
 
 A type inheritance clause is used to specify which class a named type inherits from and which protocols a named type conforms to. A type inheritance clause is also used to specify a `class` requirement on a protocol. A type inheritance clause begins with a colon (`:`), followed by either a `class` requirement, a list of type identifiers, or both.
 
@@ -420,44 +410,43 @@ Grammar of a type inheritance clause
 
 <span class="syntax-def-name">
 type-inheritance-clause
-</span>
+
 <span class="arrow">
 →
-</span>`:`<span class="syntactic-cat">[class-requirement](Types.md#class-requirement)</span>`,`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)</span>
+`:`<span class="syntactic-cat">[class-requirement](Types.md#class-requirement)`,`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)
 
 <span class="syntax-def-name">
 type-inheritance-clause
-</span>
+
 <span class="arrow">
 →
-</span>`:`<span class="syntactic-cat">[class-requirement](Types.md#class-requirement)</span>
+`:`<span class="syntactic-cat">[class-requirement](Types.md#class-requirement)
 
 <span class="syntax-def-name">
 type-inheritance-clause
-</span>
+
 <span class="arrow">
 →
-</span>`:`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)</span>
+`:`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)
 
 <span class="syntax-def-name">
 type-inheritance-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>`,`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
+<span class="alternative">
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)`,`<span class="syntactic-cat">[type-inheritance-list](Types.md#type-inheritance-list)
 
 <span class="syntax-def-name">
 class-requirement
-</span>
+
 <span class="arrow">
 →
-</span>`class`
+`class`
 
-### Type Inference 
+### Type Inference
 
 Swift uses type inference extensively, allowing you to omit the type or part of the type of many variables and expressions in your code. For example, instead of writing `var x: Int = 0`, you can write `var x = 0`, omitting the type completely—the compiler correctly infers that `x` names a value of type `Int`. Similarly, you can omit part of a type when the full type can be inferred from context. For instance, if you write `let dict: Dictionary = ["A": 1]`, the compiler infers that `dict` has the type `Dictionary<String, Int>`.
 

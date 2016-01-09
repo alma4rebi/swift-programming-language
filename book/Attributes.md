@@ -1,22 +1,21 @@
-Attributes 
+Attributes
 ----------
 
 *Attributes* provide more information about a declaration or type. There are two kinds of attributes in Swift, those that apply to declarations and those that apply to types.
 
 You specify an attribute by writing the `@` symbol followed by the attribute’s name and any arguments that the attribute accepts:
 
-
--   ``` 
+-   ```
     @attribute name
     ```
 
--   ``` 
+-   ```
     @attribute name(attribute arguments)
     ```
 
 Some declaration attributes accept arguments that specify more information about the attribute and how it applies to a particular declaration. These *attribute arguments* are enclosed in parentheses, and their format is defined by the attribute they belong to.
 
-### Declaration Attributes 
+### Declaration Attributes
 
 You can apply a declaration attribute to declarations only. However, you can also apply the `noreturn` attribute to a function or method *type*.
 
@@ -54,11 +53,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `introduced` argument indicates the first version of the specified platform in which the declaration was introduced. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             introduced=version number
             ```
 
@@ -68,11 +67,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `deprecated` argument indicates the first version of the specified platform in which the declaration was deprecated. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             deprecated=version number
             ```
 
@@ -82,11 +81,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `obsoleted` argument indicates the first version of the specified platform in which the declaration was obsoleted. When a declaration is obsoleted, it’s removed from the specified platform and can no longer be used. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             obsoleted=version number
             ```
 
@@ -96,11 +95,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `message` argument is used to provide a textual message that’s displayed by the compiler when emitting a warning or error about the use of a deprecated or obsoleted declaration. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             message=message
             ```
 
@@ -110,11 +109,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `renamed` argument is used to provide a textual message that indicates the new name for a declaration that’s been renamed. The new name is displayed by the compiler when emitting an error about the use of a renamed declaration. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             renamed=new name
             ```
 
@@ -165,11 +164,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     If an `available` attribute only specifies an `introduced` argument in addition to a platform name argument, the following shorthand syntax can be used instead:
 
-    <span class="caption"></span>
+    <span class="caption">
 
     <div class="code-outline">
 
-    -   ``` 
+    -   ```
         @available(platform name version number, *)
         ```
 
@@ -287,11 +286,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `message` argument is used to provide a textual warning message that’s displayed when the function or method is called, but its result isn’t used. It has the following form:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             message=message
             ```
 
@@ -301,11 +300,11 @@ You can apply a declaration attribute to declarations only. However, you can als
 
     -   The `mutable_variant` argument is used to provide the name of the mutating version of the method that should be used if the nonmutating method is called on a mutable value and the result isn’t used. It has the following form, where the *method name* consists of a string literal:
 
-        <span class="caption"></span>
+        <span class="caption">
 
         <div class="code-outline">
 
-        -   ``` 
+        -   ```
             mutable_variant=method name
             ```
 
@@ -313,13 +312,13 @@ You can apply a declaration attribute to declarations only. However, you can als
 
         For example, the Swift standard library provides both the mutating method `sortInPlace()` and the nonmutating method `sort()` to collections whose generator element conforms to the `Comparable` protocol. If you call the `sort()` method without using its result, it’s likely that you actually intended to use the mutating variant, `sortInPlace()` instead.
 
-### Declaration Attributes Used by Interface Builder 
+### Declaration Attributes Used by Interface Builder
 
 Interface Builder attributes are declaration attributes used by Interface Builder to synchronize with Xcode. Swift provides the following Interface Builder attributes: `IBAction`, `IBDesignable`, `IBInspectable`, and `IBOutlet`. These attributes are conceptually the same as their Objective-C counterparts.
 
 You apply the `IBOutlet` and `IBInspectable` attributes to property declarations of a class. You apply the `IBAction` attribute to method declarations of a class and the `IBDesignable` attribute to class declarations.
 
-### Type Attributes 
+### Type Attributes
 
 You can apply type attributes to types only. However, you can also apply the `noreturn` attribute to a function or method *declaration*.
 
@@ -345,71 +344,71 @@ Grammar of an attribute
 
 <span class="syntax-def-name">
 attribute
-</span>
+
 <span class="arrow">
 →
-</span>`@`<span class="syntactic-cat">[attribute-name](Attributes.md#attribute-name)</span><span class="optional"><span class="syntactic-cat">[attribute-argument-clause](Attributes.md#attribute-argument-clause)</span>~opt~</span>
+`@`<span class="syntactic-cat">[attribute-name](Attributes.md#attribute-name)<span class="optional"><span class="syntactic-cat">[attribute-argument-clause](Attributes.md#attribute-argument-clause)~opt~
 
 <span class="syntax-def-name">
 attribute-name
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 attribute-argument-clause
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`)`
+`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
 
 <span class="syntax-def-name">
 attributes
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[attribute](Attributes.md#attribute)</span><span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)</span>~opt~</span>
+<span class="syntactic-cat">[attribute](Attributes.md#attribute)<span class="optional"><span class="syntactic-cat">[attributes](Attributes.md#attributes)~opt~
 
 <span class="syntax-def-name">
 balanced-tokens
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[balanced-token](Attributes.md#balanced-token)</span><span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>
+<span class="syntactic-cat">[balanced-token](Attributes.md#balanced-token)<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)~opt~
 
 <span class="syntax-def-name">
 balanced-token
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`)`
+`(`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)~opt~`)`
 
 <span class="syntax-def-name">
 balanced-token
-</span>
+
 <span class="arrow">
 →
-</span>`[`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`]`
+`[`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)~opt~`]`
 
 <span class="syntax-def-name">
 balanced-token
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)</span>~opt~</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[balanced-tokens](Attributes.md#balanced-tokens)~opt~`}`
 
 <span class="syntax-def-name">
 balanced-token
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Any identifier, keyword, literal, or operator</span>
+<span class="text-description">Any identifier, keyword, literal, or operator
 
 <span class="syntax-def-name">
 balanced-token
-</span>
+
 <span class="arrow">
 →
-</span><span class="text-description">Any punctuation except `(`, `)`, `[`, `]`, `{`, or `}`</span>
+<span class="text-description">Any punctuation except `(`, `)`, `[`, `]`, `{`, or `}`
 

@@ -1,4 +1,4 @@
-Automatic Reference Counting 
+Automatic Reference Counting
 ----------------------------
 
 Swift uses *Automatic Reference Counting* (ARC) to track and manage your app’s memory usage. In most cases, this means that memory management “just works” in Swift, and you do not need to think about memory management yourself. ARC automatically frees up the memory used by class instances when those instances are no longer needed.
@@ -9,7 +9,7 @@ Note
 
 Reference counting only applies to instances of classes. Structures and enumerations are value types, not reference types, and are not stored and passed by reference.
 
-### How ARC Works 
+### How ARC Works
 
 Every time you create a new instance of a class, ARC allocates a chunk of memory to store information about that instance. This memory holds information about the type of the instance, together with the values of any stored properties associated with that instance.
 
@@ -21,7 +21,7 @@ To make sure that instances don’t disappear while they are still needed, ARC t
 
 To make this possible, whenever you assign a class instance to a property, constant, or variable, that property, constant, or variable makes a *strong reference* to the instance. The reference is called a “strong“ reference because it keeps a firm hold on that instance, and does not allow it to be deallocated for as long as that strong reference remains.
 
-### ARC in Action 
+### ARC in Action
 
 Here’s an example of how Automatic Reference Counting works. This example starts with a simple class called `Person`, which defines a stored constant property called `name`:
 
@@ -70,7 +70,7 @@ ARC does not deallocate the `Person` instance until the third and final strong r
     reference3 = nil
     // prints "John Appleseed is being deinitialized"
 
-### Strong Reference Cycles Between Class Instances 
+### Strong Reference Cycles Between Class Instances
 
 In the examples above, ARC is able to track the number of references to the new `Person` instance you create and to deallocate that `Person` instance when it is no longer needed.
 
@@ -136,7 +136,7 @@ Here’s how the strong references look after you set the `john` and `unit4A` va
 
 The strong references between the `Person` instance and the `Apartment` instance remain and cannot be broken.
 
-### Resolving Strong Reference Cycles Between Class Instances 
+### Resolving Strong Reference Cycles Between Class Instances
 
 Swift provides two ways to resolve strong reference cycles when you work with properties of class type: weak references and unowned references.
 
@@ -144,7 +144,7 @@ Weak and unowned references enable one instance in a reference cycle to refer to
 
 Use a weak reference whenever it is valid for that reference to become `nil` at some point during its lifetime. Conversely, use an unowned reference when you know that the reference will never be `nil` once it has been set during initialization.
 
-### Weak References 
+### Weak References
 
 A *weak reference* is a reference that does not keep a strong hold on the instance it refers to, and so does not stop ARC from disposing of the referenced instance. This behavior prevents the reference from becoming part of a strong reference cycle. You indicate a weak reference by placing the `weak` keyword before a property or variable declaration.
 
@@ -213,7 +213,7 @@ Note
 
 In systems that use garbage collection, weak pointers are sometimes used to implement a simple caching mechanism because objects with no strong references are deallocated only when memory pressure triggers garbage collection. However, with ARC, values are deallocated as soon as their last strong reference is removed, making weak references unsuitable for such a purpose.
 
-### Unowned References 
+### Unowned References
 
 Like weak references, an *unowned reference* does not keep a strong hold on the instance it refers to. Unlike a weak reference, however, an unowned reference is assumed to *always* have a value. Because of this, an unowned reference is always defined as a nonoptional type. You indicate an unowned reference by placing the `unowned` keyword before a property or variable declaration.
 
@@ -283,7 +283,7 @@ Because there are no more strong references to the `Customer` instance, it is de
 
 The final code snippet above shows that the deinitializers for the `Customer` instance and `CreditCard` instance both print their “deinitialized” messages after the `john` variable is set to `nil`.
 
-### Unowned References and Implicitly Unwrapped Optional Properties 
+### Unowned References and Implicitly Unwrapped Optional Properties
 
 The examples for weak and unowned references above cover two of the more common scenarios in which it is necessary to break a strong reference cycle.
 
@@ -331,7 +331,7 @@ All of this means that you can create the `Country` and `City` instances in a si
 
 In the example above, the use of an implicitly unwrapped optional means that all of the two-phase class initializer requirements are satisfied. The `capitalCity` property can be used and accessed like a nonoptional value once initialization is complete, while still avoiding a strong reference cycle.
 
-### Strong Reference Cycles for Closures 
+### Strong Reference Cycles for Closures
 
 You saw above how a strong reference cycle can be created when two class instance properties hold a strong reference to each other. You also saw how to use weak and unowned references to break these strong reference cycles.
 
@@ -417,7 +417,7 @@ If you set the `paragraph` variable to `nil` and break its strong reference to t
 
 Note that the message in the `HTMLElement` deinitializer is not printed, which shows that the `HTMLElement` instance is not deallocated.
 
-### Resolving Strong Reference Cycles for Closures 
+### Resolving Strong Reference Cycles for Closures
 
 You resolve a strong reference cycle between a closure and a class instance by defining a *capture list* as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.
 
@@ -425,7 +425,7 @@ Note
 
 Swift requires you to write `self.someProperty` or `self.someMethod()` (rather than just `someProperty` or `someMethod()`) whenever you refer to a member of `self` within a closure. This helps you remember that it’s possible to capture `self` by accident.
 
-### Defining a Capture List 
+### Defining a Capture List
 
 Each item in a capture list is a pairing of the `weak` or `unowned` keyword with a reference to a class instance (such as `self`) or a variable initialized with some value (such as `delegate = self.delegate!`). These pairings are written within a pair of square braces, separated by commas.
 
@@ -443,7 +443,7 @@ If a closure does not specify a parameter list or return type because they can b
         // closure body goes here
     }
 
-### Weak and Unowned References 
+### Weak and Unowned References
 
 Define a capture in a closure as an unowned reference when the closure and the instance it captures will always refer to each other, and will always be deallocated at the same time.
 

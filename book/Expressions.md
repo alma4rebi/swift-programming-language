@@ -1,4 +1,4 @@
-Expressions 
+Expressions
 -----------
 
 In Swift, there are four kinds of expressions: prefix expressions, binary expressions, primary expressions, and postfix expressions. Evaluating an expression returns a value, causes a side effect, or both.
@@ -9,23 +9,22 @@ Grammar of an expression
 
 <span class="syntax-def-name">
 expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)</span>~opt~</span><span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)</span><span class="optional"><span class="syntactic-cat">[binary-expressions](Expressions.md#binary-expressions)</span>~opt~</span>
+<span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)~opt~<span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)<span class="optional"><span class="syntactic-cat">[binary-expressions](Expressions.md#binary-expressions)~opt~
 
 <span class="syntax-def-name">
 expression-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[expression](Expressions.md#expression)</span>`,`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[expression](Expressions.md#expression)
+<span class="alternative">
+<span class="syntactic-cat">[expression](Expressions.md#expression)`,`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)
 
-### Prefix Expressions 
+### Prefix Expressions
 
 *Prefix expressions* combine an optional prefix operator with an expression. Prefix operators take one argument, the expression that follows them.
 
@@ -39,38 +38,36 @@ Grammar of a prefix expression
 
 <span class="syntax-def-name">
 prefix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[prefix-operator](LexicalStructure.md#prefix-operator)</span>~opt~</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>
+<span class="optional"><span class="syntactic-cat">[prefix-operator](LexicalStructure.md#prefix-operator)~opt~<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)
 
 <span class="syntax-def-name">
 prefix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[in-out-expression](Expressions.md#in-out-expression)</span>
+<span class="syntactic-cat">[in-out-expression](Expressions.md#in-out-expression)
 
 <span class="syntax-def-name">
 in-out-expression
-</span>
+
 <span class="arrow">
 →
-</span>`&`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+`&`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Try Operator 
+### Try Operator
 
 A *try expression* consists of the `try` operator followed by an expression that can throw an error. It has the following form:
 
-
--   ``` 
+-   ```
     try expression
     ```
 
 An *optional-try expression* consists of the `try?` operator followed by an expression that can throw an error. It has the following form:
 
-
--   ``` 
+-   ```
     try? expression
     ```
 
@@ -78,8 +75,7 @@ If the *expression* does not throw an error, the value of the optional-try expre
 
 A *forced-try expression* consists of the `try!` operator followed by an expression that can throw an error. It has the following form:
 
-
--   ``` 
+-   ```
     try! expression
     ```
 
@@ -99,23 +95,21 @@ Grammar of a try expression
 
 <span class="syntax-def-name">
 try-operator
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `try`
-</span><span class="alternative">
+<span class="alternative">
 `try``?`
-</span><span class="alternative">
+<span class="alternative">
 `try``!`
-</span>
 
-### Binary Expressions 
+### Binary Expressions
 
 *Binary expressions* combine an infix binary operator with the expression that it takes as its left-hand and right-hand arguments. It has the following form:
 
-
--   ``` 
+-   ```
     left-hand argument operator right-hand argument
     ```
 
@@ -131,45 +125,44 @@ Grammar of a binary expression
 
 <span class="syntax-def-name">
 binary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[binary-operator](LexicalStructure.md#binary-operator)</span><span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)</span>
+<span class="syntactic-cat">[binary-operator](LexicalStructure.md#binary-operator)<span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)
 
 <span class="syntax-def-name">
 binary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[assignment-operator](Expressions.md#assignment-operator)</span><span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)</span>~opt~</span><span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)</span>
+<span class="syntactic-cat">[assignment-operator](Expressions.md#assignment-operator)<span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)~opt~<span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)
 
 <span class="syntax-def-name">
 binary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[conditional-operator](Expressions.md#conditional-operator)</span><span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)</span>~opt~</span><span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)</span>
+<span class="syntactic-cat">[conditional-operator](Expressions.md#conditional-operator)<span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)~opt~<span class="syntactic-cat">[prefix-expression](Expressions.md#prefix-expression)
 
 <span class="syntax-def-name">
 binary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-casting-operator](Expressions.md#type-casting-operator)</span>
+<span class="syntactic-cat">[type-casting-operator](Expressions.md#type-casting-operator)
 
 <span class="syntax-def-name">
 binary-expressions
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[binary-expression](Expressions.md#binary-expression)</span><span class="optional"><span class="syntactic-cat">[binary-expressions](Expressions.md#binary-expressions)</span>~opt~</span>
+<span class="syntactic-cat">[binary-expression](Expressions.md#binary-expression)<span class="optional"><span class="syntactic-cat">[binary-expressions](Expressions.md#binary-expressions)~opt~
 
-### Assignment Operator 
+### Assignment Operator
 
 The *assignment operator* sets a new value for a given expression. It has the following form:
 
-
--   ``` 
+-   ```
     expression = value
     ```
 
@@ -184,17 +177,16 @@ Grammar of an assignment operator
 
 <span class="syntax-def-name">
 assignment-operator
-</span>
+
 <span class="arrow">
 →
-</span>`=`
+`=`
 
-### Ternary Conditional Operator 
+### Ternary Conditional Operator
 
 The *ternary conditional operator* evaluates to one of two given values based on the value of a condition. It has the following form:
 
-
--   ``` 
+-   ```
     condition ? expression used if true : expression used if false
     ```
 
@@ -206,31 +198,30 @@ Grammar of a conditional operator
 
 <span class="syntax-def-name">
 conditional-operator
-</span>
+
 <span class="arrow">
 →
-</span>`?`<span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)</span>~opt~</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>`:`
+`?`<span class="optional"><span class="syntactic-cat">[try-operator](Expressions.md#try-operator)~opt~<span class="syntactic-cat">[expression](Expressions.md#expression)`:`
 
-### Type-Casting Operators 
+### Type-Casting Operators
 
 There are four type-casting operators: the `is` operator, the `as` operator, the `as?` operator, and the `as!` operator.
 
 They have the following form:
 
-
--   ``` 
+-   ```
     expression is type
     ```
 
--   ``` 
+-   ```
     expression as type
     ```
 
--   ``` 
+-   ```
     expression as? type
     ```
 
--   ``` 
+-   ```
     expression as! type
     ```
 
@@ -263,33 +254,33 @@ Grammar of a type-casting operator
 
 <span class="syntax-def-name">
 type-casting-operator
-</span>
+
 <span class="arrow">
 →
-</span>`is`<span class="syntactic-cat">[type](Types.md#type)</span>
+`is`<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 type-casting-operator
-</span>
+
 <span class="arrow">
 →
-</span>`as`<span class="syntactic-cat">[type](Types.md#type)</span>
+`as`<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 type-casting-operator
-</span>
+
 <span class="arrow">
 →
-</span>`as``?`<span class="syntactic-cat">[type](Types.md#type)</span>
+`as``?`<span class="syntactic-cat">[type](Types.md#type)
 
 <span class="syntax-def-name">
 type-casting-operator
-</span>
+
 <span class="arrow">
 →
-</span>`as``!`<span class="syntactic-cat">[type](Types.md#type)</span>
+`as``!`<span class="syntactic-cat">[type](Types.md#type)
 
-### Primary Expressions 
+### Primary Expressions
 
 *Primary expressions* are the most basic kind of expression. They can be used as expressions on their own, and they can be combined with other tokens to make prefix expressions, binary expressions, and postfix expressions.
 
@@ -297,61 +288,61 @@ Grammar of a primary expression
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span><span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)</span>~opt~</span>
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)<span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[literal-expression](Expressions.md#literal-expression)</span>
+<span class="syntactic-cat">[literal-expression](Expressions.md#literal-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[self-expression](Expressions.md#self-expression)</span>
+<span class="syntactic-cat">[self-expression](Expressions.md#self-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[superclass-expression](Expressions.md#superclass-expression)</span>
+<span class="syntactic-cat">[superclass-expression](Expressions.md#superclass-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[closure-expression](Expressions.md#closure-expression)</span>
+<span class="syntactic-cat">[closure-expression](Expressions.md#closure-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)</span>
+<span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[implicit-member-expression](Expressions.md#implicit-member-expression)</span>
+<span class="syntactic-cat">[implicit-member-expression](Expressions.md#implicit-member-expression)
 
 <span class="syntax-def-name">
 primary-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[wildcard-expression](Expressions.md#wildcard-expression)</span>
+<span class="syntactic-cat">[wildcard-expression](Expressions.md#wildcard-expression)
 
-### Literal Expression 
+### Literal Expression
 
 A *literal expression* consists of either an ordinary literal (such as a string or a number), an array or dictionary literal, or one of the following special literals:
 
@@ -385,8 +376,7 @@ When used as the default value of a function or method, the special literal’s 
 
 An *array literal* is an ordered collection of values. It has the following form:
 
-
--   ``` 
+-   ```
     [value 1, value 2, ...]
     ```
 
@@ -396,8 +386,7 @@ The last expression in the array can be followed by an optional comma. The value
 
 A *dictionary literal* is an unordered collection of key-value pairs. It has the following form:
 
-
--   ``` 
+-   ```
     [key 1: value 1, key 2: value 2, ...]
     ```
 
@@ -409,113 +398,107 @@ Grammar of a literal expression
 
 <span class="syntax-def-name">
 literal-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[literal](LexicalStructure.md#literal)</span>
+<span class="syntactic-cat">[literal](LexicalStructure.md#literal)
 
 <span class="syntax-def-name">
 literal-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[array-literal](Expressions.md#array-literal)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[dictionary-literal](Expressions.md#dictionary-literal)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[array-literal](Expressions.md#array-literal)
+<span class="alternative">
+<span class="syntactic-cat">[dictionary-literal](Expressions.md#dictionary-literal)
 
 <span class="syntax-def-name">
 literal-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `__FILE__`
-</span><span class="alternative">
+<span class="alternative">
 `__LINE__`
-</span><span class="alternative">
+<span class="alternative">
 `__COLUMN__`
-</span><span class="alternative">
+<span class="alternative">
 `__FUNCTION__`
-</span>
 
 <span class="syntax-def-name">
 array-literal
-</span>
+
 <span class="arrow">
 →
-</span>`[`<span class="optional"><span class="syntactic-cat">[array-literal-items](Expressions.md#array-literal-items)</span>~opt~</span>`]`
+`[`<span class="optional"><span class="syntactic-cat">[array-literal-items](Expressions.md#array-literal-items)~opt~`]`
 
 <span class="syntax-def-name">
 array-literal-items
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[array-literal-item](Expressions.md#array-literal-item)</span><span class="optional">`,`~opt~</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[array-literal-item](Expressions.md#array-literal-item)</span>`,`<span class="syntactic-cat">[array-literal-items](Expressions.md#array-literal-items)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[array-literal-item](Expressions.md#array-literal-item)<span class="optional">`,`~opt~
+<span class="alternative">
+<span class="syntactic-cat">[array-literal-item](Expressions.md#array-literal-item)`,`<span class="syntactic-cat">[array-literal-items](Expressions.md#array-literal-items)
 
 <span class="syntax-def-name">
 array-literal-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)
 
 <span class="syntax-def-name">
 dictionary-literal
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-`[`<span class="syntactic-cat">[dictionary-literal-items](Expressions.md#dictionary-literal-items)</span>`]`
-</span><span class="alternative">
+<span class="alternative">
+`[`<span class="syntactic-cat">[dictionary-literal-items](Expressions.md#dictionary-literal-items)`]`
+<span class="alternative">
 `[``:``]`
-</span>
 
 <span class="syntax-def-name">
 dictionary-literal-items
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[dictionary-literal-item](Expressions.md#dictionary-literal-item)</span><span class="optional">`,`~opt~</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[dictionary-literal-item](Expressions.md#dictionary-literal-item)</span>`,`<span class="syntactic-cat">[dictionary-literal-items](Expressions.md#dictionary-literal-items)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[dictionary-literal-item](Expressions.md#dictionary-literal-item)<span class="optional">`,`~opt~
+<span class="alternative">
+<span class="syntactic-cat">[dictionary-literal-item](Expressions.md#dictionary-literal-item)`,`<span class="syntactic-cat">[dictionary-literal-items](Expressions.md#dictionary-literal-items)
 
 <span class="syntax-def-name">
 dictionary-literal-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>`:`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="syntactic-cat">[expression](Expressions.md#expression)`:`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Self Expression 
+### Self Expression
 
 The `self` expression is an explicit reference to the current type or instance of the type in which it occurs. It has the following forms:
 
-
--   ``` 
+-   ```
     self
     ```
 
--   ``` 
+-   ```
     self.member name
     ```
 
--   ``` 
+-   ```
     self[subscript index]
     ```
 
--   ``` 
+-   ```
     self(initializer arguments)
     ```
 
--   ``` 
+-   ```
     self.init(initializer arguments)
     ```
 
@@ -543,54 +526,52 @@ Grammar of a self expression
 
 <span class="syntax-def-name">
 self-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `self`
-</span><span class="alternative">
-<span class="syntactic-cat">[self-method-expression](Expressions.md#self-method-expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[self-subscript-expression](Expressions.md#self-subscript-expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[self-initializer-expression](Expressions.md#self-initializer-expression)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[self-method-expression](Expressions.md#self-method-expression)
+<span class="alternative">
+<span class="syntactic-cat">[self-subscript-expression](Expressions.md#self-subscript-expression)
+<span class="alternative">
+<span class="syntactic-cat">[self-initializer-expression](Expressions.md#self-initializer-expression)
 
 <span class="syntax-def-name">
 self-method-expression
-</span>
+
 <span class="arrow">
 →
-</span>`self``.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+`self``.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 self-subscript-expression
-</span>
+
 <span class="arrow">
 →
-</span>`self``[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>`]`
+`self``[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)`]`
 
 <span class="syntax-def-name">
 self-initializer-expression
-</span>
+
 <span class="arrow">
 →
-</span>`self``.``init`
+`self``.``init`
 
-### Superclass Expression 
+### Superclass Expression
 
 A *superclass expression* lets a class interact with its superclass. It has one of the following forms:
 
-
--   ``` 
+-   ```
     super.member name
     ```
 
--   ``` 
+-   ```
     super[subscript index]
     ```
 
--   ``` 
+-   ```
     super.init(initializer arguments)
     ```
 
@@ -602,52 +583,50 @@ Grammar of a superclass expression
 
 <span class="syntax-def-name">
 superclass-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[superclass-method-expression](Expressions.md#superclass-method-expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[superclass-subscript-expression](Expressions.md#superclass-subscript-expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[superclass-initializer-expression](Expressions.md#superclass-initializer-expression)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[superclass-method-expression](Expressions.md#superclass-method-expression)
+<span class="alternative">
+<span class="syntactic-cat">[superclass-subscript-expression](Expressions.md#superclass-subscript-expression)
+<span class="alternative">
+<span class="syntactic-cat">[superclass-initializer-expression](Expressions.md#superclass-initializer-expression)
 
 <span class="syntax-def-name">
 superclass-method-expression
-</span>
+
 <span class="arrow">
 →
-</span>`super``.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+`super``.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
 <span class="syntax-def-name">
 superclass-subscript-expression
-</span>
+
 <span class="arrow">
 →
-</span>`super``[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>`]`
+`super``[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)`]`
 
 <span class="syntax-def-name">
 superclass-initializer-expression
-</span>
+
 <span class="arrow">
 →
-</span>`super``.``init`
+`super``.``init`
 
-### Closure Expression 
+### Closure Expression
 
 A *closure expression* creates a closure, also known as a *lambda* or an *anonymous function* in other programming languages. Like a function declaration, a closure contains statements which it executes, and it captures constants and variables from its enclosing scope. It has the following form:
 
-
--   ``` 
+-   ```
     { (parameters) -> return type in
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -679,7 +658,7 @@ The following closure expressions are equivalent:
 
 For information about passing a closure as an argument to a function, see [Function Call Expression](Expressions.md#TP40016643-CH32-ID398).
 
-### Capture Lists 
+### Capture Lists
 
 By default, a closure expression captures constants and variables from its surrounding scope with strong references to those values. You can use a *capture list* to explicitly control how values are captured in a closure.
 
@@ -733,92 +712,89 @@ Grammar of a closure expression
 
 <span class="syntax-def-name">
 closure-expression
-</span>
+
 <span class="arrow">
 →
-</span>`{`<span class="optional"><span class="syntactic-cat">[closure-signature](Expressions.md#closure-signature)</span>~opt~</span><span class="syntactic-cat">[statements](Statements.md#statements)</span>`}`
+`{`<span class="optional"><span class="syntactic-cat">[closure-signature](Expressions.md#closure-signature)~opt~<span class="syntactic-cat">[statements](Statements.md#statements)`}`
 
 <span class="syntax-def-name">
 closure-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>`in`
+<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~`in`
 
 <span class="syntax-def-name">
 closure-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)</span><span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>`in`
+<span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~`in`
 
 <span class="syntax-def-name">
 closure-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[capture-list](Expressions.md#capture-list)</span><span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)</span><span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>`in`
+<span class="syntactic-cat">[capture-list](Expressions.md#capture-list)<span class="syntactic-cat">[parameter-clause](Declarations.md#parameter-clause)<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~`in`
 
 <span class="syntax-def-name">
 closure-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[capture-list](Expressions.md#capture-list)</span><span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)</span><span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)</span>~opt~</span>`in`
+<span class="syntactic-cat">[capture-list](Expressions.md#capture-list)<span class="syntactic-cat">[identifier-list](LexicalStructure.md#identifier-list)<span class="optional"><span class="syntactic-cat">[function-result](Declarations.md#function-result)~opt~`in`
 
 <span class="syntax-def-name">
 closure-signature
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[capture-list](Expressions.md#capture-list)</span>`in`
+<span class="syntactic-cat">[capture-list](Expressions.md#capture-list)`in`
 
 <span class="syntax-def-name">
 capture-list
-</span>
+
 <span class="arrow">
 →
-</span>`[`<span class="syntactic-cat">[capture-list-items](Expressions.md#capture-list-items)</span>`]`
+`[`<span class="syntactic-cat">[capture-list-items](Expressions.md#capture-list-items)`]`
 
 <span class="syntax-def-name">
 capture-list-items
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[capture-list-item](Expressions.md#capture-list-item)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[capture-list-item](Expressions.md#capture-list-item)</span>`,`<span class="syntactic-cat">[capture-list-items](Expressions.md#capture-list-items)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[capture-list-item](Expressions.md#capture-list-item)
+<span class="alternative">
+<span class="syntactic-cat">[capture-list-item](Expressions.md#capture-list-item)`,`<span class="syntactic-cat">[capture-list-items](Expressions.md#capture-list-items)
 
 <span class="syntax-def-name">
 capture-list-item
-</span>
+
 <span class="arrow">
 →
-</span><span class="optional"><span class="syntactic-cat">[capture-specifier](Expressions.md#capture-specifier)</span>~opt~</span><span class="syntactic-cat">[expression](Expressions.md#expression)</span>
+<span class="optional"><span class="syntactic-cat">[capture-specifier](Expressions.md#capture-specifier)~opt~<span class="syntactic-cat">[expression](Expressions.md#expression)
 
 <span class="syntax-def-name">
 capture-specifier
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
+<span class="alternative">
 `weak`
-</span><span class="alternative">
+<span class="alternative">
 `unowned`
-</span><span class="alternative">
+<span class="alternative">
 `unowned(safe)`
-</span><span class="alternative">
+<span class="alternative">
 `unowned(unsafe)`
-</span>
 
-### Implicit Member Expression 
+### Implicit Member Expression
 
 An *implicit member expression* is an abbreviated way to access a member of a type, such as an enumeration case or a type method, in a context where type inference can determine the implied type. It has the following form:
 
-
--   ``` 
+-   ```
     .member name
     ```
 
@@ -831,17 +807,16 @@ Grammar of a implicit member expression
 
 <span class="syntax-def-name">
 implicit-member-expression
-</span>
+
 <span class="arrow">
 →
-</span>`.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>
+`.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)
 
-### Parenthesized Expression 
+### Parenthesized Expression
 
 A *parenthesized expression* consists of a comma-separated list of expressions surrounded by parentheses. Each expression can have an optional identifier before it, separated by a colon (`:`). It has the following form:
 
-
--   ``` 
+-   ```
     (identifier 1: expression 1, identifier 2: expression 2, ...)
     ```
 
@@ -851,34 +826,32 @@ Grammar of a parenthesized expression
 
 <span class="syntax-def-name">
 parenthesized-expression
-</span>
+
 <span class="arrow">
 →
-</span>`(`<span class="optional"><span class="syntactic-cat">[expression-element-list](Expressions.md#expression-element-list)</span>~opt~</span>`)`
+`(`<span class="optional"><span class="syntactic-cat">[expression-element-list](Expressions.md#expression-element-list)~opt~`)`
 
 <span class="syntax-def-name">
 expression-element-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[expression-element](Expressions.md#expression-element)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[expression-element](Expressions.md#expression-element)</span>`,`<span class="syntactic-cat">[expression-element-list](Expressions.md#expression-element-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[expression-element](Expressions.md#expression-element)
+<span class="alternative">
+<span class="syntactic-cat">[expression-element](Expressions.md#expression-element)`,`<span class="syntactic-cat">[expression-element-list](Expressions.md#expression-element-list)
 
 <span class="syntax-def-name">
 expression-element
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span>`:`<span class="syntactic-cat">[expression](Expressions.md#expression)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[expression](Expressions.md#expression)
+<span class="alternative">
+<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)`:`<span class="syntactic-cat">[expression](Expressions.md#expression)
 
-### Wildcard Expression 
+### Wildcard Expression
 
 A *wildcard expression* is used to explicitly ignore a value during an assignment. For example, in the following assignment 10 is assigned to `x` and 20 is ignored:
 
@@ -889,12 +862,12 @@ Grammar of a wildcard expression
 
 <span class="syntax-def-name">
 wildcard-expression
-</span>
+
 <span class="arrow">
 →
-</span>`_`
+`_`
 
-### Postfix Expressions 
+### Postfix Expressions
 
 *Postfix expressions* are formed by applying a postfix operator or other postfix syntax to an expression. Syntactically, every primary expression is also a postfix expression.
 
@@ -906,80 +879,79 @@ Grammar of a postfix expression
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[primary-expression](Expressions.md#primary-expression)</span>
+<span class="syntactic-cat">[primary-expression](Expressions.md#primary-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span><span class="syntactic-cat">[postfix-operator](LexicalStructure.md#postfix-operator)</span>
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)<span class="syntactic-cat">[postfix-operator](LexicalStructure.md#postfix-operator)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[function-call-expression](Expressions.md#function-call-expression)</span>
+<span class="syntactic-cat">[function-call-expression](Expressions.md#function-call-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[initializer-expression](Expressions.md#initializer-expression)</span>
+<span class="syntactic-cat">[initializer-expression](Expressions.md#initializer-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[explicit-member-expression](Expressions.md#explicit-member-expression)</span>
+<span class="syntactic-cat">[explicit-member-expression](Expressions.md#explicit-member-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-self-expression](Expressions.md#postfix-self-expression)</span>
+<span class="syntactic-cat">[postfix-self-expression](Expressions.md#postfix-self-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[dynamic-type-expression](Expressions.md#dynamic-type-expression)</span>
+<span class="syntactic-cat">[dynamic-type-expression](Expressions.md#dynamic-type-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[subscript-expression](Expressions.md#subscript-expression)</span>
+<span class="syntactic-cat">[subscript-expression](Expressions.md#subscript-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[forced-value-expression](Expressions.md#forced-value-expression)</span>
+<span class="syntactic-cat">[forced-value-expression](Expressions.md#forced-value-expression)
 
 <span class="syntax-def-name">
 postfix-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[optional-chaining-expression](Expressions.md#optional-chaining-expression)</span>
+<span class="syntactic-cat">[optional-chaining-expression](Expressions.md#optional-chaining-expression)
 
-### Function Call Expression 
+### Function Call Expression
 
 A *function call expression* consists of a function name followed by a comma-separated list of the function’s arguments in parentheses. Function call expressions have the following form:
 
-
--   ``` 
+-   ```
     function name(argument value 1, argument value 2)
     ```
 
@@ -987,8 +959,7 @@ The *function name* can be any expression whose value is of a function type.
 
 If the function definition includes names for its parameters, the function call must include names before its argument values separated by a colon (`:`). This kind of function call expression has the following form:
 
-
--   ``` 
+-   ```
     function name(argument name 1: argument value 1, argument name 2: argument value 2)
     ```
 
@@ -1008,31 +979,30 @@ Grammar of a function call expression
 
 <span class="syntax-def-name">
 function-call-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span><span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)</span>
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)<span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)
 
 <span class="syntax-def-name">
 function-call-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span><span class="optional"><span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)</span>~opt~</span><span class="syntactic-cat">[trailing-closure](Expressions.md#trailing-closure)</span>
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)<span class="optional"><span class="syntactic-cat">[parenthesized-expression](Expressions.md#parenthesized-expression)~opt~<span class="syntactic-cat">[trailing-closure](Expressions.md#trailing-closure)
 
 <span class="syntax-def-name">
 trailing-closure
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[closure-expression](Expressions.md#closure-expression)</span>
+<span class="syntactic-cat">[closure-expression](Expressions.md#closure-expression)
 
-### Initializer Expression 
+### Initializer Expression
 
 An *initializer expression* provides access to a type’s initializer. It has the following form:
 
-
--   ``` 
+-   ```
     expression.init(initializer arguments)
     ```
 
@@ -1065,17 +1035,16 @@ Grammar of an initializer expression
 
 <span class="syntax-def-name">
 initializer-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`.``init`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`.``init`
 
-### Explicit Member Expression 
+### Explicit Member Expression
 
 An *explicit member expression* allows access to the members of a named type, a tuple, or a module. It consists of a period (`.`) between the item and the identifier of its member.
 
-
--   ``` 
+-   ```
     expression.member name
     ```
 
@@ -1106,28 +1075,27 @@ Grammar of an explicit member expression
 
 <span class="syntax-def-name">
 explicit-member-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)</span>
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`.`<span class="syntactic-cat">[decimal-digits](LexicalStructure.md#decimal-digits)
 
 <span class="syntax-def-name">
 explicit-member-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)</span><span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)</span>~opt~</span>
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`.`<span class="syntactic-cat">[identifier](LexicalStructure.md#identifier)<span class="optional"><span class="syntactic-cat">[generic-argument-clause](GenericParametersAndArguments.md#generic-argument-clause)~opt~
 
-### Postfix Self Expression 
+### Postfix Self Expression
 
 A postfix `self` expression consists of an expression or the name of a type, immediately followed by `.self`. It has the following forms:
 
-
--   ``` 
+-   ```
     expression.self
     ```
 
--   ``` 
+-   ```
     type.self
     ```
 
@@ -1139,17 +1107,16 @@ Grammar of a self expression
 
 <span class="syntax-def-name">
 postfix-self-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`.``self`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`.``self`
 
-### Dynamic Type Expression 
+### Dynamic Type Expression
 
 A `dynamicType` expression consists of an expression, immediately followed by `.dynamicType`. It has the following form:
 
-
--   ``` 
+-   ```
     expression.dynamicType
     ```
 
@@ -1175,17 +1142,16 @@ Grammar of a dynamic type expression
 
 <span class="syntax-def-name">
 dynamic-type-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`.``dynamicType`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`.``dynamicType`
 
-### Subscript Expression 
+### Subscript Expression
 
 A *subscript expression* provides subscript access using the getter and setter of the corresponding subscript declaration. It has the following form:
 
-
--   ``` 
+-   ```
     expression[index expressions]
     ```
 
@@ -1197,17 +1163,16 @@ Grammar of a subscript expression
 
 <span class="syntax-def-name">
 subscript-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)</span>`]`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`[`<span class="syntactic-cat">[expression-list](Expressions.md#expression-list)`]`
 
-### Forced-Value Expression 
+### Forced-Value Expression
 
 A *forced-value expression* unwraps an optional value that you are certain is not `nil`. It has the following form:
 
-
--   ``` 
+-   ```
     expression!
     ```
 
@@ -1227,17 +1192,16 @@ Grammar of a forced-value expression
 
 <span class="syntax-def-name">
 forced-value-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`!`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`!`
 
-### Optional-Chaining Expression 
+### Optional-Chaining Expression
 
 An *optional-chaining expression* provides a simplified syntax for using optional values in postfix expressions. It has the following form:
 
-
--   ``` 
+-   ```
     expression?
     ```
 
@@ -1276,8 +1240,8 @@ Grammar of an optional-chaining expression
 
 <span class="syntax-def-name">
 optional-chaining-expression
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)</span>`?`
+<span class="syntactic-cat">[postfix-expression](Expressions.md#postfix-expression)`?`
 

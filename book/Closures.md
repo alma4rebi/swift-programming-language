@@ -1,4 +1,4 @@
-Closures 
+Closures
 --------
 
 *Closures* are self-contained blocks of functionality that can be passed around and used in your code. Closures in Swift are similar to blocks in C and Objective-C and to lambdas in other programming languages.
@@ -27,13 +27,13 @@ Swift’s closure expressions have a clean, clear style, with optimizations that
 
 -   Trailing closure syntax
 
-### Closure Expressions 
+### Closure Expressions
 
 Nested functions, as introduced in [Nested Functions](Functions.md#TP40016643-CH10-ID178), are a convenient means of naming and defining self-contained blocks of code as part of a larger function. However, it is sometimes useful to write shorter versions of function-like constructs without a full declaration and name. This is particularly true when you work with functions or methods that take functions as one or more of their arguments.
 
 *Closure expressions* are a way to write inline closures in a brief, focused syntax. Closure expressions provide several syntax optimizations for writing closures in a shortened form without loss of clarity or intent. The closure expression examples below illustrate these optimizations by refining a single example of the `sort(_:)` method over several iterations, each of which expresses the same functionality in a more succinct way.
 
-### The Sort Method 
+### The Sort Method
 
 Swift’s standard library provides a method called `sort(_:)`, which sorts an array of values of a known type, based on the output of a sorting closure that you provide. Once it completes the sorting process, the `sort(_:)` method returns a new array of the same type and size as the old one, with its elements in the correct sorted order. The original array is not modified by the `sort(_:)` method.
 
@@ -57,20 +57,19 @@ If the first string (`s1`) is greater than the second string (`s2`), the `backwa
 
 However, this is a rather long-winded way to write what is essentially a single-expression function (`a > b`). In this example, it would be preferable to write the sorting closure inline, using closure expression syntax.
 
-### Closure Expression Syntax 
+### Closure Expression Syntax
 
 Closure expression syntax has the following general form:
 
-
--   ``` 
+-   ```
     { (parameters) -> return type in
     ```
 
--   ``` 
+-   ```
         statements
     ```
 
--   ``` 
+-   ```
     }
     ```
 
@@ -92,7 +91,7 @@ Because the body of the closure is so short, it can even be written on a single 
 
 This illustrates that the overall call to the `sort(_:)` method has remained the same. A pair of parentheses still wrap the entire argument for the method. However, that argument is now an inline closure.
 
-### Inferring Type From Context 
+### Inferring Type From Context
 
 Because the sorting closure is passed as an argument to a method, Swift can infer the types of its parameters and the type of the value it returns. The `sort(_:)` method is being called on an array of strings, so its argument must be a function of type `(String, String) -> Bool`. This means that the `(String, String)` and `Bool` types do not need to be written as part of the closure expression’s definition. Because all of the types can be inferred, the return arrow (`->`) and the parentheses around the names of the parameters can also be omitted:
 
@@ -102,7 +101,7 @@ It is always possible to infer the parameter types and return type when passing 
 
 Nonetheless, you can still make the types explicit if you wish, and doing so is encouraged if it avoids ambiguity for readers of your code. In the case of the `sort(_:)` method, the purpose of the closure is clear from the fact that sorting is taking place, and it is safe for a reader to assume that the closure is likely to be working with `String` values, because it is assisting with the sorting of an array of strings.
 
-### Implicit Returns from Single-Expression Closures 
+### Implicit Returns from Single-Expression Closures
 
 Single-expression closures can implicitly return the result of their single expression by omitting the `return` keyword from their declaration, as in this version of the previous example:
 
@@ -110,7 +109,7 @@ Single-expression closures can implicitly return the result of their single expr
 
 Here, the function type of the `sort(_:)` method’s argument makes it clear that a `Bool` value must be returned by the closure. Because the closure’s body contains a single expression (`s1 > s2`) that returns a `Bool` value, there is no ambiguity, and the `return` keyword can be omitted.
 
-### Shorthand Argument Names 
+### Shorthand Argument Names
 
 Swift automatically provides shorthand argument names to inline closures, which can be used to refer to the values of the closure’s arguments by the names `$0`, `$1`, `$2`, and so on.
 
@@ -120,7 +119,7 @@ If you use these shorthand argument names within your closure expression, you ca
 
 Here, `$0` and `$1` refer to the closure’s first and second `String` arguments.
 
-### Operator Functions 
+### Operator Functions
 
 There’s actually an even *shorter* way to write the closure expression above. Swift’s `String` type defines its string-specific implementation of the greater-than operator (`>`) as a function that has two parameters of type `String`, and returns a value of type `Bool`. This exactly matches the function type needed by the `sort(_:)` method. Therefore, you can simply pass in the greater-than operator, and Swift will infer that you want to use its string-specific implementation:
 
@@ -128,7 +127,7 @@ There’s actually an even *shorter* way to write the closure expression above. 
 
 For more about operator functions, see [Operator Functions](AdvancedOperators.md#TP40016643-CH27-ID42).
 
-### Trailing Closures 
+### Trailing Closures
 
 If you need to pass a closure expression to a function as the function’s final argument and the closure expression is long, it can be useful to write it as a *trailing closure* instead. A trailing closure is a closure expression that is written outside of (and *after*) the parentheses of the function call it supports:
 
@@ -203,7 +202,7 @@ The process is repeated until `number` is equal to `0`, at which point the `outp
 
 The use of trailing closure syntax in the example above neatly encapsulates the closure’s functionality immediately after the function that closure supports, without needing to wrap the entire closure within the `map(_:)` method’s outer parentheses.
 
-### Capturing Values 
+### Capturing Values
 
 A closure can *capture* constants and variables from the surrounding context in which it is defined. The closure can then refer to and modify the values of those constants and variables from within its body, even if the original scope that defined the constants and variables no longer exists.
 
@@ -269,7 +268,7 @@ Note
 
 If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses *capture lists* to break these strong reference cycles. For more information, see [Strong Reference Cycles for Closures](AutomaticReferenceCounting.md#TP40016643-CH20-ID56).
 
-### Closures Are Reference Types 
+### Closures Are Reference Types
 
 In the example above, `incrementBySeven` and `incrementByTen` are constants, but the closures these constants refer to are still able to increment the `runningTotal` variables that they have captured. This is because functions and closures are *reference types*.
 
@@ -281,7 +280,7 @@ This also means that if you assign a closure to two different constants or varia
     alsoIncrementByTen()
     // returns a value of 50
 
-### Nonescaping Closures 
+### Nonescaping Closures
 
 A closure is said to *escape* a function when the closure is passed as an argument to the function, but is called after the function returns. When you declare a function that takes a closure as one of its parameters, you can write `@noescape` before the parameter name to indicate that the closure is not allowed to escape. Marking a closure with `@noescape` lets the compiler make more aggressive optimizations because it knows more information about the closure’s lifespan.
 
@@ -319,7 +318,7 @@ Marking a closure with `@noescape` lets you refer to `self` implicitly within th
     print(instance.x)
     // prints "100"
 
-### Autoclosures 
+### Autoclosures
 
 An *autoclosure* is a closure that is automatically created to wrap an expression that’s being passed as an argument to a function. It doesn’t take any arguments, and when it’s called, it returns the value of the expression that’s wrapped inside of it. This syntactic convenience lets you omit braces around a function’s parameter by writing a normal expression instead of an explicit closure.
 

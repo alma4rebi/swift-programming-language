@@ -1,4 +1,4 @@
-Inheritance 
+Inheritance
 -----------
 
 A class can *inherit* methods, properties, and other characteristics from another class. When one class inherits from another, the inheriting class is known as a *subclass*, and the class it inherits from is known as its *superclass*. Inheritance is a fundamental behavior that differentiates classes from other types in Swift.
@@ -7,7 +7,7 @@ Classes in Swift can call and access methods, properties, and subscripts belongi
 
 Classes can also add property observers to inherited properties in order to be notified when the value of a property changes. Property observers can be added to any property, regardless of whether it was originally defined as a stored or computed property.
 
-### Defining a Base Class 
+### Defining a Base Class
 
 Any class that does not inherit from another class is known as a *base class*.
 
@@ -40,7 +40,7 @@ Having created a new `Vehicle` instance, you can access its `description` proper
 
 The `Vehicle` class defines common characteristics for an arbitrary vehicle, but is not much use in itself. To make it more useful, you need to refine it to describe more specific kinds of vehicle.
 
-### Subclassing 
+### Subclassing
 
 *Subclassing* is the act of basing a new class on an existing class. The subclass inherits characteristics from the existing class, which you can then refine. You can also add new characteristics to the subclass.
 
@@ -88,7 +88,7 @@ If you create an instance of `Tandem`, you can work with any of its new and inhe
     print("Tandem: \\(tandem.description)")
     // Tandem: traveling at 22.0 miles per hour
 
-### Overriding 
+### Overriding
 
 A subclass can provide its own custom implementation of an instance method, type method, instance property, type property, or subscript that it would otherwise inherit from a superclass. This is known as *overriding*.
 
@@ -96,7 +96,7 @@ To override a characteristic that would otherwise be inherited, you prefix your 
 
 The `override` keyword also prompts the Swift compiler to check that your overriding class’s superclass (or one of its parents) has a declaration that matches the one you provided for the override. This check ensures that your overriding definition is correct.
 
-### Accessing Superclass Methods, Properties, and Subscripts 
+### Accessing Superclass Methods, Properties, and Subscripts
 
 When you provide a method, property, or subscript override for a subclass, it is sometimes useful to use the existing superclass implementation as part of your override. For example, you can refine the behavior of that existing implementation, or store a modified value in an existing inherited variable.
 
@@ -108,7 +108,7 @@ Where this is appropriate, you access the superclass version of a method, proper
 
 -   An overridden subscript for `someIndex` can access the superclass version of the same subscript as `super[someIndex]` from within the overriding subscript implementation.
 
-### Overriding Methods 
+### Overriding Methods
 
 You can override an inherited instance or type method to provide a tailored or alternative implementation of the method within your subclass.
 
@@ -126,11 +126,11 @@ If you create a new instance of `Train` and call its `makeNoise()` method, you c
     train.makeNoise()
     // prints "Choo Choo"
 
-### Overriding Properties 
+### Overriding Properties
 
 You can override an inherited instance or type property to provide your own custom getter and setter for that property, or to add property observers to enable the overriding property to observe when the underlying property value changes.
 
-### Overriding Property Getters and Setters 
+### Overriding Property Getters and Setters
 
 You can provide a custom getter (and setter, if appropriate) to override *any* inherited property, regardless of whether the inherited property is implemented as a stored or computed property at source. The stored or computed nature of an inherited property is not known by a subclass—it only knows that the inherited property has a certain name and type. You must always state both the name and the type of the property you are overriding, to enable the compiler to check that your override matches a superclass property with the same name and type.
 
@@ -159,7 +159,7 @@ If you create an instance of the `Car` class and set its `gear` and `currentSpee
     print("Car: \\(car.description)")
     // Car: traveling at 25.0 miles per hour in gear 3
 
-### Overriding Property Observers 
+### Overriding Property Observers
 
 You can use property overriding to add property observers to an inherited property. This enables you to be notified when the value of an inherited property changes, regardless of how that property was originally implemented. For more information on property observers, see [Property Observers](Properties.md#TP40016643-CH14-ID262).
 
@@ -186,7 +186,7 @@ Whenever you set the `currentSpeed` property of an `AutomaticCar` instance, the 
     print("AutomaticCar: \\(automatic.description)")
     // AutomaticCar: traveling at 35.0 miles per hour in gear 4
 
-### Preventing Overrides 
+### Preventing Overrides
 
 You can prevent a method, property, or subscript from being overridden by marking it as *final*. Do this by writing the `final` modifier before the method, property, or subscript’s introducer keyword (such as `final var`, `final func`, `final class func`, and `final subscript`).
 

@@ -1,4 +1,4 @@
-A Swift Tour 
+A Swift Tour
 ------------
 
 Tradition suggests that the first program in a new language should print the words “Hello, world!” on the screen. In Swift, this can be done in a single line:
@@ -13,7 +13,7 @@ Note
 
 On a Mac, download the Playground and double-click the file to open it in Xcode: <https://developer.apple.com/go/?id=swift-tour>
 
-### Simple Values 
+### Simple Values
 
 Use `let` to make a constant and `var` to make a variable. The value of a constant doesn’t need to be known at compile time, but you must assign it a value exactly once. This means you can use constants to name a value that you determine once but use in many places.
 
@@ -75,7 +75,7 @@ If type information can be inferred, you can write an empty array as `[]` and an
     shoppingList = \[\]
     occupations = \[:\]
 
-### Control Flow 
+### Control Flow
 
 Use `if` and `switch` to make conditionals, and use `for`-`in`, `for`, `while`, and `repeat`-`while` to make loops. Parentheses around the condition or loop variable are optional. Braces around the body are required.
 
@@ -188,7 +188,7 @@ You can keep an index in a loop—either by using `..<` to make a range of index
 
 Use `..<` to make a range that omits its upper value, and use `...` to make a range that includes both values.
 
-### Functions and Closures 
+### Functions and Closures
 
 Use `func` to declare a function. Call a function by following its name with a list of arguments in parentheses. Use `->` to separate the parameter names and types from the function’s return type.
 
@@ -300,7 +300,7 @@ You can refer to parameters by number instead of by name—this approach is espe
     let sortedNumbers = numbers.sort { $0 &gt; $1 }
     print(sortedNumbers)
 
-### Objects and Classes 
+### Objects and Classes
 
 Use `class` followed by the class’s name to create a class. A property declaration in a class is written the same way as a constant or variable declaration, except that it is in the context of a class. Likewise, method and function declarations are written the same way.
 
@@ -437,7 +437,7 @@ When working with optional values, you can write `?` before operations like meth
     let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
     let sideLength = optionalSquare?.sideLength
 
-### Enumerations and Structures 
+### Enumerations and Structures
 
 Use `enum` to create an enumeration. Like classes and all other named types, enumerations can have methods associated with them.
 
@@ -542,7 +542,7 @@ Add a third case to `ServerResponse` and to the switch.
 
 Notice how the sunrise and sunset times are extracted from the `ServerResponse` value as part of matching the value against the switch cases.
 
-### Protocols and Extensions 
+### Protocols and Extensions
 
 Use `protocol` to declare a protocol.
 
@@ -604,7 +604,7 @@ You can use a protocol name just like any other named type—for example, to cre
 
 Even though the variable `protocolValue` has a runtime type of `SimpleClass`, the compiler treats it as the given type of `ExampleProtocol`. This means that you can’t accidentally access methods or properties that the class implements in addition to its protocol conformance.
 
-### Generics 
+### Generics
 
 Write a name inside angle brackets to make a generic function or type.
 

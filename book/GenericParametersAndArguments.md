@@ -1,27 +1,25 @@
-Generic Parameters and Arguments 
+Generic Parameters and Arguments
 --------------------------------
 
 This chapter describes parameters and arguments for generic types, functions, and initializers. When you declare a generic type, function, or initializer, you specify the type parameters that the generic type, function, or initializer can work with. These type parameters act as placeholders that are replaced by actual concrete type arguments when an instance of a generic type is created or a generic function or initializer is called.
 
 For an overview of generics in Swift, see [Generics](Generics.md).
 
-### Generic Parameter Clause 
+### Generic Parameter Clause
 
 A *generic parameter clause* specifies the type parameters of a generic type or function, along with any associated constraints and requirements on those parameters. A generic parameter clause is enclosed in angle brackets (&lt;&gt;) and has one of the following forms:
 
-
--   ``` 
+-   ```
     <generic parameter list>
     ```
 
--   ``` 
+-   ```
     <generic parameter list where requirements>
     ```
 
 The *generic parameter list* is a comma-separated list of generic parameters, each of which has the following form:
 
-
--   ``` 
+-   ```
     type parameter: constraint
     ```
 
@@ -41,7 +39,7 @@ Because `Int` and `Double`, for example, both conform to the `Comparable` protoc
     simpleMax(17, 42) // T is inferred to be Int
     simpleMax(3.14159, 2.71828) // T is inferred to be Double
 
-### Where Clauses 
+### Where Clauses
 
 You can specify additional requirements on type parameters and their associated types by including a `where` clause after the *generic parameter list*. A `where` clause consists of the `where` keyword, followed by a comma-separated list of one or more *requirements*.
 
@@ -59,99 +57,95 @@ Grammar of a generic parameter clause
 
 <span class="syntax-def-name">
 generic-parameter-clause
-</span>
+
 <span class="arrow">
 →
-</span>`<`<span class="syntactic-cat">[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)</span><span class="optional"><span class="syntactic-cat">[requirement-clause](GenericParametersAndArguments.md#requirement-clause)</span>~opt~</span>`>`
+`<`<span class="syntactic-cat">[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)<span class="optional"><span class="syntactic-cat">[requirement-clause](GenericParametersAndArguments.md#requirement-clause)~opt~`>`
 
 <span class="syntax-def-name">
 generic-parameter-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[generic-parameter](GenericParametersAndArguments.md#generic-parameter)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[generic-parameter](GenericParametersAndArguments.md#generic-parameter)</span>`,`<span class="syntactic-cat">[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[generic-parameter](GenericParametersAndArguments.md#generic-parameter)
+<span class="alternative">
+<span class="syntactic-cat">[generic-parameter](GenericParametersAndArguments.md#generic-parameter)`,`<span class="syntactic-cat">[generic-parameter-list](GenericParametersAndArguments.md#generic-parameter-list)
 
 <span class="syntax-def-name">
 generic-parameter
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-name](Types.md#type-name)</span>
+<span class="syntactic-cat">[type-name](Types.md#type-name)
 
 <span class="syntax-def-name">
 generic-parameter
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-name](Types.md#type-name)</span>`:`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
+<span class="syntactic-cat">[type-name](Types.md#type-name)`:`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
 
 <span class="syntax-def-name">
 generic-parameter
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-name](Types.md#type-name)</span>`:`<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)</span>
+<span class="syntactic-cat">[type-name](Types.md#type-name)`:`<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)
 
 <span class="syntax-def-name">
 requirement-clause
-</span>
+
 <span class="arrow">
 →
-</span>`where`<span class="syntactic-cat">[requirement-list](GenericParametersAndArguments.md#requirement-list)</span>
+`where`<span class="syntactic-cat">[requirement-list](GenericParametersAndArguments.md#requirement-list)
 
 <span class="syntax-def-name">
 requirement-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[requirement](GenericParametersAndArguments.md#requirement)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[requirement](GenericParametersAndArguments.md#requirement)</span>`,`<span class="syntactic-cat">[requirement-list](GenericParametersAndArguments.md#requirement-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[requirement](GenericParametersAndArguments.md#requirement)
+<span class="alternative">
+<span class="syntactic-cat">[requirement](GenericParametersAndArguments.md#requirement)`,`<span class="syntactic-cat">[requirement-list](GenericParametersAndArguments.md#requirement-list)
 
 <span class="syntax-def-name">
 requirement
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[conformance-requirement](GenericParametersAndArguments.md#conformance-requirement)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[same-type-requirement](GenericParametersAndArguments.md#same-type-requirement)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[conformance-requirement](GenericParametersAndArguments.md#conformance-requirement)
+<span class="alternative">
+<span class="syntactic-cat">[same-type-requirement](GenericParametersAndArguments.md#same-type-requirement)
 
 <span class="syntax-def-name">
 conformance-requirement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>`:`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)`:`<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)
 
 <span class="syntax-def-name">
 conformance-requirement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>`:`<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)</span>
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)`:`<span class="syntactic-cat">[protocol-composition-type](Types.md#protocol-composition-type)
 
 <span class="syntax-def-name">
 same-type-requirement
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type-identifier](Types.md#type-identifier)</span>`==`<span class="syntactic-cat">[type](Types.md#type)</span>
+<span class="syntactic-cat">[type-identifier](Types.md#type-identifier)`==`<span class="syntactic-cat">[type](Types.md#type)
 
-### Generic Argument Clause 
+### Generic Argument Clause
 
 A *generic argument clause* specifies the type arguments of a generic type. A generic argument clause is enclosed in angle brackets (&lt;&gt;) and has the following form:
 
-
--   ``` 
+-   ```
     <generic argument list>
     ```
 
@@ -173,26 +167,25 @@ Grammar of a generic argument clause
 
 <span class="syntax-def-name">
 generic-argument-clause
-</span>
+
 <span class="arrow">
 →
-</span>`<`<span class="syntactic-cat">[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)</span>`>`
+`<`<span class="syntactic-cat">[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)`>`
 
 <span class="syntax-def-name">
 generic-argument-list
-</span>
+
 <span class="arrow">
 →
-</span><span class="alternative">
-<span class="syntactic-cat">[generic-argument](GenericParametersAndArguments.md#generic-argument)</span>
-</span><span class="alternative">
-<span class="syntactic-cat">[generic-argument](GenericParametersAndArguments.md#generic-argument)</span>`,`<span class="syntactic-cat">[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)</span>
-</span>
+<span class="alternative">
+<span class="syntactic-cat">[generic-argument](GenericParametersAndArguments.md#generic-argument)
+<span class="alternative">
+<span class="syntactic-cat">[generic-argument](GenericParametersAndArguments.md#generic-argument)`,`<span class="syntactic-cat">[generic-argument-list](GenericParametersAndArguments.md#generic-argument-list)
 
 <span class="syntax-def-name">
 generic-argument
-</span>
+
 <span class="arrow">
 →
-</span><span class="syntactic-cat">[type](Types.md#type)</span>
+<span class="syntactic-cat">[type](Types.md#type)
 

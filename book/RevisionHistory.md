@@ -1,4 +1,4 @@
-Document Revision History 
+Document Revision History
 -------------------------
 
 This table describes the changes to *The Swift Programming Language*.

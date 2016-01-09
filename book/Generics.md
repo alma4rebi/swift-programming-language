@@ -1,11 +1,11 @@
-Generics 
+Generics
 --------
 
 *Generic code* enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear, abstracted manner.
 
 Generics are one of the most powerful features of Swift, and much of the Swift standard library is built with generic code. In fact, you’ve been using generics throughout the *Language Guide*, even if you didn’t realize it. For example, Swift’s `Array` and `Dictionary` types are both generic collections. You can create an array that holds `Int` values, or an array that holds `String` values, or indeed an array for any other type that can be created in Swift. Similarly, you can create a dictionary to store values of any specified type, and there are no limitations on what that type can be.
 
-### The Problem That Generics Solve 
+### The Problem That Generics Solve
 
 Here’s a standard, non-generic function called `swapTwoInts(_:_:)`, which swaps two `Int` values:
 
@@ -47,7 +47,7 @@ Note
 
 In all three functions, it is important that the types of `a` and `b` are defined to be the same as each other. If `a` and `b` were not of the same type, it would not be possible to swap their values. Swift is a type-safe language, and does not allow (for example) a variable of type `String` and a variable of type `Double` to swap values with each other. Attempting to do so would be reported as a compile-time error.
 
-### Generic Functions 
+### Generic Functions
 
 *Generic functions* can work with any type. Here’s a generic version of the `swapTwoInts(_:_:)` function from above, called `swapTwoValues(_:_:)`:
 
@@ -84,7 +84,7 @@ Note
 
 The `swapTwoValues(_:_:)` function defined above is inspired by a generic function called `swap`, which is part of the Swift standard library, and is automatically made available for you to use in your apps. If you need the behavior of the `swapTwoValues(_:_:)` function in your own code, you can use Swift’s existing `swap(_:_:)` function rather than providing your own implementation.
 
-### Type Parameters 
+### Type Parameters
 
 In the `swapTwoValues(_:_:)` example above, the placeholder type `T` is an example of a *type parameter*. Type parameters specify and name a placeholder type, and are written immediately after the function’s name, between a pair of matching angle brackets (such as `<T>`).
 
@@ -92,7 +92,7 @@ Once you specify a type parameter, you can use it to define the type of a functi
 
 You can provide more than one type parameter by writing multiple type parameter names within the angle brackets, separated by commas.
 
-### Naming Type Parameters 
+### Naming Type Parameters
 
 In most cases, type parameters have descriptive names, such as `Key` and `Value` in `Dictionary<Key, Value>` and `Element` in `Array<Element>`, which tells the reader about the relationship between the type parameter and the generic type or function it’s used in. However, when there isn’t a meaningful relationship between them, it’s traditional to name them using single letters such as `T`, `U`, and `V`, such as `T` in the `swapTwoValues(_:_:)` function above.
 
@@ -100,7 +100,7 @@ Note
 
 Always give type parameters upper camel case names (such as `T` and `MyTypeParameter`) to indicate that they are a placeholder for a *type*, not a value.
 
-### Generic Types 
+### Generic Types
 
 In addition to generic functions, Swift enables you to define your own *generic types*. These are custom classes, structures, and enumerations that can work with *any* type, in a similar way to `Array` and `Dictionary`.
 
@@ -186,7 +186,7 @@ Here’s how the stack looks after popping its top value:
 
 ![image: Art/stackPoppedOneString\_2x.png](Art/stackPoppedOneString_2x.png)
 
-### Extending a Generic Type 
+### Extending a Generic Type
 
 When you extend a generic type, you do not provide a type parameter list as part of the extension’s definition. Instead, the type parameter list from the *original* type definition is available within the body of the extension, and the original type parameter names are used to refer to the type parameters from the original definition.
 
@@ -209,7 +209,7 @@ The `topItem` computed property can now be used with any `Stack` instance to acc
     }
     // prints "The top item on the stack is tres."
 
-### Type Constraints 
+### Type Constraints
 
 The `swapTwoValues(_:_:)` function and the `Stack` type can work with any type. However, it is sometimes useful to enforce certain *type constraints* on the types that can be used with generic functions and generic types. Type constraints specify that a type parameter must inherit from a specific class, or conform to a particular protocol or protocol composition.
 
@@ -219,7 +219,7 @@ This requirement is enforced by a type constraint on the key type for `Dictionar
 
 You can define your own type constraints when creating custom generic types, and these constraints provide much of the power of generic programming. Abstract concepts like `Hashable` characterize types in terms of their conceptual characteristics, rather than their explicit type.
 
-### Type Constraint Syntax 
+### Type Constraint Syntax
 
 You write type constraints by placing a single class or protocol constraint after a type parameter’s name, separated by a colon, as part of the type parameter list. The basic syntax for type constraints on a generic function is shown below (although the syntax is the same for generic types):
 
@@ -229,7 +229,7 @@ You write type constraints by placing a single class or protocol constraint afte
 
 The hypothetical function above has two type parameters. The first type parameter, `T`, has a type constraint that requires `T` to be a subclass of `SomeClass`. The second type parameter, `U`, has a type constraint that requires `U` to conform to the protocol `SomeProtocol`.
 
-### Type Constraints in Action 
+### Type Constraints in Action
 
 Here’s a non-generic function called `findStringIndex`, which is given a `String` value to find and an array of `String` values within which to find it. The `findStringIndex(_:_:)` function returns an optional `Int` value, which will be the index of the first matching string in the array if it is found, or `nil` if the string cannot be found:
 
@@ -287,11 +287,11 @@ The `findIndex(_:_:)` function now compiles successfully and can be used with an
     let stringIndex = findIndex(\["Mike", "Malcolm", "Andrea"\], "Andrea")
     // stringIndex is an optional Int containing a value of 2
 
-### Associated Types 
+### Associated Types
 
 When defining a protocol, it is sometimes useful to declare one or more *associated types* as part of the protocol’s definition. An associated type gives a placeholder name (or *alias*) to a type that is used as part of the protocol. The actual type to use for that associated type is not specified until the protocol is adopted. Associated types are specified with the `typealias` keyword.
 
-### Associated Types in Action 
+### Associated Types in Action
 
 Here’s an example of a protocol called `Container`, which declares an associated type called `ItemType`:
 
@@ -373,7 +373,7 @@ You can also make the generic `Stack` type conform to the `Container` protocol:
 
 This time, the type parameter `Element` is used as the type of the `append(_:)` method’s `item` parameter and the return type of the subscript. Swift can therefore infer that `Element` is the appropriate type to use as the `ItemType` for this particular container.
 
-### Extending an Existing Type to Specify an Associated Type 
+### Extending an Existing Type to Specify an Associated Type
 
 You can extend an existing type to add conformance to a protocol, as described in [Adding Protocol Conformance with an Extension](Protocols.md#TP40016643-CH25-ID277). This includes a protocol with an associated type.
 
@@ -383,7 +383,7 @@ Swift’s `Array` type already provides an `append(_:)` method, a `count` proper
 
 Array’s existing `append(_:)` method and subscript enable Swift to infer the appropriate type to use for `ItemType`, just as for the generic `Stack` type above. After defining this extension, you can use any `Array` as a `Container`.
 
-### Where Clauses 
+### Where Clauses
 
 Type constraints, as described in [Type Constraints](Generics.md#TP40016643-CH26-ID186), enable you to define requirements on the type parameters associated with a generic function or type.
 
