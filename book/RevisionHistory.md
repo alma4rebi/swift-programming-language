@@ -10,7 +10,7 @@ This table describes the changes to *The Swift Programming Language*.
 | 2015-12-03                           | -   Updated for Swift 2.2.           |
 |                                      |                                      |
 |                                      | -   Removed discussion of            |
-|                                      |     `var` patterns,     |
+|                                      |     `var` patterns,                  |
 |                                      |     variable function arguments, and |
 |                                      |     the special syntax for           |
 |                                      |     curried functions.               |
@@ -19,9 +19,9 @@ This table describes the changes to *The Swift Programming Language*.
 |                                      |                                      |
 |                                      | -   Updated the [String              |
 |                                      |     Interpolation](StringsAndCharact |
-|                                      | ers.md#TP40016643-CH7-ID292)      |
+|                                      | ers.md#TP40016643-CH7-ID292)         |
 |                                      |     and [String                      |
-|                                      |     Literals](LexicalStructure.md |
+|                                      |     Literals](LexicalStructure.md    |
 |                                      | #TP40016643-CH30-ID417)              |
 |                                      |     sections now that string         |
 |                                      |     interpolations can contain       |
